@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORA", "ORA\ORA.csproj", "{77E7567E-8624-46E3-9669-0D5DC00A2730}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Models\Lib.csproj", "{B1C14268-3FE8-4064-8983-3F82334C32D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{77E7567E-8624-46E3-9669-0D5DC00A2730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77E7567E-8624-46E3-9669-0D5DC00A2730}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77E7567E-8624-46E3-9669-0D5DC00A2730}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77E7567E-8624-46E3-9669-0D5DC00A2730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
