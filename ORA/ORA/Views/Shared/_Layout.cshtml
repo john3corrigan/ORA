@@ -23,6 +23,38 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
+                    @*@if (Session[""] != null)
+                    {*@
+                        <li>
+                            <div>
+                                <div>
+                                    <ul>
+                                        <li>@Html.ActionLink("Report A", "", "")</li>
+                                        <li>@Html.ActionLink("Report B", "", "")</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div>
+                                    <ul>
+                                        <li>@Html.ActionLink("View My KPI", "", "")</li>
+                                        <li>@Html.ActionLink("KPI Form", "", "")</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    @*Fill Session With Appropriate String when LoginController is Created*@
+                    <li>@Html.ActionLink(Session[""].ToString(),"","")</li>
+                        <li>@Html.ActionLink("Log-Out", "", "")</li>
+                    @*}
+                    else
+                    {*@
+                        <li>@Html.ActionLink("Log-In", "", "")</li>
+                      @*}*@
                 </ul>
             </div>
         </div>
