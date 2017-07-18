@@ -16,14 +16,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-              <a href="~/Home/Index"><img src="http://www.onshoreoutsourcing.com/wp-content/uploads/2017/04/oo_web360px.png" onclick=""/></a>
+                <a href="~/Home/Index"><img src="http://www.onshoreoutsourcing.com/wp-content/uploads/2017/04/oo_web360px.png" onclick="" /></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
-                    @if (Session[""] != null)
+                    @if (Session["Name"] != null)
                     {
                         <li>
                             <div>
@@ -45,14 +45,13 @@
                                 </div>
                             </div>
                         </li>
-                    @*Fill Session With Appropriate String when LoginController is Created*@
-                    <li>@Html.ActionLink(Session["Name"].ToString(),"","")</li>
-                        <li>@Html.ActionLink("Log-Out", "", "")</li>
+                            <li>@Html.ActionLink(Session["Name"].ToString(), "Index", "Account")</li>
+                            <li>@Html.ActionLink("Log-Out", "LogOut", "Account")</li>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Log-In", "", "")</li>
-                      }
+                        <li>@Html.ActionLink("Log-In", "Login", "Account")</li>
+                    }
                 </ul>
             </div>
         </div>

@@ -37,10 +37,15 @@ namespace ORA.Controllers
             return View();
         }
         [HttpPost]
-        //[Authorize(Roles = "Admin, Director")]
+        [Authorize(Roles = "Admin, Director")]
         public ActionResult AddEmployee(EmployeeVM Employee)
         {
             _businesslogic.AddEmployee(Employee);
+            return View();
+        }
+        public ActionResult LogOut()
+        {
+            Session.Clear();
             return View();
         }
         public ActionResult MyAccount()
