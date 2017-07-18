@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Models\Lib.csproj", "{B1C14268-3FE8-4064-8983-3F82334C32D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORA", "ORA\ORA.csproj", "{DBA716F4-1D8F-4011-B337-757F202FDFEE}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{EF00B191-9442-40A5-BBF1-7F70A7034272}"
 EndProject
 Global
@@ -13,6 +15,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBA716F4-1D8F-4011-B337-757F202FDFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA716F4-1D8F-4011-B337-757F202FDFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA716F4-1D8F-4011-B337-757F202FDFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA716F4-1D8F-4011-B337-757F202FDFEE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1C14268-3FE8-4064-8983-3F82334C32D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
