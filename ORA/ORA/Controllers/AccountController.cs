@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
+using BusinessLogic;
 
 namespace ORA.Controllers
 {
     public class AccountController : Controller
     {
+        static ORALogic _businesslogic = new ORALogic();
         // GET: Account
         public ActionResult Index()
         {
@@ -30,6 +32,7 @@ namespace ORA.Controllers
         }
         public ActionResult AddEmployee(EmployeeVM Employee)
         {
+                _businesslogic.AddEmployee(Employee);
             return View();
         }
         public ActionResult MyAccount()

@@ -43,5 +43,11 @@
     <Compile Include="ORALogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Lib.csproj">
+      <Project>{b1c14268-3fe8-4064-8983-3f82334c32d2}</Project>
+      <Name>Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
