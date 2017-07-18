@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Lib.ViewModels;
 
 namespace ORA.Controllers
 {
@@ -19,15 +20,15 @@ namespace ORA.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string replaceWithAppropriateValue)
+        public ActionResult Login(EmployeeVM Employee)
         {
             return View();
         }
-        public ActionResult Register()
+        public ActionResult AddEmployee()
         {
             return View();
         }
-        public ActionResult Register(string replaceWithAppropriateValue)
+        public ActionResult AddEmployee(EmployeeVM Employee)
         {
             return View();
         }
