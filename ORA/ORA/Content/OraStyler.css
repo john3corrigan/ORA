@@ -1,0 +1,75 @@
+﻿body, .wrapper
+{
+    background-color:#f6f6f6;
+}
+
+a.btn{
+
+}
+
+a.btn:hover{
+
+}
+.navbar{
+
+}
+.navbar_top{
+    z-index:111;
+    line-height:33px;
+    height:33px;
+    padding:0;
+    font-size:13px;
+    position:relative;
+}
+.navbar_bottom{
+
+}
+.navbar_left{
+
+}
+.navbar_right{
+
+}
+.navbar_top_bottom_holder{
+
+}
+.container_inner {
+    position: relative;
+    width: 1100px;
+    margin: 0 auto;
+    vertical-align: baseline;
+    background: 0 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    outline: 0;
+}
+.left{
+    float:left;
+    height:100%;
+}
+.right {
+    float: right;
+    height: 100%;
+}
+header.fixed{
+    width:100%;
+    position:fixed;
+    z-index:110;
+    top:0;
+    left:0;
+    background-color:#fff;
+}
+.wrapper{
+    position:relative;
+    z-index:1000;
+}
+.wrapper_inner{
+    width:100%;
+    overflow:hidden;
+}
+
+.has_top{
+    padding-top:45px;
+}
