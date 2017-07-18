@@ -5,3 +5,29 @@
 
 <h2>AddClient</h2>
 
+@using (Html.BeginForm("AddClient", "Dashboard", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                @Html.LabelFor()
+                @Html.TextBoxFor()
+                <font color="ff0000">@Html.ValidationMessageFor()</font>
+            </div>
+            <div>
+                @Html.LabelFor()
+                @Html.TextBoxFor()
+                <font color="ff0000">@Html.ValidationMessageFor()</font>
+            </div>
+            <div>
+                @Html.LabelFor()
+                @Html.TextBoxFor()
+                <font color="ff0000">@Html.ValidationMessageFor()</font>
+            </div>
+            @Html.HiddenFor()
+            @Html.HiddenFor()
+            @Html.HiddenFor()
+            @Html.HiddenFor()
+        </div>
+    </div>
+}
