@@ -56,7 +56,7 @@ namespace ORA.Controllers
             return View("");
         }
         //[Authorize(Roles = "Admin, Director")]
-        public ActionResult DeleteClient(ClientVM ClientID)
+        public ActionResult DeleteClient(int ClientID)
         {
             return View("");
         }
