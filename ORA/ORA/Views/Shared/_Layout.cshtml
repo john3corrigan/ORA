@@ -23,8 +23,8 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
-                    @*@if (Session[""] != null)
-                    {*@
+                    @if (Session[""] != null)
+                    {
                         <li>
                             <div>
                                 <div>
@@ -46,13 +46,13 @@
                             </div>
                         </li>
                     @*Fill Session With Appropriate String when LoginController is Created*@
-                    <li>@Html.ActionLink( @*Replace this String Value With Session[""] and have it redirect to the account controller, or dropdownbox for more options*@" ","","")</li>
+                    <li>@Html.ActionLink(Session["Name"].ToString(),"","")</li>
                         <li>@Html.ActionLink("Log-Out", "", "")</li>
-                    @*}
+                    }
                     else
-                    {*@
+                    {
                         <li>@Html.ActionLink("Log-In", "", "")</li>
-                      @*}*@
+                      }
                 </ul>
             </div>
         </div>

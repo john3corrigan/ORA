@@ -24,6 +24,11 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult Login(EmployeeVM Employee)
         {
+            if(_businesslogic.Login(Employee))
+            {
+                Session["Name"] = Employee.EmployeeName;
+                Session["Role"] = Employee.Title;
+            }
             return View();
         }
         public ActionResult AddEmployee()

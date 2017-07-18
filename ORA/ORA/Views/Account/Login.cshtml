@@ -1,7 +1,22 @@
-﻿
+﻿@using Lib.ViewModels
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
-
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <div>
+        <div>
+            @Html.LabelFor(m => m.EmployeeVM.EmployeeNumber, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.EmployeeNumber, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.EmployeeNumber)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Passsword, new { @class = "LableFormat" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control TextboxFormat" })
+           <font color="">@Html.ValidationMessageFor(m => m.Password)</font>
+        </div>
+        <input type="submit" value="Login" />
+    </div>
+}

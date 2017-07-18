@@ -13,5 +13,10 @@ namespace BusinessLogic
         {
             
         }
+
+        public bool Login(EmployeeVM employee)
+        {
+            return true;
+        }
     }
 }
