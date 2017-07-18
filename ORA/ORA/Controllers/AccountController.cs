@@ -24,20 +24,23 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult Login(EmployeeVM Employee)
         {
-            if(_businesslogic.Login(Employee))
+            if (_businesslogic.Login(Employee))
             {
                 Session["Name"] = Employee.EmployeeName;
                 Session["Role"] = Employee.Title;
             }
             return View();
         }
+        [HttpGet]
         public ActionResult AddEmployee()
         {
             return View();
         }
+        [HttpPost]
+        //[Authorize(Roles = "Admin, Director")]
         public ActionResult AddEmployee(EmployeeVM Employee)
         {
-                _businesslogic.AddEmployee(Employee);
+            _businesslogic.AddEmployee(Employee);
             return View();
         }
         public ActionResult MyAccount()
