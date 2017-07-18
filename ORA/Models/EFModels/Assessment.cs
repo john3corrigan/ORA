@@ -82,6 +82,8 @@ namespace Lib.EFModels {
 
         public string MIComments { get; set; }
 
+        public bool ActiveFlag { get; set; }
+
         [ForeignKey("AssignmentID")]
         public Assignment Assignment { get; set; }
 

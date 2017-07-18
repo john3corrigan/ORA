@@ -33,6 +33,7 @@ namespace Lib.ViewModels {
         public int MIPersonalGrowth { get; set; }
         public int MIPotencialAdvancement { get; set; }
         public string MIComments { get; set; }
+        public bool ActiveFlag { get; set; }
         public AssignmentVM Assigment { get; set; }
         public MetadataVM Metadata { get; set; }
     }

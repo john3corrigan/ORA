@@ -25,6 +25,8 @@ namespace Lib.EFModels {
         [StringLength(1)]
         public string EmployeeMI { get; set; }
 
+        public bool ActiveFlag { get; set; }
+
         [Required]
         [StringLength(20)]
         public string EmployeeLastName { get; set; }

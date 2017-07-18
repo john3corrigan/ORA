@@ -13,6 +13,7 @@ namespace Lib.ViewModels {
         public string EmployeeFirstName { get; set; }
         public string EmployeeMI { get; set; }
         public string EmployeeLastName { get; set; }
+        public bool ActiveFlag { get; set; }
         public MetadataVM Metadata { get; set; }
     }
 }

@@ -20,7 +20,24 @@ namespace Repository.Repositories {
         }
 
         public AssessmentVM GetAssessmentByID(int id) {
-            return Mapper.Map<AssessmentVM>(GetByID(id));
+            var assessment = dbset.Include("Metadata")
+                .Include("Assignment")
+                .Where(a => a.AssessmentID == id).FirstOrDefault();
+            return Mapper.Map<AssessmentVM>(assessment);
+        }
+
+        public List<AssessmentVM> GetAllAssessments() {
+            return Mapper.Map<List<AssessmentVM>>(GetAll());
+        }
+
+        public void AddAssessment(AssessmentVM assessment) {
+            Add(Mapper.Map<Assessment>(assessment));
+            Save();
+        }
+
+        public void UpdateAssessment(AssessmentVM assessment) {
+            Update(Mapper.Map<Assessment>(assessment));
+            Save();
         }
     }
 }

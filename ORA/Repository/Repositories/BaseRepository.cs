@@ -16,7 +16,7 @@ namespace Repository.Repositories {
         }
 
         public virtual IEnumerable<TEntity> GetAll() {
-            return dbset.ToList();
+            return dbset.Include("Metadata").ToList();
         }
 
         public virtual TEntity GetByID(int id) {
@@ -24,7 +24,9 @@ namespace Repository.Repositories {
         }
 
         public virtual void Add(TEntity entity) {
-            dbset.Add(entity);
+            if (entity != null) {
+                dbset.Add(entity);
+            }
         }
 
         public virtual void Update(TEntity entity) {
