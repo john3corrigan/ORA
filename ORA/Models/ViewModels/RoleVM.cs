@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lib.ViewModels {
+﻿namespace Lib.ViewModels {
     public class RoleVM {
         public int RoleID { get; set; }
         public string Title { get; set; }

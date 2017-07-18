@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Lib.EFModels {
     public class Assignment {
@@ -18,22 +15,26 @@ namespace Lib.EFModels {
         [Required]
         public DateTime EndDate { get; set; }
 
-        [ForeignKey("ClientID")]
         public int ClientID { get; set; }
+        public virtual Client Client { get; set; }
 
-        [ForeignKey("EmployeeID")]
         public int EmployeeID { get; set; }
+        public virtual Employee Employee { get; set; }
 
-        [ForeignKey("PositionID")]
         public int PositionID { get; set; }
+        public virtual Position Position { get; set; }
 
-        [ForeignKey("RoleID")]
         public int RoleID { get; set; }
+        public virtual Role Role { get; set; }
 
-        [ForeignKey("TeamID")]
-        public Team Team { get; set; }
+        public int TeamID { get; set; }
+        public virtual Team Team { get; set; }
 
-        [ForeignKey("MetadataID")]
-        public Metadata Metadata { get; set; }
+        public virtual ICollection<KPI> KPIS { get; set; }
+
+        public virtual ICollection<Assessment> Assessments { get; set; }
+
+        public int MetadataID { get; set; }
+        public virtual Metadata Metadata { get; set; }
     }
 }

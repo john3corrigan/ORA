@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lib.EFModels {
     public class Assessment {
@@ -24,6 +19,7 @@ namespace Lib.EFModels {
         [Required]
         public int TDProductKnowledge { get; set; }
 
+        [StringLength(1000)]
         public string TDComments { get; set; }
 
         [Required]
@@ -38,6 +34,7 @@ namespace Lib.EFModels {
         [Required]
         public int CSRListeningSkills { get; set; }
 
+        [StringLength(1000)]
         public string CSRComments { get; set; }
 
         [Required]
@@ -52,6 +49,7 @@ namespace Lib.EFModels {
         [Required]
         public int ADOrganizeDetailedWork { get; set; }
 
+        [StringLength(1000)]
         public string ADComments { get; set; }
 
         [Required]
@@ -66,6 +64,7 @@ namespace Lib.EFModels {
         [Required]
         public int TMAskingQuestions { get; set; }
 
+        [StringLength(1000)]
         public string TMComments { get; set; }
 
         [Required]
@@ -80,14 +79,15 @@ namespace Lib.EFModels {
         [Required]
         public int MIPotencialAdvancement { get; set; }
 
+        [StringLength(1000)]
         public string MIComments { get; set; }
 
         public bool ActiveFlag { get; set; }
 
-        [ForeignKey("AssignmentID")]
-        public Assignment Assignment { get; set; }
+        public int AssignmentID { get; set; }
+        public virtual Assignment Assignment { get; set; }
 
-        [ForeignKey("MetadataID")]
-        public Metadata Metadata { get; set; }
+        public int MetadataID { get; set; }
+        public virtual Metadata Metadata { get; set; }
     }
 }

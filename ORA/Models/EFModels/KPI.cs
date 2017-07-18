@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lib.EFModels {
     public class KPI {
@@ -28,19 +25,19 @@ namespace Lib.EFModels {
         public int BugsFoundProduction { get; set; }
         public int TotalHrsFixingBugs { get; set; }
 
-        [ForeignKey("AssigmentID")]
-        public Assignment Assigment { get; set; }
+        public int AssignmentID { get; set; }
+        public virtual Assignment Assignment { get; set; }
 
-        [ForeignKey("ProjectID")]
-        public Project Project { get; set; }
+        public int ProjectID { get; set; }
+        public virtual Project Project { get; set; }
 
-        [ForeignKey("SprintID")]
-        public Sprint Sprint { get; set; }
+        public int SprintID { get; set; }
+        public virtual Sprint Sprint { get; set; }
 
-        [ForeignKey("StoryID")]
-        public Story Story { get; set; }
+        public int StoryID { get; set; }
+        public virtual Story Story { get; set; }
 
-        [ForeignKey("MetadataID")]
-        public Metadata Metadata { get; set; }
+        public int MetadataID { get; set; }
+        public virtual Metadata Metadata { get; set; }
     }
 }

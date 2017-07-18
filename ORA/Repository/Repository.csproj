@@ -52,7 +52,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AssessmentRepository.cs" />
+    <Compile Include="Repositories\AssignmentRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\ClientRepository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\KPIRepository.cs" />
+    <Compile Include="Repositories\PositionRepository.cs" />
+    <Compile Include="Repositories\ProjectRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

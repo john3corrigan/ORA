@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lib.EFModels {
     public class Employee {
@@ -14,6 +11,10 @@ namespace Lib.EFModels {
 
         [Required]
         public string EmployeeNumber { get; set; }
+
+        [PasswordPropertyText]
+        [Required]
+        public string Password { get; set; }
 
         [Required]
         public string EmployeeName { get; set; }
@@ -25,13 +26,15 @@ namespace Lib.EFModels {
         [StringLength(1)]
         public string EmployeeMI { get; set; }
 
-        public bool ActiveFlag { get; set; }
-
         [Required]
         [StringLength(20)]
         public string EmployeeLastName { get; set; }
 
-        [ForeignKey("MetadataID")]
-        public Metadata Metadata { get; set; }
+        public bool ActiveFlag { get; set; }
+
+        public virtual ICollection<Assignment> Assignments { get; set; }
+
+        public int MetadataID { get; set; }
+        public virtual Metadata Metadata { get; set; }
     }
 }

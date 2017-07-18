@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lib.ViewModels {
     public class StoryVM {
@@ -12,6 +9,8 @@ namespace Lib.ViewModels {
         public int StoryNumber { get; set; }
         public DateTime StoryStartDate { get; set; }
         public DateTime StoryEndDate { get; set; }
+        public ClientVM Client { get; set; }
+        public List<KPIVM> KPIs { get; set; }
         public MetadataVM Metadata { get; set; }
     }
 }

@@ -5,14 +5,21 @@ using System.Data.Entity;
 using System.Linq;
 
 namespace Repository.Repositories {
-    public class BaseRespository<TEntity> : IDisposable where TEntity : class {
+    public class BaseRespository<TEntity, TEntityVM> : IDisposable where TEntity : class {
         protected DbContext context ;
         protected DbSet<TEntity> dbset;
         protected bool dispose = false;
+        protected Mapper Mapper;
 
         public BaseRespository() {
             context = new DbContext("");
             dbset = context.Set<TEntity>();
+            InitMap();
+        }
+
+        private void InitMap() {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<TEntity, TEntityVM>().ReverseMap());
+            Mapper = new Mapper(config);
         }
 
         public virtual IEnumerable<TEntity> GetAll() {

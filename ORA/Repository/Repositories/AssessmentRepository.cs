@@ -8,20 +8,12 @@ using Lib.ViewModels;
 using AutoMapper;
 
 namespace Repository.Repositories {
-    public class AssessmentRepository : BaseRespository<Assessment> {
-        private Mapper Mapper;
-        public AssessmentRepository() : base() {
-            InitMap();
-        }
+    public class AssessmentRepository : BaseRespository<Assessment, AssessmentVM> {
 
-        private void InitMap() {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Assessment, AssessmentVM>().ReverseMap());
-            Mapper = new Mapper(config);
-        }
-
+        public AssessmentRepository() : base() { }
+         
         public AssessmentVM GetAssessmentByID(int id) {
             var assessment = dbset.Include("Metadata")
-                .Include("Assignment")
                 .Where(a => a.AssessmentID == id).FirstOrDefault();
             return Mapper.Map<AssessmentVM>(assessment);
         }
