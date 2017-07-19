@@ -5,18 +5,33 @@ using System.Data.Entity;
 using System.Linq;
 
 namespace Repository.Repositories {
-    public class BaseRespository<TEntity> : IDisposable where TEntity : class {
-        protected DbContext context ;
+    public class BaseRespository<TEntity, TEntityVM> : IDisposable where TEntity : class {
+        protected static DbContext context;
         protected DbSet<TEntity> dbset;
         protected bool dispose = false;
+        protected Mapper Mapper;
 
         public BaseRespository() {
-            context = new DbContext("");
-            dbset = context.Set<TEntity>();
+            InitContext();
+            InitMap();
+        }
+
+        private void InitContext() {
+            if (context == null) {
+                context = new DbContext("ora");
+            }
+            if (context != null) {
+                dbset = context.Set<TEntity>();
+            }
+        }
+
+        private void InitMap() {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<TEntity, TEntityVM>().ReverseMap());
+            Mapper = new Mapper(config);
         }
 
         public virtual IEnumerable<TEntity> GetAll() {
-            return dbset.ToList();
+            return dbset.Include("Metadata").ToList();
         }
 
         public virtual TEntity GetByID(int id) {
@@ -24,7 +39,9 @@ namespace Repository.Repositories {
         }
 
         public virtual void Add(TEntity entity) {
-            dbset.Add(entity);
+            if (entity != null) {
+                dbset.Add(entity);
+            }
         }
 
         public virtual void Update(TEntity entity) {

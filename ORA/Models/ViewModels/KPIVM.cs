@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lib.ViewModels {
     public class KPIVM {
         public int KPIID { get; set; }
         public string Title { get; set; }
-        public DateTime CreatedDate { get; set; }
         public int Points { get; set; }
         public int TCCreated { get; set; }
         public int TCExcuted { get; set; }
@@ -24,10 +19,15 @@ namespace Lib.ViewModels {
         public int TestHrsActual { get; set; }
         public int BugsFoundProduction { get; set; }
         public int TotalHrsFixingBugs { get; set; }
+        public int AssignmentID { get; set; }
         public AssignmentVM Assignment { get; set; }
+        public int ProjectID { get; set; }
         public ProjectVM Project { get; set; }
+        public int SprintID { get; set; }
         public SprintVM Sprint { get; set; }
+        public int StoryID { get; set; }
         public StoryVM Story { get; set; }
+        public int MetadataID { get; set; }
         public MetadataVM Metadata { get; set; }
     }
 }

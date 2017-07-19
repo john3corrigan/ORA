@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lib.ViewModels {
     public class ProjectVM {
@@ -12,6 +9,10 @@ namespace Lib.ViewModels {
         public int ProjectNumber { get; set; }
         public DateTime ProjectStartDate { get; set; }
         public DateTime ProjectEndDate { get; set; }
+        public int ClientID { get; set; }
+        public ClientVM Client { get; set; }
+        public List<KPIVM> KPIs { get; set; }
+        public int MetadataID { get; set; }
         public MetadataVM Metadata { get; set; }
     }
 }

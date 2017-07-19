@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Lib.ViewModels {
     public class RoleVM {
@@ -10,6 +6,8 @@ namespace Lib.ViewModels {
         public string Title { get; set; }
         public string RoleName { get; set; }
         public string Description { get; set; }
+        public List<AssignmentVM> Assignments { get; set; }
+        public int MetadataID { get; set; }
         public MetadataVM Metadata { get; set; }
     }
 }

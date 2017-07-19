@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lib.EFModels {
     public class Role {
@@ -18,7 +14,9 @@ namespace Lib.EFModels {
         [StringLength(150)]
         public string Description { get; set; }
 
-        [ForeignKey("MetadataID")]
-        public Metadata Metadata { get; set; }
+        public virtual ICollection<Assignment> Assignment { get; set; }
+
+        public int MetadataID { get; set; }
+        public virtual Metadata Metadata { get; set; }
     }
 }

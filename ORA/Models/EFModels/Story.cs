@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Lib.EFModels {
     public class Story {
@@ -25,7 +22,12 @@ namespace Lib.EFModels {
         [Required]
         public DateTime StoryEndDate { get; set; }
 
-        [ForeignKey("MetadataID")]
-        public Metadata Metadata { get; set; }
+        public int ClientID { get; set; }
+        public virtual Client Client { get; set; }
+
+        public virtual ICollection<KPI> KPIs { get; set; }
+
+        public int MetadataID { get; set; }
+        public virtual Metadata Metadata { get; set; }
     }
 }

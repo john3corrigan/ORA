@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lib.EFModels {
     public class Sprint {
@@ -24,10 +21,9 @@ namespace Lib.EFModels {
         [Required]
         public DateTime EndDate { get; set; }
 
-        [ForeignKey("ClientID")]
-        public Client Client { get; set; }
+        public virtual ICollection<KPI> KPIs { get; set; }
 
-        [ForeignKey("MetadataID")]
-        public Metadata Metadata { get; set; }
+        public int MetadatID { get; set; }
+        public virtual Metadata Metadata { get; set; }
     }
 }
