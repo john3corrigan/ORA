@@ -193,17 +193,12 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Dashboard\AddClient.cshtml" />
     <Content Include="Views\Dashboard\UpdateClient.cshtml" />
-    <Content Include="Views\Dashboard\ViewClient.cshtml" />
     <Content Include="Views\Dashboard\CreateAssignment.cshtml" />
-    <Content Include="Views\Dashboard\ViewAssigments.cshtml" />
     <Content Include="Views\Dashboard\UpdateAssigments.cshtml" />
     <Content Include="Views\Dashboard\UpdateStory.cshtml" />
-    <Content Include="Views\Dashboard\ViewStory.cshtml" />
     <Content Include="Views\Dashboard\CreateStory.cshtml" />
     <Content Include="Views\Dashboard\UpdateSprint.cshtml" />
-    <Content Include="Views\Dashboard\ViewSprint.cshtml" />
     <Content Include="Views\Dashboard\CreateSprint.cshtml" />
-    <Content Include="Views\Dashboard\ViewKPI.cshtml" />
     <Content Include="Views\Dashboard\CreateKPI.cshtml" />
   </ItemGroup>
   <ItemGroup>

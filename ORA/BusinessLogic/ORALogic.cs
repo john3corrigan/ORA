@@ -14,9 +14,29 @@ namespace BusinessLogic
             
         }
 
-        public bool Login(EmployeeVM employee)
+        public bool Login(EmployeeVM Employee)
         {
             return true;
+        }
+
+        public StoryVM GetStoryByStoryID(int StoryID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetSprintBySprintID(int SprintID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetClientByClientID(int ClientID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetAssignmentByAssinmentID(int assignmentID)
+        {
+            throw new NotImplementedException();
         }
     }
 }

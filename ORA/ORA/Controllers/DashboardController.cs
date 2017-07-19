@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
+using BusinessLogic;
 
 namespace ORA.Controllers
 {
     public class DashboardController : Controller
     {
+        static ORALogic _businesslogic = new ORALogic();
         // GET: Dashboard
         public ActionResult Index()
         {
@@ -31,9 +33,9 @@ namespace ORA.Controllers
         }
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
-        public ActionResult UpdateAssigments()
+        public ActionResult UpdateAssigments(int AssignmentID)
         {
-            return View("");
+            return View(_businesslogic.GetAssignmentByAssinmentID(AssignmentID));
         }
         [HttpPost]
         public ActionResult UpdateAssigments(AssignmentVM updatedAssignment)
@@ -55,16 +57,11 @@ namespace ORA.Controllers
         {
             return View("");
         }
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult DeleteClient(int ClientID)
-        {
-            return View("");
-        }
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateClient(int ClientID)
         {
-            return View("");
+            return View(_businesslogic.GetClientByClientID(ClientID));
         }
         [HttpPost]
         public ActionResult UpdateClient(ClientVM updatedClient)
@@ -72,6 +69,11 @@ namespace ORA.Controllers
             return View("");
         }
         public ActionResult ViewClient()
+        {
+            return View("");
+        }
+        //[Authorize(Roles = "Admin, Director")]
+        public ActionResult DeleteClient(int ClientID)
         {
             return View("");
         }
@@ -107,16 +109,16 @@ namespace ORA.Controllers
         }
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
-        public ActionResult UpdateSprint()
+        public ActionResult UpdateSprint(int SprintID)
         {
-            return View("");
+            return View(_businesslogic.GetSprintBySprintID(SprintID));
         }
         [HttpPost]
         public ActionResult UpdateSprint(SprintVM updatedSprint)
         {
             return View("");
         }
-        public ActionResult DeleteSprint()
+        public ActionResult DeleteSprint(int SprintID)
         {
             return View("");
         }
@@ -137,9 +139,9 @@ namespace ORA.Controllers
         }
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
-        public ActionResult UpdateStory()
+        public ActionResult UpdateStory(int StoryID)
         {
-            return View("");
+            return View(_businesslogic.GetStoryByStoryID(StoryID));
         }
         [HttpPost]
         public ActionResult UpdateStory(StoryVM updatedStory)

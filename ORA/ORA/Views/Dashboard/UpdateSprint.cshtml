@@ -5,3 +5,43 @@
 
 <h2>UpdateSprint</h2>
 
+@using (Html.BeginForm("UpdateSprint", "Dashboard", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.Title)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.SprintNumber, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.SprintNumber, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.SprintNumber)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.SprintName, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.SprintName)
+                <font>@Html.ValidationMessageFor(m => m.SprintName)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.StartDate, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.StartDate)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.EndDate, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.EndDate)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Client)
+                <font>@Html.ValidationMessageFor(m => m.Client)</font>
+            </div>
+            @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Metadata.Modified, new { @Value = DateTime.Now })
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+}
