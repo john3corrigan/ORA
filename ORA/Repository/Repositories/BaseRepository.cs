@@ -6,15 +6,23 @@ using System.Linq;
 
 namespace Repository.Repositories {
     public class BaseRespository<TEntity, TEntityVM> : IDisposable where TEntity : class {
-        protected DbContext context ;
+        protected static DbContext context;
         protected DbSet<TEntity> dbset;
         protected bool dispose = false;
         protected Mapper Mapper;
 
         public BaseRespository() {
-            context = new DbContext("");
-            dbset = context.Set<TEntity>();
+            InitContext();
             InitMap();
+        }
+
+        private void InitContext() {
+            if (context == null) {
+                context = new DbContext("ora");
+            }
+            if (context != null) {
+                dbset = context.Set<TEntity>();
+            }
         }
 
         private void InitMap() {
