@@ -2,7 +2,7 @@
 
 namespace Lib.ViewModels {
     public class EmployeeVM {
-        public int EmployessID { get; set; }
+        public int EmployeeID { get; set; }
         public string Title { get; set; }
         public string EmployeeNumber { get; set; }
         public string Password { get; set; }
@@ -12,6 +12,7 @@ namespace Lib.ViewModels {
         public string EmployeeLastName { get; set; }
         public bool ActiveFlag { get; set; }
         public List<AssignmentVM> Assignments { get; set; }
+        public int MetadataID { get; set; }
         public MetadataVM Metadata { get; set; }
     }
 }

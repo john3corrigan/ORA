@@ -13,11 +13,12 @@ namespace Repository.Repositories {
 
         public List<PositionVM> GetAllPositions() {
             //TODO add includes
-            return Mapper.Map<List<PositionVM>>(GetAll());
+            return Mapper.Map<List<PositionVM>>(dbset.Include("Metadata").Include("Assignment"));
         }
 
         public PositionVM GetPositionByID(int id) {
-            return Mapper.Map<PositionVM>(GetByID(id));
+            var position = GetAllPositions().Where(p => p.PositionID == id).FirstOrDefault();
+            return Mapper.Map<PositionVM>(position);
         }
     }
 }

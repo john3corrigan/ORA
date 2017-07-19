@@ -10,6 +10,7 @@ namespace Lib.ViewModels {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public List<KPIVM> KPIs { get; set; }
+        public int MetadataID { get; set; }
         public MetadataVM Metadata { get; set; }
     }
 }

@@ -14,11 +14,16 @@ namespace Repository.Repositories {
 
         public List<ClientVM> GetAllClients() {
             //TODO add includes
-            return Mapper.Map<List<ClientVM>>(GetAll());
+            return Mapper.Map<List<ClientVM>>(dbset.Include("Metadata")
+                                                   .Include("Assignment")
+                                                   .Include("Story")
+                                                   .Include("Project")
+                                                   .Include("Team"));
         }
 
         public ClientVM GetClientByID(int id) {
-            return Mapper.Map<ClientVM>(GetByID(id));
+            var client = GetAllClients().Where(c => c.ClientID == id).FirstOrDefault();
+            return Mapper.Map<ClientVM>(client);
         }
 
         public void AddClient(ClientVM client) {

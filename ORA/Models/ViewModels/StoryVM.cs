@@ -9,6 +9,7 @@ namespace Lib.ViewModels {
         public int StoryNumber { get; set; }
         public DateTime StoryStartDate { get; set; }
         public DateTime StoryEndDate { get; set; }
+        public int ClientID { get; set; }
         public ClientVM Client { get; set; }
         public List<KPIVM> KPIs { get; set; }
         public MetadataVM Metadata { get; set; }

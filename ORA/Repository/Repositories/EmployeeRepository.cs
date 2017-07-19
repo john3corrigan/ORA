@@ -14,11 +14,12 @@ namespace Repository.Repositories {
 
         public List<EmployeeVM> GetAllEmployees() {
             //TODO add includes
-            return Mapper.Map<List<EmployeeVM>>(GetAll());
+            return Mapper.Map<List<EmployeeVM>>(dbset.Include("Metadata").Include("Assignment"));
         }
 
         public EmployeeVM GetEmployeeByID(int id) {
-            return Mapper.Map<EmployeeVM>(GetByID(id));
+            var employee = GetAllEmployees().Where(e => e.EmployeeID == id).FirstOrDefault();
+            return Mapper.Map<EmployeeVM>(employee);
         }
 
         public void AddEmployee(EmployeeVM employee) {

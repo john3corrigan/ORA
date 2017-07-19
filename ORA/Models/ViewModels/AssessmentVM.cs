@@ -28,7 +28,9 @@
         public int MIPotencialAdvancement { get; set; }
         public string MIComments { get; set; }
         public bool ActiveFlag { get; set; }
-        public AssignmentVM Assigment { get; set; }
+        public int AssignmentID { get; set; }
+        public AssignmentVM Assignment { get; set; }
+        public int MetadataID { get; set; }
         public MetadataVM Metadata { get; set; }
     }
 }
