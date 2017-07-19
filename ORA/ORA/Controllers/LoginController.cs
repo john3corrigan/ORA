@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
-using BusinessLogic;
+using BusinessLogic.ORALogic;
 
 namespace ORA.Controllers
 {
-    public class AccountController : Controller
+    public class LoginController : Controller
     {
-        static ORALogic _businesslogic = new ORALogic();
+        EmployeeLogic EmpLogic = new EmployeeLogic();
         // GET: Account
         public ActionResult Index()
         {
@@ -24,11 +24,12 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult Login(EmployeeVM Employee)
         {
-            if (_businesslogic.Login(Employee))
+            EmployeeVM employee = EmpLogic.Login(Employee);
+            if (employee != null)
             {
-                Session["Name"] = Employee.EmployeeName;
-                Session["MyID"] = Employee.EmployessID
-                Session["Role"] = Employee.Title;
+                Session["Name"] = employee.EmployeeName;
+                Session["MyID"] = employee.EmployeeID;
+                Session["Role"] = employee.Title;
             }
             return View();
         }
@@ -41,16 +42,12 @@ namespace ORA.Controllers
         [Authorize(Roles = "Admin, Director")]
         public ActionResult AddEmployee(EmployeeVM Employee)
         {
-            _businesslogic.AddEmployee(Employee);
+            AddEmployee(Employee);
             return View();
         }
         public ActionResult LogOut()
         {
             Session.Clear();
-            return View();
-        }
-        public ActionResult MyAccount()
-        {
             return View();
         }
     }

@@ -40,13 +40,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ORALogic.cs" />
+    <Compile Include="ORALogic\AssessmentLogic.cs" />
+    <Compile Include="ORALogic\AssignmentLogic.cs" />
+    <Compile Include="ORALogic\ClientLogic.cs" />
+    <Compile Include="ORALogic\EmployeeLogic.cs" />
+    <Compile Include="ORALogic\KPILogic.cs" />
+    <Compile Include="ORALogic\PositionLogic.cs" />
+    <Compile Include="ORALogic\ProjectLogic.cs" />
+    <Compile Include="ORALogic\RoleLogic.cs" />
+    <Compile Include="ORALogic\SprintLogic.cs" />
+    <Compile Include="ORALogic\StoryLogic.cs" />
+    <Compile Include="ORALogic\TeamLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Lib.csproj">
       <Project>{b1c14268-3fe8-4064-8983-3f82334c32d2}</Project>
       <Name>Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{ef00b191-9442-40a5-bbf1-7f70a7034272}</Project>
+      <Name>Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

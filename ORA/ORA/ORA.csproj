@@ -141,7 +141,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -260,10 +260,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\MyAccount.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Dashboard\AddClient.cshtml" />
     <Content Include="Views\Dashboard\CreateAssignment.cshtml" />
     <Content Include="Views\Dashboard\CreateKPI.cshtml" />
@@ -274,7 +272,7 @@
     <Content Include="Views\Dashboard\UpdateClient.cshtml" />
     <Content Include="Views\Dashboard\UpdateSprint.cshtml" />
     <Content Include="Views\Dashboard\UpdateStory.cshtml" />
-    <Content Include="Views\Account\AddEmployee.cshtml" />
+    <Content Include="Views\Login\AddEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -298,6 +296,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{7e8162d6-9b48-4e01-8cd4-c610af995b71}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Lib.csproj">
       <Project>{b1c14268-3fe8-4064-8983-3f82334c32d2}</Project>
       <Name>Lib</Name>

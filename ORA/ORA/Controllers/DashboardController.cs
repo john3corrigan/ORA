@@ -14,7 +14,7 @@ namespace ORA.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            return View(_businesslogic.GetAssignmentsByEmployeeID((int)Session["MyID"]););
+            return View(_businesslogic.GetAssignmentsByEmployeeID((int)Session["MyID"]));
         }
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
