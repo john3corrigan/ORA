@@ -141,6 +141,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AssignmentController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -263,12 +265,12 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Dashboard\AddClient.cshtml" />
-    <Content Include="Views\Dashboard\CreateAssignment.cshtml" />
+    <Content Include="Views\Assignment\CreateAssignment.cshtml" />
     <Content Include="Views\Dashboard\CreateKPI.cshtml" />
     <Content Include="Views\Dashboard\CreateSprint.cshtml" />
     <Content Include="Views\Dashboard\CreateStory.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\Dashboard\UpdateAssigments.cshtml" />
+    <Content Include="Views\Assignment\UpdateAssigments.cshtml" />
     <Content Include="Views\Dashboard\UpdateClient.cshtml" />
     <Content Include="Views\Dashboard\UpdateSprint.cshtml" />
     <Content Include="Views\Dashboard\UpdateStory.cshtml" />
@@ -279,6 +281,7 @@
     <Folder Include="bin\Debug\" />
     <Folder Include="Models\" />
     <Folder Include="Properties\" />
+    <Folder Include="Views\Client\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

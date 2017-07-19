@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
-using BusinessLogic;
+using BusinessLogic.ORALogic;
 
 namespace ORA.Controllers
 {
@@ -14,69 +14,9 @@ namespace ORA.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            return View(_businesslogic.GetAssignmentsByEmployeeID((int)Session["MyID"]));
+            return View();
         }
-        [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult CreateAssignment()
-        {
-            return View("");
-        }
-        [HttpPost]
-        public ActionResult CreateAssignment(AssignmentVM updatedAssignment)
-        {
-            return View("");
-        }
-        public ActionResult ViewAssigments()
-        {
-            return View("");
-        }
-        [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult UpdateAssigments(int AssignmentID)
-        {
-            return View(_businesslogic.GetAssignmentByAssignmentID(AssignmentID));
-        }
-        [HttpPost]
-        public ActionResult UpdateAssigments(AssignmentVM updatedAssignment)
-        {
-            return View("");
-        }
-        public ActionResult DeleteAssigments(int AssignmentID)
-        {
-            return View("");
-        }
-        [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult AddClient()
-        {
-            return View("");
-        }
-        [HttpPost]
-        public ActionResult AddClient(ClientVM Client)
-        {
-            return View("");
-        }
-        [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult UpdateClient(int ClientID)
-        {
-            return View(_businesslogic.GetClientByClientID(ClientID));
-        }
-        [HttpPost]
-        public ActionResult UpdateClient(ClientVM updatedClient)
-        {
-            return View("");
-        }
-        public ActionResult ViewClient(int AssignmentID)
-        {
-            return View(_businesslogic.GetClientByAssignmentID(AssignmentID));
-        }
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult DeleteClient(int ClientID)
-        {
-            return View("");
-        }
+        
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult CreateKPI()

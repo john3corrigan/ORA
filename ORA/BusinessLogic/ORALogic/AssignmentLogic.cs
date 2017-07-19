@@ -14,7 +14,28 @@ namespace BusinessLogic.ORALogic
         {
             throw new NotImplementedException();
         }
-        public object GetAssignmentByAssignmentID(int assignmentID)
+
+        public AssignmentVM GetAssignmentByAssignmentID(int assignmentID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateAssignment(AssignmentVM assignment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AssignmentVM> GetAllAssignments()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateAssignment(AssignmentVM updatedAssignment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteAssignmentByAssignmentID(int assignmentID)
         {
             throw new NotImplementedException();
         }

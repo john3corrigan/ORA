@@ -5,7 +5,7 @@
 
 <h2>UpdateAssigments</h2>
 
-@using (Html.BeginForm("UpdateAssigments", "Dashboard", FormMethod.Post))
+@using (Html.BeginForm("UpdateAssigments", "Assignment", FormMethod.Post))
 {
     <div>
         <div>
@@ -30,9 +30,9 @@
                 <font>@Html.ValidationMessageFor(m => m.Client)</font>>
             </div>
             <div>
-                @Html.LabelFor(m => m.EMployee, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.EMployee, new { @class = "" })
-                <font>@Html.ValidationMessageFor(m => m.EMployee)</font>>
+                @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Employee, new { @class = "" })
+                <font>@Html.ValidationMessageFor(m => m.Employee)</font>>
             </div>
             <div>
                 @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
