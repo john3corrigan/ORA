@@ -1,41 +1,58 @@
-﻿@using Lib.ViewModels
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model Lib.ViewModels.AssignmentVM
+@using Lib.ViewModels
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<h2>Index</h2>
+    <h2>Index</h2>
 
-<title>
+    <head>
+        <title>
 
-</title>
-<head>
+        </title>
+    </head>
+    <body>
+        <div>
+            <div>
+                ViewAssignments / SelectAssignemt
 
-</head>
-<body>
-    <div>
-        Use Java to populate divs?
+                Graphs for each Assignment as button, or automatically display, [populate in own divs ? () ?)]
+                
+                <div>
+                    @Html.ActionLink("Show KPIs", "ViewKPI", "Dashboard", routeValues: new { AssignmentID = Assignment.AssignmentID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                    ViewKPI/SelectKPI
 
-        Graphs for each element(?)
-        <div>
-            ViewStory/SelectStory
+                    <div>
+                        @Html.ActionLink("Show Project", "ViewProjects", "Dashboard", routeValues: new { KPIID = KPI.KPIID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                        ViewProjects/SelectProjects
+
+                    </div>
+                    <div>
+                        @Html.ActionLink("Show Stoyies", "ViewStory", "Dashboard", routeValues: new { KPIID = KPI.KPIID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                        ViewStory/SelectStory
+
+                    </div>
+                    <div>
+                        @Html.ActionLink("Show Sprint", "ViewSprint", "Dashboard", routeValues: new { KPIID = KPI.KPIID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                        ViewSprint/SelectSprint
+
+                    </div>
+                </div>
+                <div>
+                    @Html.ActionLink("Show Assignments", "ViewAssignments", "Dashboard", routeValues: new { AssignmentID = Assignment.AssignmentID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                    ViewClient/SelectClient
+
+                </div>
+                <div>
+                    @Html.ActionLink("Show Team", "ViewTeam", "Dashboard", routeValues: new { AssignmentID = Assignment.AssignmentID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                    ViewTeam
+
+                </div>
+                <div>
+                    @Html.ActionLink("Show Employee", "ViewEmployee", "Dashboard", routeValues: new { AssignmentID = Assignment.AssignmentID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                    ViewEmlplyee/SelectEmployee
+
+                </div>
+            </div>
         </div>
-        <div>
-            ViewKPI/SelectKPI
-        </div>
-        <div>
-            ViewClient/SelectClient
-        </div>
-        <div>
-            ViewTeam
-        </div>
-        <div>
-            ViewAssignments/SelectAssignemt
-        </div>
-        <div>
-            ViewEmlplyee/SelectEmployee
-        </div>
-        <div>
-            ViewProjects/SelectProjects
-        </div>
-    </div>
-</body>
+    </body>

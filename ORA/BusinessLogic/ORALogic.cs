@@ -11,15 +11,19 @@ namespace BusinessLogic
     {
         public void AddEmployee(EmployeeVM Employee)
         {
-            
+            throw new NotImplementedException();
         }
-
         public bool Login(EmployeeVM Employee)
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         public StoryVM GetStoryByStoryID(int StoryID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AssignmentVM> GetAssignmentsByEmployeeID(int EmployeeID)
         {
             throw new NotImplementedException();
         }
@@ -34,7 +38,17 @@ namespace BusinessLogic
             throw new NotImplementedException();
         }
 
-        public object GetAssignmentByAssinmentID(int assignmentID)
+        public object GetAssignmentByAssignmentID(int assignmentID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetClientByAssignmentID(int assignmentID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetKPIByAssignmentID(int assignmentID)
         {
             throw new NotImplementedException();
         }

@@ -27,6 +27,7 @@ namespace ORA.Controllers
             if (_businesslogic.Login(Employee))
             {
                 Session["Name"] = Employee.EmployeeName;
+                Session["MyID"] = Employee.EmployessID
                 Session["Role"] = Employee.Title;
             }
             return View();

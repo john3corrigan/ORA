@@ -14,7 +14,7 @@ namespace ORA.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            return View("");
+            return View(_businesslogic.GetAssignmentsByEmployeeID((int)Session["MyID"]););
         }
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
@@ -35,7 +35,7 @@ namespace ORA.Controllers
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateAssigments(int AssignmentID)
         {
-            return View(_businesslogic.GetAssignmentByAssinmentID(AssignmentID));
+            return View(_businesslogic.GetAssignmentByAssignmentID(AssignmentID));
         }
         [HttpPost]
         public ActionResult UpdateAssigments(AssignmentVM updatedAssignment)
@@ -68,9 +68,9 @@ namespace ORA.Controllers
         {
             return View("");
         }
-        public ActionResult ViewClient()
+        public ActionResult ViewClient(int AssignmentID)
         {
-            return View("");
+            return View(_businesslogic.GetClientByAssignmentID(AssignmentID));
         }
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult DeleteClient(int ClientID)
@@ -88,9 +88,9 @@ namespace ORA.Controllers
         {
             return View("");
         }
-        public ActionResult ViewKPI()
+        public ActionResult ViewKPI(int AssignmentID)
         {
-            return View("");
+            return View(_businesslogic.GetKPIByAssignmentID(AssignmentID));
         }
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
