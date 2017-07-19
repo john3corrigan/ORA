@@ -10,24 +10,24 @@
     <div>
         <div>
             <div>
-                @Html.LabelFor()
-                @Html.TextBoxFor()
-                <font color="ff0000">@Html.ValidationMessageFor()</font>
+                @Html.LabelFor(m => m.ClientName, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.ClientName, new { @class = "form-control TextBoxFormat" })
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.ClientName)</font>
             </div>
             <div>
-                @Html.LabelFor()
-                @Html.TextBoxFor()
-                <font color="ff0000">@Html.ValidationMessageFor()</font>
+                @Html.LabelFor(m => m.ClientAbbreviation, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.ClientAbbreviation, new { @class = "form-control TextBoxFormat" })
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.ClientAbbreviation)</font>
             </div>
             <div>
-                @Html.LabelFor()
-                @Html.TextBoxFor()
-                <font color="ff0000">@Html.ValidationMessageFor()</font>
+                @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.Title, new {@class = "form-control TextBoxFormat" })
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Title)</font>
             </div>
-            @Html.HiddenFor()
-            @Html.HiddenFor()
-            @Html.HiddenFor()
-            @Html.HiddenFor()
+            @Html.HiddenFor(m => m.Metadata.CreatedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Metadata.Created, new { @Value = DateTime.Now })
+            @Html.HiddenFor(m => m.Metadata.Modified, new { @Value = DateTime.Now })
         </div>
     </div>
 }
