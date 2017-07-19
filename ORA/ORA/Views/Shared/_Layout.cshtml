@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/OraStyler.css")
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -45,53 +45,55 @@
                         </div>
                         <div class="navbar_bottom">
                             <div class="container">
-                                <div class="navbar_left">
-                                    <a href="~/Home/Index">
-                                        <img src="http://www.onshoreoutsourcing.com/wp-content/uploads/2017/04/oo_web360px.png" alt="Logo" onclick="" />
-                                    </a>
-                                </div>
-                                <div class=" navbar_right">
-                                    <ul class="nav navbar-nav">
-                                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                                        @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
-                                        @*@if (Session[""] != null)
-                {*@
-                                        <li>
-                                            <div>
-                                                <div>
-                                                    <ul>
-                                                        <li>@Html.ActionLink("Report A", "", "")</li>
-                                                        <li>@Html.ActionLink("Report B", "", "")</li>
+                                <div class="container_inner clearfix">
+                                    <div class="navbar_left">
+                                        <div style="height:100px">
+                                            <a href="~/Home/Index">
+                                                <img style="height:100px" src="http://www.onshoreoutsourcing.com/wp-content/uploads/2017/04/oo_web360px.png" alt="Logo" onclick="" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class=" navbar_right">
+                                        <ul class="list-inline">
+                                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                            @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
+                                            @*@if (Session[""] != null)
+                                                {*@
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>Report</span>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("Report A", "", "")</a></li>
+                                                        <li><a>@Html.ActionLink("Report B", "", "")</a></li>
                                                     </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <div>
-                                                    <ul>
-                                                        <li>@Html.ActionLink("View My KPI", "", "")</li>
-                                                        <li>@Html.ActionLink("KPI Form", "", "")</li>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    KPI
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("View My KPI", "", "")</a></li>
+                                                        <li><a>@Html.ActionLink("KPI Form", "", "")</a></li>
                                                     </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        </header>
-        <div class="container body-content" style="padding-top: 360px;">
-            @RenderBody()
-            <hr />
+                <hr />
+            </header>
+            <div class="container body-content" style="padding-top: 163px;">
+                @RenderBody()
+            </div>
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
         </div>
-    </div>
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

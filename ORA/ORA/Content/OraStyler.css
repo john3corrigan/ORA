@@ -1,18 +1,12 @@
 ﻿body, .wrapper
 {
-    background-color:#f6f6f6;
+    background-color:#ffffff;
 }
 
-a.btn{
-
+body {
+    margin: 0;
 }
 
-a.btn:hover{
-
-}
-.navbar{
-
-}
 .navbar_top{
     z-index:111;
     line-height:33px;
@@ -22,28 +16,25 @@ a.btn:hover{
     position:relative;
 }
 .navbar_bottom{
-
+    padding:0 45px;
+    position:relative;
 }
 .navbar_left{
-
+    position:relative;
+    left:0;
+    top:0;
 }
 .navbar_right{
-
+    position:relative;
+    float:right;
+    left:auto;
 }
 .navbar_top_bottom_holder{
 
 }
 .container_inner {
-    position: relative;
-    width: 1100px;
+    width:inherit;
     margin: 0 auto;
-    vertical-align: baseline;
-    background: 0 0;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-    outline: 0;
 }
 .left{
     float:left;
@@ -59,7 +50,7 @@ header.fixed{
     z-index:110;
     top:0;
     left:0;
-    background-color:#fff;
+    background-color:white
 }
 .wrapper{
     position:relative;
@@ -72,4 +63,17 @@ header.fixed{
 
 .has_top{
     padding-top:45px;
+}
+
+
+.container {
+    padding: 0;
+    position: relative;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.logo{
+
 }
