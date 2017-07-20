@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Lib.EFModels;
 using Lib.ViewModels;
+using Lib.Interfaces;
 
 namespace Repository.Repositories {
-    public class KPIRepository : BaseRespository<KPI, KPIVM> {
+    public class KPIRepository : BaseRespository<KPI, KPIVM>, IKPIRepository {
         public KPIRepository() : base() { }
 
         public List<KPIVM> GetAllKPIs() {

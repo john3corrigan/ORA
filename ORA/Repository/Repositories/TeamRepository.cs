@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.EFModels;
 using Lib.ViewModels;
+using Lib.Interfaces;
 using AutoMapper;
 
 namespace Repository.Repositories {

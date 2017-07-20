@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Lib.ViewModels;
 using Lib.EFModels;
+using Lib.Interfaces;
 
 namespace Repository.Repositories {
-    public class ClientRepository : BaseRespository<Client, ClientVM> {
+    public class ClientRepository : BaseRespository<Client, ClientVM>, IClientRepository {
 
         public ClientRepository() : base() { }
 
         public List<ClientVM> GetAllClients() {
-            //TODO add includes
             return Mapper.Map<List<ClientVM>>(dbset.Include("Metadata")
                                                    .Include("Assignment")
                                                    .Include("Story")

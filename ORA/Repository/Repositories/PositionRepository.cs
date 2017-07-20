@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.EFModels;
 using Lib.ViewModels;
+using Lib.Interfaces;
 using AutoMapper;
 
 namespace Repository.Repositories {
-    public class PositionRepository : BaseRespository<Position, PositionVM> {
+    public class PositionRepository : BaseRespository<Position, PositionVM>, IPositionRepository {
         public PositionRepository() : base() { }
 
         public List<PositionVM> GetAllPositions() {

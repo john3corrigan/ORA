@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.EFModels;
 using Lib.ViewModels;
+using Lib.Interfaces;
 using AutoMapper;
 
 namespace Repository.Repositories {
-    public class AssessmentRepository : BaseRespository<Assessment, AssessmentVM> {
+    public class AssessmentRepository : BaseRespository<Assessment, AssessmentVM>, IAssessmentRepository {
 
         public AssessmentRepository() : base() { }
          
