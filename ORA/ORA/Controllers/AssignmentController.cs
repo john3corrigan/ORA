@@ -32,9 +32,14 @@ namespace ORA.Controllers
             return RedirectToAction("ViewAssignments", "Assignments", new { area = ""});
         }
 
-        public ActionResult ViewAssigments()
+        public ActionResult ViewAllAssigments()
         {
             return View(assignmentLogic.GetAllAssignments());
+        }
+
+        public ActionResult ViewAssigment(int AssignmentID)
+        {
+            return View(assignmentLogic.GetAssignmentByAssignmentID(AssignmentID));
         }
 
         [HttpGet]

@@ -288,15 +288,36 @@
     <Content Include="Views\KPI\UpdateKPI.cshtml" />
     <Content Include="Views\KPI\ViewAllKPI.cshtml" />
     <Content Include="Views\KPI\ViewKPI.cshtml" />
+    <Content Include="Views\Story\Index.cshtml" />
+    <Content Include="Views\Story\ViewAllStories.cshtml" />
+    <Content Include="Views\Story\ViewStory.cshtml" />
+    <Content Include="Views\Sprint\ViewAllSprints.cshtml" />
+    <Content Include="Views\Sprint\ViewSprint.cshtml" />
+    <Content Include="Views\Sprint\Index.cshtml" />
+    <Content Include="Views\Assignment\ViewAllAssigments.cshtml" />
+    <Content Include="Views\Assignment\ViewAssigment.cshtml" />
+    <Content Include="Views\Client\ViewClient.cshtml" />
+    <Content Include="Views\Client\ViewAllClients.cshtml" />
+    <Content Include="Views\Assessment\CreateAssessment.cshtml" />
+    <Content Include="Views\Assessment\UpdateAssessment.cshtml" />
+    <Content Include="Views\Assessment\ViewAssessment.cshtml" />
+    <Content Include="Views\Assessment\ViewAllAssessments.cshtml" />
+    <Content Include="Views\Team\CreateTeam.cshtml" />
+    <Content Include="Views\Team\ViewAllTeams.cshtml" />
+    <Content Include="Views\Team\ViewTeam.cshtml" />
+    <Content Include="Views\Team\UpdateTeam.cshtml" />
+    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\Project\CreateProject.cshtml" />
+    <Content Include="Views\Project\ViewAllProjects.cshtml" />
+    <Content Include="Views\Project\ViewProject.cshtml" />
+    <Content Include="Views\Project\UpdateProject.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\Debug\" />
     <Folder Include="Models\" />
     <Folder Include="Properties\" />
-    <Folder Include="Views\Assessment\" />
-    <Folder Include="Views\Project\" />
-    <Folder Include="Views\Team\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -48,7 +48,7 @@ namespace ORA.Controllers
 
         public ActionResult ViewClient(int AssignmentID)
         {
-            return View(clientLogic.GetClientByAssignmentID(AssignmentID));
+            return View(clientLogic.GetClientByClientID(AssignmentID));
         }
 
         //[Authorize(Roles = "Admin, Director")]

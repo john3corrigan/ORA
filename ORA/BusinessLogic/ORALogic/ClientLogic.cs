@@ -15,11 +15,6 @@ namespace BusinessLogic.ORALogic
             throw new NotImplementedException();
         }
 
-        public ClientVM GetClientByAssignmentID(int assignmentID)
-        {
-            throw new NotImplementedException();
-        }
-
         public void UpdateClient(ClientVM updatedClient)
         {
             throw new NotImplementedException();

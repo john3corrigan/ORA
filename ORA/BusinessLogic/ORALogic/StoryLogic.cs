@@ -14,5 +14,25 @@ namespace BusinessLogic.ORALogic
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateStory(StoryVM updatedStory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteStory(int storyID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateStory(StoryVM story)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<StoryVM> GetAllStories()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
