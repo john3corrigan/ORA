@@ -27,7 +27,8 @@ namespace Repository.Repositories {
             Save();
         }
 
-        public void UpdateAssessment(AssessmentVM assessment) {
+        public void UpdateAssessment(AssessmentVM assessment)
+        {
             Update(Mapper.Map<Assessment>(assessment));
             Save();
         }

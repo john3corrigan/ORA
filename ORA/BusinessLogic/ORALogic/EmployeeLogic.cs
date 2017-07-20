@@ -5,11 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
 
 namespace BusinessLogic.ORALogic
 {
     public class EmployeeLogic
     {
+        private IEmployeeRepository Employees;
+
+        public EmployeeLogic(IEmployeeRepository emply)
+        {
+            Employees = emply;
+        }
         private EmployeeRepository repository = new EmployeeRepository();
         public void AddEmployee(EmployeeVM Employee)
         {
@@ -46,7 +53,7 @@ namespace BusinessLogic.ORALogic
             throw new NotImplementedException();
         }
 
-        public void DieableEmployee(int employeeID)
+        public void DisableEmployee(int employeeID)
         {
             throw new NotImplementedException();
         }

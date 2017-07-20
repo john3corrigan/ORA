@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
 
 namespace BusinessLogic.ORALogic
 {
     public class AssessmentLogic
     {
+        private IAssessmentRepository Assessments;
+
+        public AssessmentLogic(IAssessmentRepository assess)
+        {
+            Assessments = assess;
+        }
+
         public void CreateAssessment(AssessmentVM assessment)
         {
             throw new NotImplementedException();
@@ -26,11 +34,6 @@ namespace BusinessLogic.ORALogic
         }
 
         public void UpdateAssessment(AssessmentVM updatedAssessment)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteAssessment(int assessmentID)
         {
             throw new NotImplementedException();
         }

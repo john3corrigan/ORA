@@ -5,14 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
 
 namespace BusinessLogic.ORALogic
 {
     public class AssignmentLogic
     {
-        public List<AssignmentVM> GetAssignmentsByEmployeeID(int EmployeeID)
+        private IAssignmentRepository Assignments;
+
+        public AssignmentLogic(IAssignmentRepository assign)
         {
-            throw new NotImplementedException();
+            Assignments = assign;
         }
 
         public AssignmentVM GetAssignmentByAssignmentID(int assignmentID)
@@ -31,11 +34,6 @@ namespace BusinessLogic.ORALogic
         }
 
         public void UpdateAssignment(AssignmentVM updatedAssignment)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteAssignmentByAssignmentID(int assignmentID)
         {
             throw new NotImplementedException();
         }

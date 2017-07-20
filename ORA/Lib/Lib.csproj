@@ -60,6 +60,17 @@
     <Compile Include="EFModels\Sprint.cs" />
     <Compile Include="EFModels\Story.cs" />
     <Compile Include="EFModels\Team.cs" />
+    <Compile Include="InterfacesLogic\IAssessmentLogic.cs" />
+    <Compile Include="InterfacesLogic\IAssignmentLogic.cs" />
+    <Compile Include="InterfacesLogic\IClientLogic.cs" />
+    <Compile Include="InterfacesLogic\IEmployeeLogic.cs" />
+    <Compile Include="InterfacesLogic\IKPILogic.cs" />
+    <Compile Include="InterfacesLogic\IPositionLogic.cs" />
+    <Compile Include="InterfacesLogic\IProjectLogic.cs" />
+    <Compile Include="InterfacesLogic\IRoleLogic.cs" />
+    <Compile Include="InterfacesLogic\ISprintLogic.cs" />
+    <Compile Include="InterfacesLogic\IStoryLogic.cs" />
+    <Compile Include="InterfacesLogic\ITeamLogic.cs" />
     <Compile Include="Interfaces\IAssessmentRepository.cs" />
     <Compile Include="Interfaces\IAssignmentRepository.cs" />
     <Compile Include="Interfaces\IClientRepository.cs" />

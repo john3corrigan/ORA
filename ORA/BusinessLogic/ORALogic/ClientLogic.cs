@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
 
 namespace BusinessLogic.ORALogic
 {
     public class ClientLogic
     {
+        private IClientRepository Clients;
+
+        public ClientLogic(IClientRepository client)
+        {
+            Clients = client;
+        }
+
         public ClientVM GetClientByClientID(int ClientID)
         {
             throw new NotImplementedException();

@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
 
 namespace BusinessLogic.ORALogic
 {
     public class StoryLogic
     {
+        private IStoryRepository Stories;
+
+        public StoryLogic(IStoryRepository stry)
+        {
+            Stories = stry;
+        }
+
         public StoryVM GetStoryByStoryID(int StoryID)
         {
             throw new NotImplementedException();

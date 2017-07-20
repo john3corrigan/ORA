@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
 
 namespace BusinessLogic.ORALogic
 {
     public class ProjectLogic
     {
+        private IProjectRepository Projects;
+
+        public ProjectLogic(IProjectRepository prjct)
+        {
+            Projects = prjct;
+        }
+
         public void CreateProject(ProjectVM project)
         {
             throw new NotImplementedException();

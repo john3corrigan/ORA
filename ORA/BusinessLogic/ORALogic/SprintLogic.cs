@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
 
 namespace BusinessLogic.ORALogic
 {
     public class SprintLogic
     {
+        private ISprintRepository Sprints;
+
+        public SprintLogic(ISprintRepository sprnt)
+        {
+            Sprints = sprnt;
+        }
+
         public SprintVM GetSprintBySprintID(int SprintID)
         {
             throw new NotImplementedException();
