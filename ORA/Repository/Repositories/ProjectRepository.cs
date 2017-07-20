@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Lib.EFModels;
 using Lib.ViewModels;
+using Lib.Interfaces;
 
 namespace Repository.Repositories {
-    public class ProjectRepository : BaseRespository<Project, ProjectVM> {
+    public class ProjectRepository : BaseRespository<Project, ProjectVM>, IProjectRepository {
         public ProjectRepository() : base() { }
 
         public List<ProjectVM> GetAllProjects() {

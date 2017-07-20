@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Lib.EFModels;
 using Lib.ViewModels;
+using Lib.Interfaces;
 
 namespace Repository.Repositories {
-    public class EmployeeRepository : BaseRespository<Employee, EmployeeVM> {
+    public class EmployeeRepository : BaseRespository<Employee, EmployeeVM>, IEmployeeRepository {
 
         public EmployeeRepository() : base() { }
 
         public List<EmployeeVM> GetAllEmployees() {
-            //TODO add includes
             return Mapper.Map<List<EmployeeVM>>(dbset.Include("Metadata").Include("Assignment"));
         }
 

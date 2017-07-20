@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Models\Lib.csproj", "{B1C14268-3FE8-4064-8983-3F82334C32D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{B1C14268-3FE8-4064-8983-3F82334C32D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORA", "ORA\ORA.csproj", "{DBA716F4-1D8F-4011-B337-757F202FDFEE}"
 EndProject

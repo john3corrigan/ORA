@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.EFModels;
 using Lib.ViewModels;
+using Lib.Interfaces;
 using AutoMapper;
 
 namespace Repository.Repositories{
-    public class StoryRepository : BaseRespository<Story, StoryVM> {
+    public class StoryRepository : BaseRespository<Story, StoryVM>, IStoryRepository {
         public StoryRepository() : base() { }
 
         public List<StoryVM> GetAllStories() {

@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.EFModels;
 using Lib.ViewModels;
+using Lib.Interfaces;
 using AutoMapper;
 
 namespace Repository.Repositories {
-    public class RoleRepository : BaseRespository<Role, RoleVM>{
+    public class RoleRepository : BaseRespository<Role, RoleVM>, IRoleRepository {
         public RoleRepository() : base() { }
 
         public List<RoleVM> GetAllRoles() {
