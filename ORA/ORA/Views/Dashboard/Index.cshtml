@@ -1,0 +1,58 @@
+﻿@model Lib.ViewModels.AssignmentVM
+@using Lib.ViewModels
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <div>
+            <div>
+                ViewAssignments / SelectAssignemt
+
+                Graphs for each Assignment as button, or automatically display, [populate in own divs ? () ?)]
+                
+                <div>
+                    @Html.ActionLink("Show KPIs", "ViewKPI", "Dashboard", routeValues: new { AssignmentID = Assignment.AssignmentID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                    ViewKPI/SelectKPI
+
+                    <div>
+                        @Html.ActionLink("Show Project", "ViewProjects", "Dashboard", routeValues: new { KPIID = KPI.KPIID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                        ViewProjects/SelectProjects
+
+                    </div>
+                    <div>
+                        @Html.ActionLink("Show Stoyies", "ViewStory", "Dashboard", routeValues: new { KPIID = KPI.KPIID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                        ViewStory/SelectStory
+
+                    </div>
+                    <div>
+                        @Html.ActionLink("Show Sprint", "ViewSprint", "Dashboard", routeValues: new { KPIID = KPI.KPIID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                        ViewSprint/SelectSprint
+
+                    </div>
+                </div>
+                <div>
+                    @Html.ActionLink("Show Assignments", "ViewAssignments", "Dashboard", routeValues: new { AssignmentID = Assignment.AssignmentID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                    ViewClient/SelectClient
+
+                </div>
+                <div>
+                    @Html.ActionLink("Show Team", "ViewTeam", "Dashboard", routeValues: new { AssignmentID = Assignment.AssignmentID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                    ViewTeam
+
+                </div>
+                <div>
+                    @Html.ActionLink("Show Employee", "ViewEmployee", "Dashboard", routeValues: new { AssignmentID = Assignment.AssignmentID }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })
+                    ViewEmlplyee/SelectEmployee
+
+                </div>
+            </div>
+        </div>
+    </body>

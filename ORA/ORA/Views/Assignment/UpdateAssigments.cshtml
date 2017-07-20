@@ -1,0 +1,57 @@
+﻿@model Lib.ViewModels.AssignmentVM
+@{
+    ViewBag.Title = "UpdateAssigments";
+}
+
+<h2>UpdateAssigments</h2>
+
+@using (Html.BeginForm("UpdateAssigments", "Assignment", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextBoxFormat" })
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Title)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.StartDate, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.StartDate)</font>>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.EndDate, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.EndDate)</font>>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Client, new { @class = "" })
+                <font>@Html.ValidationMessageFor(m => m.Client)</font>>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Employee, new { @class = "" })
+                <font>@Html.ValidationMessageFor(m => m.Employee)</font>>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Position, new { @class = "" })
+                <font>@Html.ValidationMessageFor(m => m.Position)</font>>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Role, new { @class = "" })
+                <font>@Html.ValidationMessageFor(m => m.Role)</font>>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Team, new { @class = "" })
+                <font>@Html.ValidationMessageFor(m => m.Team)</font>>
+            </div>
+            @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Metadata.Modified, new { @Value = DateTime.Now })
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+}
