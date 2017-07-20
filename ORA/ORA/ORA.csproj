@@ -339,7 +339,7 @@
       <Project>{7e8162d6-9b48-4e01-8cd4-c610af995b71}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Models\Lib.csproj">
+    <ProjectReference Include="..\Lib\Lib.csproj">
       <Project>{b1c14268-3fe8-4064-8983-3f82334c32d2}</Project>
       <Name>Lib</Name>
     </ProjectReference>
