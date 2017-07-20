@@ -30,5 +30,25 @@ namespace BusinessLogic.ORALogic
             }
             return null;
         }
+
+        public List<EmployeeVM> ViewAllEmployees()
+        {
+            throw new NotImplementedException();
+        }
+
+        public EmployeeVM GetEmployeeByEmployeeID(int employeeID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateEmployee(EmployeeVM updatedEmployee)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DieableEmployee(int employeeID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

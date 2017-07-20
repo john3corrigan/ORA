@@ -10,7 +10,22 @@ namespace BusinessLogic.ORALogic
 {
     public class KPILogic
     {
-        public object GetKPIByAssignmentID(int assignmentID)
+        public KPIVM GetKPIByKPIID(int KPIID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<KPIVM> GetAllKPIs()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateKPI(KPIVM updatedKPI)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateKPI(KPIVM kPI)
         {
             throw new NotImplementedException();
         }

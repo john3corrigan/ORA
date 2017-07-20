@@ -52,6 +52,12 @@ namespace ORA.Controllers
         }
 
         //[Authorize(Roles = "Admin, Director")]
+        public ActionResult ViewAllClients()
+        {
+            return View(clientLogic.GetAllClients());
+        }
+
+        //[Authorize(Roles = "Admin, Director")]
         public ActionResult DeleteClient(int ClientID)
         {
             clientLogic.DeleteClient(ClientID);

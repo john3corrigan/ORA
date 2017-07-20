@@ -33,18 +33,7 @@ namespace ORA.Controllers
             }
             return View();
         }
-        [HttpGet]
-        public ActionResult AddEmployee()
-        {
-            return View();
-        }
-        [HttpPost]
-        [Authorize(Roles = "Admin, Director")]
-        public ActionResult AddEmployee(EmployeeVM Employee)
-        {
-            AddEmployee(Employee);
-            return View();
-        }
+        
         public ActionResult LogOut()
         {
             Session.Clear();

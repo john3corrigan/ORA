@@ -10,12 +10,12 @@ namespace BusinessLogic.ORALogic
 {
     public class ClientLogic
     {
-        public object GetClientByClientID(int ClientID)
+        public ClientVM GetClientByClientID(int ClientID)
         {
             throw new NotImplementedException();
         }
 
-        public object GetClientByAssignmentID(int assignmentID)
+        public ClientVM GetClientByAssignmentID(int assignmentID)
         {
             throw new NotImplementedException();
         }
@@ -31,6 +31,11 @@ namespace BusinessLogic.ORALogic
         }
 
         public void AddClient(ClientVM client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ClientVM> GetAllClients()
         {
             throw new NotImplementedException();
         }

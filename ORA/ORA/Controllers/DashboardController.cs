@@ -10,28 +10,13 @@ namespace ORA.Controllers
 {
     public class DashboardController : Controller
     {
-        static ORALogic _businesslogic = new ORALogic();
+        
         // GET: Dashboard
         public ActionResult Index()
         {
             return View();
         }
         
-        [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult CreateKPI()
-        {
-            return View("");
-        }
-        [HttpPost]
-        public ActionResult CreateKPI(KPIVM KPI)
-        {
-            return View("");
-        }
-        public ActionResult ViewKPI(int AssignmentID)
-        {
-            return View(_businesslogic.GetKPIByAssignmentID(AssignmentID));
-        }
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult CreateSprint()
