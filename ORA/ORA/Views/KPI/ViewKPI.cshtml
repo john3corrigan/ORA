@@ -1,7 +1,59 @@
-﻿
+﻿@model Lib.ViewModels.KPIVM
 @{
     ViewBag.Title = "ViewKPI";
 }
 
-<h2>ViewKPI</h2>
+<h2>View KPI</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Points</th>
+        <th>TC Created</th>
+        <th>TC Excuted</th>
+        <th>TC Failed</th>
+        <th>TC Passed</th>
+        <th>Defects Found</th>
+        <th>Defects Fixed</th>
+        <th>Defects Accepted</th>
+        <th>Defects Rejected</th>
+        <th>Defects Deferred</th>
+        <th>Critical Defects</th>
+        <th>Test Hrs Planned</th>
+        <th>Actual Test Hrs</th>
+        <th>Bugs Found Production</th>
+        <th>Total Hrs Fixing Bugs</th>
+        <th>Assignment</th>
+        <th>Project</th>
+        <th>Sprint</th>
+        <th>Story</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    <tr>
+        <td>@Html.Display(Model.Title)</td>
+        <td>@Html.Display(Model.Points.ToString())</td>
+        <td>@Html.Display(Model.TCCreated.ToString())</td>
+        <td>@Html.Display(Model.TCExcuted.ToString())</td>
+        <td>@Html.Display(Model.TCFailed.ToString())</td>
+        <td>@Html.Display(Model.TCPassed.ToString())</td>
+        <td>@Html.Display(Model.DefectsFound.ToString())</td>
+        <td>@Html.Display(Model.DefectsFixed.ToString())</td>
+        <td>@Html.Display(Model.DefectsAccepted.ToString())</td>
+        <td>@Html.Display(Model.DefectsDeferred.ToString())</td>
+        <td>@Html.Display(Model.CriticalDefects.ToString())</td>
+        <td>@Html.Display(Model.TestHrsPlanned.ToString())</td>
+        <td>@Html.Display(Model.TestHrsActual.ToString())</td>
+        <td>@Html.Display(Model.BugsFoundProduction.ToString())</td>
+        <td>@Html.Display(Model.TotalHrsFixingBugs.ToString())</td>
+        <td>@Html.Display(Model.Assignment.Title)</td>
+        <td>@Html.Display(Model.Sprint.Title)</td>
+        <td>@Html.Display(Model.Story.Title)</td>
+        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
+        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
+        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
+        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+    </tr>
+</table>

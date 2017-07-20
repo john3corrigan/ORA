@@ -22,6 +22,10 @@ namespace ORA.Controllers
             return View(employeeLogic.ViewAllEmployees());
         }
 
+        public ActionResult ViewEmployee(int EmployeeID)
+        {
+            return View(employeeLogic.GetEmployeeByEmployeeID(EmployeeID));
+        }
         [HttpGet]
         public ActionResult AddEmployee()
         {

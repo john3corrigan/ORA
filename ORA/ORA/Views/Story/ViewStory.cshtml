@@ -1,7 +1,35 @@
-﻿
+﻿@model Lib.ViewModels.StoryVM
 @{
     ViewBag.Title = "ViewStory";
 }
 
 <h2>ViewStory</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Client</th>
+        <th>KPIs</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    <tr>
+        <td>@Html.Display(Model.Title)</td>
+        <td>@Html.Display(Model.StoryName)</td>
+        <td>@Html.Display(Model.StoryNumber.ToString())</td>
+        <td>@Html.Display(Model.StoryStartDate.ToString())</td>
+        <td>@Html.Display(Model.StoryEndDate.ToString())</td>
+        <td>@Html.Display(Model.Client.ClientName)</td>
+        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Model.KPIs })</td>
+        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
+        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
+        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
+        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+    </tr>
+</table>

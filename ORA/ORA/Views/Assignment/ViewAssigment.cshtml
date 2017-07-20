@@ -1,7 +1,42 @@
-﻿
+﻿@model Lib.ViewModels.AssignmentVM
+    @using Lib.ViewModels
 @{
     ViewBag.Title = "ViewAssigment";
 }
 
 <h2>ViewAssigment</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Client</th>
+        <th>Employee</th>
+        <th>Position</th>
+        <th>Role</th>
+        <th>Team</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+        <th>KPI List</th>
+        <th>Assessment List</th>
+    </tr>
+    <tr>
+        <td>@Html.Display(Model.Title)</td>
+        <td>@Html.Display(Model.StartDate.ToString())</td>
+        <td>@Html.Display(Model.EndDate.ToString())</td>
+        <td>@Html.Display(Model.Client.ClientName)</td>
+        <td>@Html.Display(Model.Employee.EmployeeName)</td>
+        <td>@Html.Display(Model.Position.ToString())</td>
+        <td>@Html.Display(Model.Role.ToString())</td>
+        <td>@Html.Display(Model.Team.TeamName)</td>
+        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
+        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
+        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
+        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Model.KPIS })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { AssessmentList = Model.Assessments })</td>
+    </tr>
+</table>

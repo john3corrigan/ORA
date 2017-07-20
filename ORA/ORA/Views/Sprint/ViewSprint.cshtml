@@ -1,7 +1,33 @@
-﻿
+﻿@model Lib.ViewModels.SprintVM
 @{
     ViewBag.Title = "ViewSprint";
 }
 
 <h2>ViewSprint</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>KPIs</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    <tr>
+        <td>@Html.Display(Model.Title)</td>
+        <td>@Html.Display(Model.SprintNumber.ToString())</td>
+        <td>@Html.Display(Model.SprintName)</td>
+        <td>@Html.Display(Model.StartDate.ToString())</td>
+        <td>@Html.Display(Model.EndDate.ToString())</td>
+        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Model.KPIs })</td>
+        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
+        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
+        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
+        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+    </tr>
+</table>

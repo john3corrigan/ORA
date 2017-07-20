@@ -1,7 +1,34 @@
-﻿
+﻿@model Lib.ViewModels.TeamVM
 @{
     ViewBag.Title = "CreateTeam";
 }
 
 <h2>CreateTeam</h2>
 
+@using (Html.BeginForm("CreateTeam", "Team", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                @Html.DisplayFor(m => m.Title)
+                @Html.TextBoxFor(m => m.Title)
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Title)</font>
+            </div>
+            <div>
+                @Html.DisplayFor(m => m.TeamName)
+                @Html.TextBoxFor(m => m.TeamName)
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.TeamName)</font>
+            </div>
+            <div>
+                @Html.DisplayFor(m => m.Client)
+                @Html.DropDownListFor(m => m.Client)
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
+            </div>
+            @Html.HiddenFor(m => m.Metadata.CreatedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Metadata.Created, new { @Value = DateTime.Now })
+            @Html.HiddenFor(m => m.Metadata.Modified, new { @Value = DateTime.Now })
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+}

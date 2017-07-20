@@ -11,7 +11,7 @@ namespace ORA.Controllers
     public class AssessmentController : Controller
     {
         private AssessmentLogic assessmentLogic = new AssessmentLogic();
-
+        static List<AssessmentVM> Model { get; set; }
         // GET: Assessment
         public ActionResult Index()
         {
