@@ -1,0 +1,42 @@
+﻿@model Lib.ViewModels.StoryVM
+@{
+    ViewBag.Title = "UpdateStory";
+}
+
+<h2>UpdateStory</h2>
+
+@using (Html.BeginForm("UpdateStory", "Story", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m., new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.Title)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.StoryName, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.StoryName, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.StoryName)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.StoryNumber, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.StoryNumber, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.StoryNumber)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.StoryStartDate, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.StoryStartDate, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.StoryStartDate)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.StoryEndDate, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.StoryEndDate, new { @class = "form-control TextBoxFormat" })
+                <font>@Html.ValidationMessageFor(m => m.StoryEndDate)</font>
+            </div>
+            @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Metadata.Modified, new { @Value = DateTime.Now })
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+}

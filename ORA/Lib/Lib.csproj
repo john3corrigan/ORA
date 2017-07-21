@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EF00B191-9442-40A5-BBF1-7F70A7034272}</ProjectGuid>
+    <ProjectGuid>{B1C14268-3FE8-4064-8983-3F82334C32D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Repository</RootNamespace>
-    <AssemblyName>Repository</AssemblyName>
+    <RootNamespace>Lib</RootNamespace>
+    <AssemblyName>Lib</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -51,29 +48,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EFModels\Assessment.cs" />
+    <Compile Include="EFModels\Assignment.cs" />
+    <Compile Include="EFModels\Client.cs" />
+    <Compile Include="EFModels\Employee.cs" />
+    <Compile Include="EFModels\KPI.cs" />
+    <Compile Include="EFModels\MetaData.cs" />
+    <Compile Include="EFModels\Position.cs" />
+    <Compile Include="EFModels\Project.cs" />
+    <Compile Include="EFModels\Role.cs" />
+    <Compile Include="EFModels\Sprint.cs" />
+    <Compile Include="EFModels\Story.cs" />
+    <Compile Include="EFModels\Team.cs" />
+    <Compile Include="Interfaces\IAssessmentRepository.cs" />
+    <Compile Include="Interfaces\IAssignmentRepository.cs" />
+    <Compile Include="Interfaces\IClientRepository.cs" />
+    <Compile Include="Interfaces\IEmployeeRepository.cs" />
+    <Compile Include="Interfaces\IKPIRepository.cs" />
+    <Compile Include="Interfaces\IPositionRepository.cs" />
+    <Compile Include="Interfaces\IProjectRepository.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
+    <Compile Include="Interfaces\ISprintRepository.cs" />
+    <Compile Include="Interfaces\IStoryRepository.cs" />
+    <Compile Include="Interfaces\ITeamRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AssessmentRepository.cs" />
-    <Compile Include="Repositories\AssignmentRepository.cs" />
-    <Compile Include="Repositories\BaseRepository.cs" />
-    <Compile Include="Repositories\ClientRepository.cs" />
-    <Compile Include="Repositories\EmployeeRepository.cs" />
-    <Compile Include="Repositories\KPIRepository.cs" />
-    <Compile Include="Repositories\PositionRepository.cs" />
-    <Compile Include="Repositories\ProjectRepository.cs" />
-    <Compile Include="Repositories\RoleRepository.cs" />
-    <Compile Include="Repositories\SprintRepository.cs" />
-    <Compile Include="Repositories\StoryRepository.cs" />
-    <Compile Include="Repositories\TeamRepository.cs" />
+    <Compile Include="ViewModels\AssessmentVM.cs" />
+    <Compile Include="ViewModels\AssignmentVM.cs" />
+    <Compile Include="ViewModels\ClientVM.cs" />
+    <Compile Include="ViewModels\EmployeeVM.cs" />
+    <Compile Include="ViewModels\KPIVM.cs" />
+    <Compile Include="ViewModels\MetadataVM.cs" />
+    <Compile Include="ViewModels\PositionVM.cs" />
+    <Compile Include="ViewModels\ProjectVM.cs" />
+    <Compile Include="ViewModels\RoleVM.cs" />
+    <Compile Include="ViewModels\SprintVM.cs" />
+    <Compile Include="ViewModels\StoryVM.cs" />
+    <Compile Include="ViewModels\TeamVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Lib.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lib\Lib.csproj">
-      <Project>{b1c14268-3fe8-4064-8983-3f82334c32d2}</Project>
-      <Name>Lib</Name>
-    </ProjectReference>
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Lib.dll" />
+    <Content Include="bin\Debug\Lib.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
