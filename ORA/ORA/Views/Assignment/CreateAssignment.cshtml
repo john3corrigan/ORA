@@ -27,27 +27,27 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Client, new SelectList(Enum.GetValues(typeof(ClientVM))), "Select Client", new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.Client, new SelectList(Enum.GetValues(typeof(ClientVM))), Model.Client.ClientName, new { @class = "form-control" })
                 <font>@Html.ValidationMessageFor(m => m.Client)</font>>
             </div>
             <div>
                 @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Employee, new SelectList(Enum.GetValues(typeof(EmployeeVM))), "Select Employee", new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.Employee, new SelectList(Enum.GetValues(typeof(PositionVM))), Model.Employee.EmployeeName, new { @class = "form-control" })
                 <font>@Html.ValidationMessageFor(m => m.Employee)</font>>
             </div>
             <div>
                 @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Position, new SelectList(Enum.GetValues(typeof(PositionVM))), "Select Position", new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.Position, new SelectList(Enum.GetValues(typeof(PositionVM))), Model.Position.Title, new { @class = "form-control" })
                 <font>@Html.ValidationMessageFor(m => m.Position)</font>>
             </div>
             <div>
                 @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Role, new SelectList(Enum.GetValues(typeof(RoleVM))), "Select Role", new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.Role, new SelectList(Enum.GetValues(typeof(RoleVM))), Model.Role.RoleName, new { @class = "form-control" })
                 <font>@Html.ValidationMessageFor(m => m.Role)</font>>
             </div>
             <div>
                 @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Team, new SelectList(Enum.GetValues(typeof(TeamVM))), "Select Team", new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.Team, new SelectList(Enum.GetValues(typeof(TeamVM))), Model.Team.TeamName, new { @class = "form-control" })
                 <font>@Html.ValidationMessageFor(m => m.Team)</font>>
             </div>
             @Html.HiddenFor(m => m.Metadata.CreatedBy, new { @Value = Session["Name"] })

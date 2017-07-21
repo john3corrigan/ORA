@@ -36,7 +36,6 @@ namespace ORA.Controllers
             {
                 Session["Name"] = employee.EmployeeName;
                 Session["MyID"] = employee.EmployeeID;
-                //Session["Role"] = employee.;
             }
             return View();
         }

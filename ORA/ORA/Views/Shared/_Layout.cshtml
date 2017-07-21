@@ -1,61 +1,210 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <link href="~/Content/OraStyler.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Content/OraStyler.css")
+    @Styles.Render("~/Content/bootstrap.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="~/Home/Index"><img src="http://www.onshoreoutsourcing.com/wp-content/uploads/2017/04/oo_web360px.png" onclick="" /></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>
-                            <div>
-                                <div>
-                                    <ul>
-                                        <li>@Html.ActionLink("Create Assignment", "CreateAssignment", "Assignment")</li>
-                                        <li>@Html.ActionLink("View All Assignments", "ViewAllAssignments", "Assignment")</li>
-                                    </ul>
+<body style="height: 100%; overflow:auto; background-color:#f2f2f2" class="Raleway">
+    @*for the header/moved coding for 'login/signup'*@
+    <div class="wrapper">
+        <div class="wrapper_inner">
+            <header class="fixed">
+                <div class="container">
+                    <div class="clearfix header_top_bottom_holder">
+                        <div class="header_top">
+                            <div class="container">
+                                <div class="container_inner">
+                                    <div class="left">
+                                        <div class="inner"></div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="inner">
+                                            <div>
+                                                <div>
+                                                    <ul class="list-inline">
+                                                        @if (Session["Name"] != null)
+                                                        {
+                                                            <li>@Html.ActionLink("Log-Out", "", "")</li>
+                                                        }
+                                                        else
+                                                        {
+                                                            <li>@Html.ActionLink("Log-In", "Login", "Login")</li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </li>
-                        <li>
-                            <div>
-                                <div>
-                                    <ul>
-                                        <li>@Html.ActionLink("View My KPI", "", "")</li>
-                                        <li>@Html.ActionLink("KPI Form", "", "")</li>
-                                    </ul>
+                        </div>
+                        <div class="header_bottom">
+                            <div class="container">
+                                <div class="container_inner clearfix">
+                                    <div class="header_left">
+                                        <div style="height:100px">
+                                            <a href="~/Home/Index">
+                                                <img style="height:100px" src="http://www.onshoreoutsourcing.com/wp-content/uploads/2017/04/oo_web360px.png" alt="Logo" onclick="" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <nav class=" header_right right">
+                                        <ul class="list-inline">
+                                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                            @if (Session["Name"] != null)
+                                            {
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Assessment</span>
+                                                        <ul class="dropdown-menu">
+                                                            @if ((int)Session["Role"] > 1)
+                                                            {
+                                                                <li><a>@Html.ActionLink("Create Assessment", "CreateAssessment", "Assessment")</a></li>
+                                                                <li><a>@Html.ActionLink("Update Assessment", "UpdateAssessment", "Assessment")</a></li>
+                                                            }
+                                                            <li><a>@Html.ActionLink("View All Assessment", "ViewAllAssessments", "Assessment")</a></li>
+                                                            <li><a>@Html.ActionLink("View Assessment", "ViewAssessment", "Assessment")</a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Assignment</span>
+                                                        <ul class="dropdown-menu">
+                                                            @if ((int)Session["Role"] > 1)
+                                                            {
+                                                                <li><a>@Html.ActionLink("Create Assignment", "CreateAssignment", "Assignment")</a></li>
+                                                                <li><a>@Html.ActionLink("Update Assignment", "UpdateAssignment", "Assignment")</a></li>
+                                                            }
+                                                            <li><a>@Html.ActionLink("View All Assignment", "ViewAllAssignments", "Assignment")</a></li>
+                                                            <li><a>@Html.ActionLink("View Assignment", "ViewAssignment", "Assignment")</a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Client</span>
+                                                        <ul class="dropdown-menu">
+                                                            @if ((int)Session["Role"] > 1)
+                                                            {
+                                                                <li><a>@Html.ActionLink("Create Client", "AddClient", "Client")</a></li>
+                                                                <li><a>@Html.ActionLink("Update Client", "UpdateClient", "Client")</a></li>
+                                                            }
+                                                            <li><a>@Html.ActionLink("View All Client", "ViewAllClients", "Client")</a></li>
+                                                            <li><a>@Html.ActionLink("View Client", "ViewClient", "Client")</a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Employee</span>
+                                                        <ul class="dropdown-menu">
+                                                            @if ((int)Session["Role"] > 1)
+                                                            {
+                                                                <li><a>@Html.ActionLink("Create Employee", "AddEmployee", "Employee")</a></li>
+                                                                <li><a>@Html.ActionLink("Update Employee", "UpdateEmployee", "Employee")</a></li>
+                                                            }
+                                                            <li><a>@Html.ActionLink("View All Employee", "ViewAllEmployees", "Employee")</a></li>
+                                                            <li><a>@Html.ActionLink("View Employee", "ViewEmployee", "Employee")</a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>KPI</span>
+                                                        <ul class="dropdown-menu">
+                                                            @if ((int)Session["Role"] > 1)
+                                                            {
+                                                                <li><a>@Html.ActionLink("Create KPI", "AddKPI", "KPI")</a></li>
+                                                                <li><a>@Html.ActionLink("Update KPI", "UpdateKPI", "KPI")</a></li>
+                                                            }
+                                                            <li><a>@Html.ActionLink("View All KPI", "ViewAllKPI", "KPI")</a></li>
+                                                            <li><a>@Html.ActionLink("View KPI", "ViewKPI", "KPI")</a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Project</span>
+                                                        <ul class="dropdown-menu">
+                                                            @if ((int)Session["Role"] > 1)
+                                                            {
+                                                                <li><a>@Html.ActionLink("Create Project", "CreateProject", "Project")</a></li>
+                                                                <li><a>@Html.ActionLink("Update Project", "UpdateProject", "Project")</a></li>
+                                                            }
+                                                            <li><a>@Html.ActionLink("View All Project", "ViewAllProjects", "Project")</a></li>
+                                                            <li><a>@Html.ActionLink("View Project", "ViewProject", "Project")</a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Sprint</span>
+                                                        <ul class="dropdown-menu">
+                                                            @if ((int)Session["Role"] > 1)
+                                                            {
+                                                                <li><a>@Html.ActionLink("Create Sprint", "CreateSprint", "Sprint")</a></li>
+                                                                <li><a>@Html.ActionLink("Update Sprint", "UpdateSprint", "Sprint")</a></li>
+                                                            }
+                                                            <li><a>@Html.ActionLink("View All Sprint", "ViewAllSprints", "Sprint")</a></li>
+                                                            <li><a>@Html.ActionLink("View Sprint", "ViewSprint", "Sprint")</a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Story</span>
+                                                        <ul class="dropdown-menu">
+                                                            @if ((int)Session["Role"] > 1)
+                                                            {
+                                                                <li><a>@Html.ActionLink("Create Story", "CreateStory", "Story")</a></li>
+                                                                <li><a>@Html.ActionLink("Update Story", "UpdateStory", "Story")</a></li>
+                                                            }
+                                                            <li><a>@Html.ActionLink("View All Story", "ViewAllStorys", "Story")</a></li>
+                                                            <li><a>@Html.ActionLink("View Story", "ViewStory", "Story")</a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <span>Team</span>
+                                                        <ul class="dropdown-menu">
+                                                            @if ((int)Session["Role"] > 1)
+                                                            {
+                                                                <li><a>@Html.ActionLink("Create Team", "CreateTeam", "Team")</a></li>
+                                                                <li><a>@Html.ActionLink("Update Team", "UpdateTeam", "Team")</a></li>
+                                                            }
+                                                            <li><a>@Html.ActionLink("View All Team", "ViewAllTeams", "Team")</a></li>
+                                                            <li><a>@Html.ActionLink("View Team", "ViewTeam", "Team")</a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
-                        </li>
-                            <li>@Html.ActionLink("Log-Out", "LogOut", "Account")</li>
-                        <li>@Html.ActionLink("Log-In", "Login", "Account")</li>
-                </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </header>
+            <div style="background-color: #f2f2f2; height:100%">
+                <div class="container body-content" style="padding-top: 163px; ">
+                    @RenderBody()
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
+    <footer class=" fixed" style="background-color:#093559; color:white;">
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

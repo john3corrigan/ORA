@@ -12,11 +12,11 @@
             @Html.TextBoxFor(m => m.EmployeeNumber, new { @class = "form-control TextboxFormat" })
             <font color="ff0000">@Html.ValidationMessageFor(m => m.EmployeeNumber)</font>
         </div>
-        @*<div>
-            @Html.LabelFor(m => m.Passsword, new { @class = "LableFormat" })
+       <div>
+            @Html.LabelFor(m => m.Password, new { @class = "LableFormat" })
             @Html.PasswordFor(m => m.Password, new { @class = "form-control TextboxFormat" })
            <font color="">@Html.ValidationMessageFor(m => m.Password)</font>
-        </div>*@
+        </div>
         <input type="submit" value="Login" />
     </div>
 }

@@ -33,7 +33,7 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult CreateAssessment(AssessmentVM Assessment)
         {
-            Assessments.CreateAssessment(Assessment);
+            Assessments.AddAssessment(Assessment);
             return RedirectToAction("", "", new { area = "" });
         }
 
@@ -44,14 +44,14 @@ namespace ORA.Controllers
 
         public ActionResult ViewAssessment(int AssessmentID)
         {
-            return View(Assessments.GetAssessmentByAssessmentID(AssessmentID));
+            return View(Assessments.GetAssessmentByID(AssessmentID));
         }
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateAssessment(int AssessmentID)
         {
-            return View(Assessments.GetAssessmentByAssessmentID(AssessmentID));
+            return View(Assessments.GetAssessmentByID(AssessmentID));
         }
 
         [HttpPost]

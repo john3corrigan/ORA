@@ -11,10 +11,10 @@ namespace ORA.App_Start
     using Ninject;
     using Ninject.Web.Common;
 
-    using Lib.InterfacesLogic;
     using Lib.Interfaces;
-    using Repository.Repositories;
+    using Lib.InterfacesLogic;
     using BusinessLogic.ORALogic;
+    using Repository.Repositories;
 
     public static class NinjectWebCommon 
     {
