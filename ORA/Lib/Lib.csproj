@@ -60,6 +60,7 @@
     <Compile Include="EFModels\Sprint.cs" />
     <Compile Include="EFModels\Story.cs" />
     <Compile Include="EFModels\Team.cs" />
+    <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Interfaces\IAssessmentRepository.cs" />
     <Compile Include="Interfaces\IAssignmentRepository.cs" />
     <Compile Include="Interfaces\IClientRepository.cs" />

@@ -16,6 +16,8 @@ namespace Lib.EFModels {
         [Required]
         public string Password { get; set; }
 
+        public byte[] Salt { get; set; }
+
         [Required]
         public string EmployeeName { get; set; }
 

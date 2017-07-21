@@ -6,6 +6,7 @@ namespace Lib.ViewModels {
         public string Title { get; set; }
         public string EmployeeNumber { get; set; }
         public string Password { get; set; }
+        public byte[] Salt { get; set; }
         public string EmployeeName { get; set; }
         public string EmployeeFirstName { get; set; }
         public string EmployeeMI { get; set; }
