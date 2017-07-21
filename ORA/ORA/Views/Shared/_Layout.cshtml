@@ -1,21 +1,23 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/OraStyler.css" rel="stylesheet" type="text/css" />
     @Styles.Render("~/Content/OraStyler.css")
     @Styles.Render("~/Content/bootstrap.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body style="height: 100%; overflow:auto; background-color:#f2f2f2" class="Raleway" >
     @*for the header/moved coding for 'login/signup'*@
     <div class="wrapper">
         <div class="wrapper_inner">
             <header class="fixed">
                 <div class="container">
-                    <div class="clearfix navbar_top_bottom_holder">
-                        <div class="navbar_top">
+                    <div class="clearfix header_top_bottom_holder">
+                        <div class="header_top">
                             <div class="container">
                                 <div class="container_inner">
                                     <div class="left">
@@ -43,23 +45,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="navbar_bottom">
+                        <div class="header_bottom">
                             <div class="container">
                                 <div class="container_inner clearfix">
-                                    <div class="navbar_left">
+                                    <div class="header_left">
                                         <div style="height:100px">
                                             <a href="~/Home/Index">
                                                 <img style="height:100px" src="http://www.onshoreoutsourcing.com/wp-content/uploads/2017/04/oo_web360px.png" alt="Logo" onclick="" />
                                             </a>
                                         </div>
                                     </div>
-                                    <div class=" navbar_right">
+                                    <nav class=" header_right right">
                                         <ul class="list-inline">
                                             <li>@Html.ActionLink("About", "About", "Home")</li>
                                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                                             @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
                                             @*@if (Session[""] != null)
-                                                {*@
+            {*@
                                             <li class="dropdown">
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Report</span>
@@ -79,7 +81,7 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
@@ -87,16 +89,18 @@
                 </div>
                 <hr />
             </header>
-            <div class="container body-content" style="padding-top: 163px;">
-                @RenderBody()
+            <div style="background-color: #f2f2f2; height:100%">
+                <div class="container body-content" style="padding-top: 163px; ">
+                    @RenderBody()
+                </div>
             </div>
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
         </div>
     </div>
+    <footer class =" fixed" style="background-color:#093559; color:white;">
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @RenderSection("scripts", required: false)
 </body>
 </html>

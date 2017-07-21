@@ -52,6 +52,7 @@ video {
 }
 
 html {
+    height:100%;
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -325,7 +326,7 @@ html {
 }
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 14px;
     line-height: 1.428571429;
     color: #333333;
@@ -415,7 +416,7 @@ hr {
 }
 
 p {
-    margin: 0 0 10px;
+    margin: 0px;
 }
 
 .lead {
@@ -487,7 +488,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 500;
     line-height: 1.1;
 }
@@ -2214,9 +2215,9 @@ textarea.input-lg {
     }
 
 .btn-default {
-    color: #333333;
-    background-color: #ffffff;
-    border-color: #cccccc;
+    color: #ffffff;
+    background-color: #c12733;
+    border-color: #c12733;
 }
 
     .btn-default:hover,
@@ -2224,9 +2225,9 @@ textarea.input-lg {
     .btn-default:active,
     .btn-default.active,
     .open .dropdown-toggle.btn-default {
-        color: #333333;
-        background-color: #ebebeb;
-        border-color: #adadad;
+        color: #fff;
+        background-color: #C10010;
+        border-color: #C10010;
     }
 
     .btn-default:active,
@@ -2250,8 +2251,8 @@ textarea.input-lg {
     .btn-default.disabled.active,
     .btn-default[disabled].active,
     fieldset[disabled] .btn-default.active {
-        background-color: #ffffff;
-        border-color: #cccccc;
+        background-color: #c12733;
+        border-color: #c12733;
     }
 
 .btn-primary {
@@ -2265,7 +2266,7 @@ textarea.input-lg {
     .btn-primary:active,
     .btn-primary.active,
     .open .dropdown-toggle.btn-primary {
-        color: #ffffff;
+        color: #fff;
         background-color: #C10010;
         border-color: #C10010;
     }
@@ -5120,7 +5121,7 @@ a.list-group-item.active > .badge,
     font-weight: 200;
     line-height: 2.1428571435;
     color: inherit;
-    background-color: #eeeeee;
+    background-color: #dddddd;
 }
 
     .jumbotron h1 {

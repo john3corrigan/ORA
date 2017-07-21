@@ -1,11 +1,14 @@
-﻿body, .wrapper
-{
+﻿@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body, .wrapper {
     background-color:#ffffff;
 }
 
 body {
+    font-family: 'Raleway',sans-serif;
     margin: 0;
 }
+
 
 .navbar_top{
     z-index:111;
@@ -15,23 +18,36 @@ body {
     font-size:13px;
     position:relative;
 }
+
 .navbar_bottom{
     padding:0 45px;
     position:relative;
 }
+
 .navbar_left{
     position:relative;
     left:0;
     top:0;
 }
+
 .navbar_right{
     position:relative;
     float:right;
     left:auto;
 }
+
 .navbar_top_bottom_holder{
 
 }
+
+.container {
+    padding: 0;
+    position: relative;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .container_inner {
     width:inherit;
     margin: 0 auto;
@@ -65,15 +81,45 @@ header.fixed{
     padding-top:45px;
 }
 
+.logo{
 
-.container {
-    padding: 0;
-    position: relative;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
 }
 
-.logo{
+footer.fixed {
+    position: absolute;
+    bottom: 0;
+    background-color: #093559;
+    color: white;
+    width:100%;
+}
+
+.footer_top_holder {
+    background-color: #093559;
+    position:relative;
+    display:block;
+}
+
+.footer_top {
+    text-align: left;
+    color: #fff;
+    padding: 72px 0 52px;
+}
+
+.three_columns{
+    width:100%
+}
+.column1 {
+}
+.column2 {
+}
+.column3 {
+}
+.footer_col1 {
+
+}
+.footer_col2 {
+
+}
+.footer_col3 {
 
 }
