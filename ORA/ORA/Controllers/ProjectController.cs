@@ -4,13 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
-using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class ProjectController : Controller
     {
-        private ProjectLogic projectLogic = new ProjectLogic();
+        private IProjectLogic Projects;
+
+        public ProjectController(IProjectLogic prjct)
+        {
+            Projects = prjct;
+        }
 
         // GET: Project
         public ActionResult Index()
@@ -28,37 +34,37 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult CreateProject(ProjectVM Project)
         {
-            projectLogic.CreateProject(Project);
+            Projects.AddProject(Project);
             return RedirectToAction("", "", new { area = "" });
         }
 
         public ActionResult ViewAllProjects()
         {
-            return View(projectLogic.GetAllProjects());
+            return View(Projects.GetAllProjects());
         }
 
         public ActionResult ViewProject(int ProjectID)
         {
-            return View(projectLogic.GetProjectByProjectID(ProjectID));
+            return View(Projects.GetProjectByID(ProjectID));
         }
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateProject(int ProjectID)
         {
-            return View(projectLogic.GetProjectByProjectID(ProjectID));
+            return View(Projects.GetProjectByID(ProjectID));
         }
 
         [HttpPost]
         public ActionResult UpdateProject(ProjectVM updatedProject)
         {
-            projectLogic.UpdateProject(updatedProject);
+            Projects.UpdateProject(updatedProject);
             return RedirectToAction("", "", new { area = "" });
         }
 
         public ActionResult DeleteProject(int ProjectID)
         {
-            projectLogic.DeleteProject(ProjectID);
+            Projects.DeleteProject(ProjectID);
             return RedirectToAction("", "", new { area = "" });
         }
     }

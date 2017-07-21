@@ -9,9 +9,9 @@ namespace Lib.InterfacesLogic
 {
     public interface IAssessmentLogic
     {
-        AssessmentVM GetAssessmentByAssessmentID(int assessmentID);
+        AssessmentVM GetAssessmentByID(int assessmentID);
         List<AssessmentVM> GetAllAssessments();
-        void CreateAssessment(AssessmentVM assessment);
+        void AddAssessment(AssessmentVM assessment);
         void UpdateAssessment(AssessmentVM updatedAssessment);
     }
 }

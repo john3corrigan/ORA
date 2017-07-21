@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
 using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class AssignmentLogic
+    public class AssignmentLogic : IAssignmentLogic
     {
         private IAssignmentRepository Assignments;
 
@@ -18,24 +19,24 @@ namespace BusinessLogic.ORALogic
             Assignments = assign;
         }
 
-        public AssignmentVM GetAssignmentByAssignmentID(int assignmentID)
+        public AssignmentVM GetAssignmentByID(int assignmentID)
         {
-            throw new NotImplementedException();
+            return Assignments.GetAssignmentByID(assignmentID);
         }
 
-        public void CreateAssignment(AssignmentVM assignment)
+        public void AddAssignment(AssignmentVM assignment)
         {
-            throw new NotImplementedException();
+            Assignments.AddAssignment(assignment);
         }
 
         public List<AssignmentVM> GetAllAssignments()
         {
-            throw new NotImplementedException();
+            return Assignments.GetAllAssignments();
         }
 
         public void UpdateAssignment(AssignmentVM updatedAssignment)
         {
-            throw new NotImplementedException();
+            Assignments.UpdateAssignment(updatedAssignment);
         }
     }
 }

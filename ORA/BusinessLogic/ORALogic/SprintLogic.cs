@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Lib.Interfaces;
 using Lib.ViewModels;
-using Repository.Repositories;
-using Lib.Interfaces;
+using System;
+using System.Collections.Generic;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class SprintLogic
+    public class SprintLogic : ISprintLogic
     {
         private ISprintRepository Sprints;
 
@@ -18,29 +15,29 @@ namespace BusinessLogic.ORALogic
             Sprints = sprnt;
         }
 
-        public SprintVM GetSprintBySprintID(int SprintID)
+        public SprintVM GetSprintByID(int sprintID)
         {
-            throw new NotImplementedException();
+            return Sprints.GetSprintByID(sprintID);
         }
 
         public void UpdateSprint(SprintVM updatedSprint)
         {
-            throw new NotImplementedException();
+            Sprints.UpdateSprint(updatedSprint);
         }
 
         public void DeleteSprint(int sprintID)
         {
-            throw new NotImplementedException();
+            Sprints.DeleteSprint(Sprints.GetSprintByID(sprintID));
         }
 
-        public void CreateSprint(SprintVM sprint)
+        public void AddSprint(SprintVM newSprint)
         {
-            throw new NotImplementedException();
+            Sprints.AddSprint(newSprint);
         }
 
         public List<SprintVM> GetAllSprints()
         {
-            throw new NotImplementedException();
+            return Sprints.GetAllSprints();
         }
     }
 }

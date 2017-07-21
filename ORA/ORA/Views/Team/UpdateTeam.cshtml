@@ -22,9 +22,10 @@
             </div>
             <div>
                 @Html.DisplayFor(m => m.Client)
-                @Html.DropDownListFor(m => m.Client)
+                @Html.DropDownListFor(m => m.Client, new SelectList(Enum.GetValues(typeof(ClientVM))), "Select Client", new { @class = "form-control" })
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
+            @Html.HiddenFor(m => m.TeamID, new { Value = Model.TeamID })
             @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.Metadata.Modified, new { @Value = DateTime.Now })
             <input type="submit" value="Submit" />

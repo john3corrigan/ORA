@@ -5,12 +5,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class ClientController : Controller
     {
-        private ClientLogic clientLogic = new ClientLogic();
+        private IClientLogic Clients;
+
+        public ClientController(IClientLogic clnts)
+        {
+            Clients = clnts;
+        }
 
         // GET: Client
         public ActionResult Index()
@@ -28,7 +35,7 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult AddClient(ClientVM Client)
         {
-            clientLogic.AddClient(Client);
+            Clients.AddClient(Client);
             return RedirectToAction("", "", new { area = "" });
         }
 
@@ -36,31 +43,31 @@ namespace ORA.Controllers
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateClient(int ClientID)
         {
-            return View(clientLogic.GetClientByClientID(ClientID));
+            return View(Clients.GetClientByID(ClientID));
         }
 
         [HttpPost]
         public ActionResult UpdateClient(ClientVM updatedClient)
         {
-            clientLogic.UpdateClient(updatedClient);
+            Clients.UpdateClient(updatedClient);
             return View("");
         }
 
         public ActionResult ViewClient(int AssignmentID)
         {
-            return View(clientLogic.GetClientByClientID(AssignmentID));
+            return View(Clients.GetClientByID(AssignmentID));
         }
 
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult ViewAllClients()
         {
-            return View(clientLogic.GetAllClients());
+            return View(Clients.GetAllClients());
         }
 
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult DeleteClient(int ClientID)
         {
-            clientLogic.DeleteClient(ClientID);
+            Clients.RemoveClient(ClientID);
             return View("");
         }
     }

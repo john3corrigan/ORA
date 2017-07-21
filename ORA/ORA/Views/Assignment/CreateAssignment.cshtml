@@ -1,4 +1,5 @@
 ﻿@model Lib.ViewModels.AssignmentVM
+    @using Lib.ViewModels
 @{
     ViewBag.Title = "CreateAssignment";
 }
@@ -25,29 +26,29 @@
             <font>@Html.ValidationMessageFor(m => m.EndDate)</font>>
             </div>
             <div>
-            @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-            @Html.DropDownListFor(m => m.Client, new { @class = "" })
-            <font>@Html.ValidationMessageFor(m => m.Client)</font>>
+                @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Client, new SelectList(Enum.GetValues(typeof(ClientVM))), "Select Client", new { @class = "form-control" })
+                <font>@Html.ValidationMessageFor(m => m.Client)</font>>
             </div>
             <div>
-            @Html.LabelFor(m => m.EMployee, new { @class = "LabelFormat" })
-            @Html.DropDownListFor(m => m.EMployee, new { @class = "" })
-            <font>@Html.ValidationMessageFor(m => m.EMployee)</font>>
+                @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Employee, new SelectList(Enum.GetValues(typeof(EmployeeVM))), "Select Employee", new { @class = "form-control" })
+                <font>@Html.ValidationMessageFor(m => m.Employee)</font>>
             </div>
             <div>
-            @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
-            @Html.DropDownListFor(m => m.Position, new { @class = "" })
-            <font>@Html.ValidationMessageFor(m => m.Position)</font>>
+                @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Position, new SelectList(Enum.GetValues(typeof(PositionVM))), "Select Position", new { @class = "form-control" })
+                <font>@Html.ValidationMessageFor(m => m.Position)</font>>
             </div>
             <div>
-            @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
-            @Html.DropDownListFor(m => m.Role, new { @class = "" })
-            <font>@Html.ValidationMessageFor(m => m.Role)</font>>
+                @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Role, new SelectList(Enum.GetValues(typeof(RoleVM))), "Select Role", new { @class = "form-control" })
+                <font>@Html.ValidationMessageFor(m => m.Role)</font>>
             </div>
             <div>
-            @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
-            @Html.DropDownListFor(m => m.Team, new { @class = "" })
-            <font>@Html.ValidationMessageFor(m => m.Team)</font>>
+                @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.Team, new SelectList(Enum.GetValues(typeof(TeamVM))), "Select Team", new { @class = "form-control" })
+                <font>@Html.ValidationMessageFor(m => m.Team)</font>>
             </div>
             @Html.HiddenFor(m => m.Metadata.CreatedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })

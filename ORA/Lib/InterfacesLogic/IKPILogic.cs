@@ -10,8 +10,8 @@ namespace Lib.InterfacesLogic
     public interface IKPILogic
     {
         List<KPIVM> GetAllKPIs();
-        KPIVM GetKPIByKPIID(int KPIID);
-        void CreateKPI(KPIVM KPI);
+        KPIVM GetKPIByID(int KPIID);
+        void AddKPI(KPIVM KPI);
         void UpdateKPI(KPIVM updatedKPI);
     }
 }

@@ -143,7 +143,6 @@
             @Html.TextBoxFor(m => m.ActiveFlag, new { @class = "form-control TextboxFormat" })
             <font color="">@Html.ValidationMessageFor(m => m.ActiveFlag)</font>
         </div>
-        @Html.HiddenFor(m => m.AssignmentID, new { @Value =  (int)TempData["AssignmentID"]})
         @Html.HiddenFor(m => m.Metadata.CreatedBy, new { @Value = Session["Name"] })
         @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
         @Html.HiddenFor(m => m.Metadata.Created, new { @Value = DateTime.Now })

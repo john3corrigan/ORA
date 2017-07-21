@@ -6,41 +6,42 @@ using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
 using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class ClientLogic
+    public class ClientLogic : IClientLogic
     {
         private IClientRepository Clients;
 
-        public ClientLogic(IClientRepository client)
+        public ClientLogic(IClientRepository clnt)
         {
-            Clients = client;
+            Clients = clnt;
         }
 
-        public ClientVM GetClientByClientID(int ClientID)
+        public ClientVM GetClientByID(int ClientID)
         {
-            throw new NotImplementedException();
+            return Clients.GetClientByID(ClientID);
         }
 
         public void UpdateClient(ClientVM updatedClient)
         {
-            throw new NotImplementedException();
+            Clients.UpdateClient(updatedClient);
         }
 
-        public void DeleteClient(int clientID)
+        public void RemoveClient(int clientID)
         {
-            throw new NotImplementedException();
+            Clients.RemoveClient(Clients.GetClientByID(clientID));
         }
 
         public void AddClient(ClientVM client)
         {
-            throw new NotImplementedException();
+            Clients.AddClient(client);
         }
 
         public List<ClientVM> GetAllClients()
         {
-            throw new NotImplementedException();
+            return Clients.GetAllClients();
         }
     }
 }

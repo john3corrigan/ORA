@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
 using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class TeamLogic
+    public class TeamLogic : ITeamLogic
     {
         private ITeamRepository Teams;
 
@@ -20,27 +21,27 @@ namespace BusinessLogic.ORALogic
 
         public void DeleteTeam(int teamID)
         {
-            throw new NotImplementedException();
+            Teams.DeleteTeam(Teams.GetTeamByID(teamID));
         }
 
         public void UpdateTeam(TeamVM updatedTeam)
         {
-            throw new NotImplementedException();
+            Teams.UpdateTeam(updatedTeam);
         }
 
-        public TeamVM GetTeamByTeamID(int teamID)
+        public TeamVM GetTeamByID(int teamID)
         {
-            throw new NotImplementedException();
+            return Teams.GetTeamByID(teamID);
         }
 
         public List<TeamVM> GetAllTeams()
         {
-            throw new NotImplementedException();
+            return Teams.GetAllTeams();
         }
 
-        public void CreateTeam(TeamVM team)
+        public void AddTeam(TeamVM newTeam)
         {
-            throw new NotImplementedException();
+            Teams.AddTeam(newTeam);
         }
     }
 }

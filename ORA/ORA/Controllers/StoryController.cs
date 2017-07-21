@@ -4,13 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class StoryController : Controller
     {
-        private StoryLogic storyLogic = new StoryLogic();
+        private IStoryLogic Stories;
+
+        public StoryController(IStoryLogic stry)
+        {
+            Stories = stry;
+        }
 
         // GET: Story
         public ActionResult Index()
@@ -28,37 +34,37 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult CreateStory(StoryVM Story)
         {
-            storyLogic.CreateStory(Story);
+            Stories.AddStory(Story);
             return RedirectToAction("", "", new { area = "" });
         }
 
         public ActionResult ViewAllStories()
         {
-            return View(storyLogic.GetAllStories());
+            return View(Stories.GetAllStories());
         }
 
         public ActionResult ViewStory(int StoryID)
         {
-            return View(storyLogic.GetStoryByStoryID(StoryID));
+            return View(Stories.GetStoryByID(StoryID));
         }
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateStory(int StoryID)
         {
-            return View(storyLogic.GetStoryByStoryID(StoryID));
+            return View(Stories.GetStoryByID(StoryID));
         }
 
         [HttpPost]
         public ActionResult UpdateStory(StoryVM updatedStory)
         {
-            storyLogic.UpdateStory(updatedStory);
+            Stories.UpdateStory(updatedStory);
             return RedirectToAction("", "", new { area = "" });
         }
 
         public ActionResult DeleteStory(int StoryID)
         {
-            storyLogic.DeleteStory(StoryID);
+            Stories.DeleteStory(StoryID);
             return RedirectToAction("", "", new { area = "" });
         }
     }

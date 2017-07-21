@@ -10,8 +10,8 @@ namespace Lib.InterfacesLogic
     public interface IProjectLogic
     {
         List<ProjectVM> GetAllProjects();
-        ProjectVM GetProjectByProjectID(int projectID);
-        void CreateProject(ProjectVM project);
+        ProjectVM GetProjectByID(int projectID);
+        void AddProject(ProjectVM project);
         void UpdateProject(ProjectVM updatedProject);
         void DeleteProject(int projectID);
     }

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
 using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class AssessmentLogic
+    public class AssessmentLogic : IAssessmentLogic
     {
         private IAssessmentRepository Assessments;
 
@@ -18,24 +19,24 @@ namespace BusinessLogic.ORALogic
             Assessments = assess;
         }
 
-        public void CreateAssessment(AssessmentVM assessment)
+        public void AddAssessment(AssessmentVM assessment)
         {
-            throw new NotImplementedException();
+            Assessments.AddAssessment(assessment);
         }
 
-        public AssessmentVM GetAssessmentByAssessmentID(int assessmentID)
+        public AssessmentVM GetAssessmentByID(int assessmentID)
         {
-            throw new NotImplementedException();
+            return Assessments.GetAssessmentByID(assessmentID);
         }
 
         public List<AssessmentVM> GetAllAssessments()
         {
-            throw new NotImplementedException();
+            return Assessments.GetAllAssessments();
         }
 
         public void UpdateAssessment(AssessmentVM updatedAssessment)
         {
-            throw new NotImplementedException();
+            Assessments.UpdateAssessment(updatedAssessment);
         }
     }
 }

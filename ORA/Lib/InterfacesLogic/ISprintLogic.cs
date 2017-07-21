@@ -10,8 +10,8 @@ namespace Lib.InterfacesLogic
      public interface ISprintLogic
     {
         List<SprintVM> GetAllSprints();
-        SprintVM GetSprintBySprintID(int SprintID);
-        void CreateSprint(SprintVM sprint);
+        SprintVM GetSprintByID(int SprintID);
+        void AddSprint(SprintVM sprint);
         void UpdateSprint(SprintVM updatedSprint);
         void DeleteSprint(int sprintID);
     }

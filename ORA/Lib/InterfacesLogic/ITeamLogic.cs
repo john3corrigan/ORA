@@ -9,9 +9,9 @@ namespace Lib.InterfacesLogic
 {
     public interface ITeamLogic
     {
-        TeamVM GetTeamByTeamID(int teamID);
+        TeamVM GetTeamByID(int teamID);
         List<TeamVM> GetAllTeams();
-        void CreateTeam(TeamVM team);
+        void AddTeam(TeamVM team);
         void DeleteTeam(int teamID);
         void UpdateTeam(TeamVM updatedTeam);
     }

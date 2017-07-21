@@ -9,9 +9,9 @@ namespace Lib.InterfacesLogic
 {
     public interface IAssignmentLogic
     {
-        AssignmentVM GetAssignmentByAssignmentID(int assignmentID);
+        AssignmentVM GetAssignmentByID(int assignmentID);
         List<AssignmentVM> GetAllAssignments();
-        void CreateAssignment(AssignmentVM assignment);
+        void AddAssignment(AssignmentVM assignment);
         void UpdateAssignment(AssignmentVM updatedAssignment);
     }
 }

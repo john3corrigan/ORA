@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
 using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class PositionLogic
+    public class PositionLogic : IPositionLogic
     {
         private IPositionRepository Positions;
 
@@ -17,14 +18,14 @@ namespace BusinessLogic.ORALogic
         {
             Positions = pstn;
         }
-        public PositionVM GetPositionByID(int KPIID)
+        public PositionVM GetPositionByID(int positionID)
         {
-            throw new NotImplementedException();
+            return Positions.GetPositionByID(positionID);
         }
 
         public List<PositionVM> GetAllPositions()
         {
-            throw new NotImplementedException();
+            return Positions.GetAllPositions();
         }
     }
 }

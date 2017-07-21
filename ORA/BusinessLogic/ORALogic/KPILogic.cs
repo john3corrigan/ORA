@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
 using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class KPILogic
+    public class KPILogic : IKPILogic
     {
         private IKPIRepository KPIs;
 
@@ -18,24 +19,24 @@ namespace BusinessLogic.ORALogic
             KPIs = kpi;
         }
 
-        public KPIVM GetKPIByKPIID(int KPIID)
+        public KPIVM GetKPIByID(int Id)
         {
-            throw new NotImplementedException();
+            return KPIs.GetKPIByID(Id);
         }
 
         public List<KPIVM> GetAllKPIs()
         {
-            throw new NotImplementedException();
+            return KPIs.GetAllKPIs();
         }
 
         public void UpdateKPI(KPIVM updatedKPI)
         {
-            throw new NotImplementedException();
+            KPIs.UpdateKPI(updatedKPI);
         }
 
-        public void CreateKPI(KPIVM KPI)
+        public void AddKPI(KPIVM newKPI)
         {
-            throw new NotImplementedException();
+            KPIs.AddKPI(newKPI);
         }
     }
 }

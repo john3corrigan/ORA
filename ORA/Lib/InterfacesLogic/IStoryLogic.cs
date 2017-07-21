@@ -10,9 +10,9 @@ namespace Lib.InterfacesLogic
     public interface IStoryLogic
     {
         List<StoryVM> GetAllStories();
-        StoryVM GetStoryByStoryID(int StoryID);
+        StoryVM GetStoryByID(int StoryID);
         void UpdateStory(StoryVM updatedStory);
         void DeleteStory(int storyID);
-        void CreateStory(StoryVM story);
+        void AddStory(StoryVM story);
     }
 }

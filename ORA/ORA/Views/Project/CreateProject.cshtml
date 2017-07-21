@@ -1,4 +1,5 @@
 ﻿@model Lib.ViewModels.ProjectVM
+    @using Lib.ViewModels
 @{
     ViewBag.Title = "CreateProject";
 }
@@ -36,7 +37,7 @@
             </div>
             <div>
                 @Html.DisplayFor(m => m.Client)
-                @Html.DropDownListFor(m => m.Client)
+                @Html.DropDownListFor(m => m.Client, new SelectList(Enum.GetValues(typeof(ClientVM))), "Select Client", new { @class = "form-control" })
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             @Html.HiddenFor(m => m.Metadata.CreatedBy, new { @Value = Session["Name"] })

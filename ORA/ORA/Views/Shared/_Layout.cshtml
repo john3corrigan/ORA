@@ -22,15 +22,12 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
-                    @if (Session["Name"] != null)
-                    {
                         <li>
                             <div>
                                 <div>
                                     <ul>
-                                        <li>@Html.ActionLink("Report A", "", "")</li>
-                                        <li>@Html.ActionLink("Report B", "", "")</li>
+                                        <li>@Html.ActionLink("Create Assignment", "CreateAssignment", "Assignment")</li>
+                                        <li>@Html.ActionLink("View All Assignments", "ViewAllAssignments", "Assignment")</li>
                                     </ul>
                                 </div>
                             </div>
@@ -45,13 +42,8 @@
                                 </div>
                             </div>
                         </li>
-                            <li>@Html.ActionLink(Session["Name"].ToString(), "Index", "Account")</li>
                             <li>@Html.ActionLink("Log-Out", "LogOut", "Account")</li>
-                    }
-                    else
-                    {
                         <li>@Html.ActionLink("Log-In", "Login", "Account")</li>
-                    }
                 </ul>
             </div>
         </div>

@@ -10,9 +10,9 @@ namespace Lib.InterfacesLogic
     public interface IClientLogic
     {
         List<ClientVM> GetAllClients();
-        ClientVM GetClientByClientID(int ClientID);
+        ClientVM GetClientByID(int ClientID);
         void AddClient(ClientVM client);
         void UpdateClient(ClientVM updatedClient);
-        void DeleteClient(int clientID);
+        void RemoveClient(int clientID);
     }
 }

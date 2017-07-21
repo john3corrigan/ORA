@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
 using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class EmployeeLogic
+    public class EmployeeLogic : IEmployeeLogic
     {
         private IEmployeeRepository Employees;
 
@@ -17,15 +18,14 @@ namespace BusinessLogic.ORALogic
         {
             Employees = emply;
         }
-        private EmployeeRepository repository = new EmployeeRepository();
         public void AddEmployee(EmployeeVM Employee)
         {
-            repository.AddEmployee(Employee);
+            Employees.AddEmployee(Employee);
         }
 
         public EmployeeVM Login(EmployeeVM Employee)
         {
-            foreach(EmployeeVM value in repository.GetAllEmployees())
+            foreach(EmployeeVM value in Employees.GetAllEmployees())
             {
                 if(value.EmployeeNumber == Employee.EmployeeNumber)
                 {
@@ -40,17 +40,17 @@ namespace BusinessLogic.ORALogic
 
         public List<EmployeeVM> ViewAllEmployees()
         {
-            throw new NotImplementedException();
+           return Employees.GetAllEmployees();
         }
 
-        public EmployeeVM GetEmployeeByEmployeeID(int employeeID)
+        public EmployeeVM GetEmployeeByID(int employeeID)
         {
-            throw new NotImplementedException();
+            return Employees.GetEmployeeByID(employeeID);
         }
 
         public void UpdateEmployee(EmployeeVM updatedEmployee)
         {
-            throw new NotImplementedException();
+            Employees.UpdateEmployee(updatedEmployee);
         }
 
         public void DisableEmployee(int employeeID)

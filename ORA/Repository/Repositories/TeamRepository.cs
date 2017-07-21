@@ -9,7 +9,7 @@ using Lib.Interfaces;
 using AutoMapper;
 
 namespace Repository.Repositories {
-    public class TeamRepository : BaseRespository<Team, TeamVM>{
+    public class TeamRepository : BaseRespository<Team, TeamVM>, ITeamRepository{
         public TeamRepository() : base() { }
 
         public List<TeamVM> GetAllTeams() {
