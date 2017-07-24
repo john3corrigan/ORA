@@ -10,7 +10,7 @@ namespace Lib.InterfacesLogic
     public interface IEmployeeLogic
     {
         EmployeeVM Login(EmployeeVM Employee);
-        List<EmployeeVM> ViewAllEmployees();
+        List<EmployeeVM> GetAllEmployees();
         EmployeeVM GetEmployeeByID(int employeeID);
         void AddEmployee(EmployeeVM Employee);
         void UpdateEmployee(EmployeeVM updatedEmployee);

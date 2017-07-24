@@ -13,7 +13,6 @@ namespace ORA.Controllers
     public class AssignmentController : Controller
     {
         private IAssignmentLogic Assignments;
-
         public AssignmentController(IAssignmentLogic assign)
         {
             Assignments = assign;

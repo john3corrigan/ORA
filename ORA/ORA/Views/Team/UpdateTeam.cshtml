@@ -21,8 +21,10 @@
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.TeamName)</font>
             </div>
             <div>
-                @Html.DisplayFor(m => m.Client)
-                @Html.DropDownListFor(m => m.Client, new SelectList(Enum.GetValues(typeof(ClientVM))), "Select Client", new { @class = "form-control" })
+                @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
+                <div id="Client">
+                    <script>$(document).ready(DropDown("Client", "/Function/GetClients"))</script>
+                </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             @Html.HiddenFor(m => m.TeamID, new { Value = Model.TeamID })

@@ -38,7 +38,7 @@ namespace BusinessLogic.ORALogic
             return null;
         }
 
-        public List<EmployeeVM> ViewAllEmployees()
+        public List<EmployeeVM> GetAllEmployees()
         {
            return Employees.GetAllEmployees();
         }

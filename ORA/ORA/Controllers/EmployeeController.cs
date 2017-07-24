@@ -27,7 +27,7 @@ namespace ORA.Controllers
 
         public ActionResult ViewAllEmployees()
         {
-            return View(Employees.ViewAllEmployees());
+            return View(Employees.GetAllEmployees());
         }
 
         public ActionResult ViewEmployee(int EmployeeID)

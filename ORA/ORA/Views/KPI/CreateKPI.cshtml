@@ -86,23 +86,31 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Assignment, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.Assignment, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.Assignment)</font>
+                <div id="Assignment">
+                    <script>$(document).ready(DropDown("Assignment", "/Function/GetAssignments"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Assignment)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Project, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.Project, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.Project)</font>
+                <div id="Project">
+                    <script>$(document).ready(DropDown("Project", "/Function/GetProjects"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Project)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Sprint, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.Sprint, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.Sprint)</font>
+                <div id="Sprint">
+                    <script>$(document).ready(DropDown("Sprint", "/Function/GetSprints"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Sprint)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Story, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.Story, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.Story)</font>
+                <div id="Story">
+                    <script>$(document).ready(DropDown("Story", "/Function/GetStorys"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
             </div>
             @Html.HiddenFor(m => m.Metadata.CreatedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
