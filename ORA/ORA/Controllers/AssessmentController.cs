@@ -34,7 +34,7 @@ namespace ORA.Controllers
         public ActionResult CreateAssessment(AssessmentVM Assessment)
         {
             Assessments.AddAssessment(Assessment);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewAllAssessments()
@@ -58,7 +58,7 @@ namespace ORA.Controllers
         public ActionResult UpdateAssessment(AssessmentVM updatedAssessment)
         {
             Assessments.UpdateAssessment(updatedAssessment);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
         public JsonResult GetAssessments()
         {

@@ -35,7 +35,7 @@ namespace ORA.Controllers
         public ActionResult CreateSprint(SprintVM Sprint)
         {
             Sprints.AddSprint(Sprint);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewAllSprints()
@@ -59,13 +59,13 @@ namespace ORA.Controllers
         public ActionResult UpdateSprint(SprintVM updatedSprint)
         {
             Sprints.UpdateSprint(updatedSprint);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult DeleteSprint(int SprintID)
         {
             Sprints.DeleteSprint(SprintID);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
         public JsonResult GetSprints()
         {

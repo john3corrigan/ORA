@@ -36,7 +36,7 @@ namespace ORA.Controllers
         public ActionResult AddClient(ClientVM Client)
         {
             Clients.AddClient(Client);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         [HttpGet]
@@ -50,7 +50,7 @@ namespace ORA.Controllers
         public ActionResult UpdateClient(ClientVM updatedClient)
         {
             Clients.UpdateClient(updatedClient);
-            return View("");
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewClient(int AssignmentID)
@@ -68,7 +68,7 @@ namespace ORA.Controllers
         public ActionResult DeleteClient(int ClientID)
         {
             Clients.RemoveClient(ClientID);
-            return View("");
+            return View();
         }
         public JsonResult GetClients()
         {

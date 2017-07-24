@@ -35,7 +35,7 @@ namespace ORA.Controllers
         public ActionResult CreateTeam(TeamVM Team)
         {
             Teams.AddTeam(Team);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewAllTeams()
@@ -59,13 +59,13 @@ namespace ORA.Controllers
         public ActionResult UpdateTeam(TeamVM updatedTeam)
         {
             Teams.UpdateTeam(updatedTeam);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult DeleteTeam(int TeamID)
         {
             Teams.DeleteTeam(TeamID);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
         public JsonResult GetTeams()
         {

@@ -35,8 +35,8 @@
                 <font>@Html.ValidationMessageFor(m => m.StoryEndDate)</font>
             </div>
             @Html.HiddenFor(m => m.ClientID, new { Value = Model.ClientID })
-            @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
-            @Html.HiddenFor(m => m.Metadata.Modified, new { @Value = DateTime.Now })
+            @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
             <input type="submit" value="Submit" />
         </div>
     </div>

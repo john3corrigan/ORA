@@ -35,7 +35,7 @@ namespace ORA.Controllers
         public ActionResult CreateStory(StoryVM Story)
         {
             Stories.AddStory(Story);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewAllStories()
@@ -59,13 +59,13 @@ namespace ORA.Controllers
         public ActionResult UpdateStory(StoryVM updatedStory)
         {
             Stories.UpdateStory(updatedStory);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult DeleteStory(int StoryID)
         {
             Stories.DeleteStory(StoryID);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
         public JsonResult GetStories()
         {

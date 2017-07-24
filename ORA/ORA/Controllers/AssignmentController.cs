@@ -34,7 +34,7 @@ namespace ORA.Controllers
         public ActionResult CreateAssignment(AssignmentVM Assignment)
         {
             Assignments.AddAssignment(Assignment);
-            return RedirectToAction("ViewAssignments", "Assignments", new { area = ""});
+            return RedirectToAction("Dashboard", "Home", new { area = ""});
         }
 
         public ActionResult ViewAllAssigments()
@@ -58,7 +58,7 @@ namespace ORA.Controllers
         public ActionResult UpdateAssigments(AssignmentVM updatedAssignment)
         {
             Assignments.UpdateAssignment(updatedAssignment);
-            return RedirectToAction("ViewAssignments", "Assignments", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
         public JsonResult GetAssignments()
         {

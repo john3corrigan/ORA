@@ -1,5 +1,5 @@
 ﻿@model Lib.ViewModels.EmployeeVM
-    @using Lib.ViewModels
+@using Lib.ViewModels
 @{
     ViewBag.Title = "UpdateEmployee";
 }
@@ -40,8 +40,8 @@
             <font color="">@Html.ValidationMessageFor(m => m.EmployeeLastName)</font>
         </div>
         @Html.HiddenFor(m => m.EmployeeID, new { Value = Model.EmployeeID })
-        @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
-        @Html.HiddenFor(m => m.Metadata.Modified, new { @Value = DateTime.Now })
+        @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
+        @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
         <input type="submit" value="Update" />
     </div>
 }

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Lib.ViewModels;
 using Lib.Interfaces;
 using Lib.Helpers;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class EmployeeLogic
+    public class EmployeeLogic : IEmployeeLogic
     {
         private IEmployeeRepository Employees;
 
@@ -38,22 +39,22 @@ namespace BusinessLogic.ORALogic
             return null;
         }
 
-        public List<EmployeeVM> ViewAllEmployees()
+        public List<EmployeeVM> GetAllEmployees()
         {
-            throw new NotImplementedException();
+            return Employees.GetAllEmployees();
         }
 
-        public EmployeeVM GetEmployeeByEmployeeID(int employeeID)
+        public EmployeeVM GetEmployeeByID(int employeeID)
         {
-            throw new NotImplementedException();
+            return Employees.GetEmployeeByID(employeeID);
         }
 
         public void UpdateEmployee(EmployeeVM updatedEmployee)
         {
-            throw new NotImplementedException();
+            Employees.UpdateEmployee(updatedEmployee);
         }
 
-        public void DieableEmployee(int employeeID)
+        public void DisableEmployee(int employeeID)
         {
             throw new NotImplementedException();
         }

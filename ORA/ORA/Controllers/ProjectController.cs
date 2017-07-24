@@ -35,7 +35,7 @@ namespace ORA.Controllers
         public ActionResult CreateProject(ProjectVM Project)
         {
             Projects.AddProject(Project);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewAllProjects()
@@ -59,13 +59,13 @@ namespace ORA.Controllers
         public ActionResult UpdateProject(ProjectVM updatedProject)
         {
             Projects.UpdateProject(updatedProject);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult DeleteProject(int ProjectID)
         {
             Projects.DeleteProject(ProjectID);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
         
         public JsonResult GetProjects()

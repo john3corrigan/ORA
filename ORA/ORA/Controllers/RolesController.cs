@@ -34,7 +34,7 @@ namespace ORA.Controllers
         public ActionResult AddRole(RoleVM Role)
         {
             Roles.AddRole(Role);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         [HttpGet]
@@ -48,7 +48,7 @@ namespace ORA.Controllers
         public ActionResult UpdateRole(RoleVM updatedRole)
         {
             Roles.UpdateRole(updatedRole);
-            return View("");
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewRole(int AssignmentID)
@@ -66,7 +66,7 @@ namespace ORA.Controllers
         public ActionResult DeleteRole(int RoleID)
         {
             Roles.DeleteRole(RoleID);
-            return View("");
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
         public JsonResult GetRoles()
         {

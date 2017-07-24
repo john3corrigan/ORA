@@ -45,7 +45,7 @@ namespace ORA.Controllers
         public ActionResult UpdateKPI(KPIVM updatedKPI)
         {
             KPIs.UpdateKPI(updatedKPI);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         [HttpGet]
@@ -59,7 +59,7 @@ namespace ORA.Controllers
         public ActionResult CreateKPI(KPIVM KPI)
         {
             KPIs.AddKPI(KPI);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
         public JsonResult GetKPIs()
         {

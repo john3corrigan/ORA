@@ -45,7 +45,7 @@ namespace ORA.Controllers
         public ActionResult AddEmployee(EmployeeVM Employee)
         {
             Employees.AddEmployee(Employee);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         [HttpGet]
@@ -59,7 +59,7 @@ namespace ORA.Controllers
         public ActionResult UpdateEmployee(EmployeeVM updatedEmployee)
         {
             Employees.UpdateEmployee(updatedEmployee);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         [HttpPost]
@@ -67,7 +67,7 @@ namespace ORA.Controllers
         public ActionResult DisableEmployee(int EmployeeID)
         {
             Employees.DisableEmployee(EmployeeID);
-            return RedirectToAction("", "", new { area = "" });
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
         public JsonResult GetEmployees()
         {
