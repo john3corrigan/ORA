@@ -4,56 +4,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
-using Repository.Repositories;
 using Lib.Interfaces;
-using Lib.InterfacesLogic;
+using Lib.Helpers;
 
 namespace BusinessLogic.ORALogic
 {
-    public class EmployeeLogic : IEmployeeLogic
+    public class EmployeeLogic
     {
         private IEmployeeRepository Employees;
 
-        public EmployeeLogic(IEmployeeRepository emply)
-        {
-            Employees = emply;
-        }
-        public void AddEmployee(EmployeeVM Employee)
-        {
-            Employees.AddEmployee(Employee);
+        public EmployeeLogic(IEmployeeRepository repo) {
+            Employees = repo;
         }
 
-        public EmployeeVM Login(EmployeeVM Employee)
+        public void AddEmployee(EmployeeVM employee)
         {
-            foreach(EmployeeVM value in Employees.GetAllEmployees())
-            {
-                if(value.EmployeeNumber == Employee.EmployeeNumber)
-                {
-                    if (value.Password == Employee.Password)
-                    {
-                        return value;
-                    }
-                }
+            employee.Salt = HashHelper.GetSalt();
+            employee.Password = HashHelper.ComputeHash(employee.Password, employee.Salt);
+            Employees.AddEmployee(employee);
+        }
+
+        public EmployeeVM Login(EmployeeVM employee)
+        {
+            EmployeeVM emp = Employees.GetAllEmployees().Where(e => e.EmployeeNumber == employee.EmployeeNumber).FirstOrDefault();
+            
+            if(emp == null) {
+                return null;
+            }
+
+            if (HashHelper.CheckHash(emp.Password, employee.Password, emp.Salt)) {
+                return emp;
             }
             return null;
         }
 
-        public List<EmployeeVM> GetAllEmployees()
+        public List<EmployeeVM> ViewAllEmployees()
         {
-           return Employees.GetAllEmployees();
+            throw new NotImplementedException();
         }
 
-        public EmployeeVM GetEmployeeByID(int employeeID)
+        public EmployeeVM GetEmployeeByEmployeeID(int employeeID)
         {
-            return Employees.GetEmployeeByID(employeeID);
+            throw new NotImplementedException();
         }
 
         public void UpdateEmployee(EmployeeVM updatedEmployee)
         {
-            Employees.UpdateEmployee(updatedEmployee);
+            throw new NotImplementedException();
         }
 
-        public void DisableEmployee(int employeeID)
+        public void DieableEmployee(int employeeID)
         {
             throw new NotImplementedException();
         }

@@ -53,13 +53,13 @@
     <Compile Include="EFModels\Client.cs" />
     <Compile Include="EFModels\Employee.cs" />
     <Compile Include="EFModels\KPI.cs" />
-    <Compile Include="EFModels\MetaData.cs" />
     <Compile Include="EFModels\Position.cs" />
     <Compile Include="EFModels\Project.cs" />
     <Compile Include="EFModels\Role.cs" />
     <Compile Include="EFModels\Sprint.cs" />
     <Compile Include="EFModels\Story.cs" />
     <Compile Include="EFModels\Team.cs" />
+    <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="InterfacesLogic\IAssessmentLogic.cs" />
     <Compile Include="InterfacesLogic\IAssignmentLogic.cs" />
     <Compile Include="InterfacesLogic\IClientLogic.cs" />
@@ -88,7 +88,6 @@
     <Compile Include="ViewModels\ClientVM.cs" />
     <Compile Include="ViewModels\EmployeeVM.cs" />
     <Compile Include="ViewModels\KPIVM.cs" />
-    <Compile Include="ViewModels\MetadataVM.cs" />
     <Compile Include="ViewModels\PositionVM.cs" />
     <Compile Include="ViewModels\ProjectVM.cs" />
     <Compile Include="ViewModels\RoleVM.cs" />

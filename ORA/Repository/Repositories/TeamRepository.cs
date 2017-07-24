@@ -7,13 +7,14 @@ using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
 using AutoMapper;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class TeamRepository : BaseRespository<Team, TeamVM>, ITeamRepository{
-        public TeamRepository() : base() { }
+    public class TeamRepository : BaseRespository<Team>{
+        public TeamRepository() : base(new RepositoryContext("ora")) { }
 
         public List<TeamVM> GetAllTeams() {
-            return Mapper.Map<List<TeamVM>>(dbset.Include("Metadata").Include("Assignment"));
+            return Mapper.Map<List<TeamVM>>(DbSet.Include("Metadata").Include("Assignment"));
         }
 
         public TeamVM GetTeamByID(int id) {

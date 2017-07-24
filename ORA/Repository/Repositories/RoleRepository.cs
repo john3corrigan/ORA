@@ -7,27 +7,42 @@ using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
 using AutoMapper;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class RoleRepository : BaseRespository<Role, RoleVM>, IRoleRepository {
-        public RoleRepository() : base() { }
+    public class RoleRepository : BaseRespository<Role>, IRoleRepository {
+        private MapperConfiguration config;
+        public RoleRepository() : base(new RepositoryContext("ora")) {
+            InitMap();
+        }
+
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Role, RoleVM>();
+                cfg.CreateMap<RoleVM, Role>();
+            });
+        }
 
         public List<RoleVM> GetAllRoles() {
-            return Mapper.Map<List<RoleVM>>(dbset.Include("Metadata").Include("Assignment"));
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<RoleVM>>(DbSet.Include("Metadata").Include("Assignment"));
         }
 
         public RoleVM GetRoleByID(int id) {
             var role = GetAllRoles().Where(r => r.RoleID == id).FirstOrDefault();
-            return Mapper.Map<RoleVM>(role);
+            var mapper = config.CreateMapper();
+            return mapper.Map<RoleVM>(role);
         }
 
         public void AddRole(RoleVM role) {
-            Add(Mapper.Map<Role>(role));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Role>(role));
             Save();
         }
 
         public void UpdateRole(RoleVM role) {
-            Update(Mapper.Map<Role>(role));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Role>(role));
             Save();
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace Lib.ViewModels {
     public class EmployeeVM {
@@ -6,13 +7,16 @@ namespace Lib.ViewModels {
         public string Title { get; set; }
         public string EmployeeNumber { get; set; }
         public string Password { get; set; }
+        public byte[] Salt { get; set; }
         public string EmployeeName { get; set; }
         public string EmployeeFirstName { get; set; }
         public string EmployeeMI { get; set; }
         public string EmployeeLastName { get; set; }
         public bool ActiveFlag { get; set; }
         public List<AssignmentVM> Assignments { get; set; }
-        public int MetadataID { get; set; }
-        public MetadataVM Metadata { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

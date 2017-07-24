@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +16,8 @@ namespace Lib.EFModels {
         [PasswordPropertyText]
         [Required]
         public string Password { get; set; }
+
+        public byte[] Salt { get; set; }
 
         [Required]
         public string EmployeeName { get; set; }
@@ -34,7 +37,9 @@ namespace Lib.EFModels {
 
         public virtual ICollection<Assignment> Assignments { get; set; }
 
-        public int MetadataID { get; set; }
-        public virtual Metadata Metadata { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

@@ -7,14 +7,15 @@ using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
 using AutoMapper;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class AssignmentRepository : BaseRespository<Assignment, AssignmentVM>, IAssignmentRepository {
+    public class AssignmentRepository : BaseRespository<Assignment>, IAssignmentRepository {
 
-        public AssignmentRepository() : base() { }
+        public AssignmentRepository() : base(new RepositoryContext("ora")) { }
 
         public List<AssignmentVM> GetAllAssignments() {
-            return Mapper.Map<List<AssignmentVM>>(dbset.Include("Assessment")
+            return Mapper.Map<List<AssignmentVM>>(DbSet.Include("Assessment")
                                                        .Include("KPI")
                                                        .Include("Metadata"));
         }

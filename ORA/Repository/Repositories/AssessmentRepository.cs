@@ -7,14 +7,16 @@ using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
 using AutoMapper;
+using System.Data.Entity;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class AssessmentRepository : BaseRespository<Assessment, AssessmentVM>, IAssessmentRepository {
+    public class AssessmentRepository : BaseRespository<Assessment>, IAssessmentRepository {
 
-        public AssessmentRepository() : base() { }
+        public AssessmentRepository() : base(new RepositoryContext("ora")) { }
          
         public AssessmentVM GetAssessmentByID(int id) {
-            var assessment = dbset.Include("Metadata").Where(a => a.AssessmentID == id).FirstOrDefault();
+            var assessment = DbSet.Include("Metadata").Where(a => a.AssessmentID == id).FirstOrDefault();
             return Mapper.Map<AssessmentVM>(assessment);
         }
 
