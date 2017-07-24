@@ -13,8 +13,14 @@ namespace Repository.Repositories {
     public class ProjectRepository : BaseRespository<Project>, IProjectRepository {
         public ProjectRepository() : base(new RepositoryContext("ora")) { }
 
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Project, ProjectVM>().ReverseMap();
+            });
+        }
+
         public List<ProjectVM> GetAllProjects() {
-            return Mapper.Map<List<ProjectVM>>(DbSet.Include("Metadata").Include("KPI"));
+            return Mapper.Map<List<ProjectVM>>(DbSet.Include("KPI"));
         }
 
         public ProjectVM GetProjectByID(int id) {

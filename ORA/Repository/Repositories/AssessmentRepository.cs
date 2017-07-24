@@ -14,9 +14,16 @@ namespace Repository.Repositories {
     public class AssessmentRepository : BaseRespository<Assessment>, IAssessmentRepository {
 
         public AssessmentRepository() : base(new RepositoryContext("ora")) { }
-         
+
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Assessment, AssessmentVM>();
+                cfg.CreateMap<AssessmentVM, Assessment>();
+            });
+        }
+
         public AssessmentVM GetAssessmentByID(int id) {
-            var assessment = DbSet.Include("Metadata").Where(a => a.AssessmentID == id).FirstOrDefault();
+            var assessment = DbSet.Where(a => a.AssessmentID == id).FirstOrDefault();
             return Mapper.Map<AssessmentVM>(assessment);
         }
 

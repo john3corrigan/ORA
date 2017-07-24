@@ -13,6 +13,12 @@ namespace Repository.Repositories {
     public class KPIRepository : BaseRespository<KPI>, IKPIRepository {
         public KPIRepository() : base(new RepositoryContext("ora")) { }
 
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<KPI, KPIVM>().ReverseMap();
+            });
+        }
+
         public List<KPIVM> GetAllKPIs() {
             return Mapper.Map<List<KPIVM>>(GetAll());
         }

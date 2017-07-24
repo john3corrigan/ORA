@@ -18,14 +18,13 @@ namespace Repository.Repositories {
 
         private void InitMap() {
             config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Role, RoleVM>();
-                cfg.CreateMap<RoleVM, Role>();
+                cfg.CreateMap<Role, RoleVM>().ReverseMap();
             });
         }
 
         public List<RoleVM> GetAllRoles() {
             var mapper = config.CreateMapper();
-            return mapper.Map<List<RoleVM>>(DbSet.Include("Metadata").Include("Assignment"));
+            return mapper.Map<List<RoleVM>>(DbSet.Include("Assignment"));
         }
 
         public RoleVM GetRoleByID(int id) {

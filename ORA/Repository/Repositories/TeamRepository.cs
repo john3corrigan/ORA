@@ -13,8 +13,14 @@ namespace Repository.Repositories {
     public class TeamRepository : BaseRespository<Team>{
         public TeamRepository() : base(new RepositoryContext("ora")) { }
 
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Team, TeamVM>().ReverseMap();
+            });
+        }
+
         public List<TeamVM> GetAllTeams() {
-            return Mapper.Map<List<TeamVM>>(DbSet.Include("Metadata").Include("Assignment"));
+            return Mapper.Map<List<TeamVM>>(DbSet.Include("Assignment"));
         }
 
         public TeamVM GetTeamByID(int id) {

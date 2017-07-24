@@ -14,10 +14,15 @@ namespace Repository.Repositories {
 
         public AssignmentRepository() : base(new RepositoryContext("ora")) { }
 
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
+            });
+        }
+
         public List<AssignmentVM> GetAllAssignments() {
             return Mapper.Map<List<AssignmentVM>>(DbSet.Include("Assessment")
-                                                       .Include("KPI")
-                                                       .Include("Metadata"));
+                                                       .Include("KPI"));
         }
 
         public AssignmentVM GetAssignmentByID(int id) {
