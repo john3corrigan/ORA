@@ -7,13 +7,14 @@ using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
 using AutoMapper;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class SprintRepository : BaseRespository<Sprint, SprintVM>, ISprintRepository {
-        public SprintRepository() : base() { }
+    public class SprintRepository : BaseRespository<Sprint>, ISprintRepository {
+        public SprintRepository() : base(new RepositoryContext("ora")) { }
 
         public List<SprintVM> GetAllSprints() {
-            return Mapper.Map<List<SprintVM>>(dbset.Include("Metadata").Include("KPI"));
+            return Mapper.Map<List<SprintVM>>(DbSet.Include("Metadata").Include("KPI"));
         }
 
         public SprintVM GetSprintByID(int id) {

@@ -36,8 +36,9 @@ namespace Lib.EFModels {
 
         public int StoryID { get; set; }
         public virtual Story Story { get; set; }
-
-        public int MetadataID { get; set; }
-        public virtual Metadata Metadata { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

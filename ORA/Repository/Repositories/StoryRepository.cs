@@ -7,13 +7,14 @@ using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
 using AutoMapper;
+using Repository.Context;
 
 namespace Repository.Repositories{
-    public class StoryRepository : BaseRespository<Story, StoryVM>, IStoryRepository {
-        public StoryRepository() : base() { }
+    public class StoryRepository : BaseRespository<Story>, IStoryRepository {
+        public StoryRepository() : base(new RepositoryContext("ora")) { }
 
         public List<StoryVM> GetAllStories() {
-            return Mapper.Map<List<StoryVM>>(dbset.Include("Metadata").Include("KPI"));
+            return Mapper.Map<List<StoryVM>>(DbSet.Include("Metadata").Include("KPI"));
         }
 
         public StoryVM GetStoryByID(int id) {

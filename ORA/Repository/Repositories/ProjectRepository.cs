@@ -7,13 +7,14 @@ using AutoMapper;
 using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class ProjectRepository : BaseRespository<Project, ProjectVM>, IProjectRepository {
-        public ProjectRepository() : base() { }
+    public class ProjectRepository : BaseRespository<Project>, IProjectRepository {
+        public ProjectRepository() : base(new RepositoryContext("ora")) { }
 
         public List<ProjectVM> GetAllProjects() {
-            return Mapper.Map<List<ProjectVM>>(dbset.Include("Metadata").Include("KPI"));
+            return Mapper.Map<List<ProjectVM>>(DbSet.Include("Metadata").Include("KPI"));
         }
 
         public ProjectVM GetProjectByID(int id) {

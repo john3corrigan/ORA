@@ -7,10 +7,11 @@ using AutoMapper;
 using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class KPIRepository : BaseRespository<KPI, KPIVM>, IKPIRepository {
-        public KPIRepository() : base() { }
+    public class KPIRepository : BaseRespository<KPI>, IKPIRepository {
+        public KPIRepository() : base(new RepositoryContext("ora")) { }
 
         public List<KPIVM> GetAllKPIs() {
             return Mapper.Map<List<KPIVM>>(GetAll());

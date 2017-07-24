@@ -19,7 +19,9 @@ namespace Lib.ViewModels {
         public TeamVM Team { get; set; }
         public List<KPIVM> KPIS { get; set; }
         public List<AssessmentVM> Assessments { get; set; }
-        public int MetadataID { get; set; }
-        public MetadataVM Metadata { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

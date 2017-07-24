@@ -7,14 +7,15 @@ using AutoMapper;
 using Lib.ViewModels;
 using Lib.EFModels;
 using Lib.Interfaces;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class ClientRepository : BaseRespository<Client, ClientVM>, IClientRepository {
+    public class ClientRepository : BaseRespository<Client>, IClientRepository {
 
-        public ClientRepository() : base() { }
+        public ClientRepository() : base(new RepositoryContext("ora")) { }
 
         public List<ClientVM> GetAllClients() {
-            return Mapper.Map<List<ClientVM>>(dbset.Include("Metadata")
+            return Mapper.Map<List<ClientVM>>(DbSet.Include("Metadata")
                                                    .Include("Assignment")
                                                    .Include("Story")
                                                    .Include("Project")

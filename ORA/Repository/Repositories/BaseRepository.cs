@@ -1,77 +1,62 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class BaseRespository<TEntity, TEntityVM> : IDisposable where TEntity : class {
-        protected static DbContext context;
-        protected DbSet<TEntity> dbset;
-        protected bool dispose = false;
-        protected Mapper Mapper;
+    public class BaseRespository<TEntity> : IDisposable where TEntity : class {
+        protected RepositoryContext Context;
+        protected DbSet<TEntity> DbSet;
 
-        public BaseRespository() {
-            InitContext();
-            InitMap();
-        }
-
-        private void InitContext() {
-            if (context == null) {
-                context = new DbContext("ora");
-            }
-            if (context != null) {
-                dbset = context.Set<TEntity>();
-            }
-        }
-
-        private void InitMap() {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<TEntity, TEntityVM>().ReverseMap());
-            Mapper = new Mapper(config);
+        public BaseRespository(RepositoryContext context) {
+            Context = context;
+            DbSet = Context.Set<TEntity>();
         }
 
         public virtual IEnumerable<TEntity> GetAll() {
-            return dbset.Include("Metadata").ToList();
+            return DbSet.Include("Metadata").ToList();
         }
 
         public virtual TEntity GetByID(int id) {
-            return dbset.Find(id);
+            return DbSet.Find(id);
         }
 
         public virtual void Add(TEntity entity) {
             if (entity != null) {
-                dbset.Add(entity);
+                DbSet.Add(entity);
             }
         }
 
         public virtual void Update(TEntity entity) {
-            TEntity updatedEntity = dbset.Find(entity);
+            TEntity updatedEntity = DbSet.Find(entity);
             if (updatedEntity != null) {
-                context.Entry(updatedEntity).CurrentValues.SetValues(entity);
+                Context.Entry(updatedEntity).CurrentValues.SetValues(entity);
             }
         }
 
         public virtual void Delete(int id) {
-            TEntity entity = dbset.Find(id);
-            dbset.Remove(entity);
+            TEntity entity = DbSet.Find(id);
+            DbSet.Remove(entity);
         }
 
         public void Save() {
-            context.SaveChanges();
+            Context.SaveChanges();
         }
 
-        protected virtual void Dispose(bool disposing) {
-            if (!dispose) {
-                if (disposing) {
-                    context.Dispose();
+        protected void Dispose(bool disposing) {
+            if (disposing) {
+                if(Context != null) {
+                    Context.Dispose();
+                    Context = null;
                 }
             }
-            dispose = true;
         }
 
         public void Dispose() {
             Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

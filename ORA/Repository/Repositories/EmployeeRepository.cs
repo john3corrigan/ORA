@@ -7,14 +7,15 @@ using AutoMapper;
 using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class EmployeeRepository : BaseRespository<Employee, EmployeeVM>, IEmployeeRepository {
+    public class EmployeeRepository : BaseRespository<Employee>, IEmployeeRepository {
 
-        public EmployeeRepository() : base() { }
+        public EmployeeRepository() : base(new RepositoryContext("ora")) { }
 
         public List<EmployeeVM> GetAllEmployees() {
-            return Mapper.Map<List<EmployeeVM>>(dbset.Include("Metadata").Include("Assignment"));
+            return Mapper.Map<List<EmployeeVM>>(DbSet.Include("Metadata").Include("Assignment"));
         }
 
         public EmployeeVM GetEmployeeByID(int id) {
