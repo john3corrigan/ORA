@@ -14,9 +14,14 @@ namespace Repository.Repositories {
 
         public ClientRepository() : base(new RepositoryContext("ora")) { }
 
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Client, ClientVM>().ReverseMap();
+            });
+        }
+
         public List<ClientVM> GetAllClients() {
-            return Mapper.Map<List<ClientVM>>(DbSet.Include("Metadata")
-                                                   .Include("Assignment")
+            return Mapper.Map<List<ClientVM>>(DbSet.Include("Assignment")
                                                    .Include("Story")
                                                    .Include("Project")
                                                    .Include("Team"));

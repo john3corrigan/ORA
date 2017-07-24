@@ -13,9 +13,14 @@ namespace Repository.Repositories {
     public class PositionRepository : BaseRespository<Position>, IPositionRepository {
         public PositionRepository() : base(new RepositoryContext("ora")) { }
 
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Position, PositionVM>().ReverseMap();
+            });
+        }
+
         public List<PositionVM> GetAllPositions() {
-            //TODO add includes
-            return Mapper.Map<List<PositionVM>>(DbSet.Include("Metadata").Include("Assignment"));
+            return Mapper.Map<List<PositionVM>>(DbSet.Include("Assignment"));
         }
 
         public PositionVM GetPositionByID(int id) {

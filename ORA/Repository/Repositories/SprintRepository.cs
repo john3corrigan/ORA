@@ -13,8 +13,14 @@ namespace Repository.Repositories {
     public class SprintRepository : BaseRespository<Sprint>, ISprintRepository {
         public SprintRepository() : base(new RepositoryContext("ora")) { }
 
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Sprint, SprintVM>().ReverseMap();
+            });
+        }
+
         public List<SprintVM> GetAllSprints() {
-            return Mapper.Map<List<SprintVM>>(DbSet.Include("Metadata").Include("KPI"));
+            return Mapper.Map<List<SprintVM>>(DbSet.Include("KPI"));
         }
 
         public SprintVM GetSprintByID(int id) {

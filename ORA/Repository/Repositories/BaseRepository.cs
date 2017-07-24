@@ -10,6 +10,7 @@ namespace Repository.Repositories {
     public class BaseRespository<TEntity> : IDisposable where TEntity : class {
         protected RepositoryContext Context;
         protected DbSet<TEntity> DbSet;
+        protected MapperConfiguration config;
 
         public BaseRespository(RepositoryContext context) {
             Context = context;

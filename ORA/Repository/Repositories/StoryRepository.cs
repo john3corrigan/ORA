@@ -13,8 +13,14 @@ namespace Repository.Repositories{
     public class StoryRepository : BaseRespository<Story>, IStoryRepository {
         public StoryRepository() : base(new RepositoryContext("ora")) { }
 
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Story, StoryVM>().ReverseMap();
+            });
+        }
+
         public List<StoryVM> GetAllStories() {
-            return Mapper.Map<List<StoryVM>>(DbSet.Include("Metadata").Include("KPI"));
+            return Mapper.Map<List<StoryVM>>(DbSet.Include("KPI"));
         }
 
         public StoryVM GetStoryByID(int id) {

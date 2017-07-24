@@ -14,8 +14,14 @@ namespace Repository.Repositories {
 
         public EmployeeRepository() : base(new RepositoryContext("ora")) { }
 
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Employee, EmployeeVM>().ReverseMap();
+            });
+        }
+
         public List<EmployeeVM> GetAllEmployees() {
-            return Mapper.Map<List<EmployeeVM>>(DbSet.Include("Metadata").Include("Assignment"));
+            return Mapper.Map<List<EmployeeVM>>(DbSet.Include("Assignment"));
         }
 
         public EmployeeVM GetEmployeeByID(int id) {
