@@ -87,28 +87,28 @@
             <div>
                 @Html.LabelFor(m => m.Assignment, new { @class = "LabelFormat" })
                 <div id="Assignment">
-                    <script>$(document).ready(DropDown("Assignment", "/Function/GetAssignments"))</script>
+                    <script>$(document).ready(DropDown("Assignment", "/Assignment/GetAssignments"))</script>
                 </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Assignment)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Project, new { @class = "LabelFormat" })
                 <div id="Project">
-                    <script>$(document).ready(DropDown("Project", "/Function/GetProjects"))</script>
+                    <script>$(document).ready(DropDown("Project", "/Project/GetProjects"))</script>
                 </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Project)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Sprint, new { @class = "LabelFormat" })
                 <div id="Sprint">
-                    <script>$(document).ready(DropDown("Sprint", "/Function/GetSprints"))</script>
+                    <script>$(document).ready(DropDown("Sprint", "/Sprint/GetSprints"))</script>
                 </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Sprint)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Story, new { @class = "LabelFormat" })
                 <div id="Story">
-                    <script>$(document).ready(DropDown("Story", "/Function/GetStorys"))</script>
+                    <script>$(document).ready(DropDown("Story", "/Story/GetStorys"))</script>
                 </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
             </div>

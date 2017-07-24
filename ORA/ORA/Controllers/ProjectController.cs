@@ -67,5 +67,11 @@ namespace ORA.Controllers
             Projects.DeleteProject(ProjectID);
             return RedirectToAction("", "", new { area = "" });
         }
+        
+        public JsonResult GetProjects()
+        {
+            var List = Projects.GetAllProjects();
+            return Json(List, JsonRequestBehavior.AllowGet);
+        }
     }
 }

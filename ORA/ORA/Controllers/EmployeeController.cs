@@ -69,6 +69,10 @@ namespace ORA.Controllers
             Employees.DisableEmployee(EmployeeID);
             return RedirectToAction("", "", new { area = "" });
         }
-
+        public JsonResult GetEmployees()
+        {
+            var List = Employees.GetAllEmployees();
+            return Json(List, JsonRequestBehavior.AllowGet);
+        }
     }
 }

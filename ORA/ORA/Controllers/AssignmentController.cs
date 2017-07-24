@@ -60,5 +60,10 @@ namespace ORA.Controllers
             Assignments.UpdateAssignment(updatedAssignment);
             return RedirectToAction("ViewAssignments", "Assignments", new { area = "" });
         }
+        public JsonResult GetAssignments()
+        {
+            var List = Assignments.GetAllAssignments();
+            return Json(List, JsonRequestBehavior.AllowGet);
+        }
     }
 }

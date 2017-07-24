@@ -67,5 +67,10 @@ namespace ORA.Controllers
             Teams.DeleteTeam(TeamID);
             return RedirectToAction("", "", new { area = "" });
         }
+        public JsonResult GetTeams()
+        {
+            var List = Teams.GetAllTeams();
+            return Json(List, JsonRequestBehavior.AllowGet);
+        }
     }
 }

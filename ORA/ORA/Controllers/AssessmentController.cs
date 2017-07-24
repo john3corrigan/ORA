@@ -60,5 +60,10 @@ namespace ORA.Controllers
             Assessments.UpdateAssessment(updatedAssessment);
             return RedirectToAction("", "", new { area = "" });
         }
+        public JsonResult GetAssessments()
+        {
+            var List = Assessments.GetAllAssessments();
+            return Json(List, JsonRequestBehavior.AllowGet);
+        }
     }
 }

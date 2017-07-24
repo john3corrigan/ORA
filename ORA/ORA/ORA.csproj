@@ -190,11 +190,12 @@
     <Compile Include="Controllers\AssignmentController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\FunctionController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
     <Compile Include="Controllers\KPIController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SprintController.cs" />
     <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
@@ -374,7 +375,7 @@
     <Folder Include="bin\Debug\" />
     <Folder Include="Models\" />
     <Folder Include="Properties\" />
-    <Folder Include="Views\Function\" />
+    <Folder Include="Views\Roles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

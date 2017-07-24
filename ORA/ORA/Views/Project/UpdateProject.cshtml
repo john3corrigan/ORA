@@ -36,8 +36,10 @@
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.ProjectEndDate)</font>
             </div>
             <div>
-                @Html.DisplayFor(m => m.Client)
-                @Html.DropDownListFor(m => m.Client, new SelectList(Enum.GetValues(typeof(ClientVM))), "Select Client", new { @class = "form-control" })
+                @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
+                <div id="Client">
+                    <script>$(document).ready(DropDown("Client", "/Client/GetClients"))</script>
+                </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })

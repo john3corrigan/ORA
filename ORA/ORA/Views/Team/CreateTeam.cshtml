@@ -23,7 +23,7 @@
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
                 <div id="Client">
-                    <script>$(document).ready(DropDown("Client", "/Function/GetClients"))</script>
+                    <script>$(document).ready(DropDown("Client", "/Client/GetClients"))</script>
                 </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>

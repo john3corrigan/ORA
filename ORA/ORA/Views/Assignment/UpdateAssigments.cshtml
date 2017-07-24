@@ -28,14 +28,14 @@
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
                 <div id="Client">
-                    <script>$(document).ready(DropDown("Client", "/Function/GetClients"))</script>
+                    <script>$(document).ready(DropDown("Client", "/Client/GetClients"))</script>
                 </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             <div id="Employee">
                 @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
                 <div id="Employee">
-                    <script>$(document).ready(DropDown("Employee", "/Function/GetEmployees"))</script>
+                    <script>$(document).ready(DropDown("Employee", "/Employee/GetEmployees"))</script>
                 </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Employee)</font>
             </div>
@@ -56,7 +56,7 @@
             <div id="Team">
                 @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
                 <div id="Team">
-                    <script>$(document).ready(DropDown("Team", "/Function/GetTeams"))</script>
+                    <script>$(document).ready(DropDown("Team", "/Team/GetTeams"))</script>
                 </div>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Team)</font>
             </div>
