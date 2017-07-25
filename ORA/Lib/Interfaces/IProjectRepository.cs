@@ -9,7 +9,7 @@ namespace Lib.Interfaces {
     public interface IProjectRepository {
         List<ProjectVM> GetAllProjects();
         ProjectVM GetProjectByID(int id);
-        void AddProject(ProjectVM project);
+        void AddProject(CreateProjectVM project);
         void UpdateProject(ProjectVM project);
         void DeleteProject(ProjectVM project);
     }

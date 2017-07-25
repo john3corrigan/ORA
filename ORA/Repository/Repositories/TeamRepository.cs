@@ -19,6 +19,7 @@ namespace Repository.Repositories {
             config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Team, TeamVM>().ReverseMap();
                 cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
+                cfg.CreateMap<CreateTeamVM, Team>();
             });
         }
 
@@ -33,7 +34,7 @@ namespace Repository.Repositories {
             return mapper.Map<TeamVM>(team);
         }
 
-        public void AddTeam(TeamVM team) {
+        public void AddTeam(CreateTeamVM team) {
             var mapper = config.CreateMapper();
             Add(mapper.Map<Team>(team));
             Save();

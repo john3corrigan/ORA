@@ -19,6 +19,7 @@ namespace Repository.Repositories {
             config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Project, ProjectVM>().ReverseMap();
                 cfg.CreateMap<KPI, KPIVM>().ReverseMap();
+                cfg.CreateMap<CreateProjectVM, Project>();
             });
         }
 
@@ -32,7 +33,7 @@ namespace Repository.Repositories {
             return GetAllProjects().Where(p => p.ProjectID == id).FirstOrDefault();
         }
 
-        public void AddProject(ProjectVM project) {
+        public void AddProject(CreateProjectVM project) {
             var mapper = config.CreateMapper();
             Add(mapper.Map<Project>(project));
             Save();

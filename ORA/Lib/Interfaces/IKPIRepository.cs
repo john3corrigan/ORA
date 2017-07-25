@@ -9,7 +9,7 @@ namespace Lib.Interfaces {
     public interface IKPIRepository {
         List<KPIVM> GetAllKPIs();
         KPIVM GetKPIByID(int id);
-        void AddKPI(KPIVM kpi);
+        void AddKPI(CreateKPIVM kpi);
         void UpdateKPI(KPIVM kpi);
     }
 }
