@@ -9,7 +9,7 @@ namespace Lib.Interfaces {
     public interface ITeamRepository {
         List<TeamVM> GetAllTeams();
         TeamVM GetTeamByID(int id);
-        void AddTeam(TeamVM team);
+        void AddTeam(CreateTeamVM team);
         void UpdateTeam(TeamVM team);
         void DeleteTeam(TeamVM team);
     }
