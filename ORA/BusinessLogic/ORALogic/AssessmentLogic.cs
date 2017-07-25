@@ -5,34 +5,38 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class AssessmentLogic
+    public class AssessmentLogic : IAssessmentLogic
     {
-        public void CreateAssessment(AssessmentVM assessment)
+        private IAssessmentRepository Assessments;
+
+        public AssessmentLogic(IAssessmentRepository assess)
         {
-            throw new NotImplementedException();
+            Assessments = assess;
         }
 
-        public AssessmentVM GetAssessmentByAssessmentID(int assessmentID)
+        public void AddAssessment(AssessmentVM assessment)
         {
-            throw new NotImplementedException();
+            Assessments.AddAssessment(assessment);
+        }
+
+        public AssessmentVM GetAssessmentByID(int assessmentID)
+        {
+            return Assessments.GetAssessmentByID(assessmentID);
         }
 
         public List<AssessmentVM> GetAllAssessments()
         {
-            throw new NotImplementedException();
+            return Assessments.GetAllAssessments();
         }
 
         public void UpdateAssessment(AssessmentVM updatedAssessment)
         {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteAssessment(int assessmentID)
-        {
-            throw new NotImplementedException();
+            Assessments.UpdateAssessment(updatedAssessment);
         }
     }
 }

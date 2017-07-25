@@ -4,13 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
-using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class LoginController : Controller
     {
-        EmployeeLogic EmpLogic = new EmployeeLogic();
+        private IEmployeeLogic Employees;
+
+        public LoginController(IEmployeeLogic emply)
+        {
+            Employees = emply;
+        }
+
         // GET: Account
         public ActionResult Index()
         {
@@ -24,12 +31,11 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult Login(EmployeeVM Employee)
         {
-            EmployeeVM employee = EmpLogic.Login(Employee);
+            EmployeeVM employee = Employees.Login(Employee);
             if (employee != null)
             {
                 Session["Name"] = employee.EmployeeName;
                 Session["MyID"] = employee.EmployeeID;
-                Session["Role"] = employee.Title;
             }
             return View();
         }

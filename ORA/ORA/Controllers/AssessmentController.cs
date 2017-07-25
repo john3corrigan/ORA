@@ -5,13 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
 using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
 
 namespace ORA.Controllers
 {
     public class AssessmentController : Controller
     {
-        private AssessmentLogic assessmentLogic = new AssessmentLogic();
+        private IAssessmentLogic Assessments;
 
+        public AssessmentController(IAssessmentLogic assess)
+        {
+            Assessments = assess;
+        }
         // GET: Assessment
         public ActionResult Index()
         {
@@ -28,38 +33,37 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult CreateAssessment(AssessmentVM Assessment)
         {
-            assessmentLogic.CreateAssessment(Assessment);
-            return RedirectToAction("", "", new { area = "" });
+            Assessments.AddAssessment(Assessment);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewAllAssessments()
         {
-            return View(assessmentLogic.GetAllAssessments());
+            return View(Assessments.GetAllAssessments());
         }
 
         public ActionResult ViewAssessment(int AssessmentID)
         {
-            return View(assessmentLogic.GetAssessmentByAssessmentID(AssessmentID));
+            return View(Assessments.GetAssessmentByID(AssessmentID));
         }
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateAssessment(int AssessmentID)
         {
-            return View(assessmentLogic.GetAssessmentByAssessmentID(AssessmentID));
+            return View(Assessments.GetAssessmentByID(AssessmentID));
         }
 
         [HttpPost]
         public ActionResult UpdateAssessment(AssessmentVM updatedAssessment)
         {
-            assessmentLogic.UpdateAssessment(updatedAssessment);
-            return RedirectToAction("", "", new { area = "" });
+            Assessments.UpdateAssessment(updatedAssessment);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
-
-        public ActionResult DeleteAssessment(int AssessmentID)
+        public JsonResult GetAssessments()
         {
-            assessmentLogic.DeleteAssessment(AssessmentID);
-            return RedirectToAction("", "", new { area = "" });
+            var List = Assessments.GetAllAssessments();
+            return Json(List, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AutoMapper;
+using Ninject;
+using Lib.InterfacesLogic;
+using BusinessLogic.ORALogic;
 
 namespace ORA
 {

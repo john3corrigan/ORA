@@ -4,13 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
-using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class TeamController : Controller
     {
-        private TeamLogic teamLogic = new TeamLogic();
+        private ITeamLogic Teams;
+
+        public TeamController(ITeamLogic tm)
+        {
+            Teams = tm;
+        }
 
         // GET: Team
         public ActionResult Index()
@@ -28,38 +34,43 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult CreateTeam(TeamVM Team)
         {
-            teamLogic.CreateTeam(Team);
-            return RedirectToAction("", "", new { area = "" });
+            Teams.AddTeam(Team);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewAllTeams()
         {
-            return View(teamLogic.GetAllTeams());
+            return View(Teams.GetAllTeams());
         }
 
         public ActionResult ViewTeam(int TeamID)
         {
-            return View(teamLogic.GetTeamByTeamID(TeamID));
+            return View(Teams.GetTeamByID(TeamID));
         }
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateTeam(int TeamID)
         {
-            return View(teamLogic.GetTeamByTeamID(TeamID));
+            return View(Teams.GetTeamByID(TeamID));
         }
 
         [HttpPost]
         public ActionResult UpdateTeam(TeamVM updatedTeam)
         {
-            teamLogic.UpdateTeam(updatedTeam);
-            return RedirectToAction("", "", new { area = "" });
+            Teams.UpdateTeam(updatedTeam);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult DeleteTeam(int TeamID)
         {
-            teamLogic.DeleteTeam(TeamID);
-            return RedirectToAction("", "", new { area = "" });
+            Teams.DeleteTeam(TeamID);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
+        }
+        public JsonResult GetTeams()
+        {
+            var List = Teams.GetAllTeams();
+            return Json(List, JsonRequestBehavior.AllowGet);
         }
     }
 }

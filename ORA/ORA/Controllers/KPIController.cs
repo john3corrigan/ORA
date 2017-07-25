@@ -4,13 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
-using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class KPIController : Controller
     {
-        private KPILogic kpiLogic = new KPILogic();
+        private IKPILogic KPIs;
+
+        public KPIController(IKPILogic kpi)
+        {
+            KPIs = kpi;
+        }
+
         // GET: KPI
         public ActionResult Index()
         {
@@ -19,26 +26,26 @@ namespace ORA.Controllers
 
         public ActionResult ViewAllKPI()
         {
-            return View(kpiLogic.GetAllKPIs());
+            return View(KPIs.GetAllKPIs());
         }
         
         public ActionResult ViewKPI(int KPIID)
         {
-            return View(kpiLogic.GetKPIByKPIID(KPIID));
+            return View(KPIs.GetKPIByID(KPIID));
         }
         
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateKPI(int KPIID)
         {
-            return View(kpiLogic.GetKPIByKPIID(KPIID));
+            return View(KPIs.GetKPIByID(KPIID));
         }
 
         [HttpPost]
         public ActionResult UpdateKPI(KPIVM updatedKPI)
         {
-            kpiLogic.UpdateKPI(updatedKPI);
-            return RedirectToAction("", "", new { area = "" });
+            KPIs.UpdateKPI(updatedKPI);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         [HttpGet]
@@ -51,8 +58,13 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult CreateKPI(KPIVM KPI)
         {
-            kpiLogic.CreateKPI(KPI);
-            return RedirectToAction("", "", new { area = "" });
+            KPIs.AddKPI(KPI);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
+        }
+        public JsonResult GetKPIs()
+        {
+            var List = KPIs.GetAllKPIs();
+            return Json(List, JsonRequestBehavior.AllowGet);
         }
     }
 }

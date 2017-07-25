@@ -1,7 +1,39 @@
-﻿
+﻿@model System.Collections.Generic.IEnumerable<StoryVM>
+@using Lib.ViewModels
 @{
     ViewBag.Title = "ViewAllStories";
 }
 
 <h2>ViewAllStories</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Client</th>
+        <th>KPIs</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    <tr>
+        @foreach (StoryVM Value in Model)
+        {
+            <td>@Html.Display(Value.Title)</td>
+            <td>@Html.Display(Value.StoryName)</td>
+            <td>@Html.Display(Value.StoryNumber.ToString())</td>
+            <td>@Html.Display(Value.StoryStartDate.ToString())</td>
+            <td>@Html.Display(Value.StoryEndDate.ToString())</td>
+            <td>@Html.Display(Value.Client.ClientName)</td>
+            <td>@Html.ActionLink("", "", routeValues: new { KPIList = Value.KPIs })</td>
+            <td>@Html.Display(Value.Metadata.Created.ToString())</td>
+            <td>@Html.Display(Value.Metadata.CreatedBy)</td>
+            <td>@Html.Display(Value.Metadata.Modified.ToString())</td>
+            <td>@Html.Display(Value.Metadata.ModifiedBy)</td>
+        }
+    </tr>
+</table>

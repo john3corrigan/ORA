@@ -4,13 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class SprintController : Controller
     {
-        private SprintLogic sprintLogic = new SprintLogic();
+        private ISprintLogic Sprints;
+
+        public SprintController(ISprintLogic sprnt)
+        {
+            Sprints = sprnt;
+        }
 
         // GET: Sprint
         public ActionResult Index()
@@ -28,38 +34,43 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult CreateSprint(SprintVM Sprint)
         {
-            sprintLogic.CreateSprint(Sprint);
-            return RedirectToAction("", "", new { area = "" });
+            Sprints.AddSprint(Sprint);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewAllSprints()
         {
-            return View(sprintLogic.GetAllSprints());
+            return View(Sprints.GetAllSprints());
         }
 
         public ActionResult ViewSprint(int SprintID)
         {
-            return View(sprintLogic.GetSprintBySprintID(SprintID));
+            return View(Sprints.GetSprintByID(SprintID));
         }
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateSprint(int SprintID)
         {
-            return View(sprintLogic.GetSprintBySprintID(SprintID));
+            return View(Sprints.GetSprintByID(SprintID));
         }
 
         [HttpPost]
         public ActionResult UpdateSprint(SprintVM updatedSprint)
         {
-            sprintLogic.UpdateSprint(updatedSprint);
-            return RedirectToAction("", "", new { area = "" });
+            Sprints.UpdateSprint(updatedSprint);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult DeleteSprint(int SprintID)
         {
-            sprintLogic.DeleteSprint(SprintID);
-            return RedirectToAction("", "", new { area = "" });
+            Sprints.DeleteSprint(SprintID);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
+        }
+        public JsonResult GetSprints()
+        {
+            var List = Sprints.GetAllSprints();
+            return Json(List, JsonRequestBehavior.AllowGet);
         }
     }
 }

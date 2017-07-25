@@ -5,34 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class StoryLogic
+    public class StoryLogic : IStoryLogic
     {
-        public StoryVM GetStoryByStoryID(int StoryID)
+        private IStoryRepository Stories;
+
+        public StoryLogic(IStoryRepository stry)
         {
-            throw new NotImplementedException();
+            Stories = stry;
+        }
+
+        public StoryVM GetStoryByID(int storyID)
+        {
+            return Stories.GetStoryByID(storyID);
         }
 
         public void UpdateStory(StoryVM updatedStory)
         {
-            throw new NotImplementedException();
+            Stories.UpdateStory(updatedStory);
         }
 
         public void DeleteStory(int storyID)
         {
-            throw new NotImplementedException();
+            Stories.DeleteStory(Stories.GetStoryByID(storyID));
         }
 
-        public void CreateStory(StoryVM story)
+        public void AddStory(StoryVM newStory)
         {
-            throw new NotImplementedException();
+            Stories.AddStory(newStory);
         }
 
         public List<StoryVM> GetAllStories()
         {
-            throw new NotImplementedException();
+            return Stories.GetAllStories();
         }
     }
 }

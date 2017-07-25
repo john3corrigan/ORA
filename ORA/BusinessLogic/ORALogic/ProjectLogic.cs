@@ -5,34 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class ProjectLogic
+    public class ProjectLogic : IProjectLogic
     {
-        public void CreateProject(ProjectVM project)
+        private IProjectRepository Projects;
+
+        public ProjectLogic(IProjectRepository prjct)
         {
-            throw new NotImplementedException();
+            Projects = prjct;
         }
 
-        public ProjectVM GetProjectByProjectID(int projectID)
+        public void AddProject(ProjectVM newProject)
         {
-            throw new NotImplementedException();
+            Projects.AddProject(newProject);
+        }
+
+        public ProjectVM GetProjectByID(int projectID)
+        {
+            return Projects.GetProjectByID(projectID);
         }
 
         public List<ProjectVM> GetAllProjects()
         {
-            throw new NotImplementedException();
+            return Projects.GetAllProjects();
         }
 
         public void UpdateProject(ProjectVM updatedProject)
         {
-            throw new NotImplementedException();
+            Projects.UpdateProject(updatedProject);
         }
 
         public void DeleteProject(int projectID)
         {
-            throw new NotImplementedException();
+            Projects.DeleteProject(Projects.GetProjectByID(projectID));
         }
     }
 }
