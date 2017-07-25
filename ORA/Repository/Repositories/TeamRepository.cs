@@ -10,7 +10,7 @@ using AutoMapper;
 using Repository.Context;
 
 namespace Repository.Repositories {
-    public class TeamRepository : BaseRespository<Team>{
+    public class TeamRepository : BaseRespository<Team>, ITeamRepository{
         public TeamRepository() : base(new RepositoryContext("ora")) {
             InitMap();
         }
