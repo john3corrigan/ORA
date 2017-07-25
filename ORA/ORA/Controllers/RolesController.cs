@@ -68,10 +68,5 @@ namespace ORA.Controllers
             Roles.DeleteRole(RoleID);
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
-        public JsonResult GetRoles()
-        {
-            var List = Roles.GetAllRoles();
-            return Json(List, JsonRequestBehavior.AllowGet);
-        }
     }
 }

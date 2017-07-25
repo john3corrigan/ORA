@@ -8,7 +8,7 @@ namespace Lib.ViewModels {
         public string ClientName { get; set; }
         public string ClientAbbreviation { get; set; }
         public List<AssignmentVM> Assignment { get; set; }
-        public List<StoryVM> Storie { get; set; }
+        public List<StoryVM> Story { get; set; }
         public List<ProjectVM> Project { get; set; }
         public List<TeamVM> Team { get; set; }
         public DateTime Modified { get; set; }

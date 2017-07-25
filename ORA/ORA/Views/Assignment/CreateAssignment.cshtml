@@ -9,11 +9,6 @@
     <div>
         <div>
             <div>
-                @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextBoxFormat" })
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Title)</font>
-            </div>
-            <div>
                 @Html.LabelFor(m => m.StartDate, new { @class = "LabelFormat" })
                 @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control TextBoxFormat" })
                 <font>@Html.ValidationMessageFor(m => m.StartDate)</font>
@@ -25,44 +20,34 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                <datalist id="Client">
-                    <script>$(document).ready(DropDown("Client", "/Client/GetClients"))</script>
-                </datalist>
+                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             <div id="Employee">
                 @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
-                <datalist id="Employee">
-                    <script>$(document).ready(DropDown("Employee", "/Employee/GetEmployees"))</script>
-                </datalist>
+                @Html.DropDownListFor(m => m.Employee, new SelectList(Model.EmployeeList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Employee)</font>
             </div>
             <div id="Position">
                 @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
-                <datalist id="Position">
-                    <script>$(document).ready(DropDown("Position", "/Function/GetPositions"))</script>
-                </datalist>
+                @Html.DropDownListFor(m => m.Position, new SelectList(Model.PositionList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Position)</font>
             </div>
             <div id="Role">
                 @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
-                <datalist id="Role">
-                    <script>$(document).ready(DropDown("Role", "/Function/GetRoles"))</script>
-                </datalist>
+                @Html.DropDownListFor(m => m.Role, new SelectList(Model.RoleList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Role)</font>
             </div>
             <div id="Team">
                 @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
-                <datalist id="Team">
-                    <script>$(document).ready(DropDown("Team", "/Team/GetTeams"))</script>
-                </datalist>
+                @Html.DropDownListFor(m => m.Team, new SelectList(Model.TeamList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Team)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.Created, new { @Value = DateTime.Now })
             @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit"/>
         </div>
     </div>
 }

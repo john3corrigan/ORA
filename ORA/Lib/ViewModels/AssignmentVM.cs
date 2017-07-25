@@ -33,6 +33,7 @@ namespace Lib.ViewModels {
     public class CreateAssignmentVM {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public ClientVM Client { get; set; }
         public List<ClientVM> ClientList { get; set; }
         public EmployeeVM Employee { get; set; }
         public List<EmployeeVM> EmployeeList { get; set; }

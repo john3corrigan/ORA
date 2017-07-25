@@ -27,38 +27,29 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                <div id="Client">
-                    <script>$(document).ready(DropDown("Client", "/Client/GetClients"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             <div id="Employee">
                 @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
-                <div id="Employee">
-                    <script>$(document).ready(DropDown("Employee", "/Employee/GetEmployees"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Employee, new SelectList(Model.EmployeeList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Employee)</font>
             </div>
             <div id="Position">
                 @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
-                <div id="Position">
-                    <script>$(document).ready(DropDown("Position", "/Function/GetPositions"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Position, new SelectList(Model.PositionList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Position)</font>
             </div>
             <div id="Role">
                 @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
-                <div id="Role">
-                    <script>$(document).ready(DropDown("Role", "/Function/GetRoles"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Role, new SelectList(Model.RoleList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Role)</font>
             </div>
             <div id="Team">
                 @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
-                <div id="Team">
-                    <script>$(document).ready(DropDown("Team", "/Team/GetTeams"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Team, new SelectList(Model.TeamList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Team)</font>
+            </div>
             </div>
             @Html.HiddenFor(m => m.AssignmentID, new { Value = Model.AssignmentID })
             @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })

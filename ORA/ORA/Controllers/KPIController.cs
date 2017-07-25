@@ -61,10 +61,5 @@ namespace ORA.Controllers
             KPIs.AddKPI(KPI);
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
-        public JsonResult GetKPIs()
-        {
-            var List = KPIs.GetAllKPIs();
-            return Json(List, JsonRequestBehavior.AllowGet);
-        }
     }
 }
