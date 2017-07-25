@@ -22,9 +22,7 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                <div id="Client">
-                    <script>$(document).ready(DropDown("Client", "/Client/GetClients"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             @Html.HiddenFor(m => m.TeamID, new { Value = Model.TeamID })

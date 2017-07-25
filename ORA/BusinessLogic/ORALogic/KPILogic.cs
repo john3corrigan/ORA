@@ -33,8 +33,11 @@ namespace BusinessLogic.ORALogic
         {
             KPIs.UpdateKPI(updatedKPI);
         }
-
-        public void AddKPI(KPIVM newKPI)
+        public void AddKPI()
+        {
+            KPIs.AddKPI(newKPI);
+        }
+        public void AddKPI(CreateKPI newKPI)
         {
             KPIs.AddKPI(newKPI);
         }

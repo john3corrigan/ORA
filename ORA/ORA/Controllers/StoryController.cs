@@ -67,10 +67,5 @@ namespace ORA.Controllers
             Stories.DeleteStory(StoryID);
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
-        public JsonResult GetStories()
-        {
-            var List = Stories.GetAllStories();
-            return Json(List, JsonRequestBehavior.AllowGet);
-        }
     }
 }

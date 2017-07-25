@@ -9,11 +9,6 @@
     <div>
         <div>
             <div>
-                @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextBoxFormat" })
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Title)</font>
-            </div>
-            <div>
                 @Html.LabelFor(m => m.StartDate, new { @class = "LabelFormat" })
                 @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control TextBoxFormat" })
                 <font>@Html.ValidationMessageFor(m => m.StartDate)</font>
@@ -25,55 +20,34 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                    <select id="Client">
-                        <option selected="selected" value="0">---Select---</option>
-                    </select>
+                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             <div id="Employee">
                 @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
-                <select id="Employee">
-                    <option selected="selected" value="0">---Select---</option>
-                </select>
+                @Html.DropDownListFor(m => m.Employee, new SelectList(Model.EmployeeList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Employee)</font>
             </div>
             <div id="Position">
                 @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
-                <select id="Position">
-                    <option selected="selected" value="0">---Select---</option>
-                </select>
+                @Html.DropDownListFor(m => m.Position, new SelectList(Model.PositionList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Position)</font>
             </div>
             <div id="Role">
                 @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
-                <select id="Role">
-                    <option selected="selected" value="0">---Select---</option>
-                </select>
+                @Html.DropDownListFor(m => m.Role, new SelectList(Model.RoleList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Role)</font>
             </div>
             <div id="Team">
                 @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
-                <select id="Team">
-                    <option selected="selected" value="0">---Select---</option>
-                </select>
+                @Html.DropDownListFor(m => m.Team, new SelectList(Model.TeamList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Team)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.Created, new { @Value = DateTime.Now })
             @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
-            <input type="submit" value="Submit" id="button"/>
+            <input type="submit" value="Submit"/>
         </div>
     </div>
 }
-
-<script>
-    $(document).ready(DropDown("#Client", "/Client/GetClients", "ClientID"))
-    $(document).ready(DropDown("#Employee", "/Employee/GetEmployees"))
-    $(document).ready(DropDown("#Position", "/Function/GetPositions"))
-    $(document).ready(DropDown("#Role", "/Function/GetRoles"))
-    $(document).ready(DropDown("#Team", "/Team/GetTeams"))
-    $(document).ready(function () {
-        $('#button').click(saveassignment());
-    });
-</script>

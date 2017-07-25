@@ -70,18 +70,5 @@ namespace ORA.Controllers
             Clients.RemoveClient(ClientID);
             return View();
         }
-        public IEnumerable<ClientVM> GetClients()
-        {
-            List<ClientVM> TestData = new List<ClientVM>();
-            for(int i = 0; i < 5; i++)
-            {
-                ClientVM TestClient = new ClientVM();
-                TestClient.Title = ("Test"+i);
-                TestClient.ClientID = i;
-                TestData.Add(TestClient);
-            }
-            var List = Clients.GetAllClients();
-            return TestData;
-        }
     }
 }
