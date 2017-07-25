@@ -15,13 +15,13 @@ namespace Lib.EFModels {
         [StringLength(5)]
         public string ClientAbbreviation { get; set; }
 
-        public virtual ICollection<Assignment> Assignments { get; set; }
+        public virtual ICollection<Assignment> Assignment { get; set; }
 
-        public virtual ICollection<Story> Stories { get; set; }
+        public virtual ICollection<Story> Story { get; set; }
 
-        public virtual ICollection<Project> Projects { get; set; }
+        public virtual ICollection<Project> Project { get; set; }
 
-        public virtual ICollection<Team> Teams { get; set; }
+        public virtual ICollection<Team> Team { get; set; }
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }
