@@ -11,7 +11,9 @@ using Repository.Context;
 
 namespace Repository.Repositories {
     public class KPIRepository : BaseRespository<KPI>, IKPIRepository {
-        public KPIRepository() : base(new RepositoryContext("ora")) { }
+        public KPIRepository() : base(new RepositoryContext("ora")) {
+            InitMap();
+        }
 
         private void InitMap() {
             config = new MapperConfiguration(cfg => {

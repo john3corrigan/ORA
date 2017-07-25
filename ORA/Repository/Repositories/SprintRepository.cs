@@ -11,7 +11,9 @@ using Repository.Context;
 
 namespace Repository.Repositories {
     public class SprintRepository : BaseRespository<Sprint>, ISprintRepository {
-        public SprintRepository() : base(new RepositoryContext("ora")) { }
+        public SprintRepository() : base(new RepositoryContext("ora")) {
+            InitMap();
+        }
 
         private void InitMap() {
             config = new MapperConfiguration(cfg => {

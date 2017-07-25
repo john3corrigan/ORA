@@ -11,7 +11,9 @@ using Repository.Context;
 
 namespace Repository.Repositories {
     public class PositionRepository : BaseRespository<Position>, IPositionRepository {
-        public PositionRepository() : base(new RepositoryContext("ora")) { }
+        public PositionRepository() : base(new RepositoryContext("ora")) {
+            InitMap();
+        }
 
         private void InitMap() {
             config = new MapperConfiguration(cfg => {
