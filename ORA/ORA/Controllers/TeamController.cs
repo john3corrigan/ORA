@@ -28,11 +28,11 @@ namespace ORA.Controllers
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult CreateTeam()
         {
-            return View();
+            return View(Teams.AddTeam());
         }
 
         [HttpPost]
-        public ActionResult CreateTeam(TeamVM Team)
+        public ActionResult CreateTeam(CreateTeamVM Team)
         {
             Teams.AddTeam(Team);
             return RedirectToAction("Dashboard", "Home", new { area = "" });

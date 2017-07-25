@@ -28,11 +28,11 @@ namespace ORA.Controllers
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult CreateProject()
         {
-            return View();
+            return View(Projects.AddProject());
         }
 
         [HttpPost]
-        public ActionResult CreateProject(ProjectVM Project)
+        public ActionResult CreateProject(CreateProjectVM Project)
         {
             Projects.AddProject(Project);
             return RedirectToAction("Dashboard", "Home", new { area = "" });

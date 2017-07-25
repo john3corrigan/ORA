@@ -52,11 +52,11 @@ namespace ORA.Controllers
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult CreateKPI()
         {
-            return View();
+            return View(KPIs.AddKPI());
         }
 
         [HttpPost]
-        public ActionResult CreateKPI(KPIVM KPI)
+        public ActionResult CreateKPI(CreateKPIVM KPI)
         {
             KPIs.AddKPI(KPI);
             return RedirectToAction("Dashboard", "Home", new { area = "" });
