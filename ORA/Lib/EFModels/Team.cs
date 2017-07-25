@@ -13,7 +13,7 @@ namespace Lib.EFModels {
         [StringLength(50)]
         public string TeamName { get; set; }
 
-        public virtual ICollection<Assignment> Assignments { get; set; }
+        public virtual ICollection<Assignment> Assignment { get; set; }
 
         public int ClientID { get; set; }
         public virtual Client Client { get; set; }

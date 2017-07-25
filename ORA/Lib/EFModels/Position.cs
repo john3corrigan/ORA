@@ -8,7 +8,7 @@ namespace Lib.EFModels {
         public int PositionID { get; set; }
         public string Title { get; set; }
 
-        public virtual ICollection<Assignment> Assignments { get; set; }
+        public virtual ICollection<Assignment> Assignment { get; set; }
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }

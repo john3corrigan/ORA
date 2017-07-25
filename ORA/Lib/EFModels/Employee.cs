@@ -35,7 +35,7 @@ namespace Lib.EFModels {
 
         public bool ActiveFlag { get; set; }
 
-        public virtual ICollection<Assignment> Assignments { get; set; }
+        public virtual ICollection<Assignment> Assignment { get; set; }
 
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }

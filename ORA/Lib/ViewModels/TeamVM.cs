@@ -6,7 +6,7 @@ namespace Lib.ViewModels {
         public int TeamID { get; set; }
         public string Title { get; set; }
         public string TeamName { get; set; }
-        public List<AssignmentVM> Assignments { get; set; }
+        public List<AssignmentVM> Assignment { get; set; }
         public int ClientID { get; set; }
         public ClientVM Client { get; set; }
         public DateTime Modified { get; set; }

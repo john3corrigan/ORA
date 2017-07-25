@@ -46,10 +46,10 @@ namespace Lib.EFModels {
         public virtual Team Team { get; set; }
 
         [Required]
-        public virtual ICollection<KPI> KPIS { get; set; }
+        public virtual ICollection<KPI> KPI { get; set; }
 
         [Required]
-        public virtual ICollection<Assessment> Assessments { get; set; }
+        public virtual ICollection<Assessment> Assessment { get; set; }
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }

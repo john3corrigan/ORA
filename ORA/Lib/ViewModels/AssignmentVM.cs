@@ -18,7 +18,7 @@ namespace Lib.ViewModels {
         public int TeamID { get; set; }
         public TeamVM Team { get; set; }
         public List<KPIVM> KPIS { get; set; }
-        public List<AssessmentVM> Assessments { get; set; }
+        public List<AssessmentVM> Assessment { get; set; }
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }
