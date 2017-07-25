@@ -25,37 +25,37 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                <div id="Client">
+                <datalist id="Client">
                     <script>$(document).ready(DropDown("Client", "/Client/GetClients"))</script>
-                </div>
+                </datalist>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             <div id="Employee">
                 @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
-                <div id="Employee">
+                <datalist id="Employee">
                     <script>$(document).ready(DropDown("Employee", "/Employee/GetEmployees"))</script>
-                </div>
+                </datalist>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Employee)</font>
             </div>
             <div id="Position">
                 @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
-                <div id="Position">
+                <datalist id="Position">
                     <script>$(document).ready(DropDown("Position", "/Function/GetPositions"))</script>
-                </div>
+                </datalist>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Position)</font>
             </div>
             <div id="Role">
                 @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
-                <div id="Role">
+                <datalist id="Role">
                     <script>$(document).ready(DropDown("Role", "/Function/GetRoles"))</script>
-                </div>
+                </datalist>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Role)</font>
             </div>
             <div id="Team">
                 @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
-                <div id="Team">
+                <datalist id="Team">
                     <script>$(document).ready(DropDown("Team", "/Team/GetTeams"))</script>
-                </div>
+                </datalist>
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Team)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
