@@ -11,7 +11,9 @@ using Repository.Context;
 
 namespace Repository.Repositories {
     public class TeamRepository : BaseRespository<Team>{
-        public TeamRepository() : base(new RepositoryContext("ora")) { }
+        public TeamRepository() : base(new RepositoryContext("ora")) {
+            InitMap();
+        }
 
         private void InitMap() {
             config = new MapperConfiguration(cfg => {

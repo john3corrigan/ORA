@@ -12,7 +12,9 @@ using Repository.Context;
 namespace Repository.Repositories {
     public class AssignmentRepository : BaseRespository<Assignment>, IAssignmentRepository {
 
-        public AssignmentRepository() : base(new RepositoryContext("ora")) { }
+        public AssignmentRepository() : base(new RepositoryContext("ora")) {
+            InitMap();
+        }
 
         private void InitMap() {
             config = new MapperConfiguration(cfg => {

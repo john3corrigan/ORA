@@ -13,7 +13,9 @@ using Repository.Context;
 namespace Repository.Repositories {
     public class AssessmentRepository : BaseRespository<Assessment>, IAssessmentRepository {
 
-        public AssessmentRepository() : base(new RepositoryContext("ora")) { }
+        public AssessmentRepository() : base(new RepositoryContext("ora")) {
+            InitMap();
+        }
 
         private void InitMap() {
             config = new MapperConfiguration(cfg => {
