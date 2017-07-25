@@ -52,7 +52,8 @@ video {
 }
 
 html {
-    height:100%;
+    height:auto;
+    overflow:auto;
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;

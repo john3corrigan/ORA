@@ -43,6 +43,7 @@ body {
 .container {
     padding: 0;
     position: relative;
+    height:inherit;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -86,7 +87,7 @@ header.fixed{
 
 }
 
-footer {
+/*footer {
     display:block;
     position:relative;
     margin:0 auto;
@@ -96,9 +97,9 @@ footer {
     background-color: #093559;
     color: white;
     width: 100%;
-    padding:1rem;
+    padding:20px;
     z-index: 100000;
-}
+}*/
 
 .footer_top_holder {
     background-color: #093559;
