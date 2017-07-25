@@ -18,7 +18,7 @@ namespace Repository.Repositories {
         }
 
         public virtual IEnumerable<TEntity> GetAll() {
-            return DbSet.Include("Metadata").ToList();
+            return DbSet.ToList();
         }
 
         public virtual TEntity GetByID(int id) {

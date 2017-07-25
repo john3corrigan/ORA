@@ -18,6 +18,7 @@ namespace Repository.Repositories {
         private void InitMap() {
             config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Project, ProjectVM>().ReverseMap();
+                cfg.CreateMap<KPI, KPIVM>().ReverseMap();
             });
         }
 

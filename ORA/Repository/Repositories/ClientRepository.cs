@@ -19,6 +19,10 @@ namespace Repository.Repositories {
         private void InitMap() {
             config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Client, ClientVM>().ReverseMap();
+                cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
+                cfg.CreateMap<Story, StoryVM>().ReverseMap();
+                cfg.CreateMap<Project, ProjectVM>().ReverseMap();
+                cfg.CreateMap<Team, TeamVM>().ReverseMap();
             });
         }
 
