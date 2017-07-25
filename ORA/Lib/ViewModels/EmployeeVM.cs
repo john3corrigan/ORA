@@ -13,7 +13,7 @@ namespace Lib.ViewModels {
         public string EmployeeMI { get; set; }
         public string EmployeeLastName { get; set; }
         public bool ActiveFlag { get; set; }
-        public List<AssignmentVM> Assignments { get; set; }
+        public List<AssignmentVM> Assignment { get; set; }
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }

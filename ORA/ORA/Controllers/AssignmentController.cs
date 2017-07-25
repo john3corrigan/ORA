@@ -31,8 +31,9 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateAssignment(AssignmentVM Assignment)
+        public ActionResult CreateAssignment(AssignmentVM Assignment, FormCollection collection)
         {
+            Assignment.ClientID = Convert.ToInt32(collection["Client"]);
             Assignments.AddAssignment(Assignment);
             return RedirectToAction("Dashboard", "Home", new { area = ""});
         }

@@ -35,7 +35,7 @@ namespace Repository.Context {
             modelBuilder.Entity<Story>().ToTable("Story");
             modelBuilder.Entity<Team>().ToTable("Team");
 
-            modelBuilder.Entity<Assignment>().HasRequired(a => a.KPIS).WithMany().WillCascadeOnDelete(false);
+            modelBuilder.Entity<Assignment>().HasRequired(a => a.KPI).WithMany().WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Story>().HasRequired(s => s.Client).WithMany().WillCascadeOnDelete(false);
 

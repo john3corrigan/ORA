@@ -46,7 +46,7 @@ namespace Lib.EFModels {
         public virtual Team Team { get; set; }
 
         [Required]
-        public virtual ICollection<KPI> KPIS { get; set; }
+        public virtual ICollection<KPI> KPI { get; set; }
 
         [Required]
         public virtual ICollection<Assessment> Assessments { get; set; }
