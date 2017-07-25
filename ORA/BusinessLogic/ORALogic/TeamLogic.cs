@@ -13,10 +13,13 @@ namespace BusinessLogic.ORALogic
     public class TeamLogic : ITeamLogic
     {
         private ITeamRepository Teams;
+        private IClientRepository Clients;
 
-        public TeamLogic(ITeamRepository tm)
+        public TeamLogic(ITeamRepository tm,
+            IClientRepository clnts)
         {
             Teams = tm;
+            Clients = clnts;
         }
 
         public void DeleteTeam(int teamID)
@@ -39,7 +42,15 @@ namespace BusinessLogic.ORALogic
             return Teams.GetAllTeams();
         }
 
-        public void AddTeam(TeamVM newTeam)
+        public CreateTeamVM AddTeam()
+        {
+            CreateTeamVM create = new CreateTeamVM(){
+                ClientList = Clients.GetAllClients()
+            };
+            return create;
+        }
+
+        public void AddTeam(CreateTeamVM newTeam)
         {
             Teams.AddTeam(newTeam);
         }

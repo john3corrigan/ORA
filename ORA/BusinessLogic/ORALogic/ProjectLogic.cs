@@ -13,13 +13,24 @@ namespace BusinessLogic.ORALogic
     public class ProjectLogic : IProjectLogic
     {
         private IProjectRepository Projects;
+        private IClientRepository Clients;
 
-        public ProjectLogic(IProjectRepository prjct)
+        public ProjectLogic(IProjectRepository prjct,
+            IClientRepository clnts)
         {
             Projects = prjct;
+            Clients = clnts;
         }
 
-        public void AddProject(ProjectVM newProject)
+        public CreateProjectVM AddProject()
+        {
+            CreateProjectVM create = new CreateProjectVM() {
+                ClientList = Clients.GetAllClients()
+            };
+            return create;
+        }
+
+        public void AddProject(CreateProjectVM newProject)
         {
             Projects.AddProject(newProject);
         }
