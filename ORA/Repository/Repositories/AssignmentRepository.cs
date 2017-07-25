@@ -21,13 +21,19 @@ namespace Repository.Repositories {
                 cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
                 cfg.CreateMap<KPI, KPIVM>().ReverseMap();
                 cfg.CreateMap<Assessment, AssessmentVM>().ReverseMap();
+                cfg.CreateMap<CreateAssignmentVM, Assignment>().ReverseMap();
             });
         }
 
         public List<AssignmentVM> GetAllAssignments() {
             var mapper = config.CreateMapper();
             return mapper.Map<List<AssignmentVM>>(DbSet.Include("Assessment")
-                                                       .Include("KPI"));
+                                                       .Include("KPI")
+                                                       .Include("Team")
+                                                       .Include("Client")
+                                                       .Include("Position")
+                                                       .Include("Employee")
+                                                       .Include("Role"));
         }
 
         public AssignmentVM GetAssignmentByID(int id) {
@@ -42,7 +48,7 @@ namespace Repository.Repositories {
             return mapper.Map<List<AssignmentVM>>(assignments);
         }
 
-        public void AddAssignment(AssignmentVM assignment) {
+        public void AddAssignment(CreateAssignmentVM assignment) {
             var mapper = config.CreateMapper();
             Add(mapper.Map<Assignment>(assignment));
             Save();

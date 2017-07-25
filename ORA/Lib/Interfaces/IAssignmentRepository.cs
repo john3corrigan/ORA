@@ -10,7 +10,7 @@ namespace Lib.Interfaces {
         List<AssignmentVM> GetAllAssignments();
         AssignmentVM GetAssignmentByID(int id);
         List<AssignmentVM> GetAssignmentsByDateRange(DateTime start, DateTime end);
-        void AddAssignment(AssignmentVM assignment);
+        void AddAssignment(CreateAssignmentVM assignment);
         void UpdateAssignment(AssignmentVM assignment);
     }
 }

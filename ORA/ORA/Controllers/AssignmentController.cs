@@ -27,11 +27,11 @@ namespace ORA.Controllers
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult CreateAssignment()
         {
-            return View();
+            return View(Assignments.AddAssignment(););
         }
 
         [HttpPost]
-        public ActionResult CreateAssignment(AssignmentVM Assignment)
+        public ActionResult CreateAssignment(CreateAssignmentVM Assignment)
         {
             Assignments.AddAssignment(Assignment);
             return RedirectToAction("Dashboard", "Home", new { area = ""});
