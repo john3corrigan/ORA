@@ -17,27 +17,30 @@ namespace Repository.Repositories {
 
         private void InitMap() {
             config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Assessment, AssessmentVM>();
-                cfg.CreateMap<AssessmentVM, Assessment>();
+                cfg.CreateMap<Assessment, AssessmentVM>().ReverseMap();
             });
         }
 
         public AssessmentVM GetAssessmentByID(int id) {
+            var mapper = config.CreateMapper();
             var assessment = DbSet.Where(a => a.AssessmentID == id).FirstOrDefault();
-            return Mapper.Map<AssessmentVM>(assessment);
+            return mapper.Map<AssessmentVM>(assessment);
         }
 
         public List<AssessmentVM> GetAllAssessments() {
-            return Mapper.Map<List<AssessmentVM>>(GetAll());
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<AssessmentVM>>(GetAll());
         }
 
         public void AddAssessment(AssessmentVM assessment) {
-            Add(Mapper.Map<Assessment>(assessment));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Assessment>(assessment));
             Save();
         }
 
         public void UpdateAssessment(AssessmentVM assessment) {
-            Update(Mapper.Map<Assessment>(assessment));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Assessment>(assessment));
             Save();
         }
     }

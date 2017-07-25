@@ -21,27 +21,32 @@ namespace Repository.Repositories {
         }
 
         public List<AssignmentVM> GetAllAssignments() {
-            return Mapper.Map<List<AssignmentVM>>(DbSet.Include("Assessment")
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<AssignmentVM>>(DbSet.Include("Assessment")
                                                        .Include("KPI"));
         }
 
         public AssignmentVM GetAssignmentByID(int id) {
-            return Mapper.Map<AssignmentVM>(GetAllAssignments().Where(a => a.AssignmentID == id));
+            var mapper = config.CreateMapper();
+            return mapper.Map<AssignmentVM>(GetAllAssignments().Where(a => a.AssignmentID == id));
         }
 
         public List<AssignmentVM> GetAssignmentsByDateRange(DateTime start, DateTime end) {
+            var mapper = config.CreateMapper();
             var assignments = GetAllAssignments().ToList();
             assignments = assignments.Where(a => a.StartDate >= start && a.EndDate <= end).ToList();
-            return Mapper.Map<List<AssignmentVM>>(assignments);
+            return mapper.Map<List<AssignmentVM>>(assignments);
         }
 
         public void AddAssignment(AssignmentVM assignment) {
-            Add(Mapper.Map<Assignment>(assignment));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Assignment>(assignment));
             Save();
         }
 
         public void UpdateAssignment(AssignmentVM assignment) {
-            Update(Mapper.Map<Assignment>(assignment));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Assignment>(assignment));
             Save();
         }
     }
