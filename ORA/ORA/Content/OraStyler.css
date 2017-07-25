@@ -40,14 +40,14 @@ body {
 
 }
 
-.container {
+/*.container {
     padding: 0;
     position: relative;
     height:inherit;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-}
+}*/
 
 .container_inner {
     width:inherit;
@@ -77,6 +77,7 @@ header.fixed{
 .wrapper_inner{
     width:100%;
     overflow:hidden;
+    height:inherit;
 }
 
 .has_top{
@@ -87,7 +88,7 @@ header.fixed{
 
 }
 
-/*footer {
+footer {
     display:block;
     position:relative;
     margin:0 auto;
@@ -99,7 +100,7 @@ header.fixed{
     width: 100%;
     padding:20px;
     z-index: 100000;
-}*/
+}
 
 .footer_top_holder {
     background-color: #093559;

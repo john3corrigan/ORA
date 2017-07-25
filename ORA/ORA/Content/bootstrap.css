@@ -52,13 +52,14 @@ video {
 }
 
 html {
-    height:auto;
-    overflow:auto;
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
 
+body {
+    margin: 0;
+}
 
 a:focus {
     outline: thin dotted;
@@ -777,6 +778,12 @@ pre {
     overflow-y: scroll;
 }
 
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
     .container:before,
     .container:after {

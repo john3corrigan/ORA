@@ -1,96 +1,100 @@
 ﻿<!DOCTYPE html>
-<html style="height:100vh;">
-
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/OraStyler.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     @Styles.Render("~/Content/OraStyler.css")
     @Styles.Render("~/Content/bootstrap.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body style=" background-color:#f2f2f2" class="Raleway">
+<body style="background-color:#f2f2f2; height:100%" class="Raleway">
     @*for the header/moved coding for 'login/signup'*@
-        <header class="fixed">
-            <div class="container">
-                <div class="clearfix header_top_bottom_holder">
-                    <div class="header_top">
-                        <div class="container">
-                            <div class="container_inner">
-                                <div class="left">
-                                    <div class="inner"></div>
-                                </div>
-                                <div class="right">
-                                    <div class="inner">
-                                        <div>
+    <div class="wrapper">
+        <div class="wrapper_inner">
+            <header class="fixed">
+                <div class="container">
+                    <div class="clearfix header_top_bottom_holder">
+                        <div class="header_top">
+                            <div class="container">
+                                <div class="container_inner">
+                                    <div class="left">
+                                        <div class="inner"></div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="inner">
                                             <div>
-                                                <ul class="list-inline">
-                                                    @*Make sure the user sees their name and current session's name*@
-                                                    @*Fill Session With Appropriate String when LoginController is Created*@
-                                                    @*<li>@Html.ActionLink( @*Replace this String Value With Session[""] and have it redirect to the account controller, or dropdownbox for more options" ", "", "")</li>*@
-                                                    <li>@Html.ActionLink("Log-Out", "", "")</li>
-                                                    @*}
-                                                        else
-                                                        {*@
-                                                    <li>@Html.ActionLink("Log-In", "", "")</li>
-                                                    @*}*@
-                                                </ul>
+                                                <div>
+                                                    <ul class="list-inline">
+                                                        @*Make sure the user sees their name and current session's name*@
+                                                        @*Fill Session With Appropriate String when LoginController is Created*@
+                                                        @*<li>@Html.ActionLink( @*Replace this String Value With Session[""] and have it redirect to the account controller, or dropdownbox for more options" ", "", "")</li>*@
+                                                        <li>@Html.ActionLink("Log-Out", "", "")</li>
+                                                        @*}
+                                                            else
+                                                            {*@
+                                                        <li>@Html.ActionLink("Log-In", "", "")</li>
+                                                        @*}*@
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="header_bottom">
-                        <div class="container">
-                            <div class="container_inner clearfix">
-                                <div class="header_left">
-                                    <div style="height:100px">
-                                        <a href="~/Home/Index">
-                                            <img style="height:100px" src="http://www.onshoreoutsourcing.com/wp-content/uploads/2017/04/oo_web360px.png" alt="Logo" onclick="" />
-                                        </a>
+                        <div class="header_bottom">
+                            <div class="container">
+                                <div class="container_inner clearfix">
+                                    <div class="header_left">
+                                        <div style="height:100px">
+                                            <a href="~/Home/Index">
+                                                <img style="height:100px" src="http://www.onshoreoutsourcing.com/wp-content/uploads/2017/04/oo_web360px.png" alt="Logo" onclick="" />
+                                            </a>
+                                        </div>
                                     </div>
+                                    <nav class=" header_right right">
+                                        <ul class="list-inline">
+                                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                            @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
+                                            @*@if (Session[""] != null)
+                                                {*@
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>Report</span>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("Report A", "", "")</a></li>
+                                                        <li><a>@Html.ActionLink("Report B", "", "")</a></li>
+                                                    </ul>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    KPI
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("View My KPI", "", "")</a></li>
+                                                        <li><a>@Html.ActionLink("KPI Form", "", "")</a></li>
+                                                    </ul>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
-                                <nav class=" header_right right">
-                                    <ul class="list-inline">
-                                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                                        @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
-                                        @*@if (Session[""] != null)
-                                            {*@
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <span>Report</span>
-                                                <ul class="dropdown-menu">
-                                                    <li><a>@Html.ActionLink("Report A", "", "")</a></li>
-                                                    <li><a>@Html.ActionLink("Report B", "", "")</a></li>
-                                                </ul>
-                                            </a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                KPI
-                                                <ul class="dropdown-menu">
-                                                    <li><a>@Html.ActionLink("View My KPI", "", "")</a></li>
-                                                    <li><a>@Html.ActionLink("KPI Form", "", "")</a></li>
-                                                </ul>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
+                <hr />
+            </header>
+            <div class="container body-content" style="padding-top: 163px; height:100%; ">
+                @RenderBody()
             </div>
-            <hr />
-        </header>
-        <div class="container body-content" style="padding-top: 163px; height:100%; ">
-            @RenderBody()
         </div>
-    
+    </div>
     <footer>
         <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
