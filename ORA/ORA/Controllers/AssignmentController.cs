@@ -27,7 +27,7 @@ namespace ORA.Controllers
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult CreateAssignment()
         {
-            return View(Assignments.AddAssignment(););
+            return View(Assignments.AddAssignment());
         }
 
         [HttpPost]
