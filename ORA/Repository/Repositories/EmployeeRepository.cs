@@ -21,21 +21,25 @@ namespace Repository.Repositories {
         }
 
         public List<EmployeeVM> GetAllEmployees() {
-            return Mapper.Map<List<EmployeeVM>>(DbSet.Include("Assignment"));
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<EmployeeVM>>(DbSet.Include("Assignment"));
         }
 
         public EmployeeVM GetEmployeeByID(int id) {
+            var mapper = config.CreateMapper();
             var employee = GetAllEmployees().Where(e => e.EmployeeID == id).FirstOrDefault();
-            return Mapper.Map<EmployeeVM>(employee);
+            return mapper.Map<EmployeeVM>(employee);
         }
 
         public void AddEmployee(EmployeeVM employee) {
-            Add(Mapper.Map<Employee>(employee));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Employee>(employee));
             Save();
         }
 
         public void UpdateEmployee(EmployeeVM employee) {
-            Update(Mapper.Map<Employee>(employee));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Employee>(employee));
             Save();
         }
     }

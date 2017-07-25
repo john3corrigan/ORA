@@ -20,21 +20,25 @@ namespace Repository.Repositories{
         }
 
         public List<StoryVM> GetAllStories() {
-            return Mapper.Map<List<StoryVM>>(DbSet.Include("KPI"));
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<StoryVM>>(DbSet.Include("KPI"));
         }
 
         public StoryVM GetStoryByID(int id) {
+            var mapper = config.CreateMapper();
             var story = GetAllStories().Where(s => s.StoryID == id).FirstOrDefault();
-            return Mapper.Map<StoryVM>(story);
+            return mapper.Map<StoryVM>(story);
         }
 
         public void AddStory(StoryVM story) {
-            Add(Mapper.Map<Story>(story));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Story>(story));
             Save();
         }
 
         public void UpdateStory(StoryVM story) {
-            Update(Mapper.Map<Story>(story));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Story>(story));
             Save();
         }
 

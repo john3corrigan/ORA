@@ -20,21 +20,25 @@ namespace Repository.Repositories {
         }
 
         public List<KPIVM> GetAllKPIs() {
-            return Mapper.Map<List<KPIVM>>(GetAll());
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<KPIVM>>(GetAll());
         }
 
         public KPIVM GetKPIByID(int id) {
+            var mapper = config.CreateMapper();
             var kpi = GetAllKPIs().Where(k => k.KPIID == id).FirstOrDefault();
-            return Mapper.Map<KPIVM>(kpi);
+            return mapper.Map<KPIVM>(kpi);
         }
 
         public void AddKPI(KPIVM kpi) {
-            Add(Mapper.Map<KPI>(kpi));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<KPI>(kpi));
             Save();
         }
 
         public void UpdateKPI(KPIVM kpi) {
-            Update(Mapper.Map<KPI>(kpi));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<KPI>(kpi));
             Save();
         }
     }

@@ -21,28 +21,33 @@ namespace Repository.Repositories {
         }
 
         public List<ClientVM> GetAllClients() {
-            return Mapper.Map<List<ClientVM>>(DbSet.Include("Assignment")
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<ClientVM>>(DbSet.Include("Assignment")
                                                    .Include("Story")
                                                    .Include("Project")
                                                    .Include("Team"));
         }
 
         public ClientVM GetClientByID(int id) {
+            var mapper = config.CreateMapper();
             var client = GetAllClients().Where(c => c.ClientID == id).FirstOrDefault();
-            return Mapper.Map<ClientVM>(client);
+            return mapper.Map<ClientVM>(client);
         }
 
         public void AddClient(ClientVM client) {
-            Add(Mapper.Map<Client>(client));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Client>(client));
             Save();
         }
 
         public void UpdateClient(ClientVM client) {
-            Update(Mapper.Map<Client>(client));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Client>(client));
             Save();
         }
 
         public void RemoveClient(ClientVM client) {
+            var mapper = config.CreateMapper();
             Delete(client.ClientID);
             Save();
         }

@@ -11,7 +11,6 @@ using Repository.Context;
 
 namespace Repository.Repositories {
     public class RoleRepository : BaseRespository<Role>, IRoleRepository {
-        private MapperConfiguration config;
         public RoleRepository() : base(new RepositoryContext("ora")) {
             InitMap();
         }

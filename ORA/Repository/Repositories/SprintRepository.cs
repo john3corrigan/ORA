@@ -20,21 +20,25 @@ namespace Repository.Repositories {
         }
 
         public List<SprintVM> GetAllSprints() {
-            return Mapper.Map<List<SprintVM>>(DbSet.Include("KPI"));
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<SprintVM>>(DbSet.Include("KPI"));
         }
 
         public SprintVM GetSprintByID(int id) {
+            var mapper = config.CreateMapper();
             var sprint = GetAllSprints().Where(s => s.SprintID == id).FirstOrDefault();
-            return Mapper.Map<SprintVM>(sprint);
+            return mapper.Map<SprintVM>(sprint);
         }
 
         public void AddSprint(SprintVM sprint) {
-            Add(Mapper.Map<Sprint>(sprint));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Sprint>(sprint));
             Save();
         }
 
         public void UpdateSprint(SprintVM sprint) {
-            Update(Mapper.Map<Sprint>(sprint));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Sprint>(sprint));
             Save();
         }
 

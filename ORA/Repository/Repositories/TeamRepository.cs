@@ -20,21 +20,25 @@ namespace Repository.Repositories {
         }
 
         public List<TeamVM> GetAllTeams() {
-            return Mapper.Map<List<TeamVM>>(DbSet.Include("Assignment"));
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<TeamVM>>(DbSet.Include("Assignment"));
         }
 
         public TeamVM GetTeamByID(int id) {
+            var mapper = config.CreateMapper();
             var team = GetAllTeams().Where(t => t.TeamID == id).FirstOrDefault();
-            return Mapper.Map<TeamVM>(team);
+            return mapper.Map<TeamVM>(team);
         }
 
         public void AddTeam(TeamVM team) {
-            Add(Mapper.Map<Team>(team));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Team>(team));
             Save();
         }
 
         public void UpdateTeam(TeamVM team) {
-            Update(Mapper.Map<Team>(team));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Team>(team));
             Save();
         }
 

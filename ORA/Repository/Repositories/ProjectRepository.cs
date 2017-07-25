@@ -20,20 +20,24 @@ namespace Repository.Repositories {
         }
 
         public List<ProjectVM> GetAllProjects() {
-            return Mapper.Map<List<ProjectVM>>(DbSet.Include("KPI"));
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<ProjectVM>>(DbSet.Include("KPI"));
         }
 
         public ProjectVM GetProjectByID(int id) {
+            var mapper = config.CreateMapper();
             return GetAllProjects().Where(p => p.ProjectID == id).FirstOrDefault();
         }
 
         public void AddProject(ProjectVM project) {
-            Add(Mapper.Map<Project>(project));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Project>(project));
             Save();
         }
 
         public void UpdateProject(ProjectVM project) {
-            Update(Mapper.Map<Project>(project));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Project>(project));
             Save();
         }
 
