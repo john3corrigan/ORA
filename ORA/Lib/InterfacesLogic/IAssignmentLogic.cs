@@ -11,7 +11,8 @@ namespace Lib.InterfacesLogic
     {
         AssignmentVM GetAssignmentByID(int assignmentID);
         List<AssignmentVM> GetAllAssignments();
-        void AddAssignment(AssignmentVM assignment);
+        CreateAssignmentVM AddAssignment();
+        void AddAssignment(CreateAssignmentVM assignment);
         void UpdateAssignment(AssignmentVM updatedAssignment);
     }
 }

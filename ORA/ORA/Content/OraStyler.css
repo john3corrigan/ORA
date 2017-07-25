@@ -43,6 +43,7 @@ body {
 .container {
     padding: 0;
     position: relative;
+    height:inherit;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -69,12 +70,14 @@ header.fixed{
     background-color:white
 }
 .wrapper{
+    height:inherit;
     position:relative;
     z-index:1000;
 }
 .wrapper_inner{
-    width:100%;
-    overflow:hidden;
+    width: 100%;
+    overflow: auto;
+    height: inherit;
 }
 
 .has_top{
@@ -86,14 +89,17 @@ header.fixed{
 }
 
 footer {
-    position: relative;
+    display:block;
+    position:relative;
+    margin:0 auto;
     bottom: 0;
+    right: 0;
+    left: 0;
     background-color: #093559;
     color: white;
     width: 100%;
+    padding:20px;
     z-index: 100000;
-    background-color: #093559;
-    color: white;
 }
 
 .footer_top_holder {
