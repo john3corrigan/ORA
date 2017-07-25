@@ -69,6 +69,7 @@ header.fixed{
     background-color:white
 }
 .wrapper{
+    height:inherit;
     position:relative;
     z-index:1000;
 }
@@ -86,14 +87,17 @@ header.fixed{
 }
 
 footer {
-    position: relative;
+    display:block;
+    position:relative;
+    margin:0 auto;
     bottom: 0;
+    right: 0;
+    left: 0;
     background-color: #093559;
     color: white;
     width: 100%;
+    padding:1rem;
     z-index: 100000;
-    background-color: #093559;
-    color: white;
 }
 
 .footer_top_holder {
