@@ -2,21 +2,24 @@
 @{
     ViewBag.Title = "Login";
 }
-
-<h2>Login</h2>
-@using (Html.BeginForm("Login", "Login", FormMethod.Post))
-{
-    <div>
-        <div>
-            @Html.LabelFor(m => m.EmployeeNumber, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.EmployeeNumber, new { @class = "form-control TextboxFormat" })
-            <font color="ff0000">@Html.ValidationMessageFor(m => m.EmployeeNumber)</font>
-        </div>
-       <div>
-            @Html.LabelFor(m => m.Password, new { @class = "LableFormat" })
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control TextboxFormat" })
-           <font color="">@Html.ValidationMessageFor(m => m.Password)</font>
-        </div>
-        <input type="submit" value="Login" />
+<div style="margin-left:auto; margin-right:auto;">
+    <div style="text-align:center; align-items:center;">
+        <h2>Login</h2>
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            <div>
+                <div>
+                    @Html.LabelFor(m => m.EmployeeNumber, new { @class = "LableFormat" })
+                    @Html.TextBoxFor(m => m.EmployeeNumber, new { @class = "form-control TextboxFormat" })
+                    <font color="ff0000">@Html.ValidationMessageFor(m => m.EmployeeNumber)</font>
+                </div>
+                <div>
+                    @Html.LabelFor(m => m.Password, new { @class = "LableFormat" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control TextboxFormat" })
+                    <font color="">@Html.ValidationMessageFor(m => m.Password)</font>
+                </div>
+                <input class="btn btn-default" type="submit" value="Login" />
+            </div>
+        }
     </div>
-}
+</div>
