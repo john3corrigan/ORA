@@ -33,12 +33,14 @@
                                                         @*Make sure the user sees their name and current session's name*@
                                                         @*Fill Session With Appropriate String when LoginController is Created*@
                                                         @*<li>@Html.ActionLink( @*Replace this String Value With Session[""] and have it redirect to the account controller, or dropdownbox for more options" ", "", "")</li>*@
-                                                        <li>@Html.ActionLink("Log-Out", "", "")</li>
-                                                        @*}
-                                                            else
-                                                            {*@
+                                                        @if (Session.SessionID == null)
+                                                        {
+                                                            <li>@Html.ActionLink("Log-Out", "", "")</li>
+                                                        }
+                                                        else
+                                                        {
                                                         <li>@Html.ActionLink("Log-In", "", "")</li>
-                                                        @*}*@
+                                                        }
                                                     </ul>
                                                 </div>
                                             </div>
@@ -159,7 +161,7 @@
         </div>
     </div>
     <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <p>&copy; @DateTime.Now.Year - Onshore</p>
     </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
