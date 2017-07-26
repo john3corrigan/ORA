@@ -45,8 +45,8 @@ namespace Repository.Repositories{
             Save();
         }
 
-        public void DeleteStory(StoryVM story) {
-            Delete(story.StoryID);
+        public void DeleteStory(int id) {
+            Delete(id);
             Save();
         }
     }

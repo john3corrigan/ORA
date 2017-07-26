@@ -19,6 +19,9 @@ namespace Lib.EFModels {
 
         public byte[] Salt { get; set; }
 
+        [EmailAddress]
+        public string Email { get; set; }
+
         [Required]
         public string EmployeeName { get; set; }
 
@@ -34,6 +37,9 @@ namespace Lib.EFModels {
         public string EmployeeLastName { get; set; }
 
         public bool ActiveFlag { get; set; }
+
+        public int ProfileID { get; set; }
+        public Profile Profile { get; set; }
 
         public virtual ICollection<Assignment> Assignment { get; set; }
 

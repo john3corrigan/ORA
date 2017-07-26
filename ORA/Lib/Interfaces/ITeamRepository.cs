@@ -11,6 +11,6 @@ namespace Lib.Interfaces {
         TeamVM GetTeamByID(int id);
         void AddTeam(CreateTeamVM team);
         void UpdateTeam(TeamVM team);
-        void DeleteTeam(TeamVM team);
+        void DeleteTeam(int id);
     }
 }

@@ -32,5 +32,22 @@ namespace Repository.Repositories {
             var position = GetAllPositions().Where(p => p.PositionID == id).FirstOrDefault();
             return mapper.Map<PositionVM>(position);
         }
+
+        public void AddPosition(PositionVM position) {
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<Position>(position));
+            Save();
+        }
+
+        public void UpdatePosition(PositionVM position) {
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<Position>(position));
+            Save();
+        }
+
+        public void DeletePosition(int id) {
+            Delete(id);
+            Save();
+        }
     }
 }

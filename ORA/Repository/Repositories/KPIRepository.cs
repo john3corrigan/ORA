@@ -44,5 +44,10 @@ namespace Repository.Repositories {
             Update(mapper.Map<KPI>(kpi));
             Save();
         }
+
+        public void DeleteKPI(int id) {
+            Delete(id);
+            Save();
+        }
     }
 }

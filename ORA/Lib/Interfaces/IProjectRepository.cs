@@ -11,6 +11,6 @@ namespace Lib.Interfaces {
         ProjectVM GetProjectByID(int id);
         void AddProject(CreateProjectVM project);
         void UpdateProject(ProjectVM project);
-        void DeleteProject(ProjectVM project);
+        void DeleteProject(int id);
     }
 }

@@ -12,7 +12,10 @@ namespace Lib.ViewModels {
         public string EmployeeFirstName { get; set; }
         public string EmployeeMI { get; set; }
         public string EmployeeLastName { get; set; }
+        public string Email { get; set; }
         public bool ActiveFlag { get; set; }
+        public int ProfileID { get; set; }
+        public ProfileVM Profile { get; set; }
         public List<AssignmentVM> Assignment { get; set; }
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }

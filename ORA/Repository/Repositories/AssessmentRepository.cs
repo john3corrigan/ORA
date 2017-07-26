@@ -45,5 +45,10 @@ namespace Repository.Repositories {
             Update(mapper.Map<Assessment>(assessment));
             Save();
         }
+
+        public void DeleteAssessment(int id) {
+            Delete(id);
+            Save();
+        }
     }
 }
