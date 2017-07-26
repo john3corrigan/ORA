@@ -27,7 +27,7 @@ namespace ORA.Controllers
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult CreateAssignment()
         {
-            return View(Assignments.AddAssignment(););
+            return View(Assignments.AddAssignment());
         }
 
         [HttpPost]
@@ -59,11 +59,6 @@ namespace ORA.Controllers
         {
             Assignments.UpdateAssignment(updatedAssignment);
             return RedirectToAction("Dashboard", "Home", new { area = "" });
-        }
-        public JsonResult GetAssignments()
-        {
-            var List = Assignments.GetAllAssignments();
-            return Json(List, JsonRequestBehavior.AllowGet);
         }
     }
 }

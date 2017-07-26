@@ -13,10 +13,22 @@ namespace BusinessLogic.ORALogic
     public class KPILogic : IKPILogic
     {
         private IKPIRepository KPIs;
+        private IAssignmentRepository Assignment;
+        private IProjectRepository Project;
+        private ISprintRepository Sprint;
+        private IStoryRepository Story;
 
-        public KPILogic(IKPIRepository kpi)
+        public KPILogic(IKPIRepository kpi, 
+            IAssignmentRepository assign, 
+            IProjectRepository prjct, 
+            ISprintRepository sprnt,
+            IStoryRepository stry)
         {
             KPIs = kpi;
+            Assignment = assign;
+            Project = prjct;
+            Sprint = sprnt;
+            Story = stry;
         }
 
         public KPIVM GetKPIByID(int Id)
@@ -33,8 +45,17 @@ namespace BusinessLogic.ORALogic
         {
             KPIs.UpdateKPI(updatedKPI);
         }
-
-        public void AddKPI(KPIVM newKPI)
+        public CreateKPIVM AddKPI()
+        {
+            CreateKPIVM create = new CreateKPIVM() {
+                AssignmentList = Assignment.GetAllAssignments(),
+                ProjectList = Project.GetAllProjects(),
+                SprintList = Sprint.GetAllSprints(),
+                StoryList = Story.GetAllStories()
+            };
+            return create;
+        }
+        public void AddKPI(CreateKPIVM newKPI)
         {
             KPIs.AddKPI(newKPI);
         }

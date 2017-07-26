@@ -18,6 +18,7 @@ namespace Repository.Repositories {
         private void InitMap() {
             config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<KPI, KPIVM>().ReverseMap();
+                cfg.CreateMap<CreateKPIVM, KPI>();
             });
         }
 
@@ -32,7 +33,7 @@ namespace Repository.Repositories {
             return mapper.Map<KPIVM>(kpi);
         }
 
-        public void AddKPI(KPIVM kpi) {
+        public void AddKPI(CreateKPIVM kpi) {
             var mapper = config.CreateMapper();
             Add(mapper.Map<KPI>(kpi));
             Save();

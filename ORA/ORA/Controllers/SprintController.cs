@@ -67,10 +67,5 @@ namespace ORA.Controllers
             Sprints.DeleteSprint(SprintID);
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
-        public JsonResult GetSprints()
-        {
-            var List = Sprints.GetAllSprints();
-            return Json(List, JsonRequestBehavior.AllowGet);
-        }
     }
 }

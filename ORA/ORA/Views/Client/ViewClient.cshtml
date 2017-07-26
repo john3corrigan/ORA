@@ -23,13 +23,13 @@
         <td>@Html.Display(Model.Title)</td>
         <td>@Html.Display(Model.ClientName)</td>
         <td>@Html.Display(Model.ClientAbbreviation)</td>
-        <td>@Html.ActionLink("", "", routeValues: new { AssignmentList = Model.Assignments })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { StoriesList = Model.Stories })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { ProjectsList = Model.Projects })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { TeamsList = Model.Teams })</td>
-        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
-        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
-        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
-        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+        <td>@Html.ActionLink("", "", routeValues: new { AssignmentList = Model.Assignment })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { StoriesList = Model.Story })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { ProjectsList = Model.Project })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { TeamsList = Model.Team })</td>
+        <td>@Html.Display(Model.Created.ToString())</td>
+        <td>@Html.Display(Model.CreatedBy)</td>
+        <td>@Html.Display(Model.Modified.ToString())</td>
+        <td>@Html.Display(Model.ModifiedBy)</td>
         </tr>
 </table>

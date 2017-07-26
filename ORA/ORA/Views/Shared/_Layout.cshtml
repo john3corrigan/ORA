@@ -6,7 +6,6 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/OraStyler.css" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="~/Scripts/DropDownLists.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     @Styles.Render("~/Content/OraStyler.css")
@@ -60,26 +59,88 @@
                                     </div>
                                     <nav class=" header_right right">
                                         <ul class="list-inline">
-                                            <li>@Html.ActionLink("About", "About", "Home")</li>
                                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                                             @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
                                             @*@if (Session[""] != null)
                                                 {*@
                                             <li class="dropdown">
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                    <span>Report</span>
+                                                    <span>Assessment</span>
                                                     <ul class="dropdown-menu">
-                                                        <li>@Html.ActionLink("Report A", "", "")</li>
-                                                        <li>@Html.ActionLink("Report B", "", "")</li>
+                                                        <li><a>@Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")</a></li>
+                                                        <li><a>@Html.ActionLink("View All Assessments", "ViewAllAssessments", "Assessment")</a></li>
                                                     </ul>
                                                 </a>
                                             </li>
                                             <li class="dropdown">
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                    KPI
+                                                    <span>Assignment</span>
                                                     <ul class="dropdown-menu">
-                                                        <li>@Html.ActionLink("View My KPI", "", "")</li>
-                                                        <li>@Html.ActionLink("KPI Form", "", "")<</li>
+                                                        <li><a>@Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment")</a></li>
+                                                        <li><a>@Html.ActionLink("View All Assignments", "ViewAllAssignments", "Assignment")</a></li>
+                                                    </ul>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>Client</span>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("Add a Client", "AddClient", "Client")</a></li>
+                                                        <li><a>@Html.ActionLink("View All Clients", "ViewAllClients", "Client")</a></li>
+                                                    </ul>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>Employee</span>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("Add an Employee", "AddEmployee", "Employee")</a></li>
+                                                        <li><a>@Html.ActionLink("View All Employees", "ViewAllEmployees", "Employee")</a></li>
+                                                    </ul>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>KPI</span>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("Create a KPI", "CreateKPI", "KPI")</a></li>
+                                                        <li><a>@Html.ActionLink("View All KPIs", "ViewAllKPI", "KPI")</a></li>
+                                                    </ul>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>Project</span>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("Create a Project", "CreateProject", "Project")</a></li>
+                                                        <li><a>@Html.ActionLink("View All Projects", "ViewAllProjects", "Project")</a></li>
+                                                    </ul>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>Sprint</span>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("Create a Sprint", "CreateSprint", "Sprint")</a></li>
+                                                        <li><a>@Html.ActionLink("View All Sprints", "ViewAllSprints", "Sprint")</a></li>
+                                                    </ul>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>Story</span>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("Create a Story", "CreateStory", "Story")</a></li>
+                                                        <li><a>@Html.ActionLink("View All Stories", "ViewAllStories", "Story")</a></li>
+                                                    </ul>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span>Team</span>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a>@Html.ActionLink("Create a Team", "CreateTeam", "Team")</a></li>
+                                                        <li><a>@Html.ActionLink("View All Teams", "ViewAllTeams", "Team")</a></li>
                                                     </ul>
                                                 </a>
                                             </li>

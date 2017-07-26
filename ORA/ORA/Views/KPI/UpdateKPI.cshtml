@@ -86,30 +86,22 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Assignment, new { @class = "LabelFormat" })
-                <div id="Assignment">
-                    <script>$(document).ready(DropDown("Assignment", "/Assignment/GetAssignments"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Assignment, new SelectList(Model.AssignmentList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Assignment)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Project, new { @class = "LabelFormat" })
-                <div id="Project">
-                    <script>$(document).ready(DropDown("Project", "/Project/GetProjects"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Project, new SelectList(Model.ProjectList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Project)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Sprint, new { @class = "LabelFormat" })
-                <div id="Sprint">
-                    <script>$(document).ready(DropDown("Sprint", "/Sprint/GetSprints"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Sprint, new SelectList(Model.SprintList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Sprint)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Story, new { @class = "LabelFormat" })
-                <div id="Story">
-                    <script>$(document).ready(DropDown("Story", "/Story/GetStorys"))</script>
-                </div>
+                @Html.DropDownListFor(m => m.Story, new SelectList(Model.StoryList))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
             </div>
             @Html.HiddenFor(m => m.KPIID, new { Value = Model.KPIID })

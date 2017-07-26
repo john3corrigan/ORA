@@ -34,12 +34,12 @@
         <td>@Html.Display(Value.Position.ToString())</td>
         <td>@Html.Display(Value.Role.ToString())</td>
         <td>@Html.Display(Value.Team.TeamName)</td>
-        <td>@Html.Display(Value.Metadata.Created.ToString())</td>
-        <td>@Html.Display(Value.Metadata.CreatedBy)</td>
-        <td>@Html.Display(Value.Metadata.Modified.ToString())</td>
-        <td>@Html.Display(Value.Metadata.ModifiedBy)</td>
-        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Value.KPIS })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { AssessmentList = Value.Assessments })</td>
+        <td>@Html.Display(Value.Created.ToString())</td>
+        <td>@Html.Display(Value.CreatedBy)</td>
+        <td>@Html.Display(Value.Modified.ToString())</td>
+        <td>@Html.Display(Value.ModifiedBy)</td>
+        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Value.KPI })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { AssessmentList = Value.Assessment })</td>
     </tr>
     }
 </table>

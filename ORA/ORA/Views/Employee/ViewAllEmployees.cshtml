@@ -29,11 +29,11 @@
             <td>@Html.Display(Value.EmployeeMI)</td>
             <td>@Html.Display(Value.EmployeeLastName)</td>
             <td>@Html.Display(Value.ActiveFlag.ToString())</td>
-            <td>@Html.ActionLink("", "", routeValues: new { AssignmentsList = Value.Assignments })</td>
-            <td>@Html.Display(Value.Metadata.Created.ToString())</td>
-            <td>@Html.Display(Value.Metadata.CreatedBy)</td>
-            <td>@Html.Display(Value.Metadata.Modified.ToString())</td>
-            <td>@Html.Display(Value.Metadata.ModifiedBy)</td>
+            <td>@Html.ActionLink("", "", routeValues: new { AssignmentsList = Value.Assignment })</td>
+            <td>@Html.Display(Value.Created.ToString())</td>
+            <td>@Html.Display(Value.CreatedBy)</td>
+            <td>@Html.Display(Value.Modified.ToString())</td>
+            <td>@Html.Display(Value.ModifiedBy)</td>
         }
     </tr>
 </table>

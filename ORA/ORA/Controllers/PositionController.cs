@@ -26,11 +26,5 @@ namespace ORA.Controllers
         {
             return View(Positions.GetAllPositions());
         }
-
-        public JsonResult GetPositions()
-        {
-            var List = Positions.GetAllPositions();
-            return Json(List, JsonRequestBehavior.AllowGet);
-        }
     }
 }

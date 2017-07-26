@@ -11,7 +11,8 @@ namespace Lib.InterfacesLogic
     {
         List<KPIVM> GetAllKPIs();
         KPIVM GetKPIByID(int KPIID);
-        void AddKPI(KPIVM KPI);
+        void AddKPI(CreateKPIVM newKPI);
+        CreateKPIVM AddKPI();
         void UpdateKPI(KPIVM updatedKPI);
     }
 }

@@ -70,10 +70,5 @@ namespace ORA.Controllers
             Clients.RemoveClient(ClientID);
             return View();
         }
-        public JsonResult GetClients()
-        {
-            var List = Clients.GetAllClients();
-            return Json(List, JsonRequestBehavior.AllowGet);
-        }
     }
 }

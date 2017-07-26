@@ -32,11 +32,11 @@
         <td>@Html.Display(Model.Position.ToString())</td>
         <td>@Html.Display(Model.Role.ToString())</td>
         <td>@Html.Display(Model.Team.TeamName)</td>
-        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
-        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
-        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
-        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
-        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Model.KPIS })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { AssessmentList = Model.Assessments })</td>
+        <td>@Html.Display(Model.Created.ToString())</td>
+        <td>@Html.Display(Model.CreatedBy)</td>
+        <td>@Html.Display(Model.Modified.ToString())</td>
+        <td>@Html.Display(Model.ModifiedBy)</td>
+        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Model.KPI })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { AssessmentList = Model.Assessment })</td>
     </tr>
 </table>
