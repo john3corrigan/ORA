@@ -67,6 +67,7 @@
     <Compile Include="InterfacesLogic\IEmployeeLogic.cs" />
     <Compile Include="InterfacesLogic\IKPILogic.cs" />
     <Compile Include="InterfacesLogic\IPositionLogic.cs" />
+    <Compile Include="InterfacesLogic\IProfileLogic.cs" />
     <Compile Include="InterfacesLogic\IProjectLogic.cs" />
     <Compile Include="InterfacesLogic\IRoleLogic.cs" />
     <Compile Include="InterfacesLogic\ISprintLogic.cs" />

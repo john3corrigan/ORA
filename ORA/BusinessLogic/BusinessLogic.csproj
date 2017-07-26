@@ -49,6 +49,7 @@
     <Compile Include="ORALogic\EmployeeLogic.cs" />
     <Compile Include="ORALogic\KPILogic.cs" />
     <Compile Include="ORALogic\PositionLogic.cs" />
+    <Compile Include="ORALogic\ProfileLogic.cs" />
     <Compile Include="ORALogic\ProjectLogic.cs" />
     <Compile Include="ORALogic\RoleLogic.cs" />
     <Compile Include="ORALogic\SprintLogic.cs" />
