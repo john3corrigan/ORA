@@ -26,10 +26,10 @@
         <td>@Html.Display(Model.ProjectStartDate.ToString())</td>
         <td>@Html.Display(Model.ProjectEndDate.ToString())</td>
         <td>@Html.Display(Model.Client.ClientName)</td>
-        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Model.KPIs })</td>
-        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
-        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
-        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
-        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Model.KPI })</td>
+        <td>@Html.Display(Model.Created.ToString())</td>
+        <td>@Html.Display(Model.CreatedBy)</td>
+        <td>@Html.Display(Model.Modified.ToString())</td>
+        <td>@Html.Display(Model.ModifiedBy)</td>
     </tr>
 </table>

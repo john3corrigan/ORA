@@ -24,10 +24,10 @@
         <td>@Html.Display(Model.SprintName)</td>
         <td>@Html.Display(Model.StartDate.ToString())</td>
         <td>@Html.Display(Model.EndDate.ToString())</td>
-        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Model.KPIs })</td>
-        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
-        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
-        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
-        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Model.KPI })</td>
+        <td>@Html.Display(Model.Created.ToString())</td>
+        <td>@Html.Display(Model.CreatedBy)</td>
+        <td>@Html.Display(Model.Modified.ToString())</td>
+        <td>@Html.Display(Model.ModifiedBy)</td>
     </tr>
 </table>

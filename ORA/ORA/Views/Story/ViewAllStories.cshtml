@@ -14,7 +14,6 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Client</th>
-        <th>KPIs</th>
         <th>Created Date</th>
         <th>Created By</th>
         <th>Modified Date</th>
@@ -29,11 +28,10 @@
             <td>@Html.Display(Value.StoryStartDate.ToString())</td>
             <td>@Html.Display(Value.StoryEndDate.ToString())</td>
             <td>@Html.Display(Value.Client.ClientName)</td>
-            <td>@Html.ActionLink("", "", routeValues: new { KPIList = Value.KPIs })</td>
-            <td>@Html.Display(Value.Metadata.Created.ToString())</td>
-            <td>@Html.Display(Value.Metadata.CreatedBy)</td>
-            <td>@Html.Display(Value.Metadata.Modified.ToString())</td>
-            <td>@Html.Display(Value.Metadata.ModifiedBy)</td>
+            <td>@Html.Display(Value.Created.ToString())</td>
+            <td>@Html.Display(Value.CreatedBy)</td>
+            <td>@Html.Display(Value.Modified.ToString())</td>
+            <td>@Html.Display(Value.ModifiedBy)</td>
         }
     </tr>
 </table>

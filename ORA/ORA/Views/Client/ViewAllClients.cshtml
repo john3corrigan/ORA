@@ -26,14 +26,14 @@
             <td>@Html.Display(Value.Title)</td>
             <td>@Html.Display(Value.ClientName)</td>
             <td>@Html.Display(Value.ClientAbbreviation)</td>
-            <td>@Html.ActionLink("", "", routeValues: new { AssignmentList = Value.Assignments})</td>
-            <td>@Html.ActionLink("", "", routeValues: new { StoriesList = Value.Stories })</td>
-            <td>@Html.ActionLink("", "", routeValues: new { ProjectsList = Value.Projects })</td>
-            <td>@Html.ActionLink("", "", routeValues: new { TeamsList = Value.Teams })</td>
-            <td>@Html.Display(Value.Metadata.Created.ToString())</td>
-            <td>@Html.Display(Value.Metadata.CreatedBy)</td>
-            <td>@Html.Display(Value.Metadata.Modified.ToString())</td>
-            <td>@Html.Display(Value.Metadata.ModifiedBy)</td>
+            <td>@Html.ActionLink("", "", routeValues: new { AssignmentList = Value.Assignment})</td>
+            <td>@Html.ActionLink("", "", routeValues: new { StoriesList = Value.Story })</td>
+            <td>@Html.ActionLink("", "", routeValues: new { ProjectsList = Value.Project })</td>
+            <td>@Html.ActionLink("", "", routeValues: new { TeamsList = Value.Team })</td>
+            <td>@Html.Display(Value.Created.ToString())</td>
+            <td>@Html.Display(Value.CreatedBy)</td>
+            <td>@Html.Display(Value.Modified.ToString())</td>
+            <td>@Html.Display(Value.ModifiedBy)</td>
         }
     </tr>
 </table>

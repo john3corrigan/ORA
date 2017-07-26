@@ -19,11 +19,11 @@
     <tr>
         <td>@Html.Display(Model.Title)</td>
         <td>@Html.Display(Model.TeamName)</td>
-        <td>@Html.ActionLink("", "", routeValues: new { AssignmentsList = Model.Assignments })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { AssignmentsList = Model.Assignment })</td>
         <td>@Html.Display(Model.Client.ClientName)</td>
-        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
-        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
-        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
-        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+        <td>@Html.Display(Model.Created.ToString())</td>
+        <td>@Html.Display(Model.CreatedBy)</td>
+        <td>@Html.Display(Model.Modified.ToString())</td>
+        <td>@Html.Display(Model.ModifiedBy)</td>
     </tr>
 </table>
