@@ -1,7 +1,47 @@
-﻿
+﻿@model Lib.ViewModels.EmployeeVM
+@using Lib.ViewModels
 @{
     ViewBag.Title = "UpdateEmployee";
 }
 
 <h2>UpdateEmployee</h2>
 
+@using (Html.BeginForm("UpdateEmployee", "Login", FormMethod.Post))
+{
+    <div>
+        <div>
+            @Html.LabelFor(m => m.Title, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.Title)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.EmployeeNumber, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.EmployeeNumber, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.EmployeeNumber)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.EmployeeName, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.EmployeeName, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.EmployeeName)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.EmployeeFirstName, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.EmployeeFirstName, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.EmployeeFirstName)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.EmployeeMI, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.EmployeeMI, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.EmployeeMI)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.EmployeeLastName, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.EmployeeLastName, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.EmployeeLastName)</font>
+        </div>
+        @Html.HiddenFor(m => m.EmployeeID, new { Value = Model.EmployeeID })
+        @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
+        @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
+        <input type="submit" value="Update" />
+    </div>
+}

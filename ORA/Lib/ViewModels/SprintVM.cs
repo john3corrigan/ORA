@@ -9,8 +9,10 @@ namespace Lib.ViewModels {
         public string SprintName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public List<KPIVM> KPIs { get; set; }
-        public int MetadataID { get; set; }
-        public MetadataVM Metadata { get; set; }
+        public List<KPIVM> KPI { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

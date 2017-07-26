@@ -5,12 +5,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class ClientController : Controller
     {
-        private ClientLogic clientLogic = new ClientLogic();
+        private IClientLogic Clients;
+
+        public ClientController(IClientLogic clnts)
+        {
+            Clients = clnts;
+        }
 
         // GET: Client
         public ActionResult Index()
@@ -28,40 +35,45 @@ namespace ORA.Controllers
         [HttpPost]
         public ActionResult AddClient(ClientVM Client)
         {
-            clientLogic.AddClient(Client);
-            return RedirectToAction("", "", new { area = "" });
+            Clients.AddClient(Client);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateClient(int ClientID)
         {
-            return View(clientLogic.GetClientByClientID(ClientID));
+            return View(Clients.GetClientByID(ClientID));
         }
 
         [HttpPost]
         public ActionResult UpdateClient(ClientVM updatedClient)
         {
-            clientLogic.UpdateClient(updatedClient);
-            return View("");
+            Clients.UpdateClient(updatedClient);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         public ActionResult ViewClient(int AssignmentID)
         {
-            return View(clientLogic.GetClientByClientID(AssignmentID));
+            return View(Clients.GetClientByID(AssignmentID));
         }
 
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult ViewAllClients()
         {
-            return View(clientLogic.GetAllClients());
+            return View(Clients.GetAllClients());
         }
 
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult DeleteClient(int ClientID)
         {
-            clientLogic.DeleteClient(ClientID);
-            return View("");
+            Clients.RemoveClient(ClientID);
+            return View();
+        }
+        public JsonResult GetClients()
+        {
+            var List = Clients.GetAllClients();
+            return Json(List, JsonRequestBehavior.AllowGet);
         }
     }
 }

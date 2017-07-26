@@ -27,7 +27,9 @@ namespace Lib.ViewModels {
         public SprintVM Sprint { get; set; }
         public int StoryID { get; set; }
         public StoryVM Story { get; set; }
-        public int MetadataID { get; set; }
-        public MetadataVM Metadata { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

@@ -5,62 +5,65 @@ using System.Web;
 using System.Web.Mvc;
 using Lib.ViewModels;
 using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class AssignmentController : Controller
     {
-        private AssignmentLogic assignmentLogic = new AssignmentLogic();
+        private IAssignmentLogic Assignments;
+        public AssignmentController(IAssignmentLogic assign)
+        {
+            Assignments = assign;
+        }
 
         // GET: Assignment
         public ActionResult Index()
         {
             return View();
         }
-
-        [HttpGet]
+        
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult CreateAssignment()
         {
-            return View();
+            return View(Assignments.AddAssignment(););
         }
 
         [HttpPost]
-        public ActionResult CreateAssignment(AssignmentVM Assignment)
+        public ActionResult CreateAssignment(CreateAssignmentVM Assignment)
         {
-            assignmentLogic.CreateAssignment(Assignment);
-            return RedirectToAction("ViewAssignments", "Assignments", new { area = ""});
+            Assignments.AddAssignment(Assignment);
+            return RedirectToAction("Dashboard", "Home", new { area = ""});
         }
 
         public ActionResult ViewAllAssigments()
         {
-            return View(assignmentLogic.GetAllAssignments());
+            return View(Assignments.GetAllAssignments());
         }
 
         public ActionResult ViewAssigment(int AssignmentID)
         {
-            return View(assignmentLogic.GetAssignmentByAssignmentID(AssignmentID));
+            return View(Assignments.GetAssignmentByID(AssignmentID));
         }
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateAssigments(int AssignmentID)
         {
-            return View(assignmentLogic.GetAssignmentByAssignmentID(AssignmentID));
+            return View(Assignments.GetAssignmentByID(AssignmentID));
         }
 
         [HttpPost]
         public ActionResult UpdateAssigments(AssignmentVM updatedAssignment)
         {
-            assignmentLogic.UpdateAssignment(updatedAssignment);
-            return RedirectToAction("ViewAssignments", "Assignments", new { area = "" });
+            Assignments.UpdateAssignment(updatedAssignment);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
-
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult DeleteAssigments(int AssignmentID)
+        public JsonResult GetAssignments()
         {
-            assignmentLogic.DeleteAssignmentByAssignmentID(AssignmentID);
-            return RedirectToAction("ViewAssignments", "Assignments", new { area = "" });
+            var List = Assignments.GetAllAssignments();
+            return Json(List, JsonRequestBehavior.AllowGet);
         }
     }
 }

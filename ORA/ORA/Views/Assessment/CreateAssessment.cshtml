@@ -1,7 +1,152 @@
-﻿
+﻿@model Lib.ViewModels.AssessmentVM
 @{
     ViewBag.Title = "CreateAssessment";
 }
 
-<h2>CreateAssessment</h2>
+<h2>Create Assessment</h2>
 
+@using (Html.BeginForm("CreateAssessment", "Assessment", FormMethod.Post))
+{
+    <div>
+        <div>
+            @Html.LabelFor(m => m.Title, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.Title)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TDProblemSolving, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TDProblemSolving, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TDProblemSolving)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TDQualityOfWork, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TDQualityOfWork, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TDQualityOfWork)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TDProductivity, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TDProductivity, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TDProductivity)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TDProductKnowledge, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TDProductKnowledge, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TDProductKnowledge)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TDComments, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TDComments, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TDComments)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.CSRProfessionalismTeamwork, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.CSRProfessionalismTeamwork, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.CSRProfessionalismTeamwork)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.CSRVerbalSkills, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.CSRVerbalSkills, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.CSRVerbalSkills)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.CSRWrittenSkills, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.CSRWrittenSkills, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.CSRWrittenSkills)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.CSRListeningSkills, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.CSRListeningSkills, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.CSRListeningSkills)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.CSRComments, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.CSRComments, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.CSRComments)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ADAttendence, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.ADAttendence, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.ADAttendence)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ADEthiclBehavior, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.ADEthiclBehavior, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.ADEthiclBehavior)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ADMeetsDeadlines, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.ADMeetsDeadlines, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.ADMeetsDeadlines)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ADOrganizeDetailedWork, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.ADOrganizeDetailedWork, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.ADOrganizeDetailedWork)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ADComments, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.ADComments, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.ADComments)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TMResourceUse, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TMResourceUse, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TMResourceUse)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TMFeedBack, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TMFeedBack, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TMFeedBack)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TMTehcnicalMonitoring, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TMTehcnicalMonitoring, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TMTehcnicalMonitoring)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TMAskingQuestions, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TMAskingQuestions, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TMAskingQuestions)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TMComments, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.TMComments, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.TMComments)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.MIAttitudeWork, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.MIAttitudeWork, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.MIAttitudeWork)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.MIGroomingAppearence, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.MIGroomingAppearence, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.MIGroomingAppearence)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.MIPersonalGrowth, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.MIPersonalGrowth, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.MIPersonalGrowth)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.MIPotencialAdvancement, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.MIPotencialAdvancement, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.MIPotencialAdvancement)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.MIComments, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.MIComments, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.MIComments)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ActiveFlag, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.ActiveFlag, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.ActiveFlag)</font>
+        </div>
+        @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
+        @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
+        @Html.HiddenFor(m => m.Created, new { @Value = DateTime.Now })
+        @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
+        <input type="submit" value="Create" />
+    </div>
+}

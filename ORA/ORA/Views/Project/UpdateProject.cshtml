@@ -1,7 +1,51 @@
-﻿
+﻿@model Lib.ViewModels.ProjectVM
+@using Lib.ViewModels
 @{
     ViewBag.Title = "UpdateProject";
 }
 
 <h2>UpdateProject</h2>
 
+@using (Html.BeginForm("UpdateProject", "Project", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                @Html.DisplayFor(m => m.Title)
+                @Html.TextBoxFor(m => m.Title)
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Title)</font>
+            </div>
+            <div>
+                @Html.DisplayFor(m => m.ProjectName)
+                @Html.TextBoxFor(m => m.ProjectName)
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.ProjectName)</font>
+            </div>
+            <div>
+                @Html.DisplayFor(m => m.ProjectNumber)
+                @Html.TextBoxFor(m => m.ProjectNumber)
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.ProjectNumber)</font>
+            </div>
+            <div>
+                @Html.DisplayFor(m => m.ProjectStartDate)
+                @Html.TextBoxFor(m => m.ProjectStartDate)
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.ProjectStartDate)</font>
+            </div>
+            <div>
+                @Html.DisplayFor(m => m.ProjectEndDate)
+                @Html.TextBoxFor(m => m.ProjectEndDate)
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.ProjectEndDate)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
+                <div id="Client">
+                    <script>$(document).ready(DropDown("Client", "/Client/GetClients"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
+            </div>
+            @Html.HiddenFor(m => m.ProjectID, new { Value = Model.ProjectID })
+            @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+}

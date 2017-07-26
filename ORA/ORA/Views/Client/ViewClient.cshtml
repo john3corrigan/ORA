@@ -1,7 +1,35 @@
-﻿
+﻿@model Lib.ViewModels.ClientVM
 @{
     ViewBag.Title = "ViewClient";
 }
 
 <h2>ViewClient</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Client Name</th>
+        <th>Abbreviation</th>
+        <th>Assignments</th>
+        <th>Stories</th>
+        <th>Projects</th>
+        <th>Teams</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    <tr>
+        <td>@Html.Display(Model.Title)</td>
+        <td>@Html.Display(Model.ClientName)</td>
+        <td>@Html.Display(Model.ClientAbbreviation)</td>
+        <td>@Html.ActionLink("", "", routeValues: new { AssignmentList = Model.Assignments })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { StoriesList = Model.Stories })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { ProjectsList = Model.Projects })</td>
+        <td>@Html.ActionLink("", "", routeValues: new { TeamsList = Model.Teams })</td>
+        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
+        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
+        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
+        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+        </tr>
+</table>

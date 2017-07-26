@@ -1,4 +1,6 @@
-﻿namespace Lib.ViewModels {
+﻿using System;
+
+namespace Lib.ViewModels {
     public class AssessmentVM {
         public int AssessmentID { get; set; }
         public string Title { get; set; }
@@ -30,7 +32,9 @@
         public bool ActiveFlag { get; set; }
         public int AssignmentID { get; set; }
         public AssignmentVM Assignment { get; set; }
-        public int MetadataID { get; set; }
-        public MetadataVM Metadata { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

@@ -22,9 +22,10 @@ namespace Lib.EFModels {
         public int ClientID { get; set; }
         public virtual Client Client { get; set; }
 
-        public virtual ICollection<KPI> KPIs { get; set; }
-
-        public int MetadataID { get; set; }
-        public virtual Metadata Metadata { get; set; }
+        public virtual ICollection<KPI> KPI { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

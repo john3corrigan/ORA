@@ -1,7 +1,76 @@
-﻿
+﻿@model Lib.ViewModels.AssessmentVM
 @{
     ViewBag.Title = "ViewAssessment";
 }
 
 <h2>ViewAssessment</h2>
-
+<table>
+    <tr>
+        <th>Title</th>
+        <th>TD Problem Solving</th>
+        <th>TD Quality Of Work</th>
+        <th>TD Productivity</th>
+        <th>TD Product Knowledge</th>
+        <th>TD Comments</th>
+        <th>CSR Professionalism Teamwork</th>
+        <th>CSR Verbal Skills</th>
+        <th>CSR Written Skills</th>
+        <th>CSR Listening Skills</th>
+        <th>CSR Comments</th>
+        <th>AD Attendence</th>
+        <th>AD Ethic Behavior</th>
+        <th>AD Meets Deadlines</th>
+        <th>AD Organize Detailed Work</th>
+        <th>AD Comments</th>
+        <th>TM Resouce Use</th>
+        <th>TM Feedback</th>
+        <th>TM Technical Monitoring</th>
+        <th>TM Askoing Questions</th>
+        <th>TM Comments</th>
+        <th>MI Attitude Work</th>
+        <th>MI Grooming Appearance</th>
+        <th>MI Personal Growth</th>
+        <th>MI Potencial Advancement</th>
+        <th>MI Comments</th>
+        <th>Active </th>
+        <th>Assignment Title</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    <tr>
+        <td>@Html.Display(Model.Title)</td>
+        <td>@Html.Display(Model.TDProblemSolving.ToString())</td>
+        <td>@Html.Display(Model.TDQualityOfWork.ToString())</td>
+        <td>@Html.Display(Model.TDProductivity.ToString())</td>
+        <td>@Html.Display(Model.TDProductKnowledge.ToString())</td>
+        <td>@Html.Display(Model.TDComments)</td>
+        <td>@Html.Display(Model.CSRProfessionalismTeamwork.ToString())</td>
+        <td>@Html.Display(Model.CSRVerbalSkills.ToString())</td>
+        <td>@Html.Display(Model.CSRWrittenSkills.ToString())</td>
+        <td>@Html.Display(Model.CSRListeningSkills.ToString())</td>
+        <td>@Html.Display(Model.CSRComments)</td>
+        <td>@Html.Display(Model.ADAttendence.ToString())</td>
+        <td>@Html.Display(Model.ADEthiclBehavior.ToString())</td>
+        <td>@Html.Display(Model.ADMeetsDeadlines.ToString())</td>
+        <td>@Html.Display(Model.ADOrganizeDetailedWork.ToString())</td>
+        <td>@Html.Display(Model.ADComments.ToString())</td>
+        <td>@Html.Display(Model.TMResourceUse.ToString())</td>
+        <td>@Html.Display(Model.TMFeedBack.ToString())</td>
+        <td>@Html.Display(Model.TMTehcnicalMonitoring.ToString())</td>
+        <td>@Html.Display(Model.TMAskingQuestions.ToString())</td>
+        <td>@Html.Display(Model.TMComments)</td>
+        <td>@Html.Display(Model.MIAttitudeWork.ToString())</td>
+        <td>@Html.Display(Model.MIGroomingAppearence.ToString())</td>
+        <td>@Html.Display(Model.MIPersonalGrowth.ToString())</td>
+        <td>@Html.Display(Model.MIPotencialAdvancement.ToString())</td>
+        <td>@Html.Display(Model.MIComments)</td>
+        <td>@Html.Display(Model.ActiveFlag.ToString())</td>
+        <td>@Html.Display(Model.Assignment.Title)</td>
+        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
+        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
+        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
+        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+    </tr>
+</table>

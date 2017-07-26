@@ -5,12 +5,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLogic.ORALogic;
+using Lib.InterfacesLogic;
+
 
 namespace ORA.Controllers
 {
     public class EmployeeController : Controller
     {
-        private EmployeeLogic employeeLogic = new EmployeeLogic();
+        private IEmployeeLogic Employees;
+
+        public EmployeeController(IEmployeeLogic emply)
+        {
+            Employees = emply;
+        }
+
         // GET: Employee
         public ActionResult Index()
         {
@@ -19,9 +27,13 @@ namespace ORA.Controllers
 
         public ActionResult ViewAllEmployees()
         {
-            return View(employeeLogic.ViewAllEmployees());
+            return View(Employees.GetAllEmployees());
         }
 
+        public ActionResult ViewEmployee(int EmployeeID)
+        {
+            return View(Employees.GetEmployeeByID(EmployeeID));
+        }
         [HttpGet]
         public ActionResult AddEmployee()
         {
@@ -32,31 +44,35 @@ namespace ORA.Controllers
         [Authorize(Roles = "Admin, Director")]
         public ActionResult AddEmployee(EmployeeVM Employee)
         {
-            employeeLogic.AddEmployee(Employee);
-            return RedirectToAction("", "", new { area = "" });
+            Employees.AddEmployee(Employee);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult UpdateEmployee(int EmployeeID)
         {
-            return View(employeeLogic.GetEmployeeByEmployeeID(EmployeeID));
+            return View(Employees.GetEmployeeByID(EmployeeID));
         }
 
         [HttpPost]
         public ActionResult UpdateEmployee(EmployeeVM updatedEmployee)
         {
-            employeeLogic.UpdateEmployee(updatedEmployee);
-            return RedirectToAction("", "", new { area = "" });
+            Employees.UpdateEmployee(updatedEmployee);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
         [HttpPost]
         //[Authorize(Roles = "Admin, Director")]
         public ActionResult DisableEmployee(int EmployeeID)
         {
-            employeeLogic.DieableEmployee(EmployeeID);
-            return RedirectToAction("", "", new { area = "" });
+            Employees.DisableEmployee(EmployeeID);
+            return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
-
+        public JsonResult GetEmployees()
+        {
+            var List = Employees.GetAllEmployees();
+            return Json(List, JsonRequestBehavior.AllowGet);
+        }
     }
 }

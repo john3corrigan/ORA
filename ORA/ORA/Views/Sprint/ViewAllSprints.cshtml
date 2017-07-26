@@ -1,7 +1,37 @@
-﻿
+﻿@model System.Collections.Generic.IEnumerable<SprintVM>
+@using Lib.ViewModels
 @{
     ViewBag.Title = "ViewAllSprints";
 }
 
 <h2>ViewAllSprints</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>KPIs</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    <tr>
+        @foreach (SprintVM Value in Model)
+        {
+            <td>@Html.Display(Value.Title)</td>
+            <td>@Html.Display(Value.SprintNumber.ToString())</td>
+            <td>@Html.Display(Value.SprintName)</td>
+            <td>@Html.Display(Value.StartDate.ToString())</td>
+            <td>@Html.Display(Value.EndDate.ToString())</td>
+            <td>@Html.ActionLink("", "", routeValues: new { KPIList = Value.KPIs })</td>
+            <td>@Html.Display(Value.Metadata.Created.ToString())</td>
+            <td>@Html.Display(Value.Metadata.CreatedBy)</td>
+            <td>@Html.Display(Value.Metadata.Modified.ToString())</td>
+            <td>@Html.Display(Value.Metadata.ModifiedBy)</td>
+        }
+    </tr>
+</table>

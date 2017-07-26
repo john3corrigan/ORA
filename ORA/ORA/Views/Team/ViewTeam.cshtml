@@ -1,7 +1,29 @@
-﻿
+﻿@model Lib.ViewModels.TeamVM
 @{
     ViewBag.Title = "ViewTeam";
 }
 
 <h2>ViewTeam</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Assignments</th>
+        <th>Client</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    <tr>
+        <td>@Html.Display(Model.Title)</td>
+        <td>@Html.Display(Model.TeamName)</td>
+        <td>@Html.ActionLink("", "", routeValues: new { AssignmentsList = Model.Assignments })</td>
+        <td>@Html.Display(Model.Client.ClientName)</td>
+        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
+        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
+        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
+        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+    </tr>
+</table>

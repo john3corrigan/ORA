@@ -1,4 +1,5 @@
 ﻿@model Lib.ViewModels.AssignmentVM
+@using Lib.ViewModels
 @{
     ViewBag.Title = "UpdateAssigments";
 }
@@ -26,31 +27,42 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Client, new { @class = "" })
-                <font>@Html.ValidationMessageFor(m => m.Client)</font>>
+                <div id="Client">
+                    <script>$(document).ready(DropDown("Client", "/Client/GetClients"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
-            <div>
+            <div id="Employee">
                 @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Employee, new { @class = "" })
-                <font>@Html.ValidationMessageFor(m => m.Employee)</font>>
+                <div id="Employee">
+                    <script>$(document).ready(DropDown("Employee", "/Employee/GetEmployees"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Employee)</font>
             </div>
-            <div>
+            <div id="Position">
                 @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Position, new { @class = "" })
-                <font>@Html.ValidationMessageFor(m => m.Position)</font>>
+                <div id="Position">
+                    <script>$(document).ready(DropDown("Position", "/Function/GetPositions"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Position)</font>
             </div>
-            <div>
+            <div id="Role">
                 @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Role, new { @class = "" })
-                <font>@Html.ValidationMessageFor(m => m.Role)</font>>
+                <div id="Role">
+                    <script>$(document).ready(DropDown("Role", "/Function/GetRoles"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Role)</font>
             </div>
-            <div>
+            <div id="Team">
                 @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Team, new { @class = "" })
-                <font>@Html.ValidationMessageFor(m => m.Team)</font>>
+                <div id="Team">
+                    <script>$(document).ready(DropDown("Team", "/Team/GetTeams"))</script>
+                </div>
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Team)</font>
             </div>
-            @Html.HiddenFor(m => m.Metadata.ModifiedBy, new { @Value = Session["Name"] })
-            @Html.HiddenFor(m => m.Metadata.Modified, new { @Value = DateTime.Now })
+            @Html.HiddenFor(m => m.AssignmentID, new { Value = Model.AssignmentID })
+            @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
             <input type="submit" value="Submit" />
         </div>
     </div>

@@ -5,39 +5,64 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib.ViewModels;
 using Repository.Repositories;
+using Lib.Interfaces;
+using Lib.InterfacesLogic;
 
 namespace BusinessLogic.ORALogic
 {
-    public class AssignmentLogic
+    public class AssignmentLogic : IAssignmentLogic
     {
-        public List<AssignmentVM> GetAssignmentsByEmployeeID(int EmployeeID)
+        private IAssignmentRepository Assignments;
+        private ITeamRepository Team;
+        private IRoleRepository Role;
+        private IPositionRepository Position;
+        private IClientRepository Client;
+        private IEmployeeRepository Employee;
+
+        public AssignmentLogic(IAssignmentRepository assign,
+                                ITeamRepository team,
+                                IRoleRepository role,
+                                IPositionRepository pos,
+                                IEmployeeRepository emp,
+                                IClientRepository client)
         {
-            throw new NotImplementedException();
+            Assignments = assign;
+            Team = team;
+            Role = role;
+            Position = pos;
+            Client = client;
+            Employee = emp;
         }
 
-        public AssignmentVM GetAssignmentByAssignmentID(int assignmentID)
+        public AssignmentVM GetAssignmentByID(int assignmentID)
         {
-            throw new NotImplementedException();
+            return Assignments.GetAssignmentByID(assignmentID);
         }
 
-        public void CreateAssignment(AssignmentVM assignment)
+        public CreateAssignmentVM AddAssignment() {
+            CreateAssignmentVM create = new CreateAssignmentVM() {
+                TeamList = Team.GetAllTeams(),
+                RoleList = Role.GetAllRoles(),
+                PositionList = Position.GetAllPositions(),
+                EmployeeList = Employee.GetAllEmployees(),
+                ClientList = Client.GetAllClients()
+            };
+            return create;
+        }
+
+        public void AddAssignment(CreateAssignmentVM assignment)
         {
-            throw new NotImplementedException();
+            Assignments.AddAssignment(assignment);
         }
 
         public List<AssignmentVM> GetAllAssignments()
         {
-            throw new NotImplementedException();
+            return Assignments.GetAllAssignments();
         }
 
         public void UpdateAssignment(AssignmentVM updatedAssignment)
         {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteAssignmentByAssignmentID(int assignmentID)
-        {
-            throw new NotImplementedException();
+            Assignments.UpdateAssignment(updatedAssignment);
         }
     }
 }

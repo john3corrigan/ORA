@@ -40,14 +40,14 @@ body {
 
 }
 
-/*.container {
+.container {
     padding: 0;
     position: relative;
     height:inherit;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-}*/
+}
 
 .container_inner {
     width:inherit;
@@ -75,9 +75,9 @@ header.fixed{
     z-index:1000;
 }
 .wrapper_inner{
-    width:100%;
-    overflow:hidden;
-    height:inherit;
+    width: 100%;
+    overflow: auto;
+    height: inherit;
 }
 
 .has_top{

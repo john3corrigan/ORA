@@ -1,0 +1,35 @@
+﻿@model Lib.ViewModels.EmployeeVM
+@{
+    ViewBag.Title = "ViewEmployee";
+}
+
+<h2>ViewEmployee</h2>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Badge Number</th>
+        <th>First Name</th>
+        <th>Middle Initial</th>
+        <th>Last Name</th>
+        <th>Active</th>
+        <th>Assignments</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    <tr>
+        <td>@Html.Display(Model.Title)</td>
+        <td>@Html.Display(Model.EmployeeNumber)</td>
+        <td>@Html.Display(Model.EmployeeFirstName)</td>
+        <td>@Html.Display(Model.EmployeeMI)</td>
+        <td>@Html.Display(Model.EmployeeLastName)</td>
+        <td>@Html.Display(Model.ActiveFlag.ToString())</td>
+        <td>@Html.ActionLink("", "", routeValues: new { AssignmentsList = Model.Assignments })</td>
+        <td>@Html.Display(Model.Metadata.Created.ToString())</td>
+        <td>@Html.Display(Model.Metadata.CreatedBy)</td>
+        <td>@Html.Display(Model.Metadata.Modified.ToString())</td>
+        <td>@Html.Display(Model.Metadata.ModifiedBy)</td>
+    </tr>
+</table>

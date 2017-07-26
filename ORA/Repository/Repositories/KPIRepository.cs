@@ -7,27 +7,40 @@ using AutoMapper;
 using Lib.EFModels;
 using Lib.ViewModels;
 using Lib.Interfaces;
+using Repository.Context;
 
 namespace Repository.Repositories {
-    public class KPIRepository : BaseRespository<KPI, KPIVM>, IKPIRepository {
-        public KPIRepository() : base() { }
+    public class KPIRepository : BaseRespository<KPI>, IKPIRepository {
+        public KPIRepository() : base(new RepositoryContext("ora")) {
+            InitMap();
+        }
+
+        private void InitMap() {
+            config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<KPI, KPIVM>().ReverseMap();
+            });
+        }
 
         public List<KPIVM> GetAllKPIs() {
-            return Mapper.Map<List<KPIVM>>(GetAll());
+            var mapper = config.CreateMapper();
+            return mapper.Map<List<KPIVM>>(GetAll());
         }
 
         public KPIVM GetKPIByID(int id) {
+            var mapper = config.CreateMapper();
             var kpi = GetAllKPIs().Where(k => k.KPIID == id).FirstOrDefault();
-            return Mapper.Map<KPIVM>(kpi);
+            return mapper.Map<KPIVM>(kpi);
         }
 
         public void AddKPI(KPIVM kpi) {
-            Add(Mapper.Map<KPI>(kpi));
+            var mapper = config.CreateMapper();
+            Add(mapper.Map<KPI>(kpi));
             Save();
         }
 
         public void UpdateKPI(KPIVM kpi) {
-            Update(Mapper.Map<KPI>(kpi));
+            var mapper = config.CreateMapper();
+            Update(mapper.Map<KPI>(kpi));
             Save();
         }
     }
