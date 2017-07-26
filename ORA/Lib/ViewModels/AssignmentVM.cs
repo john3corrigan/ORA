@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Lib.ViewModels {
     public class AssignmentVM {
         public int AssignmentID { get; set; }
         public string Title { get; set; }
+        [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
+        [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
         public int ClientID { get; set; }
         public ClientVM Client { get; set; }
