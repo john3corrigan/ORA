@@ -11,5 +11,6 @@ namespace Lib.Interfaces {
         KPIVM GetKPIByID(int id);
         void AddKPI(CreateKPIVM kpi);
         void UpdateKPI(KPIVM kpi);
+        void DeleteKPI(int id);
     }
 }

@@ -24,7 +24,7 @@ namespace BusinessLogic.ORALogic
 
         public void DeleteTeam(int teamID)
         {
-            Teams.DeleteTeam(Teams.GetTeamByID(teamID));
+            Teams.DeleteTeam(teamID);
         }
 
         public void UpdateTeam(TeamVM updatedTeam)

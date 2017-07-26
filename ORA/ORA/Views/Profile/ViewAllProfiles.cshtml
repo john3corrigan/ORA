@@ -1,0 +1,32 @@
+﻿@using Lib.ViewModels
+@{
+    ViewBag.Title = "ViewAllProfiles";
+}
+
+<h2>ViewAllProfiles</h2>
+
+<table>
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Position</th>
+        <th>Country</th>
+        <th>Zip</th>
+        <th>Education</th>
+        <th>Industry</th>
+        <th>Summary</th>
+    </tr>
+    <tr>
+        @foreach (ProfileVM Value in Model)
+        {
+            <td>@Html.Display(Value.FirstName)</td>
+            <td>@Html.Display(Value.LastName)</td>
+            <td>@Html.Display(Value.Position.Title)</td>
+            <td>@Html.Display(Value.Country)</td>
+            <td>@Html.Display(Value.Zip.ToString())</td>
+            <td>@foreach (string value in Model.Education) { Html.Display(value); }</td>
+            <td>@Html.Display(Value.Industry)</td>
+            <td>@Html.Display(Value.Summary)</td>
+        }
+    </tr>
+</table>

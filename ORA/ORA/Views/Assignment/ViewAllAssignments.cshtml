@@ -31,15 +31,16 @@
         <td>@Html.Display(Value.EndDate.ToString())</td>
         <td>@Html.Display(Value.Client.ClientName)</td>
         <td>@Html.Display(Value.Employee.EmployeeName)</td>
-        <td>@Html.Display(Value.Position.ToString())</td>
-        <td>@Html.Display(Value.Role.ToString())</td>
+        <td>@Html.Display(Value.Position.Title)</td>
+        <td>@Html.Display(Value.Role.Title)</td>
         <td>@Html.Display(Value.Team.TeamName)</td>
         <td>@Html.Display(Value.Created.ToString())</td>
         <td>@Html.Display(Value.CreatedBy)</td>
         <td>@Html.Display(Value.Modified.ToString())</td>
         <td>@Html.Display(Value.ModifiedBy)</td>
-        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Value.KPI })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { AssessmentList = Value.Assessment })</td>
+        <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Value.KPI })</td>
+        <td>@Html.ActionLink("ViewListAssessments", "Assessment", routeValues: new { AssessmentList = Value.Assessment })</td>
+        <td>@Html.ActionLink("ViewAssessment", "Assessment", routeValues: new { ID = Value.AssignmentID })</td>
     </tr>
     }
 </table>

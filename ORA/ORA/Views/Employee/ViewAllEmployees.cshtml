@@ -1,39 +1,95 @@
 ﻿@model System.Collections.Generic.IEnumerable<EmployeeVM>
-    @using Lib.ViewModels
+@using Lib.ViewModels
 @{
     ViewBag.Title = "ViewAllEmployees";
 }
 
 <h2>ViewAllEmployees</h2>
+<script>
+    $(document).ready(function () {
+        $('#ActiveButton').click(function () {
+            $('#Active').show();
+            $('#In-Active').hide();
+        });
+        $('#In-ActiveButton').click(function () {
+            $('#In-Active').show();
+            $('#Active').hide();
+        });
+    });
+</script>
+<div>
+    <button id="ActiveButton">Active</button>
+    <button id="In-ActiveButton">In-Active</button>
+    <div id="Active">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Badge Number</th>
+                <th>First Name</th>
+                <th>Middle Initial</th>
+                <th>Last Name</th>
+                <th>Active</th>
+                <th>Assignments</th>
+                <th>Created Date</th>
+                <th>Created By</th>
+                <th>Modified Date</th>
+                <th>Modified By</th>
+            </tr>
 
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Badge Number</th>
-        <th>First Name</th>
-        <th>Middle Initial</th>
-        <th>Last Name</th>
-        <th>Active</th>
-        <th>Assignments</th>
-        <th>Created Date</th>
-        <th>Created By</th>
-        <th>Modified Date</th>
-        <th>Modified By</th>
-    </tr>
-    <tr>
-        @foreach(EmployeeVM Value in Model)
-        {
-            <td>@Html.Display(Value.Title)</td>
-            <td>@Html.Display(Value.EmployeeNumber)</td>
-            <td>@Html.Display(Value.EmployeeFirstName)</td>
-            <td>@Html.Display(Value.EmployeeMI)</td>
-            <td>@Html.Display(Value.EmployeeLastName)</td>
-            <td>@Html.Display(Value.ActiveFlag.ToString())</td>
-            <td>@Html.ActionLink("", "", routeValues: new { AssignmentsList = Value.Assignment })</td>
-            <td>@Html.Display(Value.Created.ToString())</td>
-            <td>@Html.Display(Value.CreatedBy)</td>
-            <td>@Html.Display(Value.Modified.ToString())</td>
-            <td>@Html.Display(Value.ModifiedBy)</td>
-        }
-    </tr>
-</table>
+            @foreach (EmployeeVM Value in Model)
+            {
+                <tr>
+                    @if (Value.ActiveFlag)
+                {
+                        <td>@Html.Display(Value.Title)</td>
+                        <td>@Html.Display(Value.EmployeeNumber)</td>
+                        <td>@Html.Display(Value.EmployeeFirstName)</td>
+                        <td>@Html.Display(Value.EmployeeMI)</td>
+                        <td>@Html.Display(Value.EmployeeLastName)</td>
+                        <td>@Html.Display(Value.ActiveFlag.ToString())</td>
+                        <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
+                        <td>@Html.Display(Value.Created.ToString())</td>
+                        <td>@Html.Display(Value.CreatedBy)</td>
+                        <td>@Html.Display(Value.Modified.ToString())</td>
+                        <td>@Html.Display(Value.ModifiedBy)</td>
+                        <td>@Html.ActionLink("ViewEmployee", "Employee", routeValues: new { ID = Value.EmployeeID })</td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+    <div id="In-Active" hidden>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Badge Number</th>
+                <th>First Name</th>
+                <th>Middle Initial</th>
+                <th>Last Name</th>
+                <th>Active</th>
+                <th>Assignments</th>
+                <th>Created Date</th>
+                <th>Created By</th>
+                <th>Modified Date</th>
+                <th>Modified By</th>
+            </tr>
+            <tr>
+                @foreach (EmployeeVM Value in Model)
+            {
+                    <td>@Html.Display(Value.Title)</td>
+                    <td>@Html.Display(Value.EmployeeNumber)</td>
+                    <td>@Html.Display(Value.EmployeeFirstName)</td>
+                    <td>@Html.Display(Value.EmployeeMI)</td>
+                    <td>@Html.Display(Value.EmployeeLastName)</td>
+                    <td>@Html.Display(Value.ActiveFlag.ToString())</td>
+                    <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
+                    <td>@Html.Display(Value.Created.ToString())</td>
+                    <td>@Html.Display(Value.CreatedBy)</td>
+                    <td>@Html.Display(Value.Modified.ToString())</td>
+                    <td>@Html.Display(Value.ModifiedBy)</td>
+                    <td>@Html.ActionLink("ViewEmployee", "Employee", routeValues: new { ID = Value.EmployeeID })</td>
+                }
+            </tr>
+        </table>
+    </div>
+</div>

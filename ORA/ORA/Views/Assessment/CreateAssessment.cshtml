@@ -138,11 +138,6 @@
             @Html.TextBoxFor(m => m.MIComments, new { @class = "form-control TextboxFormat" })
             <font color="">@Html.ValidationMessageFor(m => m.MIComments)</font>
         </div>
-        <div>
-            @Html.LabelFor(m => m.ActiveFlag, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.ActiveFlag, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.ActiveFlag)</font>
-        </div>
         @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
         @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
         @Html.HiddenFor(m => m.Created, new { @Value = DateTime.Now })

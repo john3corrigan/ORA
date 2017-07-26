@@ -52,7 +52,7 @@ namespace BusinessLogic.ORALogic
 
         public void DeleteProject(int projectID)
         {
-            Projects.DeleteProject(Projects.GetProjectByID(projectID));
+            Projects.DeleteProject(projectID);
         }
     }
 }

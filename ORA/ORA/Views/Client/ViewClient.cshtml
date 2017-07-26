@@ -23,10 +23,10 @@
         <td>@Html.Display(Model.Title)</td>
         <td>@Html.Display(Model.ClientName)</td>
         <td>@Html.Display(Model.ClientAbbreviation)</td>
-        <td>@Html.ActionLink("", "", routeValues: new { AssignmentList = Model.Assignment })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { StoriesList = Model.Story })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { ProjectsList = Model.Project })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { TeamsList = Model.Team })</td>
+        <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentList = Model.Assignment })</td>
+        <td>@Html.ActionLink("ViewListStories", "Story", routeValues: new { StoriesList = Model.Story })</td>
+        <td>@Html.ActionLink("ViewListProjects", "Project", routeValues: new { ProjectsList = Model.Project })</td>
+        <td>@Html.ActionLink("ViewListTeams", "Team", routeValues: new { TeamsList = Model.Team })</td>
         <td>@Html.Display(Model.Created.ToString())</td>
         <td>@Html.Display(Model.CreatedBy)</td>
         <td>@Html.Display(Model.Modified.ToString())</td>

@@ -8,7 +8,6 @@ namespace Lib.EFModels {
         [Key]
         public int KPIID { get; set; }
         public string Title { get; set; }
-        public DateTime CreatedDate { get; set; }
         public int Points { get; set; }
         public int TCCreated { get; set; }
         public int TCExcuted { get; set; }

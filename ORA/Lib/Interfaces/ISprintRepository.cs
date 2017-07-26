@@ -11,6 +11,6 @@ namespace Lib.Interfaces {
         SprintVM GetSprintByID(int id);
         void AddSprint(SprintVM sprint);
         void UpdateSprint(SprintVM sprint);
-        void DeleteSprint(SprintVM sprint);
+        void DeleteSprint(int id);
     }
 }

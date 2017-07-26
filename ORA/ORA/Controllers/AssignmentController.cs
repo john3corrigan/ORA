@@ -37,7 +37,12 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = ""});
         }
 
-        public ActionResult ViewAllAssigments()
+        public ActionResult ViewListAssignments(List<AssignmentVM> AssignmentsList)
+        {
+            return View(AssignmentsList);
+        }
+
+        public ActionResult ViewAllAssignments()
         {
             return View(Assignments.GetAllAssignments());
         }
@@ -49,13 +54,13 @@ namespace ORA.Controllers
 
         [HttpGet]
         //[Authorize(Roles = "Admin, Director")]
-        public ActionResult UpdateAssigments(int AssignmentID)
+        public ActionResult UpdateAssignments(int AssignmentID)
         {
             return View(Assignments.GetAssignmentByID(AssignmentID));
         }
 
         [HttpPost]
-        public ActionResult UpdateAssigments(AssignmentVM updatedAssignment)
+        public ActionResult UpdateAssignments(AssignmentVM updatedAssignment)
         {
             Assignments.UpdateAssignment(updatedAssignment);
             return RedirectToAction("Dashboard", "Home", new { area = "" });

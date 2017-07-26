@@ -31,7 +31,7 @@ namespace BusinessLogic.ORALogic
 
         public void DeleteStory(int storyID)
         {
-            Stories.DeleteStory(Stories.GetStoryByID(storyID));
+            Stories.DeleteStory(storyID);
         }
 
         public void AddStory(StoryVM newStory)

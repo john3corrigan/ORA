@@ -9,5 +9,8 @@ namespace Lib.Interfaces {
     public interface IPositionRepository {
         List<PositionVM> GetAllPositions();
         PositionVM GetPositionByID(int id);
+        void AddPosition(PositionVM position);
+        void UpdatePosition(PositionVM position);
+        void DeletePosition(int id);
     }
 }

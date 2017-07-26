@@ -11,5 +11,6 @@ namespace Lib.Interfaces {
         List<AssessmentVM> GetAllAssessments();
         void AddAssessment(AssessmentVM assessment);
         void UpdateAssessment(AssessmentVM assessment);
+        void DeleteAssessment(int id);
     }
 }

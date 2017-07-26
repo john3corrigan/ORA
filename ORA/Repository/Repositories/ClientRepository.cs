@@ -52,9 +52,8 @@ namespace Repository.Repositories {
             Save();
         }
 
-        public void RemoveClient(ClientVM client) {
-            var mapper = config.CreateMapper();
-            Delete(client.ClientID);
+        public void RemoveClient(int id) {
+            Delete(id);
             Save();
         }
     }

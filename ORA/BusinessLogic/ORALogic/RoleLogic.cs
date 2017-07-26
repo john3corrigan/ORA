@@ -41,7 +41,7 @@ namespace BusinessLogic.ORALogic
 
         public void DeleteRole(int roleID)
         {
-            Roles.DeleteRole(Roles.GetRoleByID(roleID));
+            Roles.DeleteRole(roleID);
         }
     }
 }

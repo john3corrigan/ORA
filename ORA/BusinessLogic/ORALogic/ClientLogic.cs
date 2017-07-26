@@ -31,7 +31,7 @@ namespace BusinessLogic.ORALogic
 
         public void RemoveClient(int clientID)
         {
-            Clients.RemoveClient(Clients.GetClientByID(clientID));
+            Clients.RemoveClient(clientID);
         }
 
         public void AddClient(ClientVM client)

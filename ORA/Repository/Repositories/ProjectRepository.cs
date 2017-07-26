@@ -45,8 +45,8 @@ namespace Repository.Repositories {
             Save();
         }
 
-        public void DeleteProject(ProjectVM project) {
-            Delete(project.ProjectID);
+        public void DeleteProject(int id) {
+            Delete(id);
             Save();
         }
     }

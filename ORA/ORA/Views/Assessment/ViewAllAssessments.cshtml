@@ -1,82 +1,181 @@
 ﻿@model System.Collections.Generic.IEnumerable<AssessmentVM>
-    @using Lib.ViewModels;
+@using Lib.ViewModels;
 @{
     ViewBag.Title = "ViewAllAssessments";
 }
 
-<h2>View All Assessments</h2>
-
-<table class="table">
-    <tr>
-        <th>Title</th>
-        <th>TD Problem Solving</th>
-        <th>TD Quality Of Work</th>
-        <th>TD Productivity</th>
-        <th>TD Product Knowledge</th>
-        <th>TD Comments</th>
-        <th>CSR Professionalism Teamwork</th>
-        <th>CSR Verbal Skills</th>
-        <th>CSR Written Skills</th>
-        <th>CSR Listening Skills</th>
-        <th>CSR Comments</th>
-        <th>AD Attendence</th>
-        <th>AD Ethic Behavior</th>
-        <th>AD Meets Deadlines</th>
-        <th>AD Organize Detailed Work</th>
-        <th>AD Comments</th>
-        <th>TM Resouce Use</th>
-        <th>TM Feedback</th>
-        <th>TM Technical Monitoring</th>
-        <th>TM Askoing Questions</th>
-        <th>TM Comments</th>
-        <th>MI Attitude Work</th>
-        <th>MI Grooming Appearance</th>
-        <th>MI Personal Growth</th>
-        <th>MI Potencial Advancement</th>
-        <th>MI Comments</th>
-        <th>Active </th>
-        <th>Assignment Title</th>
-        <th>Created Date</th>
-        <th>Created By</th>
-        <th>Modified Date</th>
-        <th>Modified By</th>
-    </tr>
-    <tr>
-        @foreach (AssessmentVM Value in Model)
-        {
-            <td>@Html.Display(Value.Title)</td>
-            <td>@Html.Display(Value.TDProblemSolving.ToString())</td>
-            <td>@Html.Display(Value.TDQualityOfWork.ToString())</td>
-            <td>@Html.Display(Value.TDProductivity.ToString())</td>
-            <td>@Html.Display(Value.TDProductKnowledge.ToString())</td>
-            <td>@Html.Display(Value.TDComments)</td>
-            <td>@Html.Display(Value.CSRProfessionalismTeamwork.ToString())</td>
-            <td>@Html.Display(Value.CSRVerbalSkills.ToString())</td>
-            <td>@Html.Display(Value.CSRWrittenSkills.ToString())</td>
-            <td>@Html.Display(Value.CSRListeningSkills.ToString())</td>
-            <td>@Html.Display(Value.CSRComments)</td>
-            <td>@Html.Display(Value.ADAttendence.ToString())</td>
-            <td>@Html.Display(Value.ADEthiclBehavior.ToString())</td>
-            <td>@Html.Display(Value.ADMeetsDeadlines.ToString())</td>
-            <td>@Html.Display(Value.ADOrganizeDetailedWork.ToString())</td>
-            <td>@Html.Display(Value.ADComments.ToString())</td>
-            <td>@Html.Display(Value.TMResourceUse.ToString())</td>
-            <td>@Html.Display(Value.TMFeedBack.ToString())</td>
-            <td>@Html.Display(Value.TMTehcnicalMonitoring.ToString())</td>
-            <td>@Html.Display(Value.TMAskingQuestions.ToString())</td>
-            <td>@Html.Display(Value.TMComments)</td>
-            <td>@Html.Display(Value.MIAttitudeWork.ToString())</td>
-            <td>@Html.Display(Value.MIGroomingAppearence.ToString())</td>
-            <td>@Html.Display(Value.MIPersonalGrowth.ToString())</td>
-            <td>@Html.Display(Value.MIPotencialAdvancement.ToString())</td>
-            <td>@Html.Display(Value.MIComments)</td>
-            <td>@Html.Display(Value.ActiveFlag.ToString())</td>
-            <td>@Html.Display(Value.Assignment.Title)</td>
-            <td>@Html.Display(Value.Created.ToString())</td>
-            <td>@Html.Display(Value.CreatedBy)</td>
-            <td>@Html.Display(Value.Modified.ToString())</td>
-            <td>@Html.Display(Value.ModifiedBy)</td>
-
-        }
-    </tr>
-</table>
+<h2>Assessments</h2>
+<script>
+    $(document).ready(function () {
+        $('#ActiveButton').click(function () {
+            $('#Active').show();
+            $('#In-Active').hide();
+        });
+        $('#In-ActiveButton').click(function () {
+            $('#In-Active').show();
+            $('#Active').hide();
+        });
+    });
+</script>
+<div>
+    <button id="ActiveButton">Active</button>
+    <button id="In-ActiveButton">In-Active</button>
+    <div id="Active">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>TD Problem Solving</th>
+                <th>TD Quality Of Work</th>
+                <th>TD Productivity</th>
+                <th>TD Product Knowledge</th>
+                <th>TD Comments</th>
+                <th>CSR Professionalism Teamwork</th>
+                <th>CSR Verbal Skills</th>
+                <th>CSR Written Skills</th>
+                <th>CSR Listening Skills</th>
+                <th>CSR Comments</th>
+                <th>AD Attendence</th>
+                <th>AD Ethic Behavior</th>
+                <th>AD Meets Deadlines</th>
+                <th>AD Organize Detailed Work</th>
+                <th>AD Comments</th>
+                <th>TM Resouce Use</th>
+                <th>TM Feedback</th>
+                <th>TM Technical Monitoring</th>
+                <th>TM Askoing Questions</th>
+                <th>TM Comments</th>
+                <th>MI Attitude Work</th>
+                <th>MI Grooming Appearance</th>
+                <th>MI Personal Growth</th>
+                <th>MI Potencial Advancement</th>
+                <th>MI Comments</th>
+                <th>Active </th>
+                <th>Assignment Title</th>
+                <th>Created Date</th>
+                <th>Created By</th>
+                <th>Modified Date</th>
+                <th>Modified By</th>
+            </tr>
+            @foreach (AssessmentVM Value in Model)
+            {
+                if (Value.ActiveFlag)
+                {
+                    <tr>
+                        <td>@Html.Display(Value.Title)</td>
+                        <td>@Html.Display(Value.TDProblemSolving.ToString())</td>
+                        <td>@Html.Display(Value.TDQualityOfWork.ToString())</td>
+                        <td>@Html.Display(Value.TDProductivity.ToString())</td>
+                        <td>@Html.Display(Value.TDProductKnowledge.ToString())</td>
+                        <td>@Html.Display(Value.TDComments)</td>
+                        <td>@Html.Display(Value.CSRProfessionalismTeamwork.ToString())</td>
+                        <td>@Html.Display(Value.CSRVerbalSkills.ToString())</td>
+                        <td>@Html.Display(Value.CSRWrittenSkills.ToString())</td>
+                        <td>@Html.Display(Value.CSRListeningSkills.ToString())</td>
+                        <td>@Html.Display(Value.CSRComments)</td>
+                        <td>@Html.Display(Value.ADAttendence.ToString())</td>
+                        <td>@Html.Display(Value.ADEthiclBehavior.ToString())</td>
+                        <td>@Html.Display(Value.ADMeetsDeadlines.ToString())</td>
+                        <td>@Html.Display(Value.ADOrganizeDetailedWork.ToString())</td>
+                        <td>@Html.Display(Value.ADComments.ToString())</td>
+                        <td>@Html.Display(Value.TMResourceUse.ToString())</td>
+                        <td>@Html.Display(Value.TMFeedBack.ToString())</td>
+                        <td>@Html.Display(Value.TMTehcnicalMonitoring.ToString())</td>
+                        <td>@Html.Display(Value.TMAskingQuestions.ToString())</td>
+                        <td>@Html.Display(Value.TMComments)</td>
+                        <td>@Html.Display(Value.MIAttitudeWork.ToString())</td>
+                        <td>@Html.Display(Value.MIGroomingAppearence.ToString())</td>
+                        <td>@Html.Display(Value.MIPersonalGrowth.ToString())</td>
+                        <td>@Html.Display(Value.MIPotencialAdvancement.ToString())</td>
+                        <td>@Html.Display(Value.MIComments)</td>
+                        <td>@Html.Display(Value.ActiveFlag.ToString())</td>
+                        <td>@Html.Display(Value.Assignment.Title)</td>
+                        <td>@Html.Display(Value.Created.ToString())</td>
+                        <td>@Html.Display(Value.CreatedBy)</td>
+                        <td>@Html.Display(Value.Modified.ToString())</td>
+                        <td>@Html.Display(Value.ModifiedBy)</td>
+                        <td>@Html.ActionLink("ViewAssessment", "Assessment", routeValues: new { ID = Value.AssessmentID })</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <div id="In-Active" hidden>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>TD Problem Solving</th>
+                <th>TD Quality Of Work</th>
+                <th>TD Productivity</th>
+                <th>TD Product Knowledge</th>
+                <th>TD Comments</th>
+                <th>CSR Professionalism Teamwork</th>
+                <th>CSR Verbal Skills</th>
+                <th>CSR Written Skills</th>
+                <th>CSR Listening Skills</th>
+                <th>CSR Comments</th>
+                <th>AD Attendence</th>
+                <th>AD Ethic Behavior</th>
+                <th>AD Meets Deadlines</th>
+                <th>AD Organize Detailed Work</th>
+                <th>AD Comments</th>
+                <th>TM Resouce Use</th>
+                <th>TM Feedback</th>
+                <th>TM Technical Monitoring</th>
+                <th>TM Askoing Questions</th>
+                <th>TM Comments</th>
+                <th>MI Attitude Work</th>
+                <th>MI Grooming Appearance</th>
+                <th>MI Personal Growth</th>
+                <th>MI Potencial Advancement</th>
+                <th>MI Comments</th>
+                <th>Active </th>
+                <th>Assignment Title</th>
+                <th>Created Date</th>
+                <th>Created By</th>
+                <th>Modified Date</th>
+                <th>Modified By</th>
+            </tr>
+            @foreach (AssessmentVM Value in Model)
+            {
+                if (!Value.ActiveFlag)
+                {
+                    <tr>
+                        <td>@Html.Display(Value.Title)</td>
+                        <td>@Html.Display(Value.TDProblemSolving.ToString())</td>
+                        <td>@Html.Display(Value.TDQualityOfWork.ToString())</td>
+                        <td>@Html.Display(Value.TDProductivity.ToString())</td>
+                        <td>@Html.Display(Value.TDProductKnowledge.ToString())</td>
+                        <td>@Html.Display(Value.TDComments)</td>
+                        <td>@Html.Display(Value.CSRProfessionalismTeamwork.ToString())</td>
+                        <td>@Html.Display(Value.CSRVerbalSkills.ToString())</td>
+                        <td>@Html.Display(Value.CSRWrittenSkills.ToString())</td>
+                        <td>@Html.Display(Value.CSRListeningSkills.ToString())</td>
+                        <td>@Html.Display(Value.CSRComments)</td>
+                        <td>@Html.Display(Value.ADAttendence.ToString())</td>
+                        <td>@Html.Display(Value.ADEthiclBehavior.ToString())</td>
+                        <td>@Html.Display(Value.ADMeetsDeadlines.ToString())</td>
+                        <td>@Html.Display(Value.ADOrganizeDetailedWork.ToString())</td>
+                        <td>@Html.Display(Value.ADComments.ToString())</td>
+                        <td>@Html.Display(Value.TMResourceUse.ToString())</td>
+                        <td>@Html.Display(Value.TMFeedBack.ToString())</td>
+                        <td>@Html.Display(Value.TMTehcnicalMonitoring.ToString())</td>
+                        <td>@Html.Display(Value.TMAskingQuestions.ToString())</td>
+                        <td>@Html.Display(Value.TMComments)</td>
+                        <td>@Html.Display(Value.MIAttitudeWork.ToString())</td>
+                        <td>@Html.Display(Value.MIGroomingAppearence.ToString())</td>
+                        <td>@Html.Display(Value.MIPersonalGrowth.ToString())</td>
+                        <td>@Html.Display(Value.MIPotencialAdvancement.ToString())</td>
+                        <td>@Html.Display(Value.MIComments)</td>
+                        <td>@Html.Display(Value.ActiveFlag.ToString())</td>
+                        <td>@Html.Display(Value.Assignment.Title)</td>
+                        <td>@Html.Display(Value.Created.ToString())</td>
+                        <td>@Html.Display(Value.CreatedBy)</td>
+                        <td>@Html.Display(Value.Modified.ToString())</td>
+                        <td>@Html.Display(Value.ModifiedBy)</td>
+                        <td>@Html.ActionLink("ViewAssessment", "Assessment", routeValues: new { ID = Value.AssessmentID })</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

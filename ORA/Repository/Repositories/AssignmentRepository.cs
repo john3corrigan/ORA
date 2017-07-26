@@ -21,6 +21,11 @@ namespace Repository.Repositories {
                 cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
                 cfg.CreateMap<KPI, KPIVM>().ReverseMap();
                 cfg.CreateMap<Assessment, AssessmentVM>().ReverseMap();
+                cfg.CreateMap<Team, TeamVM>().ReverseMap();
+                cfg.CreateMap<Client, ClientVM>().ReverseMap();
+                cfg.CreateMap<Position, PositionVM>().ReverseMap();
+                cfg.CreateMap<Role, RoleVM>().ReverseMap();
+                cfg.CreateMap<Employee, EmployeeVM>().ReverseMap();
                 cfg.CreateMap<CreateAssignmentVM, Assignment>().ReverseMap();
             });
         }
@@ -57,6 +62,11 @@ namespace Repository.Repositories {
         public void UpdateAssignment(AssignmentVM assignment) {
             var mapper = config.CreateMapper();
             Update(mapper.Map<Assignment>(assignment));
+            Save();
+        }
+
+        public void DeleteAssignment(int id) {
+            Delete(id);
             Save();
         }
     }

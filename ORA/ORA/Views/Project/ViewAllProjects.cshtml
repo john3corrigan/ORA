@@ -29,11 +29,12 @@
             <td>@Html.Display(Value.ProjectStartDate.ToString())</td>
             <td>@Html.Display(Value.ProjectEndDate.ToString())</td>
             <td>@Html.Display(Value.Client.ClientName)</td>
-            <td>@Html.ActionLink("", "", routeValues: new { KPIList = Value.KPI })</td>
+            <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Value.KPI })</td>
             <td>@Html.Display(Value.Created.ToString())</td>
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.ActionLink("ViewProject", "Project", routeValues: new { ID = Value.ProjectID })</td>
         }
     </tr>
 </table>

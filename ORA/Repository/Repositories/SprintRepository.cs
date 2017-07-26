@@ -45,8 +45,8 @@ namespace Repository.Repositories {
             Save();
         }
 
-        public void DeleteSprint(SprintVM sprint) {
-            Delete(sprint.SprintID);
+        public void DeleteSprint(int id) {
+            Delete(id);
             Save();
         }
     }
