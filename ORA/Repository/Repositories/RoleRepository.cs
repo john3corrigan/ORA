@@ -45,8 +45,8 @@ namespace Repository.Repositories {
             Save();
         }
 
-        public void DeleteRole(RoleVM role) {
-            Delete(role.RoleID);
+        public void DeleteRole(int id) {
+            Delete(id);
             Save();
         }
     }

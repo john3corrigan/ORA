@@ -11,6 +11,6 @@ namespace Lib.Interfaces {
         StoryVM GetStoryByID(int id);
         void AddStory(StoryVM story);
         void UpdateStory(StoryVM story);
-        void DeleteStory(StoryVM story);
+        void DeleteStory(int id);
     }
 }

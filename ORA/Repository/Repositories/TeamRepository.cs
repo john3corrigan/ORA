@@ -46,8 +46,8 @@ namespace Repository.Repositories {
             Save();
         }
 
-        public void DeleteTeam(TeamVM team) {
-            Delete(team.TeamID);
+        public void DeleteTeam(int id) {
+            Delete(id);
             Save();
         }
     }

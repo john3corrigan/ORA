@@ -11,6 +11,6 @@ namespace Lib.Interfaces {
         ClientVM GetClientByID(int id);
         void AddClient(ClientVM client);
         void UpdateClient(ClientVM client);
-        void RemoveClient(ClientVM client);
+        void RemoveClient(int id);
     }
 }

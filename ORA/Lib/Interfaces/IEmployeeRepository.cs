@@ -9,7 +9,9 @@ namespace Lib.Interfaces {
     public interface IEmployeeRepository {
         List<EmployeeVM> GetAllEmployees();
         EmployeeVM GetEmployeeByID(int id);
+        EmployeeVM GetEmployeeByProfileID(int id);
         void AddEmployee(EmployeeVM employee);
         void UpdateEmployee(EmployeeVM employee);
+        void DeleteEmployee(int id);
     }
 }

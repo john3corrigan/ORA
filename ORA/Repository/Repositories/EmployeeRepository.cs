@@ -25,13 +25,18 @@ namespace Repository.Repositories {
 
         public List<EmployeeVM> GetAllEmployees() {
             var mapper = config.CreateMapper();
-            return mapper.Map<List<EmployeeVM>>(DbSet.Include("Assignment"));
+            return mapper.Map<List<EmployeeVM>>(DbSet.Include("Assignment").Include("Profile"));
         }
 
         public EmployeeVM GetEmployeeByID(int id) {
             var mapper = config.CreateMapper();
             var employee = GetAllEmployees().Where(e => e.EmployeeID == id).FirstOrDefault();
             return mapper.Map<EmployeeVM>(employee);
+        }
+
+        public EmployeeVM GetEmployeeByProfileID(int id) {
+            var mapper = config.CreateMapper();
+            return mapper.Map<EmployeeVM>(GetAllEmployees().Where(e => e.ProfileID == id).FirstOrDefault());
         }
 
         public void AddEmployee(EmployeeVM employee) {
@@ -43,6 +48,11 @@ namespace Repository.Repositories {
         public void UpdateEmployee(EmployeeVM employee) {
             var mapper = config.CreateMapper();
             Update(mapper.Map<Employee>(employee));
+            Save();
+        }
+
+        public void DeleteEmployee(int id) {
+            Delete(id);
             Save();
         }
     }

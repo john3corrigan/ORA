@@ -11,6 +11,6 @@ namespace Lib.Interfaces {
         RoleVM GetRoleByID(int id);
         void AddRole(RoleVM role);
         void UpdateRole(RoleVM role);
-        void DeleteRole(RoleVM role);
+        void DeleteRole(int id);
     }
 }
