@@ -22,12 +22,13 @@
         {
             <td>@Html.Display(Value.Title)</td>
             <td>@Html.Display(Value.TeamName)</td>
-            <td>@Html.ActionLink("", "", routeValues: new { AssignmentsList = Value.Assignment })</td>
+            <td>@Html.ActionLink("ViewAllAssignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
             <td>@Html.Display(Value.Client.ClientName)</td>
             <td>@Html.Display(Value.Created.ToString())</td>
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.ActionLink("ViewTeam", "Team", routeValues: new { ID = Value.TeamID })</td>
         }
     </tr>
 </table>

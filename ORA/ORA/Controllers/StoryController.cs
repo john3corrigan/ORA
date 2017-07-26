@@ -38,6 +38,11 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
+        public ActionResult ViewAllStories(List<StoryVM> StoriesList)
+        {
+            return View(StoriesList);
+        }
+
         public ActionResult ViewAllStories()
         {
             return View(Stories.GetAllStories());

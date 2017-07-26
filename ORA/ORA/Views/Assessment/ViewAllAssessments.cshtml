@@ -76,6 +76,7 @@
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.ActionLink("ViewAssessment", "Assessment", routeValues: new { ID = Value.AssessmentID })</td>
 
         }
     </tr>

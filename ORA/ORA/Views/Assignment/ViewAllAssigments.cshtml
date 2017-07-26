@@ -38,8 +38,9 @@
         <td>@Html.Display(Value.CreatedBy)</td>
         <td>@Html.Display(Value.Modified.ToString())</td>
         <td>@Html.Display(Value.ModifiedBy)</td>
-        <td>@Html.ActionLink("", "", routeValues: new { KPIList = Value.KPI })</td>
-        <td>@Html.ActionLink("", "", routeValues: new { AssessmentList = Value.Assessment })</td>
+        <td>@Html.ActionLink("ViewAllKPIs", "KPI", routeValues: new { KPIList = Value.KPI })</td>
+        <td>@Html.ActionLink("ViewAllAssessments", "Assessment", routeValues: new { AssessmentList = Value.Assessment })</td>
+        <td>@Html.ActionLink("ViewAssessment", "Assessment", routeValues: new { ID = Value.AssignmentID })</td>
     </tr>
     }
 </table>

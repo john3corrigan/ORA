@@ -58,6 +58,7 @@
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.ActionLink("ViewKPI", "KPI", routeValues: new { ID = Value.KPIID })</td>
         }
     </tr>
 </table>

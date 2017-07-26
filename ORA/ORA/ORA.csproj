@@ -218,7 +218,6 @@
     <Content Include="bin\Microsoft.AI.Web.dll" />
     <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
     <Content Include="bin\Microsoft.ApplicationInsights.dll" />
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
     <Content Include="bin\System.Web.Helpers.dll" />

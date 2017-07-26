@@ -37,6 +37,11 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = ""});
         }
 
+        public ActionResult ViewAllAssigments(List<AssignmentVM> AssignmentsList)
+        {
+            return View(AssignmentsList);
+        }
+
         public ActionResult ViewAllAssigments()
         {
             return View(Assignments.GetAllAssignments());
