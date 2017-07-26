@@ -26,10 +26,10 @@
             <td>@Html.Display(Value.Title)</td>
             <td>@Html.Display(Value.ClientName)</td>
             <td>@Html.Display(Value.ClientAbbreviation)</td>
-            <td>@Html.ActionLink("ViewAllAssignments", "Assignment", routeValues: new { AssignmentList = Value.Assignment })</td>
-            <td>@Html.ActionLink("ViewAllStories", "Story", routeValues: new { StoriesList = Value.Story })</td>
-            <td>@Html.ActionLink("ViewAllProjects", "Project", routeValues: new { ProjectsList = Value.Project })</td>
-            <td>@Html.ActionLink("ViewAllTeams", "Team", routeValues: new { TeamsList = Value.Team })</td>
+            <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentList = Value.Assignment })</td>
+            <td>@Html.ActionLink("ViewListStories", "Story", routeValues: new { StoriesList = Value.Story })</td>
+            <td>@Html.ActionLink("ViewListProjects", "Project", routeValues: new { ProjectsList = Value.Project })</td>
+            <td>@Html.ActionLink("ViewListTeams", "Team", routeValues: new { TeamsList = Value.Team })</td>
             <td>@Html.Display(Value.Created.ToString())</td>
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>

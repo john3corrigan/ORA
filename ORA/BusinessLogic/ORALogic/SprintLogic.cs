@@ -27,7 +27,7 @@ namespace BusinessLogic.ORALogic
 
         public void DeleteSprint(int sprintID)
         {
-            Sprints.DeleteSprint(Sprints.GetSprintByID(sprintID));
+            Sprints.DeleteSprint(sprintID);
         }
 
         public void AddSprint(SprintVM newSprint)

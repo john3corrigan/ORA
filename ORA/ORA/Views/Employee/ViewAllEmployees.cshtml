@@ -29,7 +29,7 @@
             <td>@Html.Display(Value.EmployeeMI)</td>
             <td>@Html.Display(Value.EmployeeLastName)</td>
             <td>@Html.Display(Value.ActiveFlag.ToString())</td>
-            <td>@Html.ActionLink("ViewAllAssignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
+            <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
             <td>@Html.Display(Value.Created.ToString())</td>
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>

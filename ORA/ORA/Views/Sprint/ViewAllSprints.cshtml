@@ -27,7 +27,7 @@
             <td>@Html.Display(Value.SprintName)</td>
             <td>@Html.Display(Value.StartDate.ToString())</td>
             <td>@Html.Display(Value.EndDate.ToString())</td>
-            <td>@Html.ActionLink("ViewAllKPI", "KPI", routeValues: new { KPIList = Value.KPI })</td>
+            <td>@Html.ActionLink("ViewListKPI", "KPI", routeValues: new { KPIList = Value.KPI })</td>
             <td>@Html.Display(Value.Created.ToString())</td>
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>

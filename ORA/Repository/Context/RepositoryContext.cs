@@ -47,9 +47,14 @@ namespace Repository.Context {
 
             modelBuilder.Entity<Assignment>().HasRequired(a => a.KPI).WithMany().WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<KPI>().HasRequired(k => k.Assignment).WithMany(a => a.KPI).HasForeignKey(k => k.AssignmentID);
+            modelBuilder.Entity<KPI>().HasRequired(k => k.Assignment).WithMany().WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Story>().HasRequired(s => s.Client).WithMany().WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Team>().HasRequired(t => t.Client).WithMany().WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Profile>().HasRequired(p => p.Position).WithMany().WillCascadeOnDelete(false);
         }
     }
 }

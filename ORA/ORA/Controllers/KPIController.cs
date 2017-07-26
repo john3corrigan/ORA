@@ -24,7 +24,7 @@ namespace ORA.Controllers
             return View();
         }
 
-        public ActionResult ViewAllKPI(List<KPIVM> KPIsList)
+        public ActionResult ViewListKPI(List<KPIVM> KPIsList)
         {
             return View(KPIsList);
         }

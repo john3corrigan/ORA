@@ -278,7 +278,7 @@
     <Content Include="Views\KPI\CreateKPI.cshtml" />
     <Content Include="Views\Sprint\CreateSprint.cshtml" />
     <Content Include="Views\Story\CreateStory.cshtml" />
-    <Content Include="Views\Assignment\UpdateAssigments.cshtml" />
+    <Content Include="Views\Assignment\UpdateAssignments.cshtml" />
     <Content Include="Views\Client\UpdateClient.cshtml" />
     <Content Include="Views\Sprint\UpdateSprint.cshtml" />
     <Content Include="Views\Story\UpdateStory.cshtml" />
@@ -292,8 +292,8 @@
     <Content Include="Views\Story\ViewStory.cshtml" />
     <Content Include="Views\Sprint\ViewAllSprints.cshtml" />
     <Content Include="Views\Sprint\ViewSprint.cshtml" />
-    <Content Include="Views\Assignment\ViewAllAssigments.cshtml" />
-    <Content Include="Views\Assignment\ViewAssigment.cshtml" />
+    <Content Include="Views\Assignment\ViewAllAssignments.cshtml" />
+    <Content Include="Views\Assignment\ViewAssignment.cshtml" />
     <Content Include="Views\Client\ViewClient.cshtml" />
     <Content Include="Views\Client\ViewAllClients.cshtml" />
     <Content Include="Views\Assessment\CreateAssessment.cshtml" />
@@ -324,6 +324,10 @@
     <Content Include="Views\Profile\AddProfile.cshtml" />
     <Content Include="Views\Profile\ViewProfile.cshtml" />
     <Content Include="Views\Profile\ViewAllProfiles.cshtml" />
+    <Content Include="Views\Assignment\ViewListAssignments.cshtml" />
+    <Content Include="Views\Assessment\ViewListAssessments.cshtml" />
+    <Content Include="Views\KPI\ViewListKPI.cshtml" />
+    <Content Include="Views\Story\ViewListStories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
