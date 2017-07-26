@@ -2,23 +2,23 @@
 @{
     ViewBag.Title = "Login";
 }
-<div style="margin-left:auto; margin-right:auto;">
-    <div style="text-align:center; align-items:center;">
+<div style="margin-left:auto; margin-right:auto; width:25%; text-align:center;">
+    <div>
         <h2>Login</h2>
         @using (Html.BeginForm("Login", "Login", FormMethod.Post))
         {
             <div>
-                <div>
-                    @Html.LabelFor(m => m.EmployeeNumber, new { @class = "LableFormat" })
+                <div style="margin:20px 0px;">
+                    <p>@Html.LabelFor(m => m.EmployeeNumber, new { @class = "LableFormat" })</p>
                     @Html.TextBoxFor(m => m.EmployeeNumber, new { @class = "form-control TextboxFormat" })
                     <font color="ff0000">@Html.ValidationMessageFor(m => m.EmployeeNumber)</font>
                 </div>
-                <div>
+                <div style="margin:20px 0px;">
                     @Html.LabelFor(m => m.Password, new { @class = "LableFormat" })
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control TextboxFormat" })
                     <font color="">@Html.ValidationMessageFor(m => m.Password)</font>
                 </div>
-                <input class="btn btn-default" type="submit" value="Login" />
+                <input class="btn btn-default" type="submit" value="Login" style="margin:10px 0px;" />
             </div>
         }
     </div>
