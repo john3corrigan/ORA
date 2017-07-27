@@ -65,12 +65,12 @@
                                             @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
                                             @*@if (Session[""] != null)
                                                 {*@
-                                            <li class="dropdown">
+                                            <li class="dropdown nav_content">
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Assessment</span>
                                                     <ul class="dropdown-menu">
-                                                        <li><a>@Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")</a></li>
-                                                        <li><a>@Html.ActionLink("View All Assessments", "ViewAllAssessments", "Assessment")</a></li>
+                                                        <li>@Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")</li>
+                                                        <li>@Html.ActionLink("View All Assessments", "ViewAllAssessments", "Assessment")</li>
                                                     </ul>
                                                 </a>
                                             </li>
@@ -78,8 +78,8 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Assignment</span>
                                                     <ul class="dropdown-menu">
-                                                        <li><a>@Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment")</a></li>
-                                                        <li><a>@Html.ActionLink("View All Assignments", "ViewAllAssignments", "Assignment")</a></li>
+                                                        <li>@Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment")</li>
+                                                        <li>@Html.ActionLink("View All Assignments", "ViewAllAssignments", "Assignment")</li>
                                                     </ul>
                                                 </a>
                                             </li>

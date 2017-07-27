@@ -3,11 +3,11 @@
     ViewBag.Title = "Login";
 }
 <div style="margin-left:auto; margin-right:auto; width:25%; text-align:center;">
-    <div>
+    <div style="height:auto; width:auto; background-image: url(https://www.incimages.com/uploaded_files/inc5000company/OnshoreOutsourcing_44920.png); background-size:cover; ">
         <h2>Login</h2>
         @using (Html.BeginForm("Login", "Login", FormMethod.Post))
         {
-            <div>
+            <div >
                 <div style="margin:20px 0px;">
                     <p>@Html.LabelFor(m => m.EmployeeNumber, new { @class = "LableFormat" })</p>
                     @Html.TextBoxFor(m => m.EmployeeNumber, new { @class = "form-control TextboxFormat" })
