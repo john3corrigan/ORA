@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
-
+using Lib.Attributes;
 
 namespace ORA.Controllers
 {
+    [Authorize]
     public class TeamController : Controller
     {
         private ITeamLogic Teams;
@@ -21,11 +18,11 @@ namespace ORA.Controllers
         // GET: Team
         public ActionResult Index()
         {
-            return View();
+            return View(Teams.GetAllTeams());
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult CreateTeam()
         {
             return View(Teams.AddTeam());
@@ -38,18 +35,13 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
-        public ActionResult ViewAllTeams()
-        {
-            return View(Teams.GetAllTeams());
-        }
-
         public ActionResult ViewTeam(int TeamID)
         {
             return View(Teams.GetTeamByID(TeamID));
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateTeam(int TeamID)
         {
             return View(Teams.GetTeamByID(TeamID));

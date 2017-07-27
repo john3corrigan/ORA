@@ -1,14 +1,11 @@
 ﻿using Lib.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Lib.InterfacesLogic;
-
+using Lib.Attributes;
 
 namespace ORA.Controllers
 {
+    [Authorize]
     public class SprintController : Controller
     {
         private ISprintLogic Sprints;
@@ -21,11 +18,11 @@ namespace ORA.Controllers
         // GET: Sprint
         public ActionResult Index()
         {
-            return View();
+            return View(Sprints.GetAllSprints());
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult CreateSprint()
         {
             return View();
@@ -38,18 +35,13 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
-        public ActionResult ViewAllSprints()
-        {
-            return View(Sprints.GetAllSprints());
-        }
-
         public ActionResult ViewSprint(int SprintID)
         {
             return View(Sprints.GetSprintByID(SprintID));
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateSprint(int SprintID)
         {
             return View(Sprints.GetSprintByID(SprintID));

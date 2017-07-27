@@ -16,9 +16,10 @@
         <th>Industry</th>
         <th>Summary</th>
     </tr>
-    <tr>
-        @foreach (ProfileVM Value in Model)
-        {
+
+    @foreach (ProfileVM Value in Model)
+    {
+        <tr>
             <td>@Html.Display(Value.FirstName)</td>
             <td>@Html.Display(Value.LastName)</td>
             <td>@Html.Display(Value.Position.Title)</td>
@@ -27,6 +28,6 @@
             <td>@foreach (string value in Model.Education) { Html.Display(value); }</td>
             <td>@Html.Display(Value.Industry)</td>
             <td>@Html.Display(Value.Summary)</td>
-        }
-    </tr>
+        </tr>
+    }
 </table>

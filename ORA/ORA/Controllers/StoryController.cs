@@ -1,14 +1,12 @@
 ﻿using Lib.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Lib.InterfacesLogic;
-
+using Lib.Attributes;
 
 namespace ORA.Controllers
 {
+    [Authorize]
     public class StoryController : Controller
     {
         private IStoryLogic Stories;
@@ -25,10 +23,10 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult CreateStory()
         {
-            return View();
+            return View(Stories.GetAllStories());
         }
 
         [HttpPost]
@@ -43,18 +41,13 @@ namespace ORA.Controllers
             return View(StoriesList);
         }
 
-        public ActionResult ViewAllStories()
-        {
-            return View(Stories.GetAllStories());
-        }
-
         public ActionResult ViewStory(int StoryID)
         {
             return View(Stories.GetStoryByID(StoryID));
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateStory(int StoryID)
         {
             return View(Stories.GetStoryByID(StoryID));

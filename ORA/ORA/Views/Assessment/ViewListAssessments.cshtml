@@ -1,5 +1,5 @@
 ﻿@model System.Collections.Generic.IEnumerable<AssessmentVM>
-    @using Lib.ViewModels
+@using Lib.ViewModels
 @{
     ViewBag.Title = "ViewListAssessments";
 }
@@ -41,9 +41,9 @@
         <th>Modified Date</th>
         <th>Modified By</th>
     </tr>
-    <tr>
-        @foreach (AssessmentVM Value in Model)
-        {
+    @foreach (AssessmentVM Value in Model)
+    {
+        <tr>
             <td>@Html.Display(Value.Title)</td>
             <td>@Html.Display(Value.TDProblemSolving.ToString())</td>
             <td>@Html.Display(Value.TDQualityOfWork.ToString())</td>
@@ -77,7 +77,6 @@
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewAssessment", "Assessment", routeValues: new { ID = Value.AssessmentID })</td>
-
-        }
-    </tr>
+        </tr>
+    }
 </table>

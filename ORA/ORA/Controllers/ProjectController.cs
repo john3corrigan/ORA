@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
-
+using Lib.Attributes;
 
 namespace ORA.Controllers
 {
+    [Authorize]
     public class ProjectController : Controller
     {
         private IProjectLogic Projects;
@@ -21,11 +18,11 @@ namespace ORA.Controllers
         // GET: Project
         public ActionResult Index()
         {
-            return View();
+            return View(Projects.GetAllProjects());
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult CreateProject()
         {
             return View(Projects.AddProject());
@@ -38,18 +35,13 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
-        public ActionResult ViewAllProjects()
-        {
-            return View(Projects.GetAllProjects());
-        }
-
         public ActionResult ViewProject(int ProjectID)
         {
             return View(Projects.GetProjectByID(ProjectID));
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateProject(int ProjectID)
         {
             return View(Projects.GetProjectByID(ProjectID));

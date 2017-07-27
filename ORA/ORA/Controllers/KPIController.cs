@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
-
+using Lib.Attributes;
 
 namespace ORA.Controllers
 {
+    [Authorize]
     public class KPIController : Controller
     {
         private IKPILogic KPIs;
@@ -21,17 +19,12 @@ namespace ORA.Controllers
         // GET: KPI
         public ActionResult Index()
         {
-            return View();
+            return View(KPIs.GetAllKPIs());
         }
 
         public ActionResult ViewListKPI(List<KPIVM> KPIsList)
         {
             return View(KPIsList);
-        }
-
-        public ActionResult ViewAllKPI()
-        {
-            return View(KPIs.GetAllKPIs());
         }
         
         public ActionResult ViewKPI(int KPIID)
@@ -40,7 +33,7 @@ namespace ORA.Controllers
         }
         
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateKPI(int KPIID)
         {
             return View(KPIs.GetKPIByID(KPIID));
@@ -54,7 +47,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult CreateKPI()
         {
             return View(KPIs.AddKPI());

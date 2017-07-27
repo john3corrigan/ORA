@@ -34,9 +34,9 @@
         <th>Modified Date</th>
         <th>Modified By</th>
     </tr>
-    <tr>
-        @foreach (KPIVM Value in Model)
-        {
+    @foreach (KPIVM Value in Model)
+    {
+        <tr>
             <td>@Html.Display(Value.Title)</td>
             <td>@Html.Display(Value.Points.ToString())</td>
             <td>@Html.Display(Value.TCCreated.ToString())</td>
@@ -60,6 +60,6 @@
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewKPI", "KPI", routeValues: new { ID = Value.KPIID })</td>
-        }
-    </tr>
+        </tr>
+    }
 </table>

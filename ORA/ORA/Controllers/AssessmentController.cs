@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Lib.ViewModels;
-using BusinessLogic.ORALogic;
 using Lib.InterfacesLogic;
+using Lib.Attributes;
 
 namespace ORA.Controllers
 {
+    [Authorize]
     public class AssessmentController : Controller
     {
         private IAssessmentLogic Assessments;
@@ -20,11 +18,11 @@ namespace ORA.Controllers
         // GET: Assessment
         public ActionResult Index()
         {
-            return View();
+            return View(Assessments.GetAllAssessments());
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult CreateAssessment()
         {
             return View();
@@ -42,18 +40,13 @@ namespace ORA.Controllers
             return View(AssessmentList);
         }
 
-        public ActionResult ViewAllAssessments()
-        {
-            return View(Assessments.GetAllAssessments());
-        }
-
         public ActionResult ViewAssessment(int AssessmentID)
         {
             return View(Assessments.GetAssessmentByID(AssessmentID));
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateAssessment(int AssessmentID)
         {
             return View(Assessments.GetAssessmentByID(AssessmentID));
