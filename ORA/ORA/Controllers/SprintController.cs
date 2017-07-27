@@ -5,7 +5,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class SprintController : Controller
     {
         private ISprintLogic Sprints;

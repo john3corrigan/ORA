@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace ORA.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ProfileController : Controller
     {
         private IProfileLogic Profiles;

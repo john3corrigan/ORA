@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace ORA.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class RolesController : Controller
     {
         private IRoleLogic Roles;
