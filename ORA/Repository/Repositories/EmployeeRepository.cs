@@ -21,6 +21,7 @@ namespace Repository.Repositories {
                 cfg.CreateMap<Employee, EmployeeVM>().ReverseMap();
                 cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
                 cfg.CreateMap<Lib.EFModels.Profile, ProfileVM>().ReverseMap();
+                cfg.CreateMap<Assessment, AssessmentVM>().ReverseMap();
             });
         }
 

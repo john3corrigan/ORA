@@ -45,8 +45,9 @@ namespace Repository.Context {
             modelBuilder.Entity<Team>().ToTable("Team");
             modelBuilder.Entity<Profile>().ToTable("Profile");
 
-            modelBuilder.Entity<Assignment>().HasRequired(a => a.KPI).WithMany().WillCascadeOnDelete(false);
-            modelBuilder.Entity<Assignment>().HasRequired(a => a.Assessment).WithMany().HasForeignKey(a => a.AssignmentID);
+            modelBuilder.Entity<Assignment>().HasOptional(a => a.KPI).WithMany().HasForeignKey(k => k.AssignmentID);
+            modelBuilder.Entity<Assignment>().HasOptional(a => a.KPI).WithMany().WillCascadeOnDelete(false);
+            modelBuilder.Entity<Assessment>().HasOptional(a => a.Assignment);
 
             modelBuilder.Entity<KPI>().HasRequired(k => k.Assignment).WithMany(a => a.KPI).HasForeignKey(k => k.AssignmentID).WillCascadeOnDelete(false);
 
