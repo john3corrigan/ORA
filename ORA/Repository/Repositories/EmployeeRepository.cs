@@ -20,6 +20,7 @@ namespace Repository.Repositories {
             config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Employee, EmployeeVM>().ReverseMap();
                 cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
+                cfg.CreateMap<Lib.EFModels.Profile, ProfileVM>().ReverseMap();
             });
         }
 

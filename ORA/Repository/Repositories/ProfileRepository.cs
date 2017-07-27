@@ -12,7 +12,7 @@ using Lib.Interfaces;
 namespace Repository.Repositories {
     public class ProfileRepository : BaseRespository<Lib.EFModels.Profile>, IProfileRepository {
         public ProfileRepository() : base(new RepositoryContext("ora")) {
-
+            InitMaps();
         }
 
         private void InitMaps() {
