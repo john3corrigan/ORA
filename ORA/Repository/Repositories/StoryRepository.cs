@@ -19,6 +19,7 @@ namespace Repository.Repositories{
             config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Story, StoryVM>().ReverseMap();
                 cfg.CreateMap<KPI, KPIVM>().ReverseMap();
+                cfg.CreateMap<Client, ClientVM>().ReverseMap();
             });
         }
 

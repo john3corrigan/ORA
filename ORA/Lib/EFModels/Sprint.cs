@@ -22,6 +22,7 @@ namespace Lib.EFModels {
         public DateTime EndDate { get; set; }
 
         public virtual ICollection<KPI> KPI { get; set; }
+
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }

@@ -16,5 +16,9 @@ namespace Lib.ViewModels {
         public List<string> Education { get; set; }
         public string Industry { get; set; }
         public string Summary { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Created { get; set; }
+        public string ModifiedBy { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

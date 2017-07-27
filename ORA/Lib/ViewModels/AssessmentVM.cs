@@ -21,7 +21,7 @@ namespace Lib.ViewModels {
         public string ADComments { get; set; }
         public int TMResourceUse { get; set; }
         public int TMFeedBack { get; set; }
-        public int TMTehcnicalMonitoring { get; set; }
+        public int TMTechnicalMonitoring { get; set; }
         public int TMAskingQuestions { get; set; }
         public string TMComments { get; set; }
         public int MIAttitudeWork { get; set; }

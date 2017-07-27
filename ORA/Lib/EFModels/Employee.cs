@@ -38,7 +38,7 @@ namespace Lib.EFModels {
 
         public bool ActiveFlag { get; set; }
 
-        public int ProfileID { get; set; }
+        public int? ProfileID { get; set; }
         public Profile Profile { get; set; }
 
         public virtual ICollection<Assignment> Assignment { get; set; }
