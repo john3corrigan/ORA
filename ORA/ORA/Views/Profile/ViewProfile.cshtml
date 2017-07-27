@@ -6,26 +6,3 @@
 <h2>ViewProfile</h2>
 
 
-<table>
-    <tr>
-        <th>FirstName</th>
-        <th>LastName</th>
-        <th>Position</th>
-        <th>Country</th>
-        <th>Zip</th>
-        <th>Education</th>
-        <th>Industry</th>
-        <th>Summary</th>
-    </tr>
-    <tr>
-        <td>@Html.Display(Model.FirstName)</td>
-        <td>@Html.Display(Model.LastName)</td>
-        <td>@Html.Display(Model.Position.Title)</td>
-        <td>@Html.Display(Model.Country)</td>
-        <td>@Html.Display(Model.Zip.ToString())</td>
-        <td>@foreach (string value in Model.Education) { Html.Display(value); }</td>
-        <td>@Html.Display(Model.Industry)</td>
-        <td>@Html.Display(Model.Summary)</td>
-
-    </tr>
-</table>

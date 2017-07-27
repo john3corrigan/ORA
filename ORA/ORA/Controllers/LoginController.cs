@@ -34,14 +34,17 @@ namespace ORA.Controllers
             if (employee != null)
             {
                 CreateCookie(employee);
-                return RedirectToAction("Home", "Index", new { area = "" });
+                Session["Name"] = employee.EmployeeName;
+                Session["Roles"] = RolesByUser(employee);
+                return RedirectToAction("Index", "Home", new { area = "" });
             }
             return View();
         }
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return View();
+            Session.Clear();
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         private void CreateCookie(EmployeeVM employee)

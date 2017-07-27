@@ -13,7 +13,6 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body style="background-color:#f2f2f2; height:100%" class="Raleway">
-    @*for the header/moved coding for 'login/signup'*@
     <div class="wrapper">
         <div class="wrapper_inner">
             <header class="fixed">
@@ -33,7 +32,7 @@
                                                         @if (Session["Name"] != null)
                                                         {
                                                             <li>@Html.ActionLink(Session["Name"].ToString(), "ViewProfile", "Profile")</li>
-                                                            <li>@Html.ActionLink("Log-Out", "Logout", "Login")</li>
+                                                            <li>@Html.ActionLink("Log-Out", "LogOut", "Login")</li>
                                                         }
                                                         else
                                                         {

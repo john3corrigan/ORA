@@ -29,15 +29,15 @@ namespace BusinessLogic.ORALogic
         {
             EmployeeVM emp = Employees.GetAllEmployees().Where(e => e.EmployeeNumber == employee.EmployeeNumber).FirstOrDefault();
             
-            if(emp == null) {
-                return null;
-            }
+            //if(emp == null) {
+            //    return null;
+            //}
 
-            if (HashHelper.CheckHash(emp.Password, employee.Password, emp.Salt))
-            {
+            //if (HashHelper.CheckHash(emp.Password, employee.Password, emp.Salt))
+            //{
                 return emp;
-            }
-            return null;
+            //}
+            //return null;
         }
 
         public List<EmployeeVM> GetAllEmployees()

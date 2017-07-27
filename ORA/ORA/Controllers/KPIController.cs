@@ -47,7 +47,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director, test")]
         public ActionResult CreateKPI()
         {
             return View(KPIs.AddKPI());

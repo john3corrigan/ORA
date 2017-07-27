@@ -22,12 +22,13 @@ namespace Repository.Repositories {
                 cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
                 cfg.CreateMap<Lib.EFModels.Profile, ProfileVM>().ReverseMap();
                 cfg.CreateMap<Assessment, AssessmentVM>().ReverseMap();
+                cfg.CreateMap<Client, ClientVM>().ReverseMap();
             });
         }
 
         public List<EmployeeVM> GetAllEmployees() {
             var mapper = config.CreateMapper();
-            return mapper.Map<List<EmployeeVM>>(DbSet.Include("Assignment").Include("Profile"));
+            return mapper.Map<List<EmployeeVM>>(DbSet.Include("Assignment").Include("Profile").ToList());
         }
 
         public EmployeeVM GetEmployeeByID(int id) {
