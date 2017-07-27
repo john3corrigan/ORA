@@ -5,3 +5,55 @@
 
 <h2>Dashboard</h2>
 
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            Image here
+        </div>
+        <div class="col-md-8">
+            bar for buttons on lables to switch views of what you want to see
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            some informathion display here
+        </div>
+        <div class="col-md-8">
+            <script>
+                $(document).ready(function () {
+                    $('#KPI-btn').click(function () {
+                        $('#KPI').show();
+                        $('#Assessment').hide();
+                        $('#MyBio').hide();
+                    });
+                });
+                $(document).ready(function () {
+                    $('#Assessment-btn').click(function () {
+                        $('#Assessment').show();
+                        $('#KPI').hide();
+                        $('#MyBio').hide();
+                    });
+                });
+                $(document).ready(function () {
+                    $('#MyBiobtn').click(function () {
+                        $('#MyBio').show();
+                        $('#KPI').hide();
+                        $('#Assessment').hide();
+                    });
+                });
+            </script>
+            <button id="MyBiobtn">My Biography</button>
+            <div id="MyBio">
+                Biography
+            </div>
+            <button id="KPI-btn">My KPI</button>
+            <div id="KPI" hidden>
+                KPI
+            </div>
+            <button id="Assessment-btn">My Assessment</button>
+            <div id="Assessment" hidden>
+                Assessment
+            </div>
+        </div>
+    </div>
+</body>
