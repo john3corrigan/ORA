@@ -26,13 +26,14 @@ div.box_colored {
 }
 
 div.box {
+    
     padding: 10px 100px;
     position: absolute;
     text-align: center;
-    left: 49%;
-    margin-left: -170.5px;
-    top: 38%;
+    left: 50%;
+    top: 50%;
     color: white;
+    transform:translate(-50%,-50%);
 }
 
 
