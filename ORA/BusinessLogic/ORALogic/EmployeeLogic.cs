@@ -33,11 +33,11 @@ namespace BusinessLogic.ORALogic
                 return null;
             }
 
-            if (HashHelper.CheckHash(emp.Password, employee.Password, emp.Salt))
-            {
+            //if (HashHelper.CheckHash(emp.Password, employee.Password, emp.Salt))
+            //{
                 return emp;
-            }
-            return null;
+            //}
+            //return null;
         }
 
         public List<EmployeeVM> GetAllEmployees()

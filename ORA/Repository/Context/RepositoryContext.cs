@@ -23,6 +23,9 @@ namespace Repository.Context {
         public DbSet<Profile> Profile;
 
         public RepositoryContext(string connectionString) : base(connectionString) {
+            if (Debugger.IsAttached) {
+                Database.SetInitializer(new DropCreateDatabaseIfModelChanges<RepositoryContext>());
+            }
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
@@ -39,17 +42,29 @@ namespace Repository.Context {
             modelBuilder.Entity<Team>().ToTable("Team");
             modelBuilder.Entity<Profile>().ToTable("Profile");
 
-            modelBuilder.Entity<Assignment>().HasOptional(a => a.KPI).WithMany().HasForeignKey(k => k.AssignmentID);
-            modelBuilder.Entity<Assignment>().HasOptional(a => a.KPI).WithMany().WillCascadeOnDelete(false);
-            modelBuilder.Entity<Assessment>().HasOptional(a => a.Assignment);
+            modelBuilder.Entity<Client>().HasMany(c => c.Story);
+            modelBuilder.Entity<Client>().HasMany(c => c.Team);
+            modelBuilder.Entity<Client>().HasMany(c => c.Project);
+            modelBuilder.Entity<Client>().HasMany(c => c.Assignment);
 
-            modelBuilder.Entity<KPI>().HasRequired(k => k.Assignment).WithMany(a => a.KPI).HasForeignKey(k => k.AssignmentID).WillCascadeOnDelete(false);
+            modelBuilder.Entity<Role>().HasMany(r => r.Assignment);
 
-            modelBuilder.Entity<Story>().HasRequired(s => s.Client).WithMany().WillCascadeOnDelete(false);
+            modelBuilder.Entity<Employee>().HasMany(e => e.Assignment);
+            modelBuilder.Entity<Employee>().HasRequired(e => e.Profile);
 
-            modelBuilder.Entity<Team>().HasRequired(t => t.Client).WithMany().WillCascadeOnDelete(false);
+            modelBuilder.Entity<Position>().HasMany(p => p.Assignment);
 
-            modelBuilder.Entity<Profile>().HasRequired(p => p.Position).WithMany().WillCascadeOnDelete(false);
+            modelBuilder.Entity<Assignment>().HasMany(a => a.Assessment);
+            modelBuilder.Entity<Assignment>().HasMany(a => a.KPI);
+
+            modelBuilder.Entity<Story>().HasMany(s => s.KPI);
+
+            modelBuilder.Entity<Project>().HasMany(p => p.KPI);
+
+            modelBuilder.Entity<Sprint>().HasMany(s => s.KPI);
+
+            modelBuilder.Entity<Team>().HasMany(t => t.Assignment);
+
         }
     }
 }
