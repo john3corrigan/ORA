@@ -31,7 +31,7 @@
                                                     <ul class="list-inline">
                                                         @if (Session["Name"] != null)
                                                         {
-                                                            <li>@Html.ActionLink(Session["Name"].ToString(), "ViewProfile", "Profile")</li>
+                                                            <li>@Html.RouteLink(Session["Name"].ToString(), "/Profile/ViewProfile", routeValues: new { ID = (int)Session["ID"]} )</li>
                                                             <li>@Html.ActionLink("Log-Out", "LogOut", "Login")</li>
                                                         }
                                                         else

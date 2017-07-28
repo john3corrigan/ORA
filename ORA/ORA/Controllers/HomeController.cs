@@ -16,7 +16,7 @@ namespace ORA.Controllers
 
             return View();
         }
-
+        [Authorize]
         public ActionResult Dashboard()
         {
             return View();

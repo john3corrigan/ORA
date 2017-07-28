@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace ORA.Controllers
 {
+    [Authorize]
     public class LoginController : Controller
     {
         private IEmployeeLogic Employees;
@@ -23,11 +24,13 @@ namespace ORA.Controllers
             return View();
         }
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Login(EmployeeVM Employee)
         {
             EmployeeVM employee = Employees.Login(Employee);
@@ -36,6 +39,7 @@ namespace ORA.Controllers
                 CreateCookie(employee);
                 Session["Name"] = employee.EmployeeName;
                 Session["Roles"] = RolesByUser(employee);
+                Session["ID"] = employee.ProfileID;
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
             return View();

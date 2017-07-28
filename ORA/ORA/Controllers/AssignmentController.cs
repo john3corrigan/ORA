@@ -6,7 +6,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AssignmentController : Controller
     {
         private IAssignmentLogic Assignments;
