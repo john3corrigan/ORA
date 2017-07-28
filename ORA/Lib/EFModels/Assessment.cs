@@ -86,7 +86,8 @@ namespace Lib.EFModels {
         public bool ActiveFlag { get; set; }
 
         public int? AssignmentID { get; set; }
-        public virtual Assignment Assignment { get; set; }
+        //public virtual Assignment Assignment { get; set; }
+
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }

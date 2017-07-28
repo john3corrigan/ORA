@@ -25,16 +25,16 @@ namespace Lib.EFModels {
         public int TotalHrsFixingBugs { get; set; }
 
         public int? AssignmentID { get; set; }
-        public virtual Assignment Assignment { get; set; }
+        //public virtual Assignment Assignment { get; set; }
 
         public int? ProjectID { get; set; }
-        public virtual Project Project { get; set; }
+        //public virtual Project Project { get; set; }
 
         public int? SprintID { get; set; }
-        public virtual Sprint Sprint { get; set; }
+        //public virtual Sprint Sprint { get; set; }
 
         public int? StoryID { get; set; }
-        public virtual Story Story { get; set; }
+        //public virtual Story Story { get; set; }
 
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }

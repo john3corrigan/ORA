@@ -23,7 +23,7 @@ namespace Lib.EFModels {
         public DateTime StoryEndDate { get; set; }
 
         public int? ClientID { get; set; }
-        public virtual Client Client { get; set; }
+        //public virtual Client Client { get; set; }
 
         public virtual ICollection<KPI> KPI { get; set; }
 

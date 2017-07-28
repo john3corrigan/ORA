@@ -12,36 +12,23 @@ using Repository.Context;
 namespace Repository.Repositories {
     public class ProjectRepository : BaseRespository<Project>, IProjectRepository {
         public ProjectRepository() : base(new RepositoryContext("ora")) {
-            InitMap();
-        }
-
-        private void InitMap() {
-            config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Project, ProjectVM>().ReverseMap();
-                cfg.CreateMap<KPI, KPIVM>().ReverseMap();
-                cfg.CreateMap<CreateProjectVM, Project>();
-            });
         }
 
         public List<ProjectVM> GetAllProjects() {
-            var mapper = config.CreateMapper();
-            return mapper.Map<List<ProjectVM>>(DbSet.Include("KPI"));
+            return Mapper.Map<List<ProjectVM>>(DbSet.Include("KPI").ToList());
         }
 
         public ProjectVM GetProjectByID(int id) {
-            var mapper = config.CreateMapper();
             return GetAllProjects().Where(p => p.ProjectID == id).FirstOrDefault();
         }
 
         public void AddProject(CreateProjectVM project) {
-            var mapper = config.CreateMapper();
-            Add(mapper.Map<Project>(project));
+            Add(Mapper.Map<Project>(project));
             Save();
         }
 
         public void UpdateProject(ProjectVM project) {
-            var mapper = config.CreateMapper();
-            Update(mapper.Map<Project>(project));
+            Update(Mapper.Map<Project>(project));
             Save();
         }
 

@@ -12,10 +12,14 @@ namespace ORA.Controllers
     public class LoginController : Controller
     {
         private IEmployeeLogic Employees;
+        private IAssignmentLogic Assignments;
+        private IRoleLogic Role;
 
-        public LoginController(IEmployeeLogic emply)
+        public LoginController(IEmployeeLogic emply, IAssignmentLogic assign, IRoleLogic roles)
         {
             Employees = emply;
+            Assignments = assign;
+            Role = roles;
         }
 
         // GET: Account
@@ -36,6 +40,7 @@ namespace ORA.Controllers
             EmployeeVM employee = Employees.Login(Employee);
             if (employee != null)
             {
+                employee.Assignment = Assignments.GetAllAssignmentsForEmployee(employee.EmployeeID);
                 CreateCookie(employee);
                 Session["Name"] = employee.EmployeeName;
                 Session["Roles"] = RolesByUser(employee);
@@ -65,9 +70,10 @@ namespace ORA.Controllers
             List<string> Roles = new List<string>();
             foreach (AssignmentVM value in employee.Assignment)
             {
-                if (!Roles.Contains(value.Role.RoleName))
+                RoleVM rolevm = Role.GetRoleByID(value.RoleID);
+                if (!Roles.Contains(rolevm.RoleName))
                 {
-                    Roles.Add(value.Role.RoleName);
+                    Roles.Add(rolevm.RoleName);
                 }
             }
             string role = string.Empty;

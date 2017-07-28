@@ -15,20 +15,16 @@ namespace Lib.EFModels {
         [Required]
         public DateTime EndDate { get; set; }
 
-        public int? ClientID { get; set; }
+        public int ClientID { get; set; }
         public virtual Client Client { get; set; }
 
         public int? EmployeeID { get; set; }
-        public virtual Employee Employee { get; set; }
 
         public int? PositionID { get; set; }
-        public virtual Position Position { get; set; }
 
         public int? RoleID { get; set; }
-        public virtual Role Role { get; set; }
 
         public int? TeamID { get; set; }
-        public virtual Team Team { get; set; }
 
         public virtual ICollection<KPI> KPI { get; set; }
 

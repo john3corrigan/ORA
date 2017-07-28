@@ -14,35 +14,24 @@ namespace Repository.Repositories {
     public class AssessmentRepository : BaseRespository<Assessment>, IAssessmentRepository {
 
         public AssessmentRepository() : base(new RepositoryContext("ora")) {
-            InitMap();
-        }
-
-        private void InitMap() {
-            config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Assessment, AssessmentVM>().ReverseMap();
-            });
         }
 
         public AssessmentVM GetAssessmentByID(int id) {
-            var mapper = config.CreateMapper();
             var assessment = DbSet.Where(a => a.AssessmentID == id).FirstOrDefault();
-            return mapper.Map<AssessmentVM>(assessment);
+            return Mapper.Map<AssessmentVM>(assessment);
         }
 
         public List<AssessmentVM> GetAllAssessments() {
-            var mapper = config.CreateMapper();
-            return mapper.Map<List<AssessmentVM>>(GetAll());
+            return Mapper.Map<List<AssessmentVM>>(GetAll().ToList());
         }
 
         public void AddAssessment(AssessmentVM assessment) {
-            var mapper = config.CreateMapper();
-            Add(mapper.Map<Assessment>(assessment));
+            Add(Mapper.Map<Assessment>(assessment));
             Save();
         }
 
         public void UpdateAssessment(AssessmentVM assessment) {
-            var mapper = config.CreateMapper();
-            Update(mapper.Map<Assessment>(assessment));
+            Update(Mapper.Map<Assessment>(assessment));
             Save();
         }
 

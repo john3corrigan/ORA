@@ -9,6 +9,7 @@ using AutoMapper;
 using Ninject;
 using Lib.InterfacesLogic;
 using BusinessLogic.ORALogic;
+using ORA.AutoMapper;
 
 namespace ORA
 {
@@ -20,6 +21,7 @@ namespace ORA
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AutoMapperConfiguration.ConfigMaps();
         }
     }
 }
