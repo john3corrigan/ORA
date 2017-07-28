@@ -5,7 +5,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    [Authorize]
+    [ORAAuthorize]
     public class ClientController : Controller
     {
         private IClientLogic Clients;
@@ -16,14 +16,12 @@ namespace ORA.Controllers
         }
 
         // GET: Client
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult Index()
         {
             return View(Clients.GetAllClients());
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult AddClient()
         {
             return View();
@@ -37,7 +35,6 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateClient(int ClientID)
         {
             return View(Clients.GetClientByID(ClientID));

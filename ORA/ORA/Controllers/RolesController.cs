@@ -16,7 +16,6 @@ namespace ORA.Controllers
         }
 
         // GET: Role
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult Index()
         {
             return View(Roles.GetAllRoles());

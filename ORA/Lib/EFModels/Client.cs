@@ -21,6 +21,8 @@ namespace Lib.EFModels {
 
         public virtual ICollection<Team> Team { get; set; }
 
+        public virtual ICollection<Assignment> Assignment { get; set; }
+
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }

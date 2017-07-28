@@ -6,7 +6,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    [Authorize]
+    [ORAAuthorize]
     public class AssessmentController : Controller
     {
         private IAssessmentLogic Assessments;
@@ -22,7 +22,6 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult CreateAssessment()
         {
             return View();
@@ -46,7 +45,6 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateAssessment(int AssessmentID)
         {
             return View(Assessments.GetAssessmentByID(AssessmentID));

@@ -6,7 +6,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    //[Authorize]
+    [ORAAuthorize]
     public class KPIController : Controller
     {
         private IKPILogic KPIs;
@@ -33,7 +33,6 @@ namespace ORA.Controllers
         }
         
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateKPI(int KPIID)
         {
             return View(KPIs.GetKPIByID(KPIID));
@@ -47,7 +46,6 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director, test")]
         public ActionResult CreateKPI()
         {
             return View(KPIs.AddKPI());

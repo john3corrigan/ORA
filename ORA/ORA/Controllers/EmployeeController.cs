@@ -5,7 +5,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    [Authorize]
+    [ORAAuthorize]
     public class EmployeeController : Controller
     {
         private IEmployeeLogic Employees;
@@ -32,7 +32,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin")]
         public ActionResult AddEmployee(EmployeeVM Employee)
         {
             Employees.AddEmployee(Employee);
@@ -40,7 +40,6 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateEmployee(int EmployeeID)
         {
             return View(Employees.GetEmployeeByID(EmployeeID));

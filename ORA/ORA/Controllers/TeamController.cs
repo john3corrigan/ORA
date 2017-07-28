@@ -5,7 +5,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    [Authorize]
+    [ORAAuthorize]
     public class TeamController : Controller
     {
         private ITeamLogic Teams;
@@ -22,7 +22,6 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult CreateTeam()
         {
             return View(Teams.AddTeam());
@@ -41,7 +40,6 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateTeam(int TeamID)
         {
             return View(Teams.GetTeamByID(TeamID));
@@ -54,6 +52,7 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult DeleteTeam(int TeamID)
         {
             Teams.DeleteTeam(TeamID);

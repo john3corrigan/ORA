@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace ORA.Controllers
 {
-    [Authorize]
+    [ORAAuthorize]
     public class PositionController : Controller
     {
 
@@ -18,8 +18,7 @@ namespace ORA.Controllers
         {
             return View(Positions.GetPositionByID(AssignmentID));
         }
-
-        [ORAAuthorize(Roles = "Admin, Director")]
+        
         public ActionResult ViewAllPositions()
         {
             return View(Positions.GetAllPositions());
