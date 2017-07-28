@@ -19,6 +19,15 @@ body {
     position:relative;
 }
 
+.nav_content {
+
+}
+
+.nav_content:hover {
+    background-color: aqua;
+    color: black;
+}
+
 .navbar_bottom{
     padding:0 45px;
     position:relative;
@@ -132,3 +141,5 @@ footer {
 .footer_col3 {
 
 }
+
+@media (max-width: )

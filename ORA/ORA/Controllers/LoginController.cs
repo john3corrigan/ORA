@@ -31,7 +31,7 @@ namespace ORA.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
         [AllowAnonymous]
@@ -47,7 +47,7 @@ namespace ORA.Controllers
                 Session["ID"] = employee.ProfileID;
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
-            return View();
+            return PartialView();
         }
         public ActionResult LogOut()
         {
