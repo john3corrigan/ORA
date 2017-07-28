@@ -12,7 +12,14 @@ namespace ORA.Controllers
         // GET: Assignment
         public ActionResult Index()
         {
-            return View();
+            if (Session.SessionID == null)
+            {
+                return View("Index");
+            }
+            else
+            {
+                return PartialView("Login");
+            }
         }
 
         public ActionResult Contact()

@@ -26,7 +26,7 @@ namespace ORA.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
         public ActionResult Login(EmployeeVM Employee)
@@ -37,7 +37,7 @@ namespace ORA.Controllers
                 Session["Name"] = employee.EmployeeName;
                 Session["MyID"] = employee.EmployeeID;
             }
-            return View();
+            return PartialView();
         }
         
         public ActionResult LogOut()
