@@ -23,6 +23,7 @@ div.box_colored {
     background-color: #033359;
     color: white;
     opacity: .8;
+    border-radius:5px;
 }
 
 div.box {
