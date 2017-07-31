@@ -2,6 +2,7 @@
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using Lib.Attributes;
+using System.Collections.Generic;
 
 namespace ORA.Controllers
 {
@@ -21,7 +22,13 @@ namespace ORA.Controllers
             return View(Projects.GetAllProjects());
         }
 
+        public ActionResult ViewListProjects(List<ProjectVM> ProjectsList)
+        {
+            return View(ProjectsList);
+        }
+        
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult CreateProject()
         {
             return View(Projects.AddProject());
@@ -40,6 +47,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult UpdateProject(int ProjectID)
         {
             return View(Projects.GetProjectByID(ProjectID));

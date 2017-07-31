@@ -16,6 +16,7 @@ namespace ORA.Controllers
         }
 
         // GET: Employee
+        [ORAAuthorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(Employees.GetAllEmployees());
@@ -26,6 +27,7 @@ namespace ORA.Controllers
             return View(Employees.GetEmployeeByID(EmployeeID));
         }
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin")]
         public ActionResult AddEmployee()
         {
             return View();
@@ -40,12 +42,14 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin")]
         public ActionResult UpdateEmployee(int EmployeeID)
         {
             return View(Employees.GetEmployeeByID(EmployeeID));
         }
 
         [HttpPost]
+        [ORAAuthorize(Roles = "Admin")]
         public ActionResult UpdateEmployee(EmployeeVM updatedEmployee)
         {
             Employees.UpdateEmployee(updatedEmployee);

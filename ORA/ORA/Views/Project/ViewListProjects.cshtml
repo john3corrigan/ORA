@@ -1,10 +1,10 @@
-﻿@model System.Collections.Generic.IEnumerable<StoryVM>
+﻿@model System.Collections.Generic.IEnumerable<ProjectVM>
 @using Lib.ViewModels
 @{
-    ViewBag.Title = "ViewAllStories";
+    ViewBag.Title = "ViewListProjects";
 }
 
-<h2>ViewAllStories</h2>
+<h2>ViewListProjects</h2>
 
 <table>
     <tr>
@@ -14,25 +14,28 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Client</th>
+        <th>KPI</th>
         <th>Created Date</th>
         <th>Created By</th>
         <th>Modified Date</th>
         <th>Modified By</th>
     </tr>
-    @foreach (StoryVM Value in Model)
+
+    @foreach (ProjectVM Value in Model)
     {
         <tr>
             <td>@Html.Display(Value.Title)</td>
-            <td>@Html.Display(Value.StoryName)</td>
-            <td>@Html.Display(Value.StoryNumber.ToString())</td>
-            <td>@Html.Display(Value.StoryStartDate.ToString())</td>
-            <td>@Html.Display(Value.StoryEndDate.ToString())</td>
+            <td>@Html.Display(Value.ProjectName)</td>
+            <td>@Html.Display(Value.ProjectNumber.ToString())</td>
+            <td>@Html.Display(Value.ProjectStartDate.ToString())</td>
+            <td>@Html.Display(Value.ProjectEndDate.ToString())</td>
             <td>@Html.Display(Value.Client.ClientName)</td>
+            <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Value.KPI })</td>
             <td>@Html.Display(Value.Created.ToString())</td>
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewStory", "Story", routeValues: new { StoryID = Value.StoryID })</td>
+            <td>@Html.ActionLink("ViewProject", "Project", routeValues: new { ProjectID = Value.ProjectID })</td>
         </tr>
     }
 </table>

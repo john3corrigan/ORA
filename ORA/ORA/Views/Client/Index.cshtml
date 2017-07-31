@@ -34,7 +34,7 @@
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewClient", "Client", routeValues: new { ID = Value.ClientID })</td>
+            <td>@Html.ActionLink("ViewClient", "Client", routeValues: new { ClientID = Value.ClientID })</td>
         </tr>
     }
 </table>

@@ -13,7 +13,6 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body style="background-color:#f2f2f2; height:100%" class="Raleway">
-    @*for the header/moved coding for 'login/signup'*@
     <div class="wrapper">
         <div class="wrapper_inner">
             <header class="fixed">
@@ -30,12 +29,10 @@
                                             <div>
                                                 <div>
                                                     <ul class="list-inline">
-                                                        @*Make sure the user sees their name and current session's name*@
-                                                        @*Fill Session With Appropriate String when LoginController is Created*@
-                                                        @*<li>@Html.ActionLink( @*Replace this String Value With Session[""] and have it redirect to the account controller, or dropdownbox for more options" ", "", "")</li>*@
-                                                        @if (Session.SessionID == null)
+                                                        @if (Session["Name"] != null)
                                                         {
-                                                            <li>@Html.ActionLink("Log-Out", "", "")</li>
+                                                            <li>@Html.ActionLink( (string)Session["Name"], "ViewProfile", "Profile", new { ProfileID = (int)Session["ID"] }, new { Area = ""})</li>
+                                                            <li>@Html.ActionLink("Log-Out", "LogOut", "Login")</li>
                                                         }
                                                         else
                                                         {
@@ -62,15 +59,14 @@
                                     <nav class=" header_right right">
                                         <ul class="list-inline">
                                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                                            @*Dropdown Boxes for the Nav-Bar Need CSS to make more appropriate*@
-                                            @*@if (Session[""] != null)
-                                                {*@
+                                            @if (Session["Name"] != null)
+                                            {
                                             <li class="dropdown nav_content">
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Assessment</span>
                                                     <ul class="dropdown-menu">
                                                         <li>@Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")</li>
-                                                        <li>@Html.ActionLink("View All Assessments", "ViewAllAssessments", "Assessment")</li>
+                                                        <li>@Html.ActionLink("View All Assessments", "Index", "Assessment")</li>
                                                     </ul>
                                                 </a>
                                             </li>
@@ -79,7 +75,7 @@
                                                     <span>Assignment</span>
                                                     <ul class="dropdown-menu">
                                                         <li>@Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment")</li>
-                                                        <li>@Html.ActionLink("View All Assignments", "ViewAllAssignments", "Assignment")</li>
+                                                        <li>@Html.ActionLink("View All Assignments", "Index", "Assignment")</li>
                                                     </ul>
                                                 </a>
                                             </li>
@@ -87,8 +83,8 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Client</span>
                                                     <ul class="dropdown-menu">
-                                                        <li><a>@Html.ActionLink("Add a Client", "AddClient", "Client")</a></li>
-                                                        <li><a>@Html.ActionLink("View All Clients", "ViewAllClients", "Client")</a></li>
+                                                        <li>@Html.ActionLink("Add a Client", "AddClient", "Client")</li>
+                                                        <li>@Html.ActionLink("View All Clients", "Index", "Client")</li>
                                                     </ul>
                                                 </a>
                                             </li>
@@ -96,8 +92,8 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Employee</span>
                                                     <ul class="dropdown-menu">
-                                                        <li><a>@Html.ActionLink("Add an Employee", "AddEmployee", "Employee")</a></li>
-                                                        <li><a>@Html.ActionLink("View All Employees", "ViewAllEmployees", "Employee")</a></li>
+                                                        <li>@Html.ActionLink("Add an Employee", "AddEmployee", "Employee")</li>
+                                                        <li>@Html.ActionLink("View All Employees", "Index", "Employee")</li>
                                                     </ul>
                                                 </a>
                                             </li>
@@ -105,8 +101,8 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>KPI</span>
                                                     <ul class="dropdown-menu">
-                                                        <li><a>@Html.ActionLink("Create a KPI", "CreateKPI", "KPI")</a></li>
-                                                        <li><a>@Html.ActionLink("View All KPIs", "ViewAllKPI", "KPI")</a></li>
+                                                        <li>@Html.ActionLink("Create a KPI", "CreateKPI", "KPI")</li>
+                                                        <li>@Html.ActionLink("View All KPIs", "Index", "KPI")</li>
                                                     </ul>
                                                 </a>
                                             </li>
@@ -114,8 +110,8 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Project</span>
                                                     <ul class="dropdown-menu">
-                                                        <li><a>@Html.ActionLink("Create a Project", "CreateProject", "Project")</a></li>
-                                                        <li><a>@Html.ActionLink("View All Projects", "ViewAllProjects", "Project")</a></li>
+                                                        <li>@Html.ActionLink("Create a Project", "CreateProject", "Project")</li>
+                                                        <li>@Html.ActionLink("View All Projects", "Index", "Project")</li>
                                                     </ul>
                                                 </a>
                                             </li>
@@ -123,8 +119,8 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Sprint</span>
                                                     <ul class="dropdown-menu">
-                                                        <li><a>@Html.ActionLink("Create a Sprint", "CreateSprint", "Sprint")</a></li>
-                                                        <li><a>@Html.ActionLink("View All Sprints", "ViewAllSprints", "Sprint")</a></li>
+                                                        <li>@Html.ActionLink("Create a Sprint", "CreateSprint", "Sprint")</li>
+                                                        <li>@Html.ActionLink("View All Sprints", "Index", "Sprint")</li>
                                                     </ul>
                                                 </a>
                                             </li>
@@ -132,8 +128,8 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Story</span>
                                                     <ul class="dropdown-menu">
-                                                        <li><a>@Html.ActionLink("Create a Story", "CreateStory", "Story")</a></li>
-                                                        <li><a>@Html.ActionLink("View All Stories", "ViewAllStories", "Story")</a></li>
+                                                        <li>@Html.ActionLink("Create a Story", "CreateStory", "Story")</li>
+                                                        <li>@Html.ActionLink("View All Stories", "Index", "Story")</li>
                                                     </ul>
                                                 </a>
                                             </li>
@@ -141,11 +137,12 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                     <span>Team</span>
                                                     <ul class="dropdown-menu">
-                                                        <li><a>@Html.ActionLink("Create a Team", "CreateTeam", "Team")</a></li>
-                                                        <li><a>@Html.ActionLink("View All Teams", "ViewAllTeams", "Team")</a></li>
+                                                        <li>@Html.ActionLink("Create a Team", "CreateTeam", "Team")</li>
+                                                        <li>@Html.ActionLink("View All Teams", "Index", "Team")</li>
                                                     </ul>
                                                 </a>
                                             </li>
+                                            }
                                         </ul>
                                     </nav>
                                 </div>

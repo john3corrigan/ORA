@@ -22,7 +22,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin")]
         public ActionResult AddProfile()
         {
             return View();
@@ -36,7 +36,6 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateProfile(int ProfileID)
         {
             return View(Profiles.GetProfileByID(ProfileID));
@@ -49,6 +48,7 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
+        [HttpGet]
         public ActionResult ViewProfile(int ProfileID)
         {
             return View(Profiles.GetProfileByID(ProfileID));

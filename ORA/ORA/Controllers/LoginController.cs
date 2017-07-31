@@ -47,7 +47,7 @@ namespace ORA.Controllers
                 CreateCookie(employee);
                 Session["Name"] = employee.EmployeeName;
                 Session["Roles"] = RolesByUser(employee);
-                Session["ID"] = employee.ProfileID;
+                Session["ID"] = 1;
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
             return PartialView();

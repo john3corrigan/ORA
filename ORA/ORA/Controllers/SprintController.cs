@@ -22,13 +22,14 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director, test")]
         public ActionResult CreateSprint()
         {
             return View();
         }
 
         [HttpPost]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult CreateSprint(SprintVM Sprint)
         {
             Sprints.AddSprint(Sprint);
@@ -41,6 +42,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult UpdateSprint(int SprintID)
         {
             return View(Sprints.GetSprintByID(SprintID));

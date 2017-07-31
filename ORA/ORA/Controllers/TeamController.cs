@@ -2,6 +2,7 @@
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using Lib.Attributes;
+using System.Collections.Generic;
 
 namespace ORA.Controllers
 {
@@ -28,6 +29,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult CreateTeam(CreateTeamVM Team)
         {
             Teams.AddTeam(Team);
@@ -39,7 +41,13 @@ namespace ORA.Controllers
             return View(Teams.GetTeamByID(TeamID));
         }
 
+        public ActionResult ViewListTeams(List<TeamVM> TeamsList)
+        {
+            return View(TeamsList);
+        }
+
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult UpdateTeam(int TeamID)
         {
             return View(Teams.GetTeamByID(TeamID));

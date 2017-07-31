@@ -358,6 +358,10 @@
     <Content Include="Views\Roles\UpdateRole.cshtml" />
     <Content Include="Views\Roles\ViewRole.cshtml" />
     <Content Include="Views\Roles\ViewAllRoles.cshtml" />
+    <Content Include="Views\Team\ViewListTeams.cshtml" />
+    <Content Include="Views\Project\ViewListProjects.cshtml" />
+    <Content Include="Views\Assignment\ViewEmployeeAssignment.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

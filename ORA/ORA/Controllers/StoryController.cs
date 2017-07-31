@@ -19,13 +19,14 @@ namespace ORA.Controllers
         // GET: Story
         public ActionResult Index()
         {
-            return View();
+            return View(Stories.GetAllStories());
         }
 
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult CreateStory()
         {
-            return View(Stories.GetAllStories());
+            return View();
         }
 
         [HttpPost]
@@ -46,6 +47,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult UpdateStory(int StoryID)
         {
             return View(Stories.GetStoryByID(StoryID));

@@ -1,13 +1,14 @@
-﻿using Lib.InterfacesLogic;
+﻿using Lib.Interfaces;
+using Lib.InterfacesLogic;
 using Lib.ViewModels;
 using System.Collections.Generic;
 
 namespace BusinessLogic.ORALogic
 {
-    class ProfileLogic : IProfileLogic
+    public class ProfileLogic : IProfileLogic
     {
-        private IProfileLogic Profiles;
-        public ProfileLogic(IProfileLogic prfl)
+        private IProfileRepository Profiles;
+        public ProfileLogic(IProfileRepository prfl)
         {
             Profiles = prfl;
         }

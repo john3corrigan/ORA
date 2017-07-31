@@ -22,6 +22,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult AddClient()
         {
             return View();
@@ -35,6 +36,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateClient(int ClientID)
         {
             return View(Clients.GetClientByID(ClientID));
@@ -47,9 +49,9 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
-        public ActionResult ViewClient(int AssignmentID)
+        public ActionResult ViewClient(int ClientID)
         {
-            return View(Clients.GetClientByID(AssignmentID));
+            return View(Clients.GetClientByID(ClientID));
         }
 
         [ORAAuthorize(Roles = "Admin, Director")]

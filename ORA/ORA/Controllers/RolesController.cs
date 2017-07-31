@@ -29,6 +29,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
+        [ORAAuthorize(Roles = "Admin")]
         public ActionResult AddRole(RoleVM Role)
         {
             Roles.AddRole(Role);
