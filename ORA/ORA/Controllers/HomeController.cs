@@ -12,7 +12,7 @@ namespace ORA.Controllers
         // GET: Assignment
         public ActionResult Index()
         {
-            if (Session.SessionID == null)
+            if (Session.SessionID != null)
             {
                 return View("Index");
             }
