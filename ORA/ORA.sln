@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{7E8162D6-9B48-4E01-8CD4-C610AF995B71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{5FD45901-1931-4442-B266-A129557678A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBCreation", "Testing\DBCreation.csproj", "{5FD45901-1931-4442-B266-A129557678A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
