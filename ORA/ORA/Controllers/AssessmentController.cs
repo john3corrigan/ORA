@@ -22,7 +22,8 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin")]
+        //[ORAAuthorize(Roles = "Admin")]
+        [AllowAnonymous]
         public ActionResult CreateAssessment()
         {
             return View();
