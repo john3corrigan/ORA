@@ -5,7 +5,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    //[Authorize]
+    [ORAAuthorize]
     public class SprintController : Controller
     {
         private ISprintLogic Sprints;
@@ -22,13 +22,14 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director, test")]
         public ActionResult CreateSprint()
         {
             return View();
         }
 
         [HttpPost]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult CreateSprint(SprintVM Sprint)
         {
             Sprints.AddSprint(Sprint);
@@ -41,7 +42,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult UpdateSprint(int SprintID)
         {
             return View(Sprints.GetSprintByID(SprintID));
@@ -54,6 +55,7 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult DeleteSprint(int SprintID)
         {
             Sprints.DeleteSprint(SprintID);

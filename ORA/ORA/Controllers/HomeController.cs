@@ -7,7 +7,14 @@ namespace ORA.Controllers
         // GET: Assignment
         public ActionResult Index()
         {
-            return View();
+            if (Session["Name"] != null)
+            {
+                return View("Index");
+            }
+            else
+            {
+                return PartialView("Login");
+            }
         }
 
         public ActionResult Contact()
@@ -16,7 +23,7 @@ namespace ORA.Controllers
 
             return View();
         }
-
+        [Authorize]
         public ActionResult Dashboard()
         {
             return View();

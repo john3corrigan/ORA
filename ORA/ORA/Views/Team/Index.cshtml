@@ -28,7 +28,7 @@
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewTeam", "Team", routeValues: new { ID = Value.TeamID })</td>
+            <td>@Html.ActionLink("ViewTeam", "Team", routeValues: new { TeamID = Value.TeamID })</td>
         </tr>
     }
 </table>

@@ -10,6 +10,7 @@ namespace Lib.EFModels {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int PositionID { get; set; }
+        public Position Position { get; set; }
         public string Country { get; set; }
         public int Zip { get; set; }
         public List<string> Education { get; set; }

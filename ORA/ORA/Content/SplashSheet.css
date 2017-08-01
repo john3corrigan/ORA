@@ -1,0 +1,53 @@
+﻿body, html {
+    height: 100vh;
+}
+
+body {
+    background-image: url(https://www.incimages.com/uploaded_files/inc5000company/OnshoreOutsourcing_44920.png);
+    background-color: white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    position:relative;
+}
+
+html {
+}
+
+input {
+    border: solid #033359 1px;
+}
+
+div.box_colored {
+    background-color: #033359;
+    color: white;
+    opacity: .8;
+}
+
+div.box {
+    padding: 10px 100px;
+    position: absolute;
+    text-align: center;
+    left: 49%;
+    margin-left: -170.5px;
+    top: 38%;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+/*div.box{
+    display:inline-block;
+}*/
+
+
+p {
+}

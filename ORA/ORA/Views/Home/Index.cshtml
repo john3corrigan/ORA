@@ -1,9 +1,15 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>Welcome To Onshore 'Name' @*@Session["Name"].ToString()*@!</h1>
+<div class="jumbotron" style="text-align:center;">
+    @if (Session.SessionID == null)
+    {
+        <h1>Welcome To Onshore</h1>
+    }
+    else
+    {
+        <h1>Welcome To Onshore @Html.Display(Session["Name"].ToString())</h1>
+    }
     <p></p>
 </div>
 

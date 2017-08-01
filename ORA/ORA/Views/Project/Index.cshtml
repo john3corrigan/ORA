@@ -35,7 +35,7 @@
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewProject", "Project", routeValues: new { ID = Value.ProjectID })</td>
+            <td>@Html.ActionLink("ViewProject", "Project", routeValues: new { ProjectID = Value.ProjectID })</td>
         </tr>
     }
 </table>

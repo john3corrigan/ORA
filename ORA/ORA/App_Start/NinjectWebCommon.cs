@@ -78,6 +78,8 @@ namespace ORA.App_Start
             kernel.Bind<IKPIRepository>().To<KPIRepository>();
             kernel.Bind<IPositionLogic>().To<PositionLogic>();
             kernel.Bind<IPositionRepository>().To<PositionRepository>();
+            kernel.Bind<IProfileLogic>().To<ProfileLogic>();
+            kernel.Bind<IProfileRepository>().To<ProfileRepository>();
             kernel.Bind<IProjectLogic>().To<ProjectLogic>();
             kernel.Bind<IProjectRepository>().To<ProjectRepository>();
             kernel.Bind<IRoleLogic>().To<RoleLogic>();

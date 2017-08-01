@@ -5,9 +5,11 @@ using System.Web.Mvc;
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using System.Web.Security;
+using Lib.Attributes;
 
 namespace ORA.Controllers
 {
+    [ORAAuthorize]
     public class LoginController : Controller
     {
         private IEmployeeLogic Employees;
@@ -27,26 +29,34 @@ namespace ORA.Controllers
             return View();
         }
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Login()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Login(EmployeeVM Employee)
         {
             EmployeeVM employee = Employees.Login(Employee);
             if (employee != null)
             {
                 employee.Assignment = Assignments.GetAllAssignmentsForEmployee(employee.EmployeeID);
+                employee.Assignment[0].Role = new RoleVM();
+                employee.Assignment[0].Role.RoleName = "test";
                 CreateCookie(employee);
-                return RedirectToAction("Home", "Index", new { area = "" });
+                Session["Name"] = employee.EmployeeName;
+                Session["Roles"] = RolesByUser(employee);
+                Session["ID"] = 1;
+                return RedirectToAction("Index", "Home", new { area = "" });
             }
-            return View();
+            return PartialView();
         }
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return View();
+            Session.Clear();
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         private void CreateCookie(EmployeeVM employee)

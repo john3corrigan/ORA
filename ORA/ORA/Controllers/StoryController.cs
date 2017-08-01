@@ -6,7 +6,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    //[Authorize]
+    [ORAAuthorize]
     public class StoryController : Controller
     {
         private IStoryLogic Stories;
@@ -19,14 +19,14 @@ namespace ORA.Controllers
         // GET: Story
         public ActionResult Index()
         {
-            return View();
+            return View(Stories.GetAllStories());
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult CreateStory()
         {
-            return View(Stories.GetAllStories());
+            return View();
         }
 
         [HttpPost]
@@ -47,7 +47,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Manager, Director")]
         public ActionResult UpdateStory(int StoryID)
         {
             return View(Stories.GetStoryByID(StoryID));
@@ -60,6 +60,7 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult DeleteStory(int StoryID)
         {
             Stories.DeleteStory(StoryID);

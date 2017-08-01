@@ -18,7 +18,7 @@ namespace Repository.Repositories {
         public List<EmployeeVM> GetAllEmployees() {
             var emps = DbSet.Include("Assignment")
                             .Include("Profile").ToList();
-            return ConstructEmployVMList(emps);
+            return Mapper.Map<List<EmployeeVM>>(emps);
         }
 
         public EmployeeVM GetEmployeeByID(int id) {

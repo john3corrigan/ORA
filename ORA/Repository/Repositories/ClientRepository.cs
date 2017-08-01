@@ -19,7 +19,7 @@ namespace Repository.Repositories {
             return Mapper.Map<List<ClientVM>>(DbSet.Include("Assignment")
                                                    .Include("Story")
                                                    .Include("Project")
-                                                   .Include("Team"));
+                                                   .Include("Team").ToList());
         }
 
         public ClientVM GetClientByID(int id) {
