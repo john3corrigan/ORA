@@ -27,15 +27,13 @@ namespace BusinessLogic.ORALogic
 
         public EmployeeVM Login(EmployeeVM employee)
         {
-            EmployeeVM emp = Employees.GetAllEmployees().Where(e => e.EmployeeNumber == employee.EmployeeNumber).FirstOrDefault();
+            EmployeeVM emp = Employees.GetAllEmployees().Where(e => e.Email == employee.Email).FirstOrDefault();
 
-            if (emp == null)
-            {
+            if (emp == null) {
                 return null;
             }
 
-            if (HashHelper.CheckHash(emp.Password, employee.Password, emp.Salt))
-            {
+            if (HashHelper.CheckHash(emp.Password, employee.Password, emp.Salt)) {
                 return emp;
             }
             return null;

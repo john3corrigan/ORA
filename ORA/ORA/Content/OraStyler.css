@@ -1,7 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 body, .wrapper {
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
 
 body {
@@ -10,111 +10,101 @@ body {
 }
 
 
-.navbar_top{
-    z-index:111;
-    line-height:33px;
-    height:33px;
-    padding:0;
-    font-size:13px;
-    position:relative;
+.navbar_top {
+    z-index: 111;
+    line-height: 33px;
+    height: 33px;
+    padding: 0;
+    font-size: 13px;
+    position: relative;
 }
 
-.nav_content {
-
+.navbar_bottom {
+    padding: 0 45px;
+    position: relative;
 }
 
-.nav_content:hover {
-    background-color: aqua;
-    color: black;
+.navbar_left {
+    position: relative;
+    left: 0;
+    top: 0;
 }
 
-.navbar_bottom{
-    padding:0 45px;
-    position:relative;
+.navbar_right {
+    position: relative;
+    float: right;
+    left: auto;
 }
 
-.navbar_left{
-    position:relative;
-    left:0;
-    top:0;
-}
 
-.navbar_right{
-    position:relative;
-    float:right;
-    left:auto;
-}
-
-.navbar_top_bottom_holder{
-
-}
 
 .container {
     padding: 0;
     position: relative;
-    height:inherit;
+    height: inherit;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
 }
 
 .container_inner {
-    width:inherit;
+    width: inherit;
     margin: 0 auto;
 }
-.left{
-    float:left;
-    height:100%;
+
+.left {
+    float: left;
+    height: 100%;
 }
+
 .right {
     float: right;
     height: 100%;
 }
-header.fixed{
-    width:100%;
-    position:fixed;
-    z-index:110;
-    top:0;
-    left:0;
-    background-color:#f2f2f2;
+
+header.fixed {
+    width: 100%;
+    position: fixed;
+    z-index: 110;
+    top: 0;
+    left: 0;
+    background-color: #f2f2f2;
 }
-.wrapper{
-    height:inherit;
-    position:relative;
-    z-index:1000;
+
+.wrapper {
+    height: inherit;
+    position: relative;
+    z-index: 1000;
 }
-.wrapper_inner{
+
+.wrapper_inner {
     width: 100%;
     overflow: auto;
     height: inherit;
 }
 
-.has_top{
-    padding-top:45px;
-}
-
-.logo{
-
+.has_top {
+    padding-top: 45px;
 }
 
 footer {
-    display:block;
-    position:relative;
-    text-align:center;
-    margin:0 auto;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    display: block;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    bottom: 0%;
+    right: 0%;
+    left: 0%;
     color: #000;
     width: 100%;
-    padding:20px;
+    padding: 20px;
     z-index: 100000;
 }
 
 .footer_top_holder {
     background-color: #093559;
-    position:relative;
-    display:block;
+    position: relative;
+    display: block;
 }
 
 .footer_top {
@@ -123,23 +113,76 @@ footer {
     padding: 72px 0 52px;
 }
 
-.three_columns{
-    width:100%
-}
-.column1 {
-}
-.column2 {
-}
-.column3 {
-}
-.footer_col1 {
-
-}
-.footer_col2 {
-
-}
-.footer_col3 {
-
+.three_columns {
+    width: 100%
 }
 
-@media (max-width: )
+
+/*----------Navbar Hover---------*/
+/*.nav_ora {
+    padding: 0;
+    text-align: center;
+    display:inline;
+}
+
+    .nav_ora > ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        background: #ddd;
+        border-radius: 5px;
+    }
+
+        .nav_ora > ul > li {
+            float: left;
+            width: 150px;
+            height: 65px;
+            line-height: 65px;
+            position: relative;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: rgba(0,0,0,1);
+            cursor: pointer;
+        }
+
+        .nav_ora > ul > a{
+            color:red;
+        }
+
+            .nav_ora > ul > li:hover {
+                background: #d5d5d5;
+                border-radius: 5px;
+            }
+
+
+ul.dropdown {
+    padding: 0;
+}
+
+    ul.dropdown li {
+        background: #666;
+        color: white;
+    }
+
+        ul.dropdown li:hover {
+            background: #606060;
+        }
+
+        ul.dropdown li:last-child {
+            border-radius: 0px 0px 5px 5px;
+        }
+
+    ul.dropdown li {
+        display: none;
+    }
+
+li:hover > ul.dropdown li {
+    display: block;
+}*/
+
+
+/*----------Media Properties----------*/
+@media (max-width: 320px) {
+
+}
