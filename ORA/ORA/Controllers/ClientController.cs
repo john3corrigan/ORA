@@ -5,7 +5,7 @@ using Lib.Attributes;
 
 namespace ORA.Controllers
 {
-    //[Authorize]
+    [ORAAuthorize]
     public class ClientController : Controller
     {
         private IClientLogic Clients;
@@ -16,7 +16,6 @@ namespace ORA.Controllers
         }
 
         // GET: Client
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult Index()
         {
             return View(Clients.GetAllClients());
@@ -50,9 +49,9 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
-        public ActionResult ViewClient(int AssignmentID)
+        public ActionResult ViewClient(int ClientID)
         {
-            return View(Clients.GetClientByID(AssignmentID));
+            return View(Clients.GetClientByID(ClientID));
         }
 
         [ORAAuthorize(Roles = "Admin, Director")]

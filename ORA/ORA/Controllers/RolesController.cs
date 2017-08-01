@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace ORA.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class RolesController : Controller
     {
         private IRoleLogic Roles;
@@ -16,7 +16,6 @@ namespace ORA.Controllers
         }
 
         // GET: Role
-        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult Index()
         {
             return View(Roles.GetAllRoles());
@@ -30,6 +29,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
+        [ORAAuthorize(Roles = "Admin")]
         public ActionResult AddRole(RoleVM Role)
         {
             Roles.AddRole(Role);

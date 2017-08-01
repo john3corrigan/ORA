@@ -266,7 +266,6 @@
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\OraStyler.css" />
-    <Content Include="Content\SplashSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -274,13 +273,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\AssesValDesc.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Controllers\fonts\fontawesome-webfont.woff2" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -292,7 +291,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\OraScript.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -361,6 +359,10 @@
     <Content Include="Views\Roles\UpdateRole.cshtml" />
     <Content Include="Views\Roles\ViewRole.cshtml" />
     <Content Include="Views\Roles\ViewAllRoles.cshtml" />
+    <Content Include="Views\Team\ViewListTeams.cshtml" />
+    <Content Include="Views\Project\ViewListProjects.cshtml" />
+    <Content Include="Views\Assignment\ViewEmployeeAssignment.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

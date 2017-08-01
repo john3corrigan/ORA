@@ -7,7 +7,7 @@ namespace ORA.Controllers
         // GET: Assignment
         public ActionResult Index()
         {
-            if (Session.SessionID != null)
+            if (Session["Name"] != null)
             {
                 return View("Index");
             }
@@ -23,7 +23,7 @@ namespace ORA.Controllers
 
             return View();
         }
-
+        [Authorize]
         public ActionResult Dashboard()
         {
             return View();

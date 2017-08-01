@@ -21,7 +21,7 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList))
+                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList, ), "---Select A Client---")
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })

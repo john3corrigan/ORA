@@ -1,31 +1,77 @@
 ﻿@model Lib.ViewModels.ProfileVM
 @{
-    ViewBag.Title = "ViewProfile";
+    ViewBag.Title = "My Profile";
 }
 
-<h2>ViewProfile</h2>
-
-
-<table>
-    <tr>
-        <th>FirstName</th>
-        <th>LastName</th>
-        <th>Position</th>
-        <th>Country</th>
-        <th>Zip</th>
-        <th>Education</th>
-        <th>Industry</th>
-        <th>Summary</th>
-    </tr>
-    <tr>
-        <td>@Html.Display(Model.FirstName)</td>
-        <td>@Html.Display(Model.LastName)</td>
-        <td>@Html.Display(Model.Position.Title)</td>
-        <td>@Html.Display(Model.Country)</td>
-        <td>@Html.Display(Model.Zip.ToString())</td>
-        <td>@foreach (string value in Model.Education) { Html.Display(value); }</td>
-        <td>@Html.Display(Model.Industry)</td>
-        <td>@Html.Display(Model.Summary)</td>
-
-    </tr>
-</table>
+<h2>@Session["Name"].ToString()</h2>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+                @Html.DisplayText(Model.FirstName) @Html.DisplayText(Model.LastName)
+        </div>
+        <div class="col-md-8">
+            <button id="MyBiobtn">My Biography</button>
+            <button id="KPI-btn">My KPI</button>
+            <button id="Assessment-btn">My Assessment</button>
+            <button id="Team-btn">My Team</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @{
+                foreach (string value in Model.Education) { Html.DisplayText(value); }
+            }
+        </div>
+        <div class="col-md-8">
+            <div id="MyBio">
+                @Html.DisplayText(Model.Summary)
+                <address>
+                    @Html.DisplayText(Model.Country), @Html.DisplayText(Model.Zip.ToString()) 
+                </address>
+            </div>
+            <div id="KPI" hidden>
+                KPI
+            </div>
+            <div id="Assessment" hidden>
+                Assessment
+            </div>
+            <div id="Team" hidden>
+                Team
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $('#KPI-btn').click(function () {
+            $('#KPI').show();
+            $('#Assessment').hide();
+            $('#MyBio').hide();
+            $('#Team').hide();
+        });
+    });
+    $(document).ready(function () {
+        $('#Assessment-btn').click(function () {
+            $('#Assessment').show();
+            $('#KPI').hide();
+            $('#MyBio').hide();
+            $('#Team').hide();
+        });
+    });
+    $(document).ready(function () {
+        $('#MyBiobtn').click(function () {
+            $('#MyBio').show();
+            $('#KPI').hide();
+            $('#Assessment').hide();
+            $('#Team').hide();
+        });
+    });
+    $(document).ready(function () {
+        $('#Team-btn').click(function () {
+            $('#Team').show();
+            $('#KPI').hide();
+            $('#Assessment').hide();
+            $('#MyBio').hide();
+        });
+    });
+</script>

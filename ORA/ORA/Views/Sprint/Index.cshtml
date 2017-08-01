@@ -32,7 +32,7 @@
             <td>@Html.Display(Value.CreatedBy)</td>
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewSprint", "Sprint", routeValues: new { ID = Value.SprintID })</td>
+            <td>@Html.ActionLink("ViewSprint", "Sprint", routeValues: new { SprintID = Value.SprintID })</td>
         </tr>
     }
 </table>

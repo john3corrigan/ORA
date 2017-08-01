@@ -37,7 +37,7 @@
             </tr>
             @foreach (EmployeeVM Value in Model)
             {
-                @if (Value.ActiveFlag)
+                if (Value.ActiveFlag)
                 {
                     <tr>
                         <td>@Html.Display(Value.Title)</td>
@@ -51,7 +51,7 @@
                         <td>@Html.Display(Value.CreatedBy)</td>
                         <td>@Html.Display(Value.Modified.ToString())</td>
                         <td>@Html.Display(Value.ModifiedBy)</td>
-                        <td>@Html.ActionLink("ViewEmployee", "Employee", routeValues: new { ID = Value.EmployeeID })</td>
+                        <td>@Html.ActionLink("ViewEmployee", "Employee", routeValues: new { EmployeeID = Value.EmployeeID })</td>
                     </tr>
                 }
             }
@@ -88,7 +88,7 @@
                         <td>@Html.Display(Value.CreatedBy)</td>
                         <td>@Html.Display(Value.Modified.ToString())</td>
                         <td>@Html.Display(Value.ModifiedBy)</td>
-                        <td>@Html.ActionLink("ViewEmployee", "Employee", routeValues: new { ID = Value.EmployeeID })</td>
+                        <td>@Html.ActionLink("ViewEmployee", "Employee", routeValues: new { EmployeeID = Value.EmployeeID })</td>
                     </tr>
                 }
             }

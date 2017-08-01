@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{B1C14268-3FE8-4064-8983-3F82334C32D2}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{EF00B191-9442-40A5-BBF1-7F70A7034272}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{7E8162D6-9B48-4E01-8CD4-C610AF995B71}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBCreation", "DBCreation\DBCreation.csproj", "{5FD45901-1931-4442-B266-A129557678A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{7E8162D6-9B48-4E01-8CD4-C610AF995B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E8162D6-9B48-4E01-8CD4-C610AF995B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E8162D6-9B48-4E01-8CD4-C610AF995B71}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FD45901-1931-4442-B266-A129557678A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FD45901-1931-4442-B266-A129557678A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FD45901-1931-4442-B266-A129557678A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FD45901-1931-4442-B266-A129557678A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
