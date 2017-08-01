@@ -23,9 +23,9 @@ namespace Repository.Context {
         public DbSet<Profile> Profile;
 
         public RepositoryContext(string connectionString) : base(connectionString) {
-            if (Debugger.IsAttached) {
-                Database.SetInitializer(new DropCreateDatabaseIfModelChanges<RepositoryContext>());
-            }
+            //if (Debugger.IsAttached) {
+            //    Database.SetInitializer(new DropCreateDatabaseIfModelChanges<RepositoryContext>());
+            //}
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
