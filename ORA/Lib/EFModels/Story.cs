@@ -22,13 +22,11 @@ namespace Lib.EFModels {
         [Required]
         public DateTime StoryEndDate { get; set; }
 
-        [Required]
-        public int ClientID { get; set; }
-
-        [Required]
-        public virtual Client Client { get; set; }
+        public int? ClientID { get; set; }
+        //public virtual Client Client { get; set; }
 
         public virtual ICollection<KPI> KPI { get; set; }
+
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }

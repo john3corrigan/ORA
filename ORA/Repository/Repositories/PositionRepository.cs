@@ -12,36 +12,24 @@ using Repository.Context;
 namespace Repository.Repositories {
     public class PositionRepository : BaseRespository<Position>, IPositionRepository {
         public PositionRepository() : base(new RepositoryContext("ora")) {
-            InitMap();
-        }
-
-        private void InitMap() {
-            config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Position, PositionVM>().ReverseMap();
-                cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
-            });
         }
 
         public List<PositionVM> GetAllPositions() {
-            var mapper = config.CreateMapper();
-            return mapper.Map<List<PositionVM>>(DbSet.Include("Assignment"));
+            return Mapper.Map<List<PositionVM>>(DbSet.Include("Assignment").ToList());
         }
 
         public PositionVM GetPositionByID(int id) {
-            var mapper = config.CreateMapper();
             var position = GetAllPositions().Where(p => p.PositionID == id).FirstOrDefault();
-            return mapper.Map<PositionVM>(position);
+            return Mapper.Map<PositionVM>(position);
         }
 
         public void AddPosition(PositionVM position) {
-            var mapper = config.CreateMapper();
-            Add(mapper.Map<Position>(position));
+            Add(Mapper.Map<Position>(position));
             Save();
         }
 
         public void UpdatePosition(PositionVM position) {
-            var mapper = config.CreateMapper();
-            Update(mapper.Map<Position>(position));
+            Update(Mapper.Map<Position>(position));
             Save();
         }
 

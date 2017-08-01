@@ -9,7 +9,6 @@ namespace Lib.EFModels {
         public int ProfileID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Position Position { get; set; }
         public int PositionID { get; set; }
         public string Country { get; set; }
         public int Zip { get; set; }

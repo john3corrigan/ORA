@@ -1,7 +1,38 @@
-﻿
+﻿@model System.Collections.Generic.IEnumerable<SprintVM>
+@using Lib.ViewModels
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ViewAllSprints";
 }
 
-<h2>Index</h2>
+<h2>ViewAllSprints</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>KPIs</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+    @foreach (SprintVM Value in Model)
+    {
+        <tr>
+            <td>@Html.Display(Value.Title)</td>
+            <td>@Html.Display(Value.SprintNumber.ToString())</td>
+            <td>@Html.Display(Value.SprintName)</td>
+            <td>@Html.Display(Value.StartDate.ToString())</td>
+            <td>@Html.Display(Value.EndDate.ToString())</td>
+            <td>@Html.ActionLink("ViewListKPI", "KPI", routeValues: new { KPIList = Value.KPI })</td>
+            <td>@Html.Display(Value.Created.ToString())</td>
+            <td>@Html.Display(Value.CreatedBy)</td>
+            <td>@Html.Display(Value.Modified.ToString())</td>
+            <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.ActionLink("ViewSprint", "Sprint", routeValues: new { ID = Value.SprintID })</td>
+        </tr>
+    }
+</table>

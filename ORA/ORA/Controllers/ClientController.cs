@@ -1,15 +1,11 @@
 ﻿using Lib.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using BusinessLogic.ORALogic;
 using Lib.InterfacesLogic;
-
+using Lib.Attributes;
 
 namespace ORA.Controllers
 {
+    //[Authorize]
     public class ClientController : Controller
     {
         private IClientLogic Clients;
@@ -20,13 +16,14 @@ namespace ORA.Controllers
         }
 
         // GET: Client
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult Index()
         {
-            return View();
+            return View(Clients.GetAllClients());
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult AddClient()
         {
             return View();
@@ -40,7 +37,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateClient(int ClientID)
         {
             return View(Clients.GetClientByID(ClientID));
@@ -58,13 +55,7 @@ namespace ORA.Controllers
             return View(Clients.GetClientByID(AssignmentID));
         }
 
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult ViewAllClients()
-        {
-            return View(Clients.GetAllClients());
-        }
-
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult DeleteClient(int ClientID)
         {
             Clients.RemoveClient(ClientID);

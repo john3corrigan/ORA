@@ -13,47 +13,62 @@ namespace Repository.Repositories {
     public class EmployeeRepository : BaseRespository<Employee>, IEmployeeRepository {
 
         public EmployeeRepository() : base(new RepositoryContext("ora")) {
-            InitMap();
-        }
-
-        private void InitMap() {
-            config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Employee, EmployeeVM>().ReverseMap();
-                cfg.CreateMap<Assignment, AssignmentVM>().ReverseMap();
-            });
         }
 
         public List<EmployeeVM> GetAllEmployees() {
-            var mapper = config.CreateMapper();
-            return mapper.Map<List<EmployeeVM>>(DbSet.Include("Assignment").Include("Profile"));
+            var emps = DbSet.Include("Assignment")
+                            .Include("Profile").ToList();
+            return ConstructEmployVMList(emps);
         }
 
         public EmployeeVM GetEmployeeByID(int id) {
-            var mapper = config.CreateMapper();
             var employee = GetAllEmployees().Where(e => e.EmployeeID == id).FirstOrDefault();
-            return mapper.Map<EmployeeVM>(employee);
+            return Mapper.Map<EmployeeVM>(employee);
         }
 
         public EmployeeVM GetEmployeeByProfileID(int id) {
-            var mapper = config.CreateMapper();
-            return mapper.Map<EmployeeVM>(GetAllEmployees().Where(e => e.ProfileID == id).FirstOrDefault());
+            return Mapper.Map<EmployeeVM>(GetAllEmployees().Where(e => e.ProfileID == id).FirstOrDefault());
         }
 
         public void AddEmployee(EmployeeVM employee) {
-            var mapper = config.CreateMapper();
-            Add(mapper.Map<Employee>(employee));
+            Add(Mapper.Map<Employee>(employee));
             Save();
         }
 
         public void UpdateEmployee(EmployeeVM employee) {
-            var mapper = config.CreateMapper();
-            Update(mapper.Map<Employee>(employee));
+            Update(Mapper.Map<Employee>(employee));
             Save();
         }
 
         public void DeleteEmployee(int id) {
             Delete(id);
             Save();
+        }
+
+        private List<EmployeeVM> ConstructEmployVMList(List<Employee> emps) {
+            List<EmployeeVM> empsVM = new List<EmployeeVM>();
+            foreach (var emp in emps) {
+                var empVM = new EmployeeVM() {
+                    EmployeeID = emp.EmployeeID,
+                    EmployeeNumber = emp.EmployeeNumber,
+                    Password = emp.Password,
+                    Salt = emp.Salt,
+                    Email = emp.Email,
+                    EmployeeName = emp.EmployeeName,
+                    EmployeeFirstName = emp.EmployeeFirstName,
+                    EmployeeMI = emp.EmployeeMI,
+                    EmployeeLastName = emp.EmployeeLastName,
+                    ActiveFlag = emp.ActiveFlag,
+                    Profile = Mapper.Map<ProfileVM>(emp.Profile),
+                    Assignment = Mapper.Map<List<AssignmentVM>>(emp.Assignment),
+                    Modified = emp.Modified,
+                    Created = emp.Created,
+                    ModifiedBy = emp.ModifiedBy,
+                    CreatedBy = emp.CreatedBy
+                };
+                empsVM.Add(empVM);
+            }
+            return empsVM;
         }
     }
 }

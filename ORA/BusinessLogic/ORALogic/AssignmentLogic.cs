@@ -60,6 +60,10 @@ namespace BusinessLogic.ORALogic
             return Assignments.GetAllAssignments();
         }
 
+        public List<AssignmentVM> GetAllAssignmentsForEmployee(int empID) {
+            return Assignments.GetAllAssignments().Where(a => a.EmployeeID == empID).ToList();
+        }
+
         public void UpdateAssignment(AssignmentVM updatedAssignment)
         {
             Assignments.UpdateAssignment(updatedAssignment);

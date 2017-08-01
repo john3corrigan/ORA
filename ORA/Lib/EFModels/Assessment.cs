@@ -60,7 +60,7 @@ namespace Lib.EFModels {
         public int TMFeedBack { get; set; }
 
         [Required]
-        public int TMTehcnicalMonitoring { get; set; }
+        public int TMTechnicalMonitoring { get; set; }
 
         [Required]
         public int TMAskingQuestions { get; set; }
@@ -85,8 +85,9 @@ namespace Lib.EFModels {
 
         public bool ActiveFlag { get; set; }
 
-        public int AssignmentID { get; set; }
-        public virtual Assignment Assignment { get; set; }
+        public int? AssignmentID { get; set; }
+        //public virtual Assignment Assignment { get; set; }
+
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }

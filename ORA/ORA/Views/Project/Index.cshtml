@@ -1,7 +1,41 @@
-﻿
+﻿@model System.Collections.Generic.IEnumerable<ProjectVM>
+@using Lib.ViewModels
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ViewAllProjects";
 }
 
-<h2>Index</h2>
+<h2>ViewAllProjects</h2>
 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Client</th>
+        <th>KPI</th>
+        <th>Created Date</th>
+        <th>Created By</th>
+        <th>Modified Date</th>
+        <th>Modified By</th>
+    </tr>
+
+    @foreach (ProjectVM Value in Model)
+    {
+        <tr>
+            <td>@Html.Display(Value.Title)</td>
+            <td>@Html.Display(Value.ProjectName)</td>
+            <td>@Html.Display(Value.ProjectNumber.ToString())</td>
+            <td>@Html.Display(Value.ProjectStartDate.ToString())</td>
+            <td>@Html.Display(Value.ProjectEndDate.ToString())</td>
+            <td>@Html.Display(Value.Client.ClientName)</td>
+            <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Value.KPI })</td>
+            <td>@Html.Display(Value.Created.ToString())</td>
+            <td>@Html.Display(Value.CreatedBy)</td>
+            <td>@Html.Display(Value.Modified.ToString())</td>
+            <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.ActionLink("ViewProject", "Project", routeValues: new { ID = Value.ProjectID })</td>
+        </tr>
+    }
+</table>

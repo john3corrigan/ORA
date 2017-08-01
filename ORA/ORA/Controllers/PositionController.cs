@@ -1,12 +1,10 @@
-﻿using Lib.InterfacesLogic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Lib.Attributes;
+using Lib.InterfacesLogic;
 using System.Web.Mvc;
 
 namespace ORA.Controllers
 {
+    //[Authorize]
     public class PositionController : Controller
     {
 
@@ -21,7 +19,7 @@ namespace ORA.Controllers
             return View(Positions.GetPositionByID(AssignmentID));
         }
 
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult ViewAllPositions()
         {
             return View(Positions.GetAllPositions());

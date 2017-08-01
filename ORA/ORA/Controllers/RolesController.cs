@@ -1,30 +1,29 @@
-﻿using Lib.InterfacesLogic;
+﻿using Lib.Attributes;
+using Lib.InterfacesLogic;
 using Lib.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ORA.Controllers
 {
+    //[Authorize]
     public class RolesController : Controller
     {
         private IRoleLogic Roles;
 
-        public RolesController(IRoleLogic clnts)
+        public RolesController(IRoleLogic rls)
         {
-            Roles = clnts;
+            Roles = rls;
         }
 
         // GET: Role
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult Index()
         {
-            return View();
+            return View(Roles.GetAllRoles());
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult AddRole()
         {
             return View();
@@ -38,7 +37,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateRole(int RoleID)
         {
             return View(Roles.GetRoleByID(RoleID));
@@ -56,13 +55,7 @@ namespace ORA.Controllers
             return View(Roles.GetRoleByID(AssignmentID));
         }
 
-        //[Authorize(Roles = "Admin, Director")]
-        public ActionResult ViewAllRoles()
-        {
-            return View(Roles.GetAllRoles());
-        }
-
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult DeleteRole(int RoleID)
         {
             Roles.DeleteRole(RoleID);

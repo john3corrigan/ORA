@@ -10,7 +10,6 @@ namespace Lib.EFModels {
         public int EmployeeID { get; set; }
         public string Title { get; set; }
 
-        [Required]
         public string EmployeeNumber { get; set; }
 
         [PasswordPropertyText]
@@ -26,19 +25,16 @@ namespace Lib.EFModels {
         public string EmployeeName { get; set; }
 
         [Required]
-        [StringLength(20)]
         public string EmployeeFirstName { get; set; }
 
-        [StringLength(1)]
         public string EmployeeMI { get; set; }
 
         [Required]
-        [StringLength(20)]
         public string EmployeeLastName { get; set; }
 
         public bool ActiveFlag { get; set; }
 
-        public int ProfileID { get; set; }
+        public int? ProfileID { get; set; }
         public Profile Profile { get; set; }
 
         public virtual ICollection<Assignment> Assignment { get; set; }

@@ -12,19 +12,14 @@ namespace Lib.ViewModels {
         public DateTime EndDate { get; set; }
         public int ClientID { get; set; }
         public ClientVM Client { get; set; }
-        public List<ClientVM> ClientList { get; set; }
         public int EmployeeID { get; set; }
         public EmployeeVM Employee { get; set; }
-        public List<EmployeeVM> EmployeeList { get; set; }
         public int PositionID { get; set; }
         public PositionVM Position { get; set; }
-        public List<PositionVM> PositionList { get; set; }
         public int RoleID { get; set; }
         public RoleVM Role { get; set; }
-        public List<RoleVM> RoleList { get; set; }
         public int TeamID { get; set; }
         public TeamVM Team { get; set; }
-        public List<TeamVM> TeamList { get; set; }
         public List<KPIVM> KPI { get; set; }
         public List<AssessmentVM> Assessment { get; set; }
         public DateTime Modified { get; set; }
@@ -36,14 +31,19 @@ namespace Lib.ViewModels {
     public class CreateAssignmentVM {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public int ClientID { get; set; }
         public ClientVM Client { get; set; }
         public List<ClientVM> ClientList { get; set; }
+        public int EmployeeID { get; set; }
         public EmployeeVM Employee { get; set; }
         public List<EmployeeVM> EmployeeList { get; set; }
+        public int PositionID { get; set; }
         public PositionVM Position { get; set; }
         public List<PositionVM> PositionList { get; set; }
+        public int RoleID { get; set; }
         public RoleVM Role { get; set; }
         public List<RoleVM> RoleList { get; set; }
+        public int TeamID { get; set; }
         public TeamVM Team { get; set; }
         public List<TeamVM> TeamList { get; set; }
         public DateTime Modified { get; set; }

@@ -1,13 +1,11 @@
-﻿using Lib.InterfacesLogic;
+﻿using Lib.Attributes;
+using Lib.InterfacesLogic;
 using Lib.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ORA.Controllers
 {
+    //[Authorize]
     public class ProfileController : Controller
     {
         private IProfileLogic Profiles;
@@ -17,13 +15,14 @@ namespace ORA.Controllers
         }
 
         // GET: Profile
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult Index()
         {
-            return View();
+            return View(Profiles.GetAllProfiles());
         }
 
         [HttpGet]
-        //[Authorize(Profiles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult AddProfile()
         {
             return View();
@@ -37,7 +36,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Profiles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateProfile(int ProfileID)
         {
             return View(Profiles.GetProfileByID(ProfileID));
@@ -55,13 +54,7 @@ namespace ORA.Controllers
             return View(Profiles.GetProfileByID(ProfileID));
         }
 
-        //[Authorize(Profiles = "Admin, Director")]
-        public ActionResult ViewAllProfiles()
-        {
-            return View(Profiles.GetAllProfiles());
-        }
-
-        //[Authorize(Profiles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult DeleteProfile(int ProfileID)
         {
             Profiles.DeleteProfile(ProfileID);

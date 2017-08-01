@@ -20,9 +20,9 @@
         <th>Modified Date</th>
         <th>Modified By</th>
     </tr>
-    <tr>
-        @foreach (StoryVM Value in Model)
-        {
+    @foreach (StoryVM Value in Model)
+    {
+        <tr>
             <td>@Html.Display(Value.Title)</td>
             <td>@Html.Display(Value.StoryName)</td>
             <td>@Html.Display(Value.StoryNumber.ToString())</td>
@@ -34,6 +34,6 @@
             <td>@Html.Display(Value.Modified.ToString())</td>
             <td>@Html.Display(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewStory", "Story", routeValues: new { ID = Value.StoryID })</td>
-        }
-    </tr>
+        </tr>
+    }
 </table>

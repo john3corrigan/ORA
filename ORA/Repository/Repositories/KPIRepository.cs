@@ -12,36 +12,24 @@ using Repository.Context;
 namespace Repository.Repositories {
     public class KPIRepository : BaseRespository<KPI>, IKPIRepository {
         public KPIRepository() : base(new RepositoryContext("ora")) {
-            InitMap();
-        }
-
-        private void InitMap() {
-            config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<KPI, KPIVM>().ReverseMap();
-                cfg.CreateMap<CreateKPIVM, KPI>();
-            });
         }
 
         public List<KPIVM> GetAllKPIs() {
-            var mapper = config.CreateMapper();
-            return mapper.Map<List<KPIVM>>(GetAll());
+            return Mapper.Map<List<KPIVM>>(GetAll().ToList());
         }
 
         public KPIVM GetKPIByID(int id) {
-            var mapper = config.CreateMapper();
             var kpi = GetAllKPIs().Where(k => k.KPIID == id).FirstOrDefault();
-            return mapper.Map<KPIVM>(kpi);
+            return Mapper.Map<KPIVM>(kpi);
         }
 
         public void AddKPI(CreateKPIVM kpi) {
-            var mapper = config.CreateMapper();
-            Add(mapper.Map<KPI>(kpi));
+            Add(Mapper.Map<KPI>(kpi));
             Save();
         }
 
         public void UpdateKPI(KPIVM kpi) {
-            var mapper = config.CreateMapper();
-            Update(mapper.Map<KPI>(kpi));
+            Update(Mapper.Map<KPI>(kpi));
             Save();
         }
 

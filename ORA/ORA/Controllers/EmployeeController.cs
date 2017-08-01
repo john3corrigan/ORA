@@ -1,15 +1,11 @@
 ﻿using Lib.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using BusinessLogic.ORALogic;
 using Lib.InterfacesLogic;
-
+using Lib.Attributes;
 
 namespace ORA.Controllers
 {
+    //[Authorize]
     public class EmployeeController : Controller
     {
         private IEmployeeLogic Employees;
@@ -21,11 +17,6 @@ namespace ORA.Controllers
 
         // GET: Employee
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult ViewAllEmployees()
         {
             return View(Employees.GetAllEmployees());
         }
@@ -41,7 +32,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult AddEmployee(EmployeeVM Employee)
         {
             Employees.AddEmployee(Employee);
@@ -49,7 +40,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult UpdateEmployee(int EmployeeID)
         {
             return View(Employees.GetEmployeeByID(EmployeeID));
@@ -63,7 +54,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "Admin, Director")]
         public ActionResult DisableEmployee(int EmployeeID)
         {
             Employees.DisableEmployee(EmployeeID);
