@@ -28,8 +28,11 @@ namespace Lib.ViewModels {
         public string ModifiedBy { get; set; }
     }
 
-    public class CreateAssignmentVM {
+    public class CreateAssignmentVM
+    {
+        [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
+        [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
         public int ClientID { get; set; }
         public ClientVM Client { get; set; }
