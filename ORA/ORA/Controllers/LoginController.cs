@@ -35,7 +35,7 @@ namespace ORA.Controllers
         public ActionResult Login(EmployeeVM Employee)
         {
             EmployeeVM employee = Employees.Login(Employee);
-            if (employee != null)
+            if (employee == null)
             {
                 employee.Assignment = Assignments.GetAllAssignmentsForEmployee(employee.EmployeeID);
                 CreateCookie(employee);

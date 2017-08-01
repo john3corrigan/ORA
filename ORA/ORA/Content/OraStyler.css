@@ -119,10 +119,10 @@ footer {
 
 
 /*----------Navbar Hover---------*/
-/*.nav_ora {
+.nav_ora {
     padding: 0;
     text-align: center;
-    display:inline;
+    display: inline;
 }
 
     .nav_ora > ul {
@@ -146,14 +146,15 @@ footer {
             cursor: pointer;
         }
 
-        .nav_ora > ul > a{
-            color:red;
-        }
-
             .nav_ora > ul > li:hover {
                 background: #d5d5d5;
                 border-radius: 5px;
             }
+
+            .nav_ora > ul > li > a {
+                color: red;
+            }
+
 
 
 ul.dropdown {
@@ -179,10 +180,9 @@ ul.dropdown {
 
 li:hover > ul.dropdown li {
     display: block;
-}*/
+}
 
 
 /*----------Media Properties----------*/
 @media (max-width: 320px) {
-
 }
