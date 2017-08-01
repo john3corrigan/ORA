@@ -22,10 +22,9 @@ namespace Repository.Context {
         public DbSet<Team> Team;
         public DbSet<Profile> Profile;
 
+        public RepositoryContext() { }
+
         public RepositoryContext(string connectionString) : base(connectionString) {
-            //if (Debugger.IsAttached) {
-            //    Database.SetInitializer(new DropCreateDatabaseIfModelChanges<RepositoryContext>());
-            //}
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {

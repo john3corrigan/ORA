@@ -23,7 +23,7 @@ namespace Lib.Helpers {
 
             byte[] hashBytes = hash.ComputeHash(plainTextBytesWithSalt);
 
-            return hashBytes.ToString();
+            return BitConverter.ToString(hashBytes).Replace("-", string.Empty).ToUpper();
         }
 
         public static byte[] GetSalt() {

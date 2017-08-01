@@ -16,7 +16,6 @@ namespace Lib.EFModels {
         public DateTime EndDate { get; set; }
 
         public int ClientID { get; set; }
-        public virtual Client Client { get; set; }
 
         public int? EmployeeID { get; set; }
 
