@@ -22,14 +22,14 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult AddRole()
         {
             return View();
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "Admin")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR")]
         public ActionResult AddRole(RoleVM Role)
         {
             Roles.AddRole(Role);
@@ -37,7 +37,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult UpdateRole(int RoleID)
         {
             return View(Roles.GetRoleByID(RoleID));
@@ -55,7 +55,7 @@ namespace ORA.Controllers
             return View(Roles.GetRoleByID(AssignmentID));
         }
 
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteRole(int RoleID)
         {
             Roles.DeleteRole(RoleID);

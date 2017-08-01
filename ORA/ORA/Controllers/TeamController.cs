@@ -29,7 +29,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult CreateTeam(CreateTeamVM Team)
         {
             Teams.AddTeam(Team);
@@ -47,7 +47,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Manager, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR")]
         public ActionResult UpdateTeam(int TeamID)
         {
             return View(Teams.GetTeamByID(TeamID));
@@ -60,7 +60,7 @@ namespace ORA.Controllers
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteTeam(int TeamID)
         {
             Teams.DeleteTeam(TeamID);

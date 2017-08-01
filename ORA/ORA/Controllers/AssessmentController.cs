@@ -22,7 +22,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-       [ORAAuthorize(Roles = "Admin")]
+       [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, LEAD")]
         public ActionResult CreateAssessment()
         {
             return View();
@@ -46,7 +46,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Manager, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
         public ActionResult UpdateAssessment(int AssessmentID)
         {
             return View(Assessments.GetAssessmentByID(AssessmentID));

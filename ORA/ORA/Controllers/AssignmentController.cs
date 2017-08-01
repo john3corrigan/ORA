@@ -21,7 +21,7 @@ namespace ORA.Controllers
             return View(Assignments.GetAllAssignments());
         }
 
-        [ORAAuthorize(Roles = "Admin, Manager, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR")]
         public ActionResult CreateAssignment()
         {
             return View(Assignments.AddAssignment());
@@ -50,7 +50,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Manager, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR")]
         public ActionResult UpdateAssignments(int AssignmentID)
         {
             return View(Assignments.GetAssignmentByID(AssignmentID));

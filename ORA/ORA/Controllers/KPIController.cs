@@ -33,7 +33,7 @@ namespace ORA.Controllers
         }
         
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Manager, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
         public ActionResult UpdateKPI(int KPIID)
         {
             return View(KPIs.GetKPIByID(KPIID));
@@ -47,7 +47,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Manager, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
         public ActionResult CreateKPI()
         {
             return View(KPIs.AddKPI());

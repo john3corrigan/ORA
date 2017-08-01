@@ -15,7 +15,7 @@ namespace ORA.Controllers
         }
 
         // GET: Profile
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult Index()
         {
             return View(Profiles.GetAllProfiles());
@@ -54,7 +54,7 @@ namespace ORA.Controllers
             return View(Profiles.GetProfileByID(ProfileID));
         }
 
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteProfile(int ProfileID)
         {
             Profiles.DeleteProfile(ProfileID);

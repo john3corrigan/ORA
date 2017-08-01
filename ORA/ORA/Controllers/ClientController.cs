@@ -22,7 +22,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult AddClient()
         {
             return View();
@@ -36,7 +36,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult UpdateClient(int ClientID)
         {
             return View(Clients.GetClientByID(ClientID));
@@ -54,7 +54,7 @@ namespace ORA.Controllers
             return View(Clients.GetClientByID(ClientID));
         }
 
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteClient(int ClientID)
         {
             Clients.RemoveClient(ClientID);

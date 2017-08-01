@@ -16,7 +16,7 @@ namespace ORA.Controllers
         }
 
         // GET: Employee
-        [ORAAuthorize(Roles = "Admin")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult Index()
         {
             return View(Employees.GetAllEmployees());
@@ -27,14 +27,14 @@ namespace ORA.Controllers
             return View(Employees.GetEmployeeByID(EmployeeID));
         }
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR")]
         public ActionResult AddEmployee()
         {
             return View();
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "Admin")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR")]
         public ActionResult AddEmployee(EmployeeVM Employee)
         {
             Employees.AddEmployee(Employee);
@@ -42,14 +42,14 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "Admin")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR")]
         public ActionResult UpdateEmployee(int EmployeeID)
         {
             return View(Employees.GetEmployeeByID(EmployeeID));
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "Admin")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR")]
         public ActionResult UpdateEmployee(EmployeeVM updatedEmployee)
         {
             Employees.UpdateEmployee(updatedEmployee);
@@ -57,7 +57,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "Admin, Director")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DisableEmployee(int EmployeeID)
         {
             Employees.DisableEmployee(EmployeeID);
