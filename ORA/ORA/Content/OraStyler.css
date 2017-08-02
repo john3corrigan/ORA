@@ -183,6 +183,36 @@ li:hover > ul.dropdown li {
 }
 
 
+
+/*-----Assessmwnt Table-----*/
+
+td, th, td {
+    border: 1px solid black;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+table {
+    background-color: aqua;
+}
+
+    table > tr:nth-child(even) {
+        background-color: blue;
+    }
+
+input {
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+
 /*----------Media Properties----------*/
 @media (max-width: 320px) {
 }
