@@ -22,7 +22,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-       [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, LEAD")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, LEAD")]
         public ActionResult CreateAssessment()
         {
             return View();

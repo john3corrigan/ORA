@@ -10,33 +10,33 @@
     <div>
         <div>
             <div>
-                @Html.DisplayFor(m => m.Title)
-                @Html.TextBoxFor(m => m.Title)
+                @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextBoxFormat" })
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Title)</font>
             </div>
             <div>
-                @Html.DisplayFor(m => m.ProjectName)
-                @Html.TextBoxFor(m => m.ProjectName)
+                @Html.LabelFor(m => m.ProjectName, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control TextBoxFormat" })
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.ProjectName)</font>
             </div>
             <div>
-                @Html.DisplayFor(m => m.ProjectNumber)
-                @Html.TextBoxFor(m => m.ProjectNumber)
+                @Html.LabelFor(m => m.ProjectNumber, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.ProjectNumber, new { @class = "form-control TextBoxFormat" })
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.ProjectNumber)</font>
             </div>
             <div>
-                @Html.DisplayFor(m => m.ProjectStartDate)
-                @Html.TextBoxFor(m => m.ProjectStartDate)
+                @Html.LabelFor(m => m.ProjectStartDate, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.ProjectStartDate, new { @class = "form-control TextBoxFormat" })
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.ProjectStartDate)</font>
             </div>
             <div>
-                @Html.DisplayFor(m => m.ProjectEndDate)
-                @Html.TextBoxFor(m => m.ProjectEndDate)
+                @Html.LabelFor(m => m.ProjectEndDate, new { @class = "LabelFormat" })
+                @Html.TextBoxFor(m => m.ProjectEndDate, new { @class = "form-control TextBoxFormat" })
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.ProjectEndDate)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList))
+                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList, "ClientID", "ClientName", new { @id = "dropdown" }), "---Select A Client---")
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })

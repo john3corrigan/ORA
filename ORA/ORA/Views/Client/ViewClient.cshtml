@@ -7,10 +7,8 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Client Name</th>
         <th>Abbreviation</th>
-        <th>Assignments</th>
         <th>Stories</th>
         <th>Projects</th>
         <th>Teams</th>
@@ -20,10 +18,8 @@
         <th>Modified By</th>
     </tr>
     <tr>
-        <td>@Html.Display(Model.Title)</td>
         <td>@Html.Display(Model.ClientName)</td>
         <td>@Html.Display(Model.ClientAbbreviation)</td>
-        <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentList = Model.Assignment })</td>
         <td>@Html.ActionLink("ViewListStories", "Story", routeValues: new { StoriesList = Model.Story })</td>
         <td>@Html.ActionLink("ViewListProjects", "Project", routeValues: new { ProjectsList = Model.Project })</td>
         <td>@Html.ActionLink("ViewListTeams", "Team", routeValues: new { TeamsList = Model.Team })</td>

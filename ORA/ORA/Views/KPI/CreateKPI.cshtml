@@ -86,7 +86,7 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Assignment, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Assignment, new SelectList(Model.AssignmentList))
+                @Html.DropDownListFor(m => m.Assignment, new SelectList(Model.AssignmentList, "Assignment", "Title", new { id = "dropdown" }))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Assignment)</font>
             </div>
             <div>

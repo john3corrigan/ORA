@@ -66,7 +66,7 @@
                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                         <span>Assessment</span>
                                                         <ul class="dropdown-menu">
-                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("SM") || Session["Roles"].ToString().Contains("TL"))
+                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD"))
                                                             {
                                                                 <li>@Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")</li>
                                                             }
@@ -78,7 +78,7 @@
                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                         <span>Assignment</span>
                                                         <ul class="dropdown-menu">
-                                                            @if (Session["Roles"].ToString().Contains("Director"))
+                                                            @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
                                                                 <li>@Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment")</li>
                                                             }
@@ -90,7 +90,7 @@
                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                         <span>Client</span>
                                                         <ul class="dropdown-menu">
-                                                            @if (Session["Roles"].ToString().Contains("Director"))
+                                                            @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
                                                                 <li>@Html.ActionLink("Add a Client", "AddClient", "Client")</li>
                                                             }
@@ -114,7 +114,7 @@
                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                         <span>KPI</span>
                                                         <ul class="dropdown-menu">
-                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("SM") || Session["Roles"].ToString().Contains("TL") || Session["Roles"].ToString().Contains("Director"))
+                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
                                                                 <li>@Html.ActionLink("Create a KPI", "CreateKPI", "KPI")</li>
                                                             }
@@ -127,7 +127,7 @@
                                                         <span>Project</span>
                                                         <ul class="dropdown-menu">
 
-                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("SM") || Session["Roles"].ToString().Contains("Director"))
+                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
                                                                 <li>@Html.ActionLink("Create a Project", "CreateProject", "Project")</li>
                                                             }
@@ -140,7 +140,7 @@
                                                         <span>Sprint</span>
                                                         <ul class="dropdown-menu">
 
-                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("SM") || Session["Roles"].ToString().Contains("TL") || Session["Roles"].ToString().Contains("Director"))
+                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
                                                                 <li>@Html.ActionLink("Create a Sprint", "CreateSprint", "Sprint")</li>
                                                             }
@@ -153,7 +153,7 @@
                                                         <span>Story</span>
                                                         <ul class="dropdown-menu">
 
-                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("SM") || Session["Roles"].ToString().Contains("TL") || Session["Roles"].ToString().Contains("Director"))
+                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
                                                                 <li>@Html.ActionLink("Create a Story", "CreateStory", "Story")</li>
                                                             }
@@ -166,7 +166,7 @@
                                                         <span>Team</span>
                                                         <ul class="dropdown-menu">
 
-                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("Director"))
+                                                            @if (Session["Roles"].ToString().Contains("ADMINISTRATOR") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
                                                                 <li>@Html.ActionLink("Create a Team", "CreateTeam", "Team")</li>
                                                             }

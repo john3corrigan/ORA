@@ -42,8 +42,6 @@ namespace ORA.Controllers
             if (employee != null)
             {
                 employee.Assignment = Assignments.GetAllAssignmentsForEmployee(employee.EmployeeID);
-                employee.Assignment[0].Role = new RoleVM();
-                employee.Assignment[0].Role.RoleName = "test";
                 CreateCookie(employee);
                 Session["Name"] = employee.EmployeeName;
                 Session["Roles"] = RolesByUser(employee);

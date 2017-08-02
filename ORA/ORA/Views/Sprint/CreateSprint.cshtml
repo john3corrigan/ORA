@@ -21,7 +21,7 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.SprintName, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.SprintName)
+                @Html.TextBoxFor(m => m.SprintName, new { @class = "form-control TextBoxFormat" })
                 <font>@Html.ValidationMessageFor(m => m.SprintName)</font>
             </div>
             <div>
