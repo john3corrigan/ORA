@@ -32,6 +32,7 @@ namespace BusinessLogic.ORALogic
 
         public void AddProject(CreateProjectVM newProject)
         {
+            newProject.ClientID = newProject.Client.ClientID;
             Projects.AddProject(newProject);
         }
 

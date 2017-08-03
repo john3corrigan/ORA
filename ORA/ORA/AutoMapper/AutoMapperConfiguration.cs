@@ -11,6 +11,7 @@ namespace ORA.AutoMapper {
         public static void ConfigMaps() {
             Mapper.Initialize(c => {
                 c.CreateMap<Assessment, AssessmentVM>().ReverseMap();
+                c.CreateMap<CreateAssessmentVM, Assessment>().ReverseMap();
                 c.CreateMap<Assignment, AssignmentVM>().ReverseMap();
                 c.CreateMap<CreateAssignmentVM, Assignment>().ReverseMap();
                 c.CreateMap<Client, ClientVM>().ReverseMap();

@@ -9,7 +9,7 @@ namespace Lib.Interfaces {
     public interface IAssessmentRepository {
         AssessmentVM GetAssessmentByID(int id);
         List<AssessmentVM> GetAllAssessments();
-        void AddAssessment(AssessmentVM assessment);
+        void AddAssessment(CreateAssessmentVM assessment);
         void UpdateAssessment(AssessmentVM assessment);
         void DeleteAssessment(int id);
     }
