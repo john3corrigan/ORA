@@ -24,10 +24,6 @@
         <th>Actual Test Hrs</th>
         <th>Bugs Found Production</th>
         <th>Total Hrs Fixing Bugs</th>
-        <th>Assignment</th>
-        <th>Project</th>
-        <th>Sprint</th>
-        <th>Story</th>
         <th>Created Date</th>
         <th>Created By</th>
         <th>Modified Date</th>
@@ -37,29 +33,27 @@
     @foreach (KPIVM Value in Model)
     {
         <tr>
-            <td>@Html.Display(Value.Title)</td>
-            <td>@Html.Display(Value.Points.ToString())</td>
-            <td>@Html.Display(Value.TCCreated.ToString())</td>
-            <td>@Html.Display(Value.TCExcuted.ToString())</td>
-            <td>@Html.Display(Value.TCFailed.ToString())</td>
-            <td>@Html.Display(Value.TCPassed.ToString())</td>
-            <td>@Html.Display(Value.DefectsFound.ToString())</td>
-            <td>@Html.Display(Value.DefectsFixed.ToString())</td>
-            <td>@Html.Display(Value.DefectsAccepted.ToString())</td>
-            <td>@Html.Display(Value.DefectsDeferred.ToString())</td>
-            <td>@Html.Display(Value.CriticalDefects.ToString())</td>
-            <td>@Html.Display(Value.TestHrsPlanned.ToString())</td>
-            <td>@Html.Display(Value.TestHrsActual.ToString())</td>
-            <td>@Html.Display(Value.BugsFoundProduction.ToString())</td>
-            <td>@Html.Display(Value.TotalHrsFixingBugs.ToString())</td>
-            <td>@Html.Display(Value.Assignment.Title)</td>
-            <td>@Html.Display(Value.Sprint.Title)</td>
-            <td>@Html.Display(Value.Story.Title)</td>
-            <td>@Html.Display(Value.Created.ToString())</td>
-            <td>@Html.Display(Value.CreatedBy)</td>
-            <td>@Html.Display(Value.Modified.ToString())</td>
-            <td>@Html.Display(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewKPI", "KPI", routeValues: new { KPIID = Value.KPIID })</td>
+            <td>@*@Html.DisplayName(Value.Title)*@</td>
+            <td>@Html.DisplayName(Value.Points.ToString())</td>
+            <td>@Html.DisplayName(Value.TCCreated.ToString())</td>
+            <td>@Html.DisplayName(Value.TCExcuted.ToString())</td>
+            <td>@Html.DisplayName(Value.TCFailed.ToString())</td>
+            <td>@Html.DisplayName(Value.TCPassed.ToString())</td>
+            <td>@Html.DisplayName(Value.DefectsFound.ToString())</td>
+            <td>@Html.DisplayName(Value.DefectsFixed.ToString())</td>
+            <td>@Html.DisplayName(Value.DefectsAccepted.ToString())</td>
+            <td>@Html.DisplayName(Value.DefectsRejected.ToString())</td>
+            <td>@Html.DisplayName(Value.DefectsDeferred.ToString())</td>
+            <td>@Html.DisplayName(Value.CriticalDefects.ToString())</td>
+            <td>@Html.DisplayName(Value.TestHrsPlanned.ToString())</td>
+            <td>@Html.DisplayName(Value.TestHrsActual.ToString())</td>
+            <td>@Html.DisplayName(Value.BugsFoundProduction.ToString())</td>
+            <td>@Html.DisplayName(Value.TotalHrsFixingBugs.ToString())</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            <td>@Html.DisplayName(Value.Modified.ToString())</td>
+            <td>@Html.DisplayName(Value.ModifiedBy)</td>
+            <td>@Html.ActionLink("ViewKPI", "ViewKPI", routeValues: new { KPIID = Value.KPIID })</td>
         </tr>
     }
 </table>

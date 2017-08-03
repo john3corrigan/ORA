@@ -24,7 +24,7 @@ namespace ORA.Controllers
 
         public ActionResult ViewListKPI(List<KPIVM> KPIList)
         {
-            return View(KPIList);
+            return View("Index", KPIList);
         }
         
         public ActionResult ViewKPI(int KPIID)
@@ -57,7 +57,7 @@ namespace ORA.Controllers
         public ActionResult CreateKPI(CreateKPIVM KPI)
         {
             KPIs.AddKPI(KPI);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("KPI", "ViewKPI", new { area = "" });
         }
     }
 }

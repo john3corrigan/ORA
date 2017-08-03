@@ -1,7 +1,7 @@
 ﻿@model System.Collections.Generic.IEnumerable<ProjectVM>
 @using Lib.ViewModels
 @{
-    ViewBag.Title = "ViewAllProjects";
+    ViewBag.Title = "View All Projects";
 }
 
 <h2>ViewAllProjects</h2>
@@ -13,7 +13,7 @@
         <th>Number</th>
         <th>Start Date</th>
         <th>End Date</th>
-        <th>Client</th>
+        @*<th>Client</th>*@
         <th>KPI</th>
         <th>Created Date</th>
         <th>Created By</th>
@@ -29,7 +29,7 @@
             <td>@Html.Display(Value.ProjectNumber.ToString())</td>
             <td>@Html.Display(Value.ProjectStartDate.ToString())</td>
             <td>@Html.Display(Value.ProjectEndDate.ToString())</td>
-            <td>@Html.Display(Value.Client.ClientName)</td>
+            @*<td>@Html.Display(Value.Client.ClientName)</td>*@
             <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Value.KPI })</td>
             <td>@Html.Display(Value.Created.ToString())</td>
             <td>@Html.Display(Value.CreatedBy)</td>
