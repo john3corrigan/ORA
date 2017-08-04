@@ -36,6 +36,16 @@ namespace BusinessLogic.ORALogic
             return KPIs.GetKPIByID(Id);
         }
 
+        public CreateKPIVM GetCreateKPIByID(int Id)
+        {
+            CreateKPIVM create = KPIs.GetCreateKPIByID(Id);
+            create.AssignmentList = Assignment.GetAllAssignments();
+            create.ProjectList = Project.GetAllProjects();
+            create.SprintList = Sprint.GetAllSprints();
+            create.StoryList = Story.GetAllStories();
+            return create;
+        }
+
         public List<KPIVM> GetAllKPIs()
         {
             return KPIs.GetAllKPIs();
@@ -45,6 +55,7 @@ namespace BusinessLogic.ORALogic
         {
             KPIs.UpdateKPI(updatedKPI);
         }
+
         public CreateKPIVM AddKPI()
         {
             CreateKPIVM create = new CreateKPIVM() {

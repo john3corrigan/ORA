@@ -29,14 +29,15 @@
         <th>Modified By</th>
     </tr>
     <tr>
-        @if (Model.Title == null)
+        @*@if (Model.Title. == null)
         {
             <td>null</td>
         }
         else
         {
             <td>@Html.DisplayName(Model.Title)</td>
-        }
+        }*@
+        <td></td>
         <td>@Html.DisplayName(Model.Points.ToString())</td>
         <td>@Html.DisplayName(Model.TCCreated.ToString())</td>
         <td>@Html.DisplayName(Model.TCExcuted.ToString())</td>
@@ -56,6 +57,7 @@
         <td>@Html.DisplayName(Model.CreatedBy)</td>
         <td>@Html.DisplayName(Model.Modified.ToString())</td>
         <td>@Html.DisplayName(Model.ModifiedBy)</td>
-        @*<td>@Html.ActionLink("","",routeValues: new { KPIID = Value.KPIID }))</td>*@
+        <td>@Html.ActionLink("Remove", "RemoveKPI", routeValues: new { KPIID = Model.KPIID })</td>
+        <td>@Html.ActionLink("Update", "UpdateKPI", routeValues: new { KPIID = Model.KPIID })</td>
     </tr>
 </table>

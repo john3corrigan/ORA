@@ -33,7 +33,15 @@
     @foreach (KPIVM Value in Model)
     {
         <tr>
-            <td>@*@Html.DisplayName(Value.Title)*@</td>
+            @if (Value.Title == null)
+            {
+                <td>null</td>
+            }
+            else
+            {
+                <td>@Html.DisplayName(Value.Title)</td>
+            }
+
             <td>@Html.DisplayName(Value.Points.ToString())</td>
             <td>@Html.DisplayName(Value.TCCreated.ToString())</td>
             <td>@Html.DisplayName(Value.TCExcuted.ToString())</td>
@@ -50,7 +58,13 @@
             <td>@Html.DisplayName(Value.BugsFoundProduction.ToString())</td>
             <td>@Html.DisplayName(Value.TotalHrsFixingBugs.ToString())</td>
             <td>@Html.DisplayName(Value.Created.ToString())</td>
-            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            @if (Value.CreatedBy == null)
+            {
+                <td>null</td>
+            }
+            else
+            {
+            <td>@Html.DisplayName(Value.CreatedBy)</td>}
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
             <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewKPI", "ViewKPI", routeValues: new { KPIID = Value.KPIID })</td>
