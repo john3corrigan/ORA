@@ -32,7 +32,8 @@ namespace BusinessLogic.ORALogic
 
         public void AddProject(CreateProjectVM newProject)
         {
-            newProject.ClientID = newProject.Client.ClientID;
+            //newProject.ClientID = newProject.Client.ClientID; //NullError: Object reference not set to an instance of an object
+            newProject.Client = Clients.GetClientByID(newProject.ClientID);
             Projects.AddProject(newProject);
         }
 

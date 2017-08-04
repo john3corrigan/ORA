@@ -9,26 +9,11 @@
 {
     <div>
         <div>
-            <div>
-                @Html.LabelFor(m => m.Project, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Project.ProjectID, new SelectList(Model.ProjectList, "ProjectID", "ProjectName", new { id = "dropdown" }), "---Select---")
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Project)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Sprint, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Sprint.SprintID, new SelectList(Model.SprintList, "SprintID", "SprintName", new { id = "dropdown" }), "---Select---")
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Sprint)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Story, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Story.StoryID, new SelectList(Model.StoryList, "StoryID", "StoryName", new { id = "dropdown" }), "---Select---")
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
-            </div>
-            <div>
+            @*<div>
                 @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
                 @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextBoxFormat" })
                 <font>@Html.ValidationMessageFor(m => m.Title)</font>
-            </div>
+            </div>*@
             <div>
                 @Html.LabelFor(m => m.Points, new { @class = "LabelFormat" })
                 @Html.TextBoxFor(m => m.Points, new { @class = "form-control TextBoxFormat" })
@@ -98,6 +83,26 @@
                 @Html.LabelFor(m => m.TotalHrsFixingBugs, new { @class = "LabelFormat" })
                 @Html.TextBoxFor(m => m.TotalHrsFixingBugs, new { @class = "form-control TextBoxFormat" })
                 <font>@Html.ValidationMessageFor(m => m.TotalHrsFixingBugs)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Project, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.ProjectID, new SelectList(Model.ProjectList, "ProjectID", "ProjectName", new { id = "dropdown" }), "---Select---")
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Project)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Sprint, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.SprintID, new SelectList(Model.SprintList, "SprintID", "SprintName", new { id = "dropdown" }), "---Select---")
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Sprint)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Story, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.StoryID, new SelectList(Model.StoryList, "StoryID", "StoryName", new { id = "dropdown" }), "---Select---")
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Assignment, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.AssignmentID, new SelectList(Model.AssignmentList, "AssignmentID", "AssignmentID", new { id = "dropdown" }), "---Select---")
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })

@@ -22,6 +22,11 @@ namespace Repository.Repositories {
             var kpi = GetAllKPIs().Where(k => k.KPIID == id).FirstOrDefault();
             return Mapper.Map<KPIVM>(kpi);
         }
+        public CreateKPIVM GetCreateKPIByID(int id)
+        {
+            var kpi = GetAllKPIs().Where(k => k.KPIID == id).FirstOrDefault();
+            return Mapper.Map<CreateKPIVM>(kpi);
+        }
 
         public void AddKPI(CreateKPIVM kpi) {
             Add(Mapper.Map<KPI>(kpi));

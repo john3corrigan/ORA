@@ -353,7 +353,6 @@
     <Content Include="Views\Profile\ViewAllProfiles.cshtml" />
     <Content Include="Views\Assignment\ViewListAssignments.cshtml" />
     <Content Include="Views\Assessment\ViewListAssessments.cshtml" />
-    <Content Include="Views\KPI\ViewListKPI.cshtml" />
     <Content Include="Views\Story\ViewListStories.cshtml" />
     <Content Include="Views\Roles\AddRole.cshtml" />
     <Content Include="Views\Roles\UpdateRole.cshtml" />

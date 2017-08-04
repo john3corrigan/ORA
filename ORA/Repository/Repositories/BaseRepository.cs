@@ -31,9 +31,8 @@ namespace Repository.Repositories {
         }
 
         public virtual void Update(TEntity entity) {
-            TEntity updatedEntity = DbSet.Find(entity);
-            if (updatedEntity != null) {
-                Context.Entry(updatedEntity).CurrentValues.SetValues(entity);
+            if (entity != null) {
+                Context.Entry(entity).State = EntityState.Modified;
             }
         }
 

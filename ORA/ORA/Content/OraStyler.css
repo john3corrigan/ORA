@@ -184,21 +184,26 @@ li:hover > ul.dropdown li {
 
 
 
-/*-----Assessmwnt Table-----*/
+/*-----Tables-----*/
 
-td, th, td {
+table, td, th, td {
     border: 1px solid black;
-    padding: 10px 0px;
+    padding: 10px;
     text-align: center;
 }
 
 table {
-    background-color: aqua;
+    background-color: lightblue;
 }
 
-    table > tr:nth-child(even) {
-        background-color: blue;
-    }
+tr:nth-child(even) {
+    color: white;
+    background-color: darkblue;
+}
+
+tr:nth-child(even) a {
+    color: white;
+}
 
 input {
     border: none;

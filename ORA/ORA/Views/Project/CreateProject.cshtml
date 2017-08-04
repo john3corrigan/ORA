@@ -1,6 +1,6 @@
 ﻿@model Lib.ViewModels.CreateProjectVM
 @{
-    ViewBag.Title = "CreateProject";
+    ViewBag.Title = "Create Project";
 }
 
 <h2>CreateProject</h2>
@@ -36,7 +36,7 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList, "ClientID", "ClientName", new { @id = "dropdown" }), "---Select A Client---")
+                @Html.DropDownListFor(m => m.ClientID, new SelectList(Model.ClientList, "ClientID", "ClientName", new { @id = "dropdown" }), "---Select A Client---")
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })

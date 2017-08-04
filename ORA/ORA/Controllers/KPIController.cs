@@ -24,26 +24,38 @@ namespace ORA.Controllers
 
         public ActionResult ViewListKPI(List<KPIVM> KPIList)
         {
-            return View(KPIList);
+            return View("Index", KPIList);
         }
         
         public ActionResult ViewKPI(int KPIID)
         {
+            KPIVM Value = KPIs.GetKPIByID(KPIID);
+            Value.CreatedBy = Session["Name"].ToString();
+            return View(Value);
+        }
+
+        public ActionResult RemoveKPI(int KPIID)
+        {
             return View(KPIs.GetKPIByID(KPIID));
         }
+
+
         
         [HttpGet]
         [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
         public ActionResult UpdateKPI(int KPIID)
         {
-            return View(KPIs.GetKPIByID(KPIID));
+            CreateKPIVM Value = KPIs.GetCreateKPIByID(KPIID);
+            TempData["TempCreatedBy"] = Value.CreatedBy;
+            TempData["TempKPI"] = Value.Created;
+            return View(Value);
         }
 
         [HttpPost]
         public ActionResult UpdateKPI(KPIVM updatedKPI)
         {
             KPIs.UpdateKPI(updatedKPI);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "KPI", new { area = "" });
         }
 
         [HttpGet]
@@ -57,7 +69,7 @@ namespace ORA.Controllers
         public ActionResult CreateKPI(CreateKPIVM KPI)
         {
             KPIs.AddKPI(KPI);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "KPI", new { area = "" });
         }
     }
 }

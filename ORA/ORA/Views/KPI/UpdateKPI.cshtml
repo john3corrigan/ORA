@@ -1,4 +1,4 @@
-﻿@model Lib.ViewModels.KPIVM
+﻿@model Lib.ViewModels.CreateKPIVM
 @{
     ViewBag.Title = "UpdateKPI";
 }
@@ -85,28 +85,30 @@
                 <font>@Html.ValidationMessageFor(m => m.TotalHrsFixingBugs)</font>
             </div>
             <div>
-                @Html.LabelFor(m => m.Assignment, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Assignment, new SelectList(Model.AssignmentList))
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Assignment)</font>
-            </div>
-            <div>
                 @Html.LabelFor(m => m.Project, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Project, new SelectList(Model.ProjectList))
+                @Html.DropDownListFor(m => m.ProjectID, new SelectList(Model.ProjectList, "ProjectID", "ProjectName", new { id = "dropdown" }), "---Select---")
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Project)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Sprint, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Sprint, new SelectList(Model.SprintList))
+                @Html.DropDownListFor(m => m.SprintID, new SelectList(Model.SprintList, "SprintID", "SprintName", new { id = "dropdown" }), "---Select---")
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Sprint)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.Story, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Story, new SelectList(Model.StoryList))
+                @Html.DropDownListFor(m => m.StoryID, new SelectList(Model.StoryList, "StoryID", "StoryName", new { id = "dropdown" }), "---Select---")
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Assignment, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.AssignmentID, new SelectList(Model.AssignmentList, "AssignmentID", "AssignmentID", new { id = "dropdown" }), "---Select---")
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
             </div>
             @Html.HiddenFor(m => m.KPIID, new { Value = Model.KPIID })
             @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
+            @Html.HiddenFor(m => m.Created, new { @Value = (DateTime)TempData["TempKPI"] })
+            @Html.HiddenFor(m => m.CreatedBy, new { @Value = (string)TempData["TempCreated"] })
             <input type="submit" value="Submit" />
         </div>
     </div>
