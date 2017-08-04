@@ -20,27 +20,27 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Client, new SelectList(Model.ClientList))
+                @Html.DropDownListFor(m => m.ClientID, new SelectList(Model.ClientList, "ClientID", "ClientName", new { id = "dropdown" }))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             <div id="Employee">
                 @Html.LabelFor(m => m.Employee, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Employee, new SelectList(Model.EmployeeList))
+                @Html.DropDownListFor(m => m.EmployeeID, new SelectList(Model.EmployeeList, "EmployeeID", "EmployeeName", new { id = "dropdown" }))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Employee)</font>
             </div>
             <div id="Position">
                 @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Position, new SelectList(Model.PositionList))
+                @Html.DropDownListFor(m => m.PositionID, new SelectList(Model.PositionList, "PositionID", "Title", new { id = "dropdown" }))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Position)</font>
             </div>
             <div id="Role">
                 @Html.LabelFor(m => m.Role, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Role, new SelectList(Model.RoleList))
+                @Html.DropDownListFor(m => m.RoleID, new SelectList(Model.RoleList, "RoleID", "RoleName", new { id = "dropdown" }))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Role)</font>
             </div>
             <div id="Team">
                 @Html.LabelFor(m => m.Team, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.Team, new SelectList(Model.TeamList))
+                @Html.DropDownListFor(m => m.TeamID, new SelectList(Model.TeamList, "TeamID", "TeamName", new { id = "dropdown" }))
                 <font color="ff0000">@Html.ValidationMessageFor(m => m.Team)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })

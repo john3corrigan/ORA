@@ -121,6 +121,7 @@ namespace Lib.ViewModels {
         public bool ActiveFlag { get; set; }
         public int AssignmentID { get; set; }
         public List<EmployeeVM> EmployeeList { get; set; }
+        public List<AssignmentVM> AssignmentList { get; set; }
         public AssignmentVM Assignment { get; set; }
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }

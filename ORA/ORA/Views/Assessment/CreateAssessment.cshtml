@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "CreateAssessment";
 }
-@if (!(bool)TempData["bool"])
+@if ((int)TempData["Stage"] == 1)
 {
     using (Html.BeginForm("GetEmployeeAssessment", "Assessment", FormMethod.Post))
     {
@@ -11,15 +11,15 @@
         <input value="Submit" type="submit" />
     }
 }
-@if ((bool)TempData["bool"])
+@if ((int)TempData["Stage"] == 2)
 {
     using (Html.BeginForm("CreateAssessment", "Assessment", FormMethod.Post))
     {
         <font color="Red">@Html.ValidationSummary(true)</font>
 
         @Html.LabelFor(m => m.Assignment.Employee.EmployeeName, new { @class = "LableFormat" })
-        @Html.DropDownListFor(m => m.AssignmentID, new SelectList(Model.EmployeeList, "AssignmentID", "EmployeeName"), "---Select---")
-        <br />
+        @Html.DropDownListFor(m => m.AssignmentID, new SelectList(Model.EmployeeList.Distinct(), "EmployeeID", "EmployeeName", Model.AssignmentList), "---Select---")
+       <br />
         <table>
             <tr><th>Areas Of Assessment</th></tr>
             <tr><th>Technical Delivery</th></tr>
@@ -205,7 +205,7 @@
             @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
         </table>
-        <input type="submit" value="Create" />
+        <input type="submit" value="Create" class="btn"/>
     }
 }
 <script>

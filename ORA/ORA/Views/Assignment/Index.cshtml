@@ -8,7 +8,6 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Client</th>
@@ -26,18 +25,17 @@
     @foreach (AssignmentVM Value in Model)
     {
         <tr>
-            <td>@Html.Display(Value.Title)</td>
-            <td>@Html.Display(Value.StartDate.ToString())</td>
-            <td>@Html.Display(Value.EndDate.ToString())</td>
-            <td>@Html.Display(Value.Client.ClientName)</td>
-            <td>@Html.Display(Value.Employee.EmployeeName)</td>
-            <td>@Html.Display(Value.Position.Title)</td>
-            <td>@Html.Display(Value.Role.Title)</td>
-            <td>@Html.Display(Value.Team.TeamName)</td>
-            <td>@Html.Display(Value.Created.ToString())</td>
-            <td>@Html.Display(Value.CreatedBy)</td>
-            <td>@Html.Display(Value.Modified.ToString())</td>
-            <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.DisplayName(Value.StartDate.ToString())</td>
+            <td>@Html.DisplayName(Value.EndDate.ToString())</td>
+            <td>@Html.DisplayName(Value.ClientID.ToString())</td>
+            <td>@Html.DisplayName(Value.EmployeeID.ToString())</td>
+            <td>@Html.DisplayName(Value.PositionID.ToString())</td>
+            <td>@Html.DisplayName(Value.RoleID.ToString())</td>
+            <td>@Html.DisplayName(Value.TeamID.ToString())</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            <td>@Html.DisplayName(Value.Modified.ToString())</td>
+            <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Value.KPI })</td>
             <td>@Html.ActionLink("ViewListAssessments", "Assessment", routeValues: new { AssessmentList = Value.Assessment })</td>
             <td>@Html.ActionLink("ViewAssessment", "Assessment", routeValues: new { ID = Value.AssignmentID })</td>

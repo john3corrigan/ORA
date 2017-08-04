@@ -31,7 +31,7 @@ namespace ORA.Controllers
         public ActionResult CreateAssignment(CreateAssignmentVM Assignment)
         {
             Assignments.AddAssignment(Assignment);
-            return RedirectToAction("Dashboard", "Home", new { area = ""});
+            return RedirectToAction("Index", "Home", new { area = ""});
         }
 
         public ActionResult ViewListAssignments(List<AssignmentVM> AssignmentsList)
