@@ -22,19 +22,29 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, LEAD")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
         public ActionResult CreateAssessment()
         {
+            TempData["Stage"] = 1;
             return View();
         }
 
         [HttpPost]
-        public ActionResult CreateAssessment(AssessmentVM Assessment)
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
+        public ActionResult CreateAssessment(CreateAssessmentVM Assessment)
         {
-            Assessments.AddAssessment(Assessment);
+            Assessments.AddAssessment(Assessment, (int)Session["Team"]);
             return RedirectToAction("Dashboard", "Home", new { area = "" });
         }
 
+        [HttpPost]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
+        public ActionResult GetEmployeeAssessment(CreateAssessmentVM Assessment)
+        {
+            TempData["Stage"] = 2;
+            TempData["Created"] = Assessment.Created;
+            return View("CreateAssessment", Assessments.AddAssessment(Assessment.Created, (int)Session["ID"], (int)Session["Team"]));
+        }
         public ActionResult ViewListAssessments(List<AssessmentVM> AssessmentList)
         {
             return View(AssessmentList);

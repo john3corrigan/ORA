@@ -25,7 +25,7 @@ namespace Repository.Repositories {
             return Mapper.Map<List<AssessmentVM>>(GetAll().ToList());
         }
 
-        public void AddAssessment(AssessmentVM assessment) {
+        public void AddAssessment(CreateAssessmentVM assessment) {
             Add(Mapper.Map<Assessment>(assessment));
             Save();
         }

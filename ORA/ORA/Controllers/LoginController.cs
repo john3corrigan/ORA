@@ -6,6 +6,7 @@ using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using System.Web.Security;
 using Lib.Attributes;
+using System.Linq;
 
 namespace ORA.Controllers
 {
@@ -45,11 +46,13 @@ namespace ORA.Controllers
                 CreateCookie(employee);
                 Session["Name"] = employee.EmployeeName;
                 Session["Roles"] = RolesByUser(employee);
-                Session["ID"] = 1;
+                Session["ID"] = employee.EmployeeID;
+                Session["Team"] = TeamByUser(employee);
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
             return PartialView();
         }
+
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
@@ -83,6 +86,15 @@ namespace ORA.Controllers
                 role += value + "|";
             }
             return role;
+        }
+
+        private int? TeamByUser(EmployeeVM employee)
+        {
+            foreach (AssignmentVM value in employee.Assignment)
+            {
+                return value.TeamID;
+            }
+            return null;
         }
     }
 }
