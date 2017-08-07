@@ -32,7 +32,7 @@ namespace ORA.Controllers
         public ActionResult AddProfile(ProfileVM Profile)
         {
             Profiles.AddProfile(Profile);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("AddEmployee", "Employee", new { area = "" });
         }
 
         [HttpGet]

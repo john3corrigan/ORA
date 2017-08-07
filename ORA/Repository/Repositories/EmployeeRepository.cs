@@ -30,7 +30,7 @@ namespace Repository.Repositories {
             return Mapper.Map<EmployeeVM>(GetAllEmployees().Where(e => e.ProfileID == id).FirstOrDefault());
         }
 
-        public void AddEmployee(EmployeeVM employee) {
+        public void AddEmployee(CreateEmployeeVM employee) {
             Add(Mapper.Map<Employee>(employee));
             Save();
         }

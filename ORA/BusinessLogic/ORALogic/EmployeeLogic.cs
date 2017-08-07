@@ -13,16 +13,40 @@ namespace BusinessLogic.ORALogic
     public class EmployeeLogic : IEmployeeLogic
     {
         private IEmployeeRepository Employees;
+        private IProfileRepository Profiles;
+        private IPositionRepository Positions;
 
-        public EmployeeLogic(IEmployeeRepository repo) {
+        public EmployeeLogic(IEmployeeRepository repo, IProfileRepository prfls, IPositionRepository pstn) {
             Employees = repo;
+            Profiles = prfls;
+            Positions = pstn;
         }
 
-        public void AddEmployee(EmployeeVM employee)
+        public CreateEmployeeVM AddEmployee()
         {
-            employee.Salt = HashHelper.GetSalt();
-            employee.Password = HashHelper.ComputeHash(employee.Password, employee.Salt);
-            Employees.AddEmployee(employee);
+            CreateEmployeeVM create = new CreateEmployeeVM() {
+                Position = Positions.GetAllPositions()
+            };
+            return create;
+        }
+
+        public void AddEmployee(CreateEmployeeVM employee)
+        {
+            CreateEmployeeVM Employee = employee;
+            Employee.Salt = HashHelper.GetSalt();
+            Employee.Password = HashHelper.ComputeHash(employee.Password, employee.Salt);
+            ProfileVM profile = new ProfileVM() {
+                FirstName = employee.EmployeeFirstName,
+                LastName = employee.EmployeeLastName,
+                Created = employee.Created,
+                CreatedBy = employee.CreatedBy,
+                Modified = employee.Modified,
+                ModifiedBy = employee.ModifiedBy,
+                PositionID = employee.PositionID
+            };
+            //Profiles.AddProfile(profile);
+            Employee.ProfileID = Profiles.GetAllProfiles().Where(p => p.FirstName == employee.EmployeeFirstName && p.LastName == employee.EmployeeLastName).FirstOrDefault().ProfileID;
+            Employees.AddEmployee(Employee);
         }
 
         public EmployeeVM Login(EmployeeVM employee)

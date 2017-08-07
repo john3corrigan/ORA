@@ -23,7 +23,6 @@
     <div id="Active">
         <table>
             <tr>
-                <th>Title</th>
                 <th>Badge Number</th>
                 <th>First Name</th>
                 <th>Middle Initial</th>
@@ -40,17 +39,23 @@
                 if (Value.ActiveFlag)
                 {
                     <tr>
-                        <td>@Html.Display(Value.Title)</td>
-                        <td>@Html.Display(Value.EmployeeNumber)</td>
-                        <td>@Html.Display(Value.EmployeeFirstName)</td>
-                        <td>@Html.Display(Value.EmployeeMI)</td>
-                        <td>@Html.Display(Value.EmployeeLastName)</td>
-                        <td>@Html.Display(Value.ActiveFlag.ToString())</td>
+                        <td>@Html.DisplayName(Value.EmployeeNumber)</td>
+                        <td>@Html.DisplayName(Value.EmployeeFirstName)</td>
+                        @if (Value.EmployeeMI != null)
+                        {
+                        <td>@Html.DisplayName(Value.EmployeeMI)</td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        <td>@Html.DisplayName(Value.EmployeeLastName)</td>
+                        <td>@Html.DisplayName(Value.ActiveFlag.ToString())</td>
                         <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
-                        <td>@Html.Display(Value.Created.ToString())</td>
-                        <td>@Html.Display(Value.CreatedBy)</td>
-                        <td>@Html.Display(Value.Modified.ToString())</td>
-                        <td>@Html.Display(Value.ModifiedBy)</td>
+                        <td>@Html.DisplayName(Value.Created.ToString())</td>
+                        <td>@Html.DisplayName(Value.CreatedBy)</td>
+                        <td>@Html.DisplayName(Value.Modified.ToString())</td>
+                        <td>@Html.DisplayName(Value.ModifiedBy)</td>
                         <td>@Html.ActionLink("ViewEmployee", "Employee", routeValues: new { EmployeeID = Value.EmployeeID })</td>
                     </tr>
                 }
@@ -60,7 +65,6 @@
     <div id="In-Active" hidden>
         <table>
             <tr>
-                <th>Title</th>
                 <th>Badge Number</th>
                 <th>First Name</th>
                 <th>Middle Initial</th>
@@ -74,20 +78,26 @@
             </tr>
             @foreach (EmployeeVM Value in Model)
             {
-                @if (Value.ActiveFlag)
+                if (!Value.ActiveFlag)
                 {
                     <tr>
-                        <td>@Html.Display(Value.Title)</td>
-                        <td>@Html.Display(Value.EmployeeNumber)</td>
-                        <td>@Html.Display(Value.EmployeeFirstName)</td>
-                        <td>@Html.Display(Value.EmployeeMI)</td>
-                        <td>@Html.Display(Value.EmployeeLastName)</td>
-                        <td>@Html.Display(Value.ActiveFlag.ToString())</td>
+                        <td>@Html.DisplayName(Value.EmployeeNumber)</td>
+                        <td>@Html.DisplayName(Value.EmployeeFirstName)</td>
+                        @if (Value.EmployeeMI != null)
+                        {
+                            <td>@Html.DisplayName(Value.EmployeeMI)</td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        <td>@Html.DisplayName(Value.EmployeeLastName)</td>
+                        <td>@Html.DisplayName(Value.ActiveFlag.ToString())</td>
                         <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
-                        <td>@Html.Display(Value.Created.ToString())</td>
-                        <td>@Html.Display(Value.CreatedBy)</td>
-                        <td>@Html.Display(Value.Modified.ToString())</td>
-                        <td>@Html.Display(Value.ModifiedBy)</td>
+                        <td>@Html.DisplayName(Value.Created.ToString())</td>
+                        <td>@Html.DisplayName(Value.CreatedBy)</td>
+                        <td>@Html.DisplayName(Value.Modified.ToString())</td>
+                        <td>@Html.DisplayName(Value.ModifiedBy)</td>
                         <td>@Html.ActionLink("ViewEmployee", "Employee", routeValues: new { EmployeeID = Value.EmployeeID })</td>
                     </tr>
                 }

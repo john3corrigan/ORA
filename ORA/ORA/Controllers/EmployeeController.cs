@@ -30,12 +30,12 @@ namespace ORA.Controllers
         [ORAAuthorize(Roles = "ADMINISTRATOR")]
         public ActionResult AddEmployee()
         {
-            return View();
+            return View(Employees.AddEmployee());
         }
 
         [HttpPost]
         [ORAAuthorize(Roles = "ADMINISTRATOR")]
-        public ActionResult AddEmployee(EmployeeVM Employee)
+        public ActionResult AddEmployee(CreateEmployeeVM Employee)
         {
             Employees.AddEmployee(Employee);
             return RedirectToAction("Dashboard", "Home", new { area = "" });
