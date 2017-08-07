@@ -26,7 +26,7 @@ namespace BusinessLogic.ORALogic
         public void AddAssessment(CreateAssessmentVM assessment, int teamID)
         {
             //The Assignment id is an employeeID until this point because of my inability to be creative.
-            assessment.AssignmentID = Employees.GetEmployeeByID(assessment.AssignmentID).Assignment.Where(a => a.TeamID == teamID).FirstOrDefault().AssignmentID;
+            assessment.AssignmentID = Employees.GetEmployeeByID(assessment.AssignmentID).Assignment.Where(a => a.TeamID == teamID && a.RoleID < 7).FirstOrDefault().AssignmentID;
             Assessments.AddAssessment(assessment);
         }
         public CreateAssessmentVM AddAssessment(DateTime created, int myID, int teamID)
@@ -54,7 +54,7 @@ namespace BusinessLogic.ORALogic
 
         private List<EmployeeVM> FilterEmployeeByTeam(DateTime created, int myID, int teamID)
         {
-            var assignment = Employees.GetEmployeeByID(myID).Assignment.Where(a => a.RoleID < 7 && a.TeamID == teamID).FirstOrDefault();
+            var assignment = Employees.GetEmployeeByID(myID).Assignment.Where(a => a.RoleID < 7 && a.TeamID == teamID && a.StartDate <= created && a.EndDate >= created).FirstOrDefault();
             var employees = Employees.GetAllEmployees().Where(e =>
             {
                 foreach (var assign in e.Assignment)

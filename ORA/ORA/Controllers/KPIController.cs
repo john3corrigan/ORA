@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using Lib.Attributes;
+using System;
 
 namespace ORA.Controllers
 {
@@ -62,7 +63,14 @@ namespace ORA.Controllers
         [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
         public ActionResult CreateKPI()
         {
-            return View(KPIs.AddKPI());
+            TempData["Stage"] = 1;
+            return View();
+        }
+
+        public ActionResult GetKPIByDate(CreateKPIVM KPI)
+        {
+            TempData["Stage"] = 2;
+            return View("CreateKPI", KPIs.AddKPI(KPI.Created));
         }
 
         [HttpPost]
