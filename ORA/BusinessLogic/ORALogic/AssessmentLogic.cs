@@ -46,6 +46,23 @@ namespace BusinessLogic.ORALogic
             return Assessments.GetAllAssessments().Where(a => a.AssignmentID == assignmentID).ToList();
         }
 
+        public List<AssessmentVM> GetAssessmentByEmployeeID(int employee)
+        {
+            List<AssignmentVM> Assignment = Employees.GetEmployeeByID(employee).Assignment.Where(a => a.EmployeeID == employee).ToList();
+            List<AssessmentVM> assessments = Assessments.GetAllAssessments().Where(a =>
+            {
+                foreach (var assign in Assignment)
+                {
+                    if (assign.AssignmentID == a.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            return assessments;
+        }
+
         public List<AssessmentVM> GetAllAssessments()
         {
             return Assessments.GetAllAssessments();

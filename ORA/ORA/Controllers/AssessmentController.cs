@@ -9,16 +9,21 @@ namespace ORA.Controllers
     [ORAAuthorize]
     public class AssessmentController : Controller
     {
+        private IEmployeeLogic Employee;
         private IAssessmentLogic Assessments;
 
-        public AssessmentController(IAssessmentLogic assess)
+
+        public AssessmentController(IAssessmentLogic assess, IEmployeeLogic emp)
         {
             Assessments = assess;
+            Employee = emp;
         }
+
+
         // GET: Assessment
         public ActionResult Index()
         {
-            return View(Assessments.GetAllAssessments());
+            return View(Employee.GetAllEmployees());
         }
 
         [HttpGet]
@@ -53,7 +58,8 @@ namespace ORA.Controllers
 
         public ActionResult ViewAssessment(int AssessmentID)
         {
-            return View(Assessments.GetAssessmentByID(AssessmentID));
+            //return View(Assessments.GetAssessmentByID(AssessmentID));
+            return View(Assessments.GetAssessmentByEmployeeID(AssessmentID));
         }
 
         [HttpGet]
