@@ -22,15 +22,15 @@
     @foreach (ClientVM Value in Model)
     {
         <tr>
-            <td>@Html.Display(Value.ClientName)</td>
-            <td>@Html.Display(Value.ClientAbbreviation)</td>
-            <td>@Html.ActionLink("ViewListStories", "Story", routeValues: new { StoriesList = Value.Story })</td>
-            <td>@Html.ActionLink("ViewListProjects", "Project", routeValues: new { ProjectsList = Value.Project })</td>
-            <td>@Html.ActionLink("ViewListTeams", "Team", routeValues: new { TeamsList = Value.Team })</td>
-            <td>@Html.Display(Value.Created.ToString())</td>
-            <td>@Html.Display(Value.CreatedBy)</td>
-            <td>@Html.Display(Value.Modified.ToString())</td>
-            <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.DisplayName(Value.ClientName)</td>
+            <td>@Html.DisplayName(Value.ClientAbbreviation)</td>
+            <td>@Html.ActionLink("View List Stories", "ViewListStories", "Story", new { StoriesList = Value.Story }, new { Area = "" })</td>
+            <td>@Html.ActionLink("View List Projects", "ViewListProjects", "Project", new { ProjectsList = Value.Project }, new { Area = "" })</td>
+            <td>@Html.ActionLink("View List Teams", "ViewListTeams", "Team", new { TeamsList = Value.Team }, new { Area = "" })</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            <td>@Html.DisplayName(Value.Modified.ToString())</td>
+            <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewClient", "Client", routeValues: new { ClientID = Value.ClientID })</td>
         </tr>
     }

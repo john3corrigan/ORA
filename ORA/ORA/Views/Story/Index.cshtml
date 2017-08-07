@@ -21,15 +21,15 @@
     @foreach (StoryVM Value in Model)
     {
         <tr>
-            <td>@Html.Display(Value.StoryName)</td>
-            <td>@Html.Display(Value.StoryNumber.ToString())</td>
-            <td>@Html.Display(Value.StoryStartDate.ToString())</td>
-            <td>@Html.Display(Value.StoryEndDate.ToString())</td>
-            <td>@Html.Display(Value.Client.ClientName)</td>
-            <td>@Html.Display(Value.Created.ToString())</td>
-            <td>@Html.Display(Value.CreatedBy)</td>
-            <td>@Html.Display(Value.Modified.ToString())</td>
-            <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.DisplayName(Value.StoryName)</td>
+            <td>@Html.DisplayName(Value.StoryNumber.ToString())</td>
+            <td>@Html.DisplayName(Value.StoryStartDate.ToString())</td>
+            <td>@Html.DisplayName(Value.StoryEndDate.ToString())</td>
+            <td>@Html.DisplayName(Value.Client.ClientName)</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            <td>@Html.DisplayName(Value.Modified.ToString())</td>
+            <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewStory", "Story", routeValues: new { StoryID = Value.StoryID })</td>
         </tr>
     }

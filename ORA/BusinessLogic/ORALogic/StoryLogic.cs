@@ -13,10 +13,12 @@ namespace BusinessLogic.ORALogic
     public class StoryLogic : IStoryLogic
     {
         private IStoryRepository Stories;
+        private IClientRepository Client;
 
-        public StoryLogic(IStoryRepository stry)
+        public StoryLogic(IStoryRepository stry, IClientRepository clnt)
         {
             Stories = stry;
+            Client = clnt;
         }
 
         public StoryVM GetStoryByID(int storyID)
@@ -33,15 +35,28 @@ namespace BusinessLogic.ORALogic
         {
             Stories.DeleteStory(storyID);
         }
-
+        
         public void AddStory(StoryVM newStory)
         {
             Stories.AddStory(newStory);
         }
 
+        public CreateStoryVM AddStory()
+        {
+            CreateStoryVM create = new CreateStoryVM() {
+                ClientList = Client.GetAllClients()
+            };
+            return create;
+        }
+
         public List<StoryVM> GetAllStories()
         {
-            return Stories.GetAllStories();
+            List<StoryVM> StoryList = Stories.GetAllStories();
+            foreach (StoryVM story in StoryList)
+            {
+                story.Client = Client.GetClientByID(story.ClientID);
+            }
+            return StoryList;
         }
     }
 }

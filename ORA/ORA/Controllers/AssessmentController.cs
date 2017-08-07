@@ -34,7 +34,7 @@ namespace ORA.Controllers
         public ActionResult CreateAssessment(CreateAssessmentVM Assessment)
         {
             Assessments.AddAssessment(Assessment, (int)Session["Team"]);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [HttpPost]
@@ -45,9 +45,10 @@ namespace ORA.Controllers
             TempData["Created"] = Assessment.Created;
             return View("CreateAssessment", Assessments.AddAssessment(Assessment.Created, (int)Session["ID"], (int)Session["Team"]));
         }
-        public ActionResult ViewListAssessments(List<AssessmentVM> AssessmentList)
+
+        public ActionResult ViewListAssessments(int AssignmentID)
         {
-            return View(AssessmentList);
+            return View("Index", Assessments.GetAssessmentByAssignmentID(AssignmentID));
         }
 
         public ActionResult ViewAssessment(int AssessmentID)
@@ -66,7 +67,7 @@ namespace ORA.Controllers
         public ActionResult UpdateAssessment(AssessmentVM updatedAssessment)
         {
             Assessments.UpdateAssessment(updatedAssessment);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

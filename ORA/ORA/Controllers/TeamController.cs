@@ -33,7 +33,7 @@ namespace ORA.Controllers
         public ActionResult CreateTeam(CreateTeamVM Team)
         {
             Teams.AddTeam(Team);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         public ActionResult ViewTeam(int TeamID)
@@ -57,14 +57,14 @@ namespace ORA.Controllers
         public ActionResult UpdateTeam(TeamVM updatedTeam)
         {
             Teams.UpdateTeam(updatedTeam);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteTeam(int TeamID)
         {
             Teams.DeleteTeam(TeamID);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

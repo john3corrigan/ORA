@@ -14,5 +14,6 @@ namespace Lib.InterfacesLogic
         void UpdateStory(StoryVM updatedStory);
         void DeleteStory(int storyID);
         void AddStory(StoryVM story);
+        CreateStoryVM AddStory();
     }
 }

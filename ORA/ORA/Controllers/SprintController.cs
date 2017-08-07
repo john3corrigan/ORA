@@ -33,7 +33,7 @@ namespace ORA.Controllers
         public ActionResult CreateSprint(SprintVM Sprint)
         {
             Sprints.AddSprint(Sprint);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         public ActionResult ViewSprint(int SprintID)
@@ -52,14 +52,14 @@ namespace ORA.Controllers
         public ActionResult UpdateSprint(SprintVM updatedSprint)
         {
             Sprints.UpdateSprint(updatedSprint);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteSprint(int SprintID)
         {
             Sprints.DeleteSprint(SprintID);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

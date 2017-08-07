@@ -41,6 +41,10 @@ namespace BusinessLogic.ORALogic
         {
             return Assessments.GetAssessmentByID(assessmentID);
         }
+        public List<AssessmentVM> GetAssessmentByAssignmentID(int assignmentID)
+        {
+            return Assessments.GetAllAssessments().Where(a => a.AssignmentID == assignmentID).ToList();
+        }
 
         public List<AssessmentVM> GetAllAssessments()
         {
@@ -55,6 +59,10 @@ namespace BusinessLogic.ORALogic
         private List<EmployeeVM> FilterEmployeeByTeam(DateTime created, int myID, int teamID)
         {
             var assignment = Employees.GetEmployeeByID(myID).Assignment.Where(a => a.RoleID < 7 && a.TeamID == teamID && a.StartDate <= created && a.EndDate >= created).FirstOrDefault();
+            if (assignment == null)
+            {
+                return null;
+            }
             var employees = Employees.GetAllEmployees().Where(e =>
             {
                 foreach (var assign in e.Assignment)

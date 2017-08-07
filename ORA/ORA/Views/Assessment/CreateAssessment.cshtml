@@ -11,7 +11,7 @@
         <input value="Submit" type="submit" />
     }
 }
-@if ((int)TempData["Stage"] == 2)
+@if ((int)TempData["Stage"] == 2 && Model.EmployeeList != null)
 {
     using (Html.BeginForm("CreateAssessment", "Assessment", FormMethod.Post))
     {
@@ -206,6 +206,10 @@
         </table>
         <input type="submit" value="Create" class="btn"/>
     }
+}
+else if((int)TempData["Stage"] == 2 && Model.EmployeeList == null)
+{
+    <span>No Employees Found</span>
 }
 <script>
     function updateList(location, id) {

@@ -64,7 +64,8 @@
             }
             else
             {
-            <td>@Html.DisplayName(Value.CreatedBy)</td>}
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            }
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
             <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewKPI", "ViewKPI", routeValues: new { KPIID = Value.KPIID })</td>

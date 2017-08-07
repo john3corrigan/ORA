@@ -15,6 +15,7 @@ namespace Lib.InterfacesLogic
         void AddKPI(CreateKPIVM newKPI);
         CreateKPIVM AddKPI(DateTime created);
         void UpdateKPI(KPIVM updatedKPI);
+        List<KPIVM> GetKPIBySprintID(int SprintID);
         //void RemoveKPI(int KPIIDS);
     }
 }

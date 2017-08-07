@@ -38,7 +38,7 @@ namespace ORA.Controllers
         public ActionResult CreateProject(CreateProjectVM Project)
         {
             Projects.AddProject(Project);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         public ActionResult ViewProject(int ProjectID)
@@ -57,14 +57,14 @@ namespace ORA.Controllers
         public ActionResult UpdateProject(ProjectVM updatedProject)
         {
             Projects.UpdateProject(updatedProject);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteProject(int ProjectID)
         {
             Projects.DeleteProject(ProjectID);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

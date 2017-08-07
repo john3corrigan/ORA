@@ -22,7 +22,7 @@
         <th>KPI List</th>
         <th>Assessment List</th>
     </tr>
-    @*@foreach (AssignmentVM Value in Model)
+    @foreach (AssignmentVM Value in Model)
     {
         <tr>
             <td>@Html.DisplayName(Value.StartDate.ToString())</td>
@@ -36,9 +36,9 @@
             <td>@Html.DisplayName(Value.CreatedBy)</td>
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
             <td>@Html.DisplayName(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Value.KPI })</td>
-            <td>@Html.ActionLink("ViewListAssessments", "Assessment", routeValues: new { AssessmentList = Value.Assessment })</td>
-            <td>@Html.ActionLink("ViewAssessment", "Assessment", routeValues: new { ID = Value.AssignmentID })</td>
+            <td>@Html.ActionLink("View List KPIs", "ViewListKPIs", "KPI", new { AssignmentID = Value.AssignmentID }, new { Area = "" })</td>
+            <td>@Html.ActionLink("View List Assessments", "ViewListAssessments", "Assessment", new { AssignmentID = Value.AssignmentID }, new { Area = "" })</td>
+            <td>@Html.ActionLink("View Assessment", "Assessment", routeValues: new { ID = Value.AssignmentID })</td>
         </tr>
-    }*@
+    }
 </table>

@@ -23,9 +23,9 @@ namespace ORA.Controllers
             return View(KPIs.GetAllKPIs());
         }
 
-        public ActionResult ViewListKPI(List<KPIVM> KPIList)
+        public ActionResult ViewListKPI(int SprintID)
         {
-            return View("Index", KPIList);
+            return View("Index", KPIs.GetKPIBySprintID(SprintID));
         }
         
         public ActionResult ViewKPI(int KPIID)

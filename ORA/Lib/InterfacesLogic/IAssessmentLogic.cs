@@ -14,5 +14,6 @@ namespace Lib.InterfacesLogic
         void AddAssessment(CreateAssessmentVM assessment, int teamID);
         void UpdateAssessment(AssessmentVM updatedAssessment);
         CreateAssessmentVM AddAssessment(DateTime created, int myID, int teamID);
+        List<AssessmentVM> GetAssessmentByAssignmentID(int assignmentID);
     }
 }
