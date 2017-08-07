@@ -1,17 +1,16 @@
-﻿@model Lib.ViewModels.EmployeeVM
+﻿@model Lib.ViewModels.CreateEmployeeVM
 @{
     ViewBag.Title = "AddEmployee";
 }
 
 <h2>AddEmployee</h2>
-
-@using (Html.BeginForm("AddEmployee", "Login", FormMethod.Post))
+@using (Html.BeginForm("AddEmployee", "Employee", FormMethod.Post))
 {
     <div>
         <div>
-            @Html.LabelFor(m => m.Title, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.Title)</font>
+            @Html.LabelFor(m => m.Email, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.Email)</font>
         </div>
         <div>
             @Html.LabelFor(m => m.EmployeeNumber, new { @class = "LableFormat" })
@@ -37,6 +36,16 @@
             @Html.LabelFor(m => m.EmployeeLastName, new { @class = "LableFormat" })
             @Html.TextBoxFor(m => m.EmployeeLastName, new { @class = "form-control TextboxFormat" })
             <font color="">@Html.ValidationMessageFor(m => m.EmployeeLastName)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Password, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.Password, new { @class = "form-control TextboxFormat" })
+            <font color="">@Html.ValidationMessageFor(m => m.Password)</font>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Position, new { @class = "LabelFormat" })
+            @Html.DropDownListFor(m => m.PositionID, new SelectList(Model.Position, "PositionID", "Title", new { @id = "dropdown" }), "---Select A Client---")
+            <font color="ff0000">@Html.ValidationMessageFor(m => m.Position)</font>
         </div>
         @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
         @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })

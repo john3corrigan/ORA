@@ -12,7 +12,8 @@ namespace Lib.InterfacesLogic
         EmployeeVM Login(EmployeeVM Employee);
         List<EmployeeVM> GetAllEmployees();
         EmployeeVM GetEmployeeByID(int employeeID);
-        void AddEmployee(EmployeeVM Employee);
+        void AddEmployee(CreateEmployeeVM Employee);
+        CreateEmployeeVM AddEmployee();
         void UpdateEmployee(EmployeeVM updatedEmployee);
         void DisableEmployee(int employeeID);
     }

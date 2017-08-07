@@ -10,7 +10,7 @@ namespace Lib.Interfaces {
         List<EmployeeVM> GetAllEmployees();
         EmployeeVM GetEmployeeByID(int id);
         EmployeeVM GetEmployeeByProfileID(int id);
-        void AddEmployee(EmployeeVM employee);
+        void AddEmployee(CreateEmployeeVM employee);
         void UpdateEmployee(EmployeeVM employee);
         void DeleteEmployee(int id);
     }
