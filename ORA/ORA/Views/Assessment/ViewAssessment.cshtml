@@ -1,4 +1,5 @@
-﻿@model Lib.ViewModels.AssessmentVM
+﻿@model System.Collections.Generic.IEnumerable<AssessmentVM>
+@using Lib.ViewModels
 @{
     ViewBag.Title = "ViewAssessment";
 }
@@ -37,71 +38,77 @@
         <th>Modified Date</th>
         <th>Modified By</th>
     </tr>
-    <tr>
-        <td>@Html.DisplayName(Model.TDProblemSolving.ToString())</td>
-        <td>@Html.DisplayName(Model.TDQualityOfWork.ToString())</td>
-        <td>@Html.DisplayName(Model.TDProductivity.ToString())</td>
-        <td>@Html.DisplayName(Model.TDProductKnowledge.ToString())</td>
-        @if (Model.TDComments != null)
-        {
-            <td>@Html.DisplayName(Model.TDComments)</td> 
-        }
-        else
-        {
-            <td>null</td>
-        }
-        <td>@Html.DisplayName(Model.CSRProfessionalismTeamwork.ToString())</td>
-        <td>@Html.DisplayName(Model.CSRVerbalSkills.ToString())</td>
-        <td>@Html.DisplayName(Model.CSRWrittenSkills.ToString())</td>
-        <td>@Html.DisplayName(Model.CSRListeningSkills.ToString())</td>
-        @if (Model.CSRComments != null)
-        {
-            <td>@Html.DisplayName(Model.CSRComments)</td>
-        }
-        else
-        {
-            <td>null</td>
-        }
-        <td>@Html.DisplayName(Model.ADAttendence.ToString())</td>
-        <td>@Html.DisplayName(Model.ADEthiclBehavior.ToString())</td>
-        <td>@Html.DisplayName(Model.ADMeetsDeadlines.ToString())</td>
-        <td>@Html.DisplayName(Model.ADOrganizeDetailedWork.ToString())</td>
-        @if (Model.ADComments != null)
-        {
-            <td>@Html.DisplayName(Model.ADComments)</td>
-        }
-        else
-        {
-            <td>null</td>
-        }
-        <td>@Html.DisplayName(Model.TMResourceUse.ToString())</td>
-        <td>@Html.DisplayName(Model.TMFeedBack.ToString())</td>
-        <td>@Html.DisplayName(Model.TMTechnicalMonitoring.ToString())</td>
-        <td>@Html.DisplayName(Model.TMAskingQuestions.ToString())</td>
-        @if (Model.TMComments != null)
-        {
-            <td>@Html.DisplayName(Model.TMComments)</td>
-        }
-        else
-        {
-            <td>null</td>
-        }
-        <td>@Html.DisplayName(Model.MIAttitudeWork.ToString())</td>
-        <td>@Html.DisplayName(Model.MIGroomingAppearence.ToString())</td>
-        <td>@Html.DisplayName(Model.MIPersonalGrowth.ToString())</td>
-        <td>@Html.DisplayName(Model.MIPotencialAdvancement.ToString())</td>
-        @if (Model.MIComments != null)
-        {
-            <td>@Html.DisplayName(Model.MIComments)</td>
-        }
-        else
-        {
-            <td>null</td>
-        }
-        <td>@Html.DisplayName(Model.ActiveFlag.ToString())</td>
-        <td>@Html.DisplayName(Model.Created.ToString())</td>
-        <td>@Html.DisplayName(Model.CreatedBy)</td>
-        <td>@Html.DisplayName(Model.Modified.ToString())</td>
-        <td>@Html.DisplayName(Model.ModifiedBy)</td>
-    </tr>
+
+    @foreach (AssessmentVM Value in Model)
+    {
+        <tr>
+            <td>@Html.DisplayName(Value.TDProblemSolving.ToString())</td>
+            <td>@Html.DisplayName(Value.TDQualityOfWork.ToString())</td>
+            <td>@Html.DisplayName(Value.TDProductivity.ToString())</td>
+            <td>@Html.DisplayName(Value.TDProductKnowledge.ToString())</td>
+            @if (Value.TDComments == null)
+            {
+                <td>Null</td>
+            }
+            else
+            {
+                <td>@Html.DisplayName(Value.TDComments.ToString())</td>
+            }
+
+            <td>@Html.DisplayName(Value.CSRProfessionalismTeamwork.ToString())</td>
+            <td>@Html.DisplayName(Value.CSRVerbalSkills.ToString())</td>
+            <td>@Html.DisplayName(Value.CSRWrittenSkills.ToString())</td>
+            <td>@Html.DisplayName(Value.CSRListeningSkills.ToString())</td>
+            @if (Value.CSRComments == null)
+            {
+            <td>Null</td>}
+            else
+            {
+            <td>@Html.DisplayName(Value.CSRComments.ToString())</td>
+            }
+
+            <td>@Html.DisplayName(Value.ADAttendence.ToString())</td>
+            <td>@Html.DisplayName(Value.ADEthiclBehavior.ToString())</td>
+            <td>@Html.DisplayName(Value.ADMeetsDeadlines.ToString())</td>
+            <td>@Html.DisplayName(Value.ADOrganizeDetailedWork.ToString())</td>
+            @if (Value.ADComments == null)
+            {
+                <td>Null</td>}
+            else
+            {
+                <td>@Html.DisplayName(Value.ADComments.ToString())</td>
+            }
+
+            <td>@Html.DisplayName(Value.TMResourceUse.ToString())</td>
+            <td>@Html.DisplayName(Value.TMFeedBack.ToString())</td>
+            <td>@Html.DisplayName(Value.TMTechnicalMonitoring.ToString())</td>
+            <td>@Html.DisplayName(Value.TMAskingQuestions.ToString())</td>
+            @if (Value.TMComments == null)
+            {
+                <td>Null</td>}
+            else
+            {
+                <td>@Html.DisplayName(Value.TMComments.ToString())</td>
+            }
+
+            <td>@Html.DisplayName(Value.MIAttitudeWork.ToString())</td>
+            <td>@Html.DisplayName(Value.MIGroomingAppearence.ToString())</td>
+            <td>@Html.DisplayName(Value.MIPersonalGrowth.ToString())</td>
+            <td>@Html.DisplayName(Value.MIPotencialAdvancement.ToString())</td>
+            @if (Value.MIComments == null)
+            {
+                <td>Null</td>}
+            else
+            {
+                <td>@Html.DisplayName(Value.MIComments.ToString())</td>
+            }
+            <td>@Html.DisplayName(Value.ActiveFlag.ToString())</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
+            <td>@Html.DisplayName(Value.CreatedBy.ToString())</td>
+            <td>@Html.DisplayName(Value.Modified.ToString())</td>
+            <td>@Html.DisplayName(Value.ModifiedBy.ToString())</td>
+
+
+        </tr>
+    }
 </table>

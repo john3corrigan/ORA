@@ -197,12 +197,24 @@ table {
 }
 
 tr:nth-child(even) {
-    color: white;
-    background-color: darkblue;
+    background-color: #ddd;
 }
 
-tr:nth-child(even) a {
+tr a {
+    padding: 10px;
+    background: red;
     color: white;
+    border: solid 1px white;
+}
+
+
+
+/*tr:nth-child(even) a {
+    color: white;
+}*/
+th {
+    color: white;
+    background: #033359
 }
 
 input {
