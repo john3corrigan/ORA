@@ -47,6 +47,11 @@ namespace BusinessLogic.ORALogic
             return KPIs.GetAllKPIs().Where(k => k.SprintID == SprintID).ToList();
         }
 
+        public List<KPIVM> GetKPIByAssignmentID(int AssignmentID)
+        {
+            return KPIs.GetAllKPIs().Where(k => k.AssignmentID == AssignmentID).ToList();
+        }
+
         public CreateKPIVM GetCreateKPIByID(int Id)
         {
             CreateKPIVM create = KPIs.GetCreateKPIByID(Id);

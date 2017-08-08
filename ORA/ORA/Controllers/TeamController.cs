@@ -41,9 +41,9 @@ namespace ORA.Controllers
             return View(Teams.GetTeamByID(TeamID));
         }
 
-        public ActionResult ViewListTeams(List<TeamVM> TeamsList)
+        public ActionResult ViewListTeamsByClient(int ClientID)
         {
-            return View(TeamsList);
+            return View("Index", Teams.GetTeamByClientID(ClientID));
         }
 
         [HttpGet]

@@ -43,6 +43,11 @@ namespace BusinessLogic.ORALogic
             return Projects.GetProjectByID(projectID);
         }
 
+        public List<ProjectVM> GetProjectByClientID(int ClientID)
+        {
+            return Projects.GetAllProjects().Where(p => p.ClientID == ClientID).ToList();
+        }
+
         public List<ProjectVM> GetAllProjects()
         {
             List<ProjectVM> ProjectList = Projects.GetAllProjects();

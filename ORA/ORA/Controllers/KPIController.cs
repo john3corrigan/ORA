@@ -23,16 +23,19 @@ namespace ORA.Controllers
             return View(KPIs.GetAllKPIs());
         }
 
-        public ActionResult ViewListKPI(int SprintID)
+        public ActionResult ViewListKPIBySprint(int SprintID)
         {
             return View("Index", KPIs.GetKPIBySprintID(SprintID));
         }
-        
+
+        public ActionResult ViewListKPIByAssignment(int AssignmentID)
+        {
+            return View("Index", KPIs.GetKPIByAssignmentID(AssignmentID));
+        }
+
         public ActionResult ViewKPI(int KPIID)
         {
-            KPIVM Value = KPIs.GetKPIByID(KPIID);
-            Value.CreatedBy = Session["Name"].ToString();
-            return View(Value);
+            return View(KPIs.GetKPIByID(KPIID));
         }
 
         public ActionResult RemoveKPI(int KPIID)
@@ -40,8 +43,6 @@ namespace ORA.Controllers
             return View(KPIs.GetKPIByID(KPIID));
         }
 
-
-        
         [HttpGet]
         [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
         public ActionResult UpdateKPI(int KPIID)

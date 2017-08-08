@@ -36,9 +36,9 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        public ActionResult ViewListStories(List<StoryVM> StoriesList)
+        public ActionResult ViewListStoriesByClient(int ClientID)
         {
-            return View(StoriesList);
+            return View("Index", Stories.GetStoryByClientID(ClientID));
         }
 
         public ActionResult ViewStory(int StoryID)

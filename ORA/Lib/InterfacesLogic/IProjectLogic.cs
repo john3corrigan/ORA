@@ -15,5 +15,6 @@ namespace Lib.InterfacesLogic
         void AddProject(CreateProjectVM newProject);
         void UpdateProject(ProjectVM updatedProject);
         void DeleteProject(int projectID);
+        List<ProjectVM> GetProjectByClientID(int ClientID);
     }
 }

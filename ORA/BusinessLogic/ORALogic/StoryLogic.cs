@@ -26,6 +26,11 @@ namespace BusinessLogic.ORALogic
             return Stories.GetStoryByID(storyID);
         }
 
+        public List<StoryVM> GetStoryByClientID(int ClientID)
+        {
+            return Stories.GetAllStories().Where(s => s.ClientID == ClientID).ToList();
+        }
+
         public void UpdateStory(StoryVM updatedStory)
         {
             Stories.UpdateStory(updatedStory);

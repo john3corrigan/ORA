@@ -20,13 +20,13 @@
     {
         <tr>
             <td>@Html.DisplayName(Value.TeamName)</td>
-            <td>@Html.ActionLink("ViewListAssignments", "Assignment", new { TeamID = Value.TeamID }, new { Area = "" })</td>
+            <td>@Html.ActionLink("View Assignments", "ViewListAssignments", "Assignment", new { TeamID = Value.TeamID }, new { Area = "" })</td>
             <td>@Html.DisplayName(Value.Client.ClientName)</td>
             <td>@Html.DisplayName(Value.Created.ToString())</td>
             <td>@Html.DisplayName(Value.CreatedBy)</td>
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
             <td>@Html.DisplayName(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewTeam", "Team", routeValues: new { TeamID = Value.TeamID })</td>
+            <td>@Html.ActionLink("View Team", "ViewTeam", routeValues: new { TeamID = Value.TeamID })</td>
         </tr>
     }
 </table>

@@ -22,9 +22,9 @@ namespace ORA.Controllers
             return View(Projects.GetAllProjects());
         }
 
-        public ActionResult ViewListProjects(List<ProjectVM> ProjectsList)
+        public ActionResult ViewListProjectsByClient(int ClientID)
         {
-            return View(ProjectsList);
+            return View("Index", Projects.GetProjectByClientID(ClientID));
         }
         
         [HttpGet]

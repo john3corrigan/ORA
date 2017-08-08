@@ -51,11 +51,6 @@ namespace ORA.Controllers
             return View("CreateAssessment", Assessments.AddAssessment(Assessment.Created, (int)Session["ID"], (int)Session["Team"]));
         }
 
-        public ActionResult ViewListAssessments(int AssignmentID)
-        {
-            return View("Index", Assessments.GetAssessmentByAssignmentID(AssignmentID));
-        }
-
         public ActionResult ViewAssessment(int AssessmentID)
         {
             //return View(Assessments.GetAssessmentByID(AssessmentID));

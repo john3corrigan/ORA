@@ -15,12 +15,14 @@ namespace BusinessLogic.ORALogic
         private IAssessmentRepository Assessments;
         private IAssignmentRepository Assignments;
         private IEmployeeRepository Employees;
+        private IRoleRepository Roles;
 
-        public AssessmentLogic(IAssessmentRepository assess, IAssignmentRepository assign, IEmployeeRepository mply)
+        public AssessmentLogic(IAssessmentRepository assess, IAssignmentRepository assign, IEmployeeRepository mply, IRoleRepository rls)
         {
             Assessments = assess;
             Assignments = assign;
             Employees = mply;
+            Roles = rls;
         }
 
         public void AddAssessment(CreateAssessmentVM assessment, int teamID)
@@ -41,6 +43,7 @@ namespace BusinessLogic.ORALogic
         {
             return Assessments.GetAssessmentByID(assessmentID);
         }
+
         public List<AssessmentVM> GetAssessmentByAssignmentID(int assignmentID)
         {
             return Assessments.GetAllAssessments().Where(a => a.AssignmentID == assignmentID).ToList();
@@ -61,6 +64,38 @@ namespace BusinessLogic.ORALogic
                 return false;
             }).ToList();
             return assessments;
+        }
+
+        public List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, string roles, DateTime range)
+        {
+            List<AssignmentVM> assignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.EmployeeID == employeeID && roles.Contains(Roles.GetRoleByID(a.RoleID).RoleName) && a.StartDate <= range && range <= a.EndDate).ToList();
+            return Employees.GetAllEmployees().Where(e =>
+            {
+                foreach (var assign in assignmentsList)
+                {
+                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID && assign.TeamID == a.TeamID).FirstOrDefault() != null)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+        }
+
+        public List<AssessmentVM> GetAssessmentForServiceManager(int employeeID, string roles, DateTime range)
+        {
+            List<AssignmentVM> assignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.EmployeeID == employeeID && roles.Contains(Roles.GetRoleByID(a.RoleID).RoleName) && a.StartDate <= range && range <= a.EndDate).ToList();
+            return Assessments.GetAllAssessments().Where(a =>
+            {
+                foreach (var assign in assignmentsList)
+                {
+                    if (assign.ClientID == Assignments.GetAssignmentByID(a.AssignmentID).ClientID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
         }
 
         public List<AssessmentVM> GetAllAssessments()

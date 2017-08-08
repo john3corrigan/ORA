@@ -15,5 +15,6 @@ namespace Lib.InterfacesLogic
         void AddTeam(CreateTeamVM newTeam);
         void DeleteTeam(int teamID);
         void UpdateTeam(TeamVM updatedTeam);
+        List<TeamVM> GetTeamByClientID(int CLientID);
     }
 }

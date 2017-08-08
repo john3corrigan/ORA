@@ -24,9 +24,9 @@
         <tr>
             <td>@Html.DisplayName(Value.ClientName)</td>
             <td>@Html.DisplayName(Value.ClientAbbreviation)</td>
-            <td>@Html.ActionLink("View List Stories", "ViewListStories", "Story", new { StoriesList = Value.Story }, new { Area = "" })</td>
-            <td>@Html.ActionLink("View List Projects", "ViewListProjects", "Project", new { ProjectsList = Value.Project }, new { Area = "" })</td>
-            <td>@Html.ActionLink("View List Teams", "ViewListTeams", "Team", new { TeamsList = Value.Team }, new { Area = "" })</td>
+            <td>@Html.ActionLink("View List Stories", "ViewListStoriesByClient", "Story", new { ClientID = Value.ClientID }, new { Area = "" })</td>
+            <td>@Html.ActionLink("View List Projects", "ViewListProjectsByClient", "Project", new { ClientID = Value.ClientID }, new { Area = "" })</td>
+            <td>@Html.ActionLink("View List Teams", "ViewListTeamsByClient", "Team", new { ClientID = Value.ClientID }, new { Area = "" })</td>
             <td>@Html.DisplayName(Value.Created.ToString())</td>
             <td>@Html.DisplayName(Value.CreatedBy)</td>
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
