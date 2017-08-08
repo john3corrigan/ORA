@@ -51,6 +51,11 @@ namespace BusinessLogic.ORALogic
             return KPIs.GetAllKPIs();
         }
 
+        public List<KPIVM> GetKPIByDate()
+        {
+            return KPIs.GetKPIByDate();
+        }
+
         public void UpdateKPI(KPIVM updatedKPI)
         {
             KPIs.UpdateKPI(updatedKPI);

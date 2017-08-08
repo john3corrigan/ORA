@@ -28,6 +28,7 @@
         <th>Created By</th>
         <th>Modified Date</th>
         <th>Modified By</th>
+        <th></th>
     </tr>
 
     @foreach (KPIVM Value in Model)
@@ -35,11 +36,11 @@
         <tr>
             @if (Value.Title == null)
             {
-                <td>null</td>
+                <td> null </td>
             }
             else
             {
-                <td>@Html.DisplayName(Value.Title)</td>
+                <td>@Html.DisplayName(Value.Title.ToString())</td>
             }
 
             <td>@Html.DisplayName(Value.Points.ToString())</td>

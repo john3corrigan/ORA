@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Lib.Interfaces {
     public interface IKPIRepository {
         List<KPIVM> GetAllKPIs();
+        List<KPIVM> GetKPIByDate();
         KPIVM GetKPIByID(int id);
         CreateKPIVM GetCreateKPIByID(int id);
         void AddKPI(CreateKPIVM kpi);

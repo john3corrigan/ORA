@@ -27,17 +27,19 @@
         <th>Created By</th>
         <th>Modified Date</th>
         <th>Modified By</th>
+        <th></th>
+        <th></th>
     </tr>
     <tr>
-        @*@if (Model.Title. == null)
+        @if (Model.Title == null)
         {
             <td>null</td>
         }
         else
         {
             <td>@Html.DisplayName(Model.Title)</td>
-        }*@
-        <td></td>
+        }
+        
         <td>@Html.DisplayName(Model.Points.ToString())</td>
         <td>@Html.DisplayName(Model.TCCreated.ToString())</td>
         <td>@Html.DisplayName(Model.TCExcuted.ToString())</td>

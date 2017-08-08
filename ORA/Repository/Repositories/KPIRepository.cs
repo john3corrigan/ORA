@@ -14,7 +14,13 @@ namespace Repository.Repositories {
         public KPIRepository() : base(new RepositoryContext("ora")) {
         }
 
-        public List<KPIVM> GetAllKPIs() {
+        public List<KPIVM> GetAllKPIs()
+        {
+            return Mapper.Map<List<KPIVM>>(GetAll().ToList());
+        }
+
+        public List<KPIVM> GetKPIByDate()
+        {
             return Mapper.Map<List<KPIVM>>(GetAll().ToList());
         }
 

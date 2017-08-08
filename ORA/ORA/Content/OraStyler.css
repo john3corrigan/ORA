@@ -200,14 +200,22 @@ tr:nth-child(even) {
     background-color: #ddd;
 }
 
-tr a {
-    padding: 10px;
+tr td a {
+    display: block;
     background: red;
     color: white;
-    border: solid 1px white;
-    align-items:center;
+    padding: 10px;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius:7px;
+    margin: 10px;
 }
 
+tr td a:hover{
+    color: white;
+    background:darkred;
+    text-decoration:none;
+}
 
 
 /*tr:nth-child(even) a {

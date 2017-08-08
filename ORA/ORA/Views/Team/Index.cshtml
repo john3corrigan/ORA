@@ -16,19 +16,27 @@
         <th>Created By</th>
         <th>Modified Date</th>
         <th>Modified By</th>
+        <th></th>
     </tr>
     @foreach (TeamVM Value in Model)
     {
         <tr>
-            <td>@Html.Display(Value.Title)</td>
-            <td>@Html.Display(Value.TeamName)</td>
-            <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
-            <td>@Html.Display(Value.Client.ClientName)</td>
-            <td>@Html.Display(Value.Created.ToString())</td>
-            <td>@Html.Display(Value.CreatedBy)</td>
-            <td>@Html.Display(Value.Modified.ToString())</td>
-            <td>@Html.Display(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewTeam", "Team", routeValues: new { TeamID = Value.TeamID })</td>
+            @if (Value.Title == null)
+            {
+                <td>null</td>
+            }
+            else
+            {
+                <td>@Html.DisplayName(Value.Title)</td>
+            }
+            <td>@Html.DisplayName(Value.TeamName)</td>
+            <td>@Html.ActionLink("View List Assignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
+            <td>@*@Html.Display(Value.Client.ClientName.ToString())*@</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            <td>@Html.DisplayName(Value.Modified.ToString())</td>
+            <td>@Html.DisplayName(Value.ModifiedBy)</td>
+            <td>@Html.ActionLink("View Team", "Team", routeValues: new { TeamID = Value.TeamID })</td>
         </tr>
     }
 </table>
