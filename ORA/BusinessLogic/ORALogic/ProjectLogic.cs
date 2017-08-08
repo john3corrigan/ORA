@@ -24,7 +24,8 @@ namespace BusinessLogic.ORALogic
 
         public CreateProjectVM AddProject()
         {
-            CreateProjectVM create = new CreateProjectVM() {
+            CreateProjectVM create = new CreateProjectVM()
+            {
                 ClientList = Clients.GetAllClients()
             };
             return create;
@@ -42,9 +43,19 @@ namespace BusinessLogic.ORALogic
             return Projects.GetProjectByID(projectID);
         }
 
+        public List<ProjectVM> GetProjectByClientID(int ClientID)
+        {
+            return Projects.GetAllProjects().Where(p => p.ClientID == ClientID).ToList();
+        }
+
         public List<ProjectVM> GetAllProjects()
         {
-            return Projects.GetAllProjects();
+            List<ProjectVM> ProjectList = Projects.GetAllProjects();
+            foreach (ProjectVM project in ProjectList)
+            {
+                project.Client = Clients.GetClientByID(project.ClientID);
+            }
+            return ProjectList;
         }
 
         public void UpdateProject(ProjectVM updatedProject)

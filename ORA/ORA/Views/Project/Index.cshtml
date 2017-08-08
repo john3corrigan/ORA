@@ -8,12 +8,11 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Name</th>
         <th>Number</th>
         <th>Start Date</th>
         <th>End Date</th>
-        @*<th>Client</th>*@
+        <th>Client</th>
         <th>KPI</th>
         <th>Created Date</th>
         <th>Created By</th>
@@ -24,17 +23,16 @@
     @foreach (ProjectVM Value in Model)
     {
         <tr>
-            <td>@Html.Display(Value.Title)</td>
-            <td>@Html.Display(Value.ProjectName)</td>
-            <td>@Html.Display(Value.ProjectNumber.ToString())</td>
-            <td>@Html.Display(Value.ProjectStartDate.ToString())</td>
-            <td>@Html.Display(Value.ProjectEndDate.ToString())</td>
-            @*<td>@Html.Display(Value.Client.ClientName)</td>*@
-            <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Value.KPI })</td>
-            <td>@Html.Display(Value.Created.ToString())</td>
-            <td>@Html.Display(Value.CreatedBy)</td>
-            <td>@Html.Display(Value.Modified.ToString())</td>
-            <td>@Html.Display(Value.ModifiedBy)</td>
+            <td>@Html.DisplayName(Value.ProjectName)</td>
+            <td>@Html.DisplayName(Value.ProjectNumber.ToString())</td>
+            <td>@Html.DisplayName(Value.ProjectStartDate.ToString())</td>
+            <td>@Html.DisplayName(Value.ProjectEndDate.ToString())</td>
+            <td>@Html.DisplayName(Value.Client.ClientName)</td>
+            <td>@Html.ActionLink("ViewListKPIs", "ViewListKPI", "KPI", new { KPIList = Value.KPI }, new { Area = "" })</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            <td>@Html.DisplayName(Value.Modified.ToString())</td>
+            <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewProject", "Project", routeValues: new { ProjectID = Value.ProjectID })</td>
         </tr>
     }

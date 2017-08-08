@@ -37,9 +37,19 @@ namespace BusinessLogic.ORALogic
             return Teams.GetTeamByID(teamID);
         }
 
+        public List<TeamVM> GetTeamByClientID(int ClientID)
+        {
+            return Teams.GetAllTeams().Where(t => t.ClientID == ClientID).ToList();
+        }
+
         public List<TeamVM> GetAllTeams()
         {
-            return Teams.GetAllTeams();
+            List<TeamVM> TeamList = Teams.GetAllTeams();
+            foreach (TeamVM team in TeamList)
+            {
+                team.Client = Clients.GetClientByID(team.ClientID);
+            }
+            return TeamList;
         }
 
         public CreateTeamVM AddTeam()

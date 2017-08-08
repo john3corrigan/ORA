@@ -32,7 +32,7 @@ namespace ORA.Controllers
         public ActionResult AddClient(ClientVM Client)
         {
             Clients.AddClient(Client);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [HttpGet]
@@ -46,7 +46,7 @@ namespace ORA.Controllers
         public ActionResult UpdateClient(ClientVM updatedClient)
         {
             Clients.UpdateClient(updatedClient);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         public ActionResult ViewClient(int ClientID)

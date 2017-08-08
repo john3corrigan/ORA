@@ -1,4 +1,4 @@
-﻿@model Lib.ViewModels.StoryVM
+﻿@model Lib.ViewModels.CreateStoryVM
 @{
     ViewBag.Title = "CreateStory";
 }
@@ -26,13 +26,18 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.StoryStartDate, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.StoryStartDate, new { @class = "form-control TextBoxFormat" })
+                @Html.TextBoxFor(m => m.StoryStartDate, new { @class = "form-control TextBoxFormat", @Value = DateTime.Today })
                 <font>@Html.ValidationMessageFor(m => m.StoryStartDate)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.StoryEndDate, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.StoryEndDate, new { @class = "form-control TextBoxFormat" })
+                @Html.TextBoxFor(m => m.StoryEndDate, new { @class = "form-control TextBoxFormat", @Value = DateTime.Today })
                 <font>@Html.ValidationMessageFor(m => m.StoryEndDate)</font>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Client, new { @class = "LabelFormat" })
+                @Html.DropDownListFor(m => m.ClientID, new SelectList(Model.ClientList, "ClientID", "ClientName", new { @id = "dropdown" }), "---Select A Client---")
+                <font color="ff0000">@Html.ValidationMessageFor(m => m.Client)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })

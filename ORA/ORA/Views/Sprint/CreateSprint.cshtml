@@ -26,12 +26,12 @@
             </div>
             <div>
                 @Html.LabelFor(m => m.StartDate, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control TextBoxFormat" })
+                @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control TextBoxFormat", @Value = DateTime.Today })
                 <font>@Html.ValidationMessageFor(m => m.StartDate)</font>
             </div>
             <div>
                 @Html.LabelFor(m => m.EndDate, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control TextBoxFormat" })
+                @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control TextBoxFormat", @Value = DateTime.Today })
                 <font>@Html.ValidationMessageFor(m => m.EndDate)</font>
             </div>
             @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })

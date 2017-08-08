@@ -33,7 +33,7 @@ namespace ORA.Controllers
         public ActionResult CreateTeam(CreateTeamVM Team)
         {
             Teams.AddTeam(Team);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         public ActionResult ViewTeam(int TeamID)
@@ -41,9 +41,9 @@ namespace ORA.Controllers
             return View(Teams.GetTeamByID(TeamID));
         }
 
-        public ActionResult ViewListTeams(List<TeamVM> TeamsList)
+        public ActionResult ViewListTeamsByClient(int ClientID)
         {
-            return View(TeamsList);
+            return View("Index", Teams.GetTeamByClientID(ClientID));
         }
 
         [HttpGet]
@@ -57,14 +57,14 @@ namespace ORA.Controllers
         public ActionResult UpdateTeam(TeamVM updatedTeam)
         {
             Teams.UpdateTeam(updatedTeam);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteTeam(int TeamID)
         {
             Teams.DeleteTeam(TeamID);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

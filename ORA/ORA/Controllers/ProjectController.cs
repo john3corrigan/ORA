@@ -22,9 +22,9 @@ namespace ORA.Controllers
             return View(Projects.GetAllProjects());
         }
 
-        public ActionResult ViewListProjects(List<ProjectVM> ProjectsList)
+        public ActionResult ViewListProjectsByClient(int ClientID)
         {
-            return View(ProjectsList);
+            return View("Index", Projects.GetProjectByClientID(ClientID));
         }
         
         [HttpGet]
@@ -38,7 +38,7 @@ namespace ORA.Controllers
         public ActionResult CreateProject(CreateProjectVM Project)
         {
             Projects.AddProject(Project);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         public ActionResult ViewProject(int ProjectID)
@@ -57,14 +57,14 @@ namespace ORA.Controllers
         public ActionResult UpdateProject(ProjectVM updatedProject)
         {
             Projects.UpdateProject(updatedProject);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteProject(int ProjectID)
         {
             Projects.DeleteProject(ProjectID);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

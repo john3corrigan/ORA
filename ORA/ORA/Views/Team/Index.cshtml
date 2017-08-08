@@ -8,7 +8,6 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Name</th>
         <th>Assignments</th>
         <th>Client</th>
@@ -16,34 +15,18 @@
         <th>Created By</th>
         <th>Modified Date</th>
         <th>Modified By</th>
-        <th></th>
     </tr>
     @foreach (TeamVM Value in Model)
     {
         <tr>
-            @if (Value.Title == null)
-            {
-                <td>null</td>
-            }
-            else
-            {
-                <td>@Html.DisplayName(Value.Title)</td>
-            }
             <td>@Html.DisplayName(Value.TeamName)</td>
-            <td>@Html.ActionLink("View List Assignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
-            @if (Value.Client == null)
-            {
-            <td>null</td>
-            }
-            else
-            {
-            <td>@Html.DisplayName(Value.Client.ToString())</td>
-            }
+            <td>@Html.ActionLink("View Assignments", "ViewListAssignments", "Assignment", new { TeamID = Value.TeamID }, new { Area = "" })</td>
+            <td>@Html.DisplayName(Value.Client.ClientName)</td>
             <td>@Html.DisplayName(Value.Created.ToString())</td>
             <td>@Html.DisplayName(Value.CreatedBy)</td>
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
             <td>@Html.DisplayName(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("View Team", "Team", routeValues: new { TeamID = Value.TeamID })</td>
+            <td>@Html.ActionLink("View Team", "ViewTeam", routeValues: new { TeamID = Value.TeamID })</td>
         </tr>
     }
 </table>

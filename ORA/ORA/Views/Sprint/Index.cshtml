@@ -8,7 +8,6 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Number</th>
         <th>Name</th>
         <th>Start Date</th>
@@ -22,17 +21,16 @@
     @foreach (SprintVM Value in Model)
     {
         <tr>
-            <td>@Html.Display(Value.Title)</td>
-            <td>@Html.Display(Value.SprintNumber.ToString())</td>
-            <td>@Html.Display(Value.SprintName)</td>
-            <td>@Html.Display(Value.StartDate.ToString())</td>
-            <td>@Html.Display(Value.EndDate.ToString())</td>
-            <td>@Html.ActionLink("ViewListKPI", "KPI", routeValues: new { KPIList = Value.KPI })</td>
-            <td>@Html.Display(Value.Created.ToString())</td>
-            <td>@Html.Display(Value.CreatedBy)</td>
-            <td>@Html.Display(Value.Modified.ToString())</td>
-            <td>@Html.Display(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewSprint", "Sprint", routeValues: new { SprintID = Value.SprintID })</td>
+            <td>@Html.DisplayName(Value.SprintNumber.ToString())</td>
+            <td>@Html.DisplayName(Value.SprintName)</td>
+            <td>@Html.DisplayName(Value.StartDate.ToString())</td>
+            <td>@Html.DisplayName(Value.EndDate.ToString())</td>
+            <td>@Html.ActionLink("View List KPI", "ViewListKPIBySprint", "KPI", new { SprintID = Value.SprintID }, new { Area = "" })</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            <td>@Html.DisplayName(Value.Modified.ToString())</td>
+            <td>@Html.DisplayName(Value.ModifiedBy)</td>
+            <td>@Html.ActionLink("View Sprint", "ViewSprint", routeValues: new { SprintID = Value.SprintID })</td>
         </tr>
     }
 </table>

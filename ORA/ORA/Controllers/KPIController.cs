@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using Lib.Attributes;
+using System;
 
 namespace ORA.Controllers
 {
@@ -19,56 +20,28 @@ namespace ORA.Controllers
         // GET: KPI
         public ActionResult Index()
         {
-            if (Session["Roles"].ToString().Contains("DIRECTOR"))
-            {
-                return View(KPIs.GetAllKPIs());
-            }
-            else if (Session["Roles"].ToString().Contains("LEAD"))
-            {
-                return View(KPIs.GetKPIByDate());
-            }
-            else if (Session["Roles"].ToString().Contains("EMPLOYEE"))
-            {
-                return View(KPIs.GetAllKPIs());
-            }
-
-            return View();
+            return View(KPIs.GetAllKPIs());
         }
 
-        public ActionResult ViewListKPI(List<KPIVM> KPIList)
+        public ActionResult ViewListKPIBySprint(int SprintID)
         {
-            if (Session["Roles"].ToString().Contains("DIRECTOR"))
-            {
-                return View("Index", KPIList);
-            }
+            return View("Index", KPIs.GetKPIBySprintID(SprintID));
+        }
 
-            else if (Session["Roles"].ToString().Contains("LEAD"))
-            {
-                return View("Index", KPIList);
-            }
-
-            else if (Session["Roles"].ToString().Contains("EMPLOYEE"))
-            {
-                return View("Index", KPIList);
-            }
-
-            return View();
-            
+        public ActionResult ViewListKPIByAssignment(int AssignmentID)
+        {
+            return View("Index", KPIs.GetKPIByAssignmentID(AssignmentID));
         }
 
         public ActionResult ViewKPI(int KPIID)
         {
-            KPIVM Value = KPIs.GetKPIByID(KPIID);
-            Value.CreatedBy = Session["Name"].ToString();
-            return View(Value);
+            return View(KPIs.GetKPIByID(KPIID));
         }
 
         public ActionResult RemoveKPI(int KPIID)
         {
             return View(KPIs.GetKPIByID(KPIID));
         }
-
-
 
         [HttpGet]
         [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
@@ -91,7 +64,14 @@ namespace ORA.Controllers
         [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
         public ActionResult CreateKPI()
         {
-            return View(KPIs.AddKPI());
+            TempData["Stage"] = 1;
+            return View();
+        }
+
+        public ActionResult GetKPIByDate(CreateKPIVM KPI)
+        {
+            TempData["Stage"] = 2;
+            return View("CreateKPI", KPIs.AddKPI(KPI.Created));
         }
 
         [HttpPost]

@@ -26,19 +26,19 @@ namespace ORA.Controllers
         [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
         public ActionResult CreateStory()
         {
-            return View();
+            return View(Stories.AddStory());
         }
 
         [HttpPost]
         public ActionResult CreateStory(StoryVM Story)
         {
             Stories.AddStory(Story);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        public ActionResult ViewListStories(List<StoryVM> StoriesList)
+        public ActionResult ViewListStoriesByClient(int ClientID)
         {
-            return View(StoriesList);
+            return View("Index", Stories.GetStoryByClientID(ClientID));
         }
 
         public ActionResult ViewStory(int StoryID)
@@ -57,14 +57,14 @@ namespace ORA.Controllers
         public ActionResult UpdateStory(StoryVM updatedStory)
         {
             Stories.UpdateStory(updatedStory);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
         public ActionResult DeleteStory(int StoryID)
         {
             Stories.DeleteStory(StoryID);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

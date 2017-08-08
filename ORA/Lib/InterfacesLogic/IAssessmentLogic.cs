@@ -10,10 +10,12 @@ namespace Lib.InterfacesLogic
     public interface IAssessmentLogic
     {
         AssessmentVM GetAssessmentByID(int assessmentID);
-        List<AssessmentVM> GetAssessmentByEmployeeID(int assessmentID);
+        List<AssessmentVM> GetAssessmentByEmployeeID(int employee);
         List<AssessmentVM> GetAllAssessments();
         void AddAssessment(CreateAssessmentVM assessment, int teamID);
         void UpdateAssessment(AssessmentVM updatedAssessment);
         CreateAssessmentVM AddAssessment(DateTime created, int myID, int teamID);
+        List<AssessmentVM> GetAssessmentByAssignmentID(int assignmentID);
+        List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, string roles, DateTime range);
     }
 }

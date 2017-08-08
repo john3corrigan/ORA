@@ -45,7 +45,7 @@ namespace ORA.Controllers
         public ActionResult UpdateProfile(ProfileVM updatedProfile)
         {
             Profiles.UpdateProfile(updatedProfile);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [HttpGet]
@@ -58,7 +58,7 @@ namespace ORA.Controllers
         public ActionResult DeleteProfile(int ProfileID)
         {
             Profiles.DeleteProfile(ProfileID);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

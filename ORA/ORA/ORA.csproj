@@ -346,13 +346,9 @@
     <Content Include="Views\Sprint\Index.cshtml" />
     <Content Include="Views\Story\Index.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
-    <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Profile\UpdateProfile.cshtml" />
     <Content Include="Views\Profile\AddProfile.cshtml" />
     <Content Include="Views\Profile\ViewProfile.cshtml" />
-    <Content Include="Views\Profile\ViewAllProfiles.cshtml" />
-    <Content Include="Views\Assignment\ViewListAssignments.cshtml" />
-    <Content Include="Views\Assessment\ViewListAssessments.cshtml" />
     <Content Include="Views\Story\ViewListStories.cshtml" />
     <Content Include="Views\Roles\AddRole.cshtml" />
     <Content Include="Views\Roles\UpdateRole.cshtml" />
@@ -360,7 +356,6 @@
     <Content Include="Views\Roles\ViewAllRoles.cshtml" />
     <Content Include="Views\Team\ViewListTeams.cshtml" />
     <Content Include="Views\Project\ViewListProjects.cshtml" />
-    <Content Include="Views\Assignment\ViewEmployeeAssignment.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>

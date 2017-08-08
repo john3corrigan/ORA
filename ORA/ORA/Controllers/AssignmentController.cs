@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using Lib.Attributes;
+using System.Collections;
 
 namespace ORA.Controllers
 {
@@ -34,9 +35,9 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = ""});
         }
 
-        public ActionResult ViewListAssignments(List<AssignmentVM> AssignmentsList)
+        public ActionResult ViewListAssignments(int AssignmentsList)
         {
-            return View(AssignmentsList);
+            return View("Index", AssignmentsList);
         }
 
         public ActionResult ViewAssigment(int AssignmentID)
@@ -46,7 +47,7 @@ namespace ORA.Controllers
 
         public ActionResult ViewEmployeeAssignment(int EmployeeID)
         {
-            return View(Assignments.GetAllAssignmentsForEmployee(EmployeeID));
+            return View("Index", Assignments.GetAllAssignmentsForEmployee(EmployeeID));
         }
 
         [HttpGet]
@@ -60,7 +61,7 @@ namespace ORA.Controllers
         public ActionResult UpdateAssignments(AssignmentVM updatedAssignment)
         {
             Assignments.UpdateAssignment(updatedAssignment);
-            return RedirectToAction("Dashboard", "Home", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }
