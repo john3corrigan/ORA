@@ -82,14 +82,14 @@ namespace BusinessLogic.ORALogic
             }).ToList();
         }
 
-        public List<AssessmentVM> GetAssessmentForServiceManager(int employeeID, string roles, DateTime range)
+        public List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, string roles, DateTime range)
         {
             List<AssignmentVM> assignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.EmployeeID == employeeID && roles.Contains(Roles.GetRoleByID(a.RoleID).RoleName) && a.StartDate <= range && range <= a.EndDate).ToList();
-            return Assessments.GetAllAssessments().Where(a =>
+            return Employees.GetAllEmployees().Where(e =>
             {
                 foreach (var assign in assignmentsList)
                 {
-                    if (assign.ClientID == Assignments.GetAssignmentByID(a.AssignmentID).ClientID)
+                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID && assign.ClientID == a.ClientID).FirstOrDefault() != null)
                     {
                         return true;
                     }
