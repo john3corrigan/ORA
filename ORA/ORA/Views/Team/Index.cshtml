@@ -31,7 +31,14 @@
             }
             <td>@Html.DisplayName(Value.TeamName)</td>
             <td>@Html.ActionLink("View List Assignments", "Assignment", routeValues: new { AssignmentsList = Value.Assignment })</td>
-            <td>@*@Html.Display(Value.Client.ClientName.ToString())*@</td>
+            @if (Value.Client == null)
+            {
+            <td>null</td>
+            }
+            else
+            {
+            <td>@Html.DisplayName(Value.Client.ToString())</td>
+            }
             <td>@Html.DisplayName(Value.Created.ToString())</td>
             <td>@Html.DisplayName(Value.CreatedBy)</td>
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
