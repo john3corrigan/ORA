@@ -8,7 +8,7 @@
 
 <table>
     <tr>
-        <th>Title</th>
+
         <th>Points</th>
         <th>TC Created</th>
         <th>TC Excuted</th>
@@ -30,19 +30,15 @@
         <th>Modified By</th>
         <th></th>
     </tr>
-
-    @foreach (KPIVM Value in Model)
+    @if (Model == null)
     {
+        <tr>No Data Found</tr>
+    }
+    else
+    {
+        foreach (KPIVM Value in Model)
+        {
         <tr>
-            @if (Value.Title == null)
-            {
-                <td> null </td>
-            }
-            else
-            {
-                <td>@Html.DisplayName(Value.Title.ToString())</td>
-            }
-
             <td>@Html.DisplayName(Value.Points.ToString())</td>
             <td>@Html.DisplayName(Value.TCCreated.ToString())</td>
             <td>@Html.DisplayName(Value.TCExcuted.ToString())</td>
@@ -65,11 +61,11 @@
             }
             else
             {
-            <td>@Html.DisplayName(Value.CreatedBy)</td>
+                <td>@Html.DisplayName(Value.CreatedBy)</td>
             }
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
             <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewKPI", "ViewKPI", routeValues: new { KPIID = Value.KPIID })</td>
-        </tr>
+        </tr>}
     }
 </table>

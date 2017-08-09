@@ -7,7 +7,6 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Name</th>
         <th>Assignments</th>
         <th>Client</th>
@@ -17,13 +16,12 @@
         <th>Modified By</th>
     </tr>
     <tr>
-        <td>@Html.Display(Model.Title)</td>
-        <td>@Html.Display(Model.TeamName)</td>
+        <td>@Html.DisplayName(Model.TeamName)</td>
         <td>@Html.ActionLink("ViewListAssignments", "Assignment", routeValues: new { AssignmentsList = Model.Assignment })</td>
-        <td>@Html.Display(Model.Client.ClientName)</td>
-        <td>@Html.Display(Model.Created.ToString())</td>
-        <td>@Html.Display(Model.CreatedBy)</td>
-        <td>@Html.Display(Model.Modified.ToString())</td>
-        <td>@Html.Display(Model.ModifiedBy)</td>
+        <td>@*@Html.Display(Model.Client.ClientName)*@</td>
+        <td>@Html.DisplayName(Model.Created.ToString())</td>
+        <td>@Html.DisplayName(Model.CreatedBy)</td>
+        <td>@Html.DisplayName(Model.Modified.ToString())</td>
+        <td>@Html.DisplayName(Model.ModifiedBy)</td>
     </tr>
 </table>

@@ -193,7 +193,13 @@ table, td, th, td {
 }
 
 table {
+    display:flex;
     background-color: lightblue;
+    align-content:center;
+    margin:0px;
+    padding:0px;
+    border:5px solid;
+    overflow:auto;
 }
 
 tr:nth-child(even) {
@@ -202,7 +208,7 @@ tr:nth-child(even) {
 
 tr td a {
     display: block;
-    background: red;
+    background: grey;
     color: white;
     padding: 10px;
     text-decoration: none;
@@ -213,7 +219,7 @@ tr td a {
 
 tr td a:hover{
     color: white;
-    background:darkred;
+    background:darkgrey;
     text-decoration:none;
 }
 
