@@ -38,7 +38,7 @@
             <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("View KPIs", "ViewListKPIByAssignment", "KPI", new { AssignmentID = Value.AssignmentID }, new { Area = "" })</td>
             <td>@Html.ActionLink("View Assessments", "ViewAssignment", "Assignment", new { AssignmentID = Value.AssignmentID }, new { Area = "" })</td>
-            <td>@Html.ActionLink("View Assessment", "ViewAssessment", routeValues: new { ID = Value.AssignmentID })</td>
+            <td>@Html.ActionLink("View Assessment", "ViewAssessmentByAssignmentID", "Assessment", routeValues: new { AssignmentID = Value.AssignmentID }, htmlAttributes: new { Area = "" })</td>
         </tr>
     }
 </table>

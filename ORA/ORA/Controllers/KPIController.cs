@@ -11,10 +11,12 @@ namespace ORA.Controllers
     public class KPIController : Controller
     {
         private IKPILogic KPIs;
+        private ITeamLogic Teams;
 
-        public KPIController(IKPILogic kpi)
+        public KPIController(IKPILogic kpi, ITeamLogic tms)
         {
             KPIs = kpi;
+            Teams = tms;
         }
 
         // GET: KPI
@@ -71,7 +73,13 @@ namespace ORA.Controllers
         public ActionResult GetKPIByDate(CreateKPIVM KPI)
         {
             TempData["Stage"] = 2;
-            return View("CreateKPI", KPIs.AddKPI(KPI.Created));
+            TempData["Date"] = KPI.Created;
+            CreateKPIVM create = KPIs.AddKPI(KPI.Created);
+            foreach (var assignment in create.AssignmentList)
+            {
+                assignment.Title = assignment.Employee.EmployeeName + " " + Teams.GetTeamByID(assignment.TeamID).TeamName;
+            }
+            return View("CreateKPI", create);
         }
 
         [HttpPost]

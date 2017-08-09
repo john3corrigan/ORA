@@ -7,7 +7,6 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Badge Number</th>
         <th>First Name</th>
         <th>Middle Initial</th>
@@ -20,16 +19,15 @@
         <th>Modified By</th>
     </tr>
     <tr>
-        <td>@Html.Display(Model.Title)</td>
-        <td>@Html.Display(Model.EmployeeNumber)</td>
-        <td>@Html.Display(Model.EmployeeFirstName)</td>
-        <td>@Html.Display(Model.EmployeeMI)</td>
-        <td>@Html.Display(Model.EmployeeLastName)</td>
-        <td>@Html.Display(Model.ActiveFlag.ToString())</td>
-        <td>@Html.ActionLink("View List Assignments", "Assignment", routeValues: new { AssignmentsList = Model.Assignment })</td>
-        <td>@Html.Display(Model.Created.ToString())</td>
-        <td>@Html.Display(Model.CreatedBy)</td>
-        <td>@Html.Display(Model.Modified.ToString())</td>
-        <td>@Html.Display(Model.ModifiedBy)</td>
+        <td>@Html.DisplayName(Model.EmployeeNumber)</td>
+        <td>@Html.DisplayName(Model.EmployeeFirstName)</td>
+        <td>@Html.DisplayName(Model.EmployeeMI)</td>
+        <td>@Html.DisplayName(Model.EmployeeLastName)</td>
+        <td>@Html.DisplayName(Model.ActiveFlag.ToString())</td>
+        <td>@Html.ActionLink("View Assignment", "ViewEmployeeAssignment", "Assignment", new { employeeID = Model.EmployeeID }, new { Area = "" })</td>
+        <td>@Html.DisplayName(Model.Created.ToString())</td>
+        <td>@Html.DisplayName(Model.CreatedBy)</td>
+        <td>@Html.DisplayName(Model.Modified.ToString())</td>
+        <td>@Html.DisplayName(Model.ModifiedBy)</td>
     </tr>
 </table>

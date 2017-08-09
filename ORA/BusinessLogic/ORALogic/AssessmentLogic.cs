@@ -28,7 +28,7 @@ namespace BusinessLogic.ORALogic
         public void AddAssessment(CreateAssessmentVM assessment, int teamID)
         {
             //The Assignment id is an employeeID until this point because of my inability to be creative.
-            assessment.AssignmentID = Employees.GetEmployeeByID(assessment.AssignmentID).Assignment.Where(a => a.TeamID == teamID && a.RoleID < 7).FirstOrDefault().AssignmentID;
+            assessment.AssignmentID = Employees.GetEmployeeByID(assessment.AssignmentID).Assignment.Where(a => a.TeamID == teamID && a.EmployeeID == assessment.AssignmentID).FirstOrDefault().AssignmentID;
             Assessments.AddAssessment(assessment);
         }
         public CreateAssessmentVM AddAssessment(DateTime created, int myID, int teamID)
@@ -66,9 +66,9 @@ namespace BusinessLogic.ORALogic
             return assessments;
         }
 
-        public List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, string roles, DateTime range)
+        public List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, string roles, DateTime Start, DateTime End)
         {
-            List<AssignmentVM> assignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.EmployeeID == employeeID && roles.Contains(Roles.GetRoleByID(a.RoleID).RoleName) && a.StartDate <= range && range <= a.EndDate).ToList();
+            List<AssignmentVM> assignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.EmployeeID == employeeID && roles.Contains(Roles.GetRoleByID(a.RoleID).RoleName) && (a.StartDate <= Start && Start <= a.EndDate || a.StartDate <= End && End <= a.EndDate)).ToList();
             return Employees.GetAllEmployees().Where(e =>
             {
                 foreach (var assign in assignmentsList)
@@ -82,14 +82,14 @@ namespace BusinessLogic.ORALogic
             }).ToList();
         }
 
-        public List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, string roles, DateTime range)
+        public List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, string roles, DateTime Start, DateTime End)
         {
-            List<AssignmentVM> assignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.EmployeeID == employeeID && roles.Contains(Roles.GetRoleByID(a.RoleID).RoleName) && a.StartDate <= range && range <= a.EndDate).ToList();
+            List<AssignmentVM> assignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.EmployeeID == employeeID && roles.Contains(Roles.GetRoleByID(a.RoleID).RoleName) && (a.StartDate <= Start && Start <= a.EndDate || a.StartDate <= End && End <= a.EndDate)).ToList();
             return Employees.GetAllEmployees().Where(e =>
             {
                 foreach (var assign in assignmentsList)
                 {
-                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID && assign.ClientID == a.ClientID).FirstOrDefault() != null)
+                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID && (assign.ClientID == a.ClientID || assign.TeamID == a.TeamID)).FirstOrDefault() != null)
                     {
                         return true;
                     }

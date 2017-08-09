@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using Lib.Attributes;
+using System;
 
 namespace ORA.Controllers
 {
@@ -23,7 +24,34 @@ namespace ORA.Controllers
         // GET: Assessment
         public ActionResult Index()
         {
-            return View(Employee.GetAllEmployees());
+            if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
+            {
+                TempData["Stage"] = 2;
+                return View(Employee.GetAllEmployees());
+            }
+            else if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD"))
+            {
+                TempData["Stage"] = 1;
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ActionResult GetEmployeesAssessments(FormCollection form)
+        {
+            if (Session["Roles"].ToString().Contains("MANAGER"))
+            {
+                TempData["Stage"] = 2;
+                return View("Index", Assessments.GetAssessmentForServiceManager((int)Session["ID"], Session["Roles"].ToString(), DateTime.Parse(form[0]), DateTime.Parse(form[1])));
+            }
+            else
+            {
+                TempData["Stage"] = 2;
+                return View("Index", Assessments.GetAssessmentForTeamLead((int)Session["ID"], Session["Roles"].ToString(), DateTime.Parse(form[0]), DateTime.Parse(form[1])));
+            }
         }
 
         [HttpGet]
@@ -36,14 +64,6 @@ namespace ORA.Controllers
 
         [HttpPost]
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
-        public ActionResult CreateAssessment(CreateAssessmentVM Assessment)
-        {
-            Assessments.AddAssessment(Assessment, (int)Session["Team"]);
-            return RedirectToAction("Index", "Home", new { area = "" });
-        }
-
-        [HttpPost]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
         public ActionResult GetEmployeeAssessment(CreateAssessmentVM Assessment)
         {
             TempData["Stage"] = 2;
@@ -51,10 +71,22 @@ namespace ORA.Controllers
             return View("CreateAssessment", Assessments.AddAssessment(Assessment.Created, (int)Session["ID"], (int)Session["Team"]));
         }
 
+        [HttpPost]
+        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
+        public ActionResult CreateAssessment(CreateAssessmentVM Assessment)
+        {
+            Assessments.AddAssessment(Assessment, (int)Session["Team"]);
+            return RedirectToAction("Index", "Home", new { area = "" });
+        }
+        
         public ActionResult ViewAssessment(int AssessmentID)
         {
-            //return View(Assessments.GetAssessmentByID(AssessmentID));
             return View(Assessments.GetAssessmentByEmployeeID(AssessmentID));
+        }
+
+        public ActionResult ViewAssessmentByAssignmentID(int AssignmentID)
+        {
+            return View(Assessments.GetAssessmentByAssignmentID(AssignmentID));
         }
 
         [HttpGet]

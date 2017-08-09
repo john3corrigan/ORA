@@ -51,7 +51,15 @@ namespace ORA.Controllers
         [HttpGet]
         public ActionResult ViewProfile(int ProfileID)
         {
-            return View(Profiles.GetProfileByID(ProfileID));
+            ProfileVM profile = Profiles.GetProfileByID(ProfileID);
+            if (profile.Summary != null)
+            {
+                return View(profile);
+            }
+            else
+            {
+                return View("UpdateProfile", profile);
+            }
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]

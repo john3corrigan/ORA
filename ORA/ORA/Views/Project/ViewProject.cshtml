@@ -26,7 +26,7 @@
         <td>@Html.Display(Model.ProjectStartDate.ToString())</td>
         <td>@Html.Display(Model.ProjectEndDate.ToString())</td>
         <td>@Html.Display(Model.Client.ClientName)</td>
-        <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Model.KPI })</td>
+        <td>@Html.ActionLink("View KPIs", "ViewListKPIs", "KPI", routeValues: new { ProjectID = Model.ProjectID }, htmlAttributes: new { Area = "" })</td>
         <td>@Html.Display(Model.Created.ToString())</td>
         <td>@Html.Display(Model.CreatedBy)</td>
         <td>@Html.Display(Model.Modified.ToString())</td>

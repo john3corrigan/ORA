@@ -32,7 +32,7 @@
                                                     <ul class="list-inline">
                                                         @if (Session["Name"] != null)
                                                         {
-                                                            <li>@Html.ActionLink((string)Session["Name"], "ViewProfile", "Profile", new { ProfileID = (int)Session["ID"] }, new { Area = "" })</li>
+                                                            <li>@Html.ActionLink((string)Session["Name"], "ViewProfile", "Profile", routeValues: new { ProfileID = (int)Session["profileID"] }, htmlAttributes: new { Area = "" })</li>
                                                             <li>@Html.ActionLink("Log-Out", "LogOut", "Login")</li>
                                                         }
                                                         else

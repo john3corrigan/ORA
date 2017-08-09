@@ -18,7 +18,8 @@ namespace BusinessLogic.ORALogic
         }
         public ProfileVM GetProfileByID(int id)
         {
-            return Profiles.GetProfileByID(id);
+            ProfileVM Profile = Profiles.GetProfileByID(id);
+            return Profile;
         }
         public void AddProfile(ProfileVM profile)
         {

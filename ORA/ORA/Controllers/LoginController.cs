@@ -47,6 +47,7 @@ namespace ORA.Controllers
                 Session["Name"] = employee.EmployeeName;
                 Session["Roles"] = RolesByUser(employee);
                 Session["ID"] = employee.EmployeeID;
+                Session["profileID"] = employee.ProfileID;
                 Session["Team"] = TeamByUser(employee);
                 return RedirectToAction("Index", "Home", new { area = "" });
             }

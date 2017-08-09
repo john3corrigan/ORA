@@ -17,6 +17,22 @@
         });
     });
 </script>
+@if ((int)TempData["Stage"] == 1)
+{
+    using (Html.BeginForm("GetEmployeesAssessments", "Assessment", FormMethod.Post))
+    {
+        @Html.Label("Starting", new { @class = "LableFormat" })
+        <br />
+        @Html.TextBox("StartingDate", DateTime.Now)
+        <br />
+        @Html.Label("Ending", new { @class = "LableFormat" })
+        <br />
+        @Html.TextBox("EndingDate", DateTime.Now)
+        <input value="Submit" type="submit" />
+    }
+}
+else if ((int)TempData["Stage"] == 2)
+{
 <div>
     <button id="ActiveButton">Active</button>
     <button id="In-ActiveButton">In-Active</button>
@@ -28,14 +44,14 @@
             </tr>
             @foreach (EmployeeVM Value in Model)
             {
-                if (Value.ActiveFlag)
-                {
+        if (Value.ActiveFlag)
+        {
                     <tr>
                         <td>@Html.DisplayName(Value.EmployeeName.ToString())</td>
                         <td>@Html.ActionLink("View Assessment", "Assessment", routeValues: new { AssessmentID = Value.EmployeeID })</td>
                     </tr>
                 }
-            }
+    }
         </table>
     </div>
     <div id="In-Active" hidden>
@@ -46,14 +62,15 @@
             </tr>
             @foreach (EmployeeVM Value in Model)
             {
-                if (!Value.ActiveFlag)
-                {
+        if (!Value.ActiveFlag)
+        {
                     <tr>
                         <td>@Html.DisplayName(Value.EmployeeName.ToString())</td>
                         <td>@Html.ActionLink("View Assessment", "ViewAssessment", routeValues: new { AssessmentID = Value.EmployeeID })</td>
                     </tr>
                 }
-            }
+    }
         </table>
     </div>
 </div>
+}

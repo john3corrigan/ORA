@@ -19,7 +19,8 @@ namespace Repository.Repositories {
         }
 
         public ProfileVM GetProfileByID(int id) {
-            return Mapper.Map<ProfileVM>(GetAllProfiles().Where(p => p.ProfileID == id).FirstOrDefault());
+            ProfileVM profile = Mapper.Map<ProfileVM>(GetAllProfiles().Where(p => p.ProfileID == id).FirstOrDefault());
+            return profile;
         }
 
         public void AddProfile(ProfileVM profile) {

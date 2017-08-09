@@ -36,7 +36,7 @@
         <td>@Html.Display(Model.CreatedBy)</td>
         <td>@Html.Display(Model.Modified.ToString())</td>
         <td>@Html.Display(Model.ModifiedBy)</td>
-        <td>@Html.ActionLink("ViewListKPIs", "KPI", routeValues: new { KPIList = Model.KPI })</td>
-        <td>@Html.ActionLink("ViewListAssessments", "Assessment", routeValues: new { AssessmentList = Model.Assessment })</td>
-    </tr>
+        <td>@Html.ActionLink("View KPIs", "ViewListKPIByAssignment", "KPI", new { AssignmentID = Model.AssignmentID }, new { Area = "" })</td>
+        <td>@Html.ActionLink("View Assessments", "ViewAssignment", "Assignment", new { AssignmentID = Model.AssignmentID }, new { Area = "" })</td>
+</tr>
 </table>
