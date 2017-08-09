@@ -67,6 +67,24 @@ namespace BusinessLogic.ORALogic
             return KPIs.GetAllKPIs();
         }
 
+        public List<KPIVM> GetMyKPIs(int ID)
+        {
+            List<AssignmentVM> assignment = Employee.GetEmployeeByID(ID).Assignment.Where(a => a.EmployeeID == ID).ToList(); //Grabs a list of Assignments equal to my id
+            //Takes the number of those assessments and converts them into numbers
+            List<KPIVM> KPI = KPIs.GetAllKPIs(/*Trying to substitute for AssignmentID*/).Where(a =>
+            {
+                foreach (var kpi in assignment)
+                {
+                    if (kpi.AssignmentID == a.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            return KPI;
+        }
+
         public List<KPIVM> GetKPIByDate()
         {
             return KPIs.GetKPIByDate();

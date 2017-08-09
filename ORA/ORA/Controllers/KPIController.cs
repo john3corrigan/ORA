@@ -22,7 +22,12 @@ namespace ORA.Controllers
         // GET: KPI
         public ActionResult Index()
         {
-            return View(KPIs.GetAllKPIs());
+             if (Session["Roles"].ToString().Contains("EMPLOYEE"))
+            {
+                int ID = (int)Session["ID"];
+                return View(KPIs.GetMyKPIs(ID));
+            }
+            return View();
         }
 
         public ActionResult ViewListKPIBySprint(int SprintID)
