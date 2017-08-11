@@ -181,7 +181,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    cursor: pointer;
+    cursor: default;
     -webkit-appearance: button;
 }
 
@@ -358,8 +358,8 @@ a {
 
     a:hover,
     a:focus {
-        color: black;
-        text-decoration: underline;
+        /*color: black;
+        text-decoration: underline;*/
     }
 
     a:focus {
@@ -582,7 +582,7 @@ h4 small,
 ul,
 ol {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
     ul ul,
@@ -604,8 +604,6 @@ ol {
 
     .list-inline > li {
         display: inline-block;
-        padding-right: 5px;
-        padding-left: 5px;
     }
 
 dl {
@@ -3398,7 +3396,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown {
-    position: relative;
+    /*position: relative;*/
 }
 
 .dropdown-toggle:focus {
