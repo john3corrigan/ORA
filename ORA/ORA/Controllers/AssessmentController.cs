@@ -34,6 +34,12 @@ namespace ORA.Controllers
                 TempData["Stage"] = 1;
                 return View();
             }
+            else if (Session["Roles"].ToString().Contains("EMPLOYEE"))
+            {
+                TempData["Stage"] = 3;
+                int ID = (int)Session["ID"];
+                return RedirectToAction("ViewAssessment", "Assessment", routeValues: new { AssessmentID = ID});
+            }
             else
             {
                 return View();
