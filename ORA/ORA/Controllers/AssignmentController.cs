@@ -19,7 +19,24 @@ namespace ORA.Controllers
         // GET: Assignment
         public ActionResult Index()
         {
-            return View(Assignments.GetAllAssignments());
+            if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
+            {
+                return View(Assignments.GetAllAssignments());
+            }
+            else if (Session["Roles"].ToString().Contains("MANAGER"))
+            {
+
+                return View(Assignments.GetAssignmentsForManager((int)Session["ID"]));
+            }
+            else if (Session["Roles"].ToString().Contains("LEAD"))
+            {
+                return View(Assignments.GetAssignmentsForLead((int)Session["ID"]));
+            }
+            else
+            {
+                return View(Assignments
+                    .GetAllAssignmentsForEmployee((int)Session["ID"]));
+            }
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR")]
@@ -35,12 +52,12 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = ""});
         }
 
-        public ActionResult ViewListAssignments(int AssignmentsList)
+        public ActionResult ViewTeamAssignments(int TeamID)
         {
-            return View("Index", AssignmentsList);
+            return View("Index", Assignments.GetAllAssignmentsForTeam(TeamID));
         }
 
-        public ActionResult ViewAssigment(int AssignmentID)
+        public ActionResult ViewAssignment(int AssignmentID)
         {
             return View(Assignments.GetAssignmentByID(AssignmentID));
         }

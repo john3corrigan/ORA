@@ -21,6 +21,7 @@ namespace Repository.Context {
         public DbSet<Story> Story;
         public DbSet<Team> Team;
         public DbSet<Profile> Profile;
+        //public DbSet<Education> Education;
 
         public RepositoryContext() { }
 
@@ -40,6 +41,7 @@ namespace Repository.Context {
             modelBuilder.Entity<Story>().ToTable("Story");
             modelBuilder.Entity<Team>().ToTable("Team");
             modelBuilder.Entity<Profile>().ToTable("Profile");
+            //modelBuilder.Entity<Education>().ToTable("Education");
 
             modelBuilder.Entity<Client>().HasMany(c => c.Story);
             modelBuilder.Entity<Client>().HasMany(c => c.Team);

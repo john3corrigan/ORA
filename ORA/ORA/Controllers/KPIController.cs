@@ -22,12 +22,22 @@ namespace ORA.Controllers
         // GET: KPI
         public ActionResult Index()
         {
-             if (Session["Roles"].ToString().Contains("EMPLOYEE"))
+            if(Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
             {
-                int ID = (int)Session["ID"];
-                return View(KPIs.GetMyKPIs(ID));
+                return View(KPIs.GetAllKPIs());
             }
-            return View();
+            else if (Session["Roles"].ToString().Contains("MANAGER"))
+            {
+                return View(KPIs.GetKPIsForManager((int)Session["ID"]));
+            }
+            else if (Session["Roles"].ToString().Contains("LEAD"))
+            {
+                return View(KPIs.GetKPIsForLead((int)Session["ID"]));
+            }
+            else
+            {
+                return View(KPIs.GetMyKPIs((int)Session["ID"]));
+            }
         }
 
         public ActionResult ViewListKPIBySprint(int SprintID)

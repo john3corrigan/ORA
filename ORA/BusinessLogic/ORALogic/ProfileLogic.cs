@@ -8,9 +8,12 @@ namespace BusinessLogic.ORALogic
     public class ProfileLogic : IProfileLogic
     {
         private IProfileRepository Profiles;
-        public ProfileLogic(IProfileRepository prfl)
+        private IPositionRepository Positions;
+
+        public ProfileLogic(IProfileRepository prfl, IPositionRepository pstn)
         {
             Profiles = prfl;
+            Positions = pstn;
         }
         public List<ProfileVM> GetAllProfiles()
         {
@@ -19,6 +22,12 @@ namespace BusinessLogic.ORALogic
         public ProfileVM GetProfileByID(int id)
         {
             ProfileVM Profile = Profiles.GetProfileByID(id);
+            return Profile;
+        }
+        public CreateProfileVM GetCreateProfileByID(int id)
+        {
+            CreateProfileVM Profile = Profiles.GetCreateProfileByID(id);
+            Profile.PositionList = Positions.GetAllPositions();
             return Profile;
         }
         public void AddProfile(ProfileVM profile)

@@ -13,10 +13,12 @@ namespace BusinessLogic.ORALogic
     public class ClientLogic : IClientLogic
     {
         private IClientRepository Clients;
+        private IEmployeeRepository Employees;
 
-        public ClientLogic(IClientRepository clnt)
+        public ClientLogic(IClientRepository clnt, IEmployeeRepository emply)
         {
             Clients = clnt;
+            Employees = emply;
         }
 
         public ClientVM GetClientByID(int ClientID)
@@ -42,6 +44,21 @@ namespace BusinessLogic.ORALogic
         public List<ClientVM> GetAllClients()
         {
             return Clients.GetAllClients();
+        }
+
+        public List<ClientVM> GetClientsManager(int empID)
+        {
+            var assignments = Employees.GetEmployeeByID(empID).Assignment.Where(a => a.RoleID > 7).ToList();
+            return Clients.GetAllClients().Where(c => {
+                foreach(var assign in assignments)
+                {
+                    if (assign.ClientID == c.ClientID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
         }
     }
 }

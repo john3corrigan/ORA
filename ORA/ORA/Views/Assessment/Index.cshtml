@@ -33,44 +33,44 @@
 }
 else if ((int)TempData["Stage"] == 2)
 {
-<div>
-    <button id="ActiveButton">Active</button>
-    <button id="In-ActiveButton">In-Active</button>
-    <div id="Active">
-        <table>
-            <tr>
-                <th>Employee</th>
-                <th></th>
-            </tr>
-            @foreach (EmployeeVM Value in Model)
-            {
-        if (Value.ActiveFlag)
-        {
-                    <tr>
-                        <td>@Html.DisplayName(Value.EmployeeName.ToString())</td>
-                        <td>@Html.ActionLink("View Assessment", "Assessment", routeValues: new { AssessmentID = Value.EmployeeID })</td>
-                    </tr>
+    <div>
+        <button id="ActiveButton">Active</button>
+        <button id="In-ActiveButton">In-Active</button>
+        <div id="Active">
+            <table>
+                <tr>
+                    <th>Employee</th>
+                    <th></th>
+                </tr>
+                @foreach (EmployeeVM Value in Model)
+                {
+                    if (Value.ActiveFlag)
+                    {
+                        <tr>
+                            <td>@Html.DisplayName(Value.EmployeeName.ToString())</td>
+                            <td>@Html.ActionLink("View Assessment", "ViewAssessment", "Assessment", routeValues: new { EmployeeID = Value.EmployeeID }, htmlAttributes: new { Area = "" })</td>
+                        </tr>
+                    }
                 }
-    }
-        </table>
-    </div>
-    <div id="In-Active" hidden>
-        <table>
-            <tr>
-                <th>Employee</th>
-                <th></th>
-            </tr>
-            @foreach (EmployeeVM Value in Model)
-            {
-        if (!Value.ActiveFlag)
-        {
-                    <tr>
-                        <td>@Html.DisplayName(Value.EmployeeName.ToString())</td>
-                        <td>@Html.ActionLink("View Assessment", "ViewAssessment", routeValues: new { AssessmentID = Value.EmployeeID })</td>
-                    </tr>
+            </table>
+        </div>
+        <div id="In-Active" hidden>
+            <table>
+                <tr>
+                    <th>Employee</th>
+                    <th></th>
+                </tr>
+                @foreach (EmployeeVM Value in Model)
+                {
+                    if (!Value.ActiveFlag)
+                    {
+                        <tr>
+                            <td>@Html.DisplayName(Value.EmployeeName.ToString())</td>
+                            <td>@Html.ActionLink("View Assessment", "ViewAssessment", "Assessment", routeValues: new { EmployeeID = Value.EmployeeID }, htmlAttributes: new { Area = "" })</td>
+                        </tr>
+                    }
                 }
-    }
-        </table>
+            </table>
+        </div>
     </div>
-</div>
 }

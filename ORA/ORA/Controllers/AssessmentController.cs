@@ -79,14 +79,14 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
         
-        public ActionResult ViewAssessment(int AssessmentID)
+        public ActionResult ViewAssessment(int EmployeeID)
         {
-            return View(Assessments.GetAssessmentByEmployeeID(AssessmentID));
+            return View(Assessments.GetAssessmentByEmployeeID(EmployeeID));
         }
 
         public ActionResult ViewAssessmentByAssignmentID(int AssignmentID)
         {
-            return View(Assessments.GetAssessmentByAssignmentID(AssignmentID));
+            return View("ViewAssessment", Assessments.GetAssessmentByAssignmentID(AssignmentID));
         }
 
         [HttpGet]

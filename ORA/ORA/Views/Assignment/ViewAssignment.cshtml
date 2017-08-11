@@ -8,7 +8,6 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Client</th>
@@ -24,18 +23,17 @@
         <th>Assessment List</th>
     </tr>
     <tr>
-        <td>@Html.Display(Model.Title)</td>
-        <td>@Html.Display(Model.StartDate.ToString())</td>
-        <td>@Html.Display(Model.EndDate.ToString())</td>
-        <td>@Html.Display(Model.Client.ClientName)</td>
-        <td>@Html.Display(Model.Employee.EmployeeName)</td>
-        <td>@Html.Display(Model.Position.ToString())</td>
-        <td>@Html.Display(Model.Role.ToString())</td>
-        <td>@Html.Display(Model.Team.TeamName)</td>
-        <td>@Html.Display(Model.Created.ToString())</td>
-        <td>@Html.Display(Model.CreatedBy)</td>
-        <td>@Html.Display(Model.Modified.ToString())</td>
-        <td>@Html.Display(Model.ModifiedBy)</td>
+        <td>@Html.DisplayName(Model.StartDate.ToString())</td>
+        <td>@Html.DisplayName(Model.EndDate.ToString())</td>
+        <td>@Html.DisplayName(Model.Client.ClientName)</td>
+        <td>@Html.DisplayName(Model.Employee.EmployeeName)</td>
+        <td>@Html.DisplayName(Model.Position.ToString())</td>
+        <td>@Html.DisplayName(Model.Role.ToString())</td>
+        <td>@Html.DisplayName(Model.Team.TeamName)</td>
+        <td>@Html.DisplayName(Model.Created.ToString())</td>
+        <td>@Html.DisplayName(Model.CreatedBy)</td>
+        <td>@Html.DisplayName(Model.Modified.ToString())</td>
+        <td>@Html.DisplayName(Model.ModifiedBy)</td>
         <td>@Html.ActionLink("View KPIs", "ViewListKPIByAssignment", "KPI", new { AssignmentID = Model.AssignmentID }, new { Area = "" })</td>
         <td>@Html.ActionLink("View Assessments", "ViewAssignment", "Assignment", new { AssignmentID = Model.AssignmentID }, new { Area = "" })</td>
 </tr>

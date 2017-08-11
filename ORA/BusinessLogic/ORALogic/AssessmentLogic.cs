@@ -73,7 +73,7 @@ namespace BusinessLogic.ORALogic
             {
                 foreach (var assign in assignmentsList)
                 {
-                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID && assign.TeamID == a.TeamID).FirstOrDefault() != null)
+                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID || assign.TeamID == a.TeamID).FirstOrDefault() != null)
                     {
                         return true;
                     }
@@ -89,7 +89,7 @@ namespace BusinessLogic.ORALogic
             {
                 foreach (var assign in assignmentsList)
                 {
-                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID && (assign.ClientID == a.ClientID || assign.TeamID == a.TeamID)).FirstOrDefault() != null)
+                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID || assign.ClientID == a.ClientID || assign.TeamID == a.TeamID).FirstOrDefault() != null)
                     {
                         return true;
                     }

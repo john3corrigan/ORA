@@ -23,6 +23,12 @@ namespace Repository.Repositories {
             return profile;
         }
 
+        public CreateProfileVM GetCreateProfileByID(int id)
+        {
+            CreateProfileVM profile = Mapper.Map<CreateProfileVM>(GetAllProfiles().Where(p => p.ProfileID == id).FirstOrDefault());
+            return profile;
+        }
+
         public void AddProfile(ProfileVM profile) {
             Add(Mapper.Map<Lib.EFModels.Profile>(profile));
             Save();

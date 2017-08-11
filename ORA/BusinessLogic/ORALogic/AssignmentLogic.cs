@@ -36,7 +36,13 @@ namespace BusinessLogic.ORALogic
 
         public AssignmentVM GetAssignmentByID(int assignmentID)
         {
-            return Assignments.GetAssignmentByID(assignmentID);
+            AssignmentVM assignment = Assignments.GetAssignmentByID(assignmentID);
+            assignment.Client = Client.GetClientByID(assignment.ClientID);
+            assignment.Employee = Employee.GetEmployeeByID(assignment.EmployeeID);
+            assignment.Position = Position.GetPositionByID(assignment.PositionID);
+            assignment.Role = Role.GetRoleByID(assignment.RoleID);
+            assignment.Team = Team.GetTeamByID(assignment.TeamID);
+            return assignment;
         }
 
         public CreateAssignmentVM AddAssignment() {
@@ -60,8 +66,44 @@ namespace BusinessLogic.ORALogic
             return Assignments.GetAllAssignments();
         }
 
-        public List<AssignmentVM> GetAllAssignmentsForEmployee(int empID) {
+        public List<AssignmentVM> GetAllAssignmentsForEmployee(int empID)
+        {
             return Assignments.GetAllAssignments().Where(a => a.EmployeeID == empID).ToList();
+        }
+
+        public List<AssignmentVM> GetAllAssignmentsForTeam(int teamID)
+        {
+            return Assignments.GetAllAssignments().Where(a => a.TeamID == teamID).ToList();
+        }
+
+        public List<AssignmentVM> GetAssignmentsForManager(int empID)
+        {
+            var employee = Employee.GetEmployeeByID(empID).Assignment;
+            return Assignments.GetAllAssignments().Where(a => {
+                foreach (var assign in employee)
+                {
+                    if (a.EmployeeID == empID || assign.ClientID == a.ClientID || assign.TeamID == a.TeamID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).OrderBy(a => a.ClientID).ToList();
+        }
+
+        public List<AssignmentVM> GetAssignmentsForLead(int empID)
+        {
+            var employee = Employee.GetEmployeeByID(empID).Assignment;
+            return Assignments.GetAllAssignments().Where(a => {
+                foreach (var assign in employee)
+                {
+                    if (a.EmployeeID == empID || assign.TeamID == a.TeamID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).OrderBy(a => a.StartDate).ToList();
         }
 
         public void UpdateAssignment(AssignmentVM updatedAssignment)

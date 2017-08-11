@@ -14,5 +14,6 @@ namespace Lib.InterfacesLogic
         void AddClient(ClientVM client);
         void UpdateClient(ClientVM updatedClient);
         void RemoveClient(int clientID);
+        List<ClientVM> GetClientsManager(int empID);
     }
 }

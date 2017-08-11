@@ -21,7 +21,12 @@
     <tr>
         <td>@Html.DisplayName(Model.EmployeeNumber)</td>
         <td>@Html.DisplayName(Model.EmployeeFirstName)</td>
+        @if (Model.EmployeeMI != null) {
         <td>@Html.DisplayName(Model.EmployeeMI)</td>
+        }
+        else {
+            <td></td>
+        }
         <td>@Html.DisplayName(Model.EmployeeLastName)</td>
         <td>@Html.DisplayName(Model.ActiveFlag.ToString())</td>
         <td>@Html.ActionLink("View Assignment", "ViewEmployeeAssignment", "Assignment", new { employeeID = Model.EmployeeID }, new { Area = "" })</td>

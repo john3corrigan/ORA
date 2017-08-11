@@ -22,6 +22,8 @@ namespace ORA.AutoMapper {
                 c.CreateMap<CreateKPIVM, KPI>().ReverseMap();
                 c.CreateMap<Position, PositionVM>().ReverseMap();
                 c.CreateMap<Lib.EFModels.Profile, ProfileVM>().ReverseMap();
+                c.CreateMap<Lib.EFModels.Profile, CreateProfileVM>().ReverseMap();
+                c.CreateMap<ProfileVM, CreateProfileVM>().ReverseMap();
                 c.CreateMap<Project, ProjectVM>().ReverseMap();
                 c.CreateMap<Role, RoleVM>().ReverseMap();
                 c.CreateMap<Sprint, SprintVM>().ReverseMap();

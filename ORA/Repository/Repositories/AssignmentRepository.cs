@@ -22,7 +22,7 @@ namespace Repository.Repositories {
         }
 
         public AssignmentVM GetAssignmentByID(int id) {
-            return Mapper.Map<AssignmentVM>(GetAllAssignments().Where(a => a.AssignmentID == id));
+            return Mapper.Map<AssignmentVM>(GetAllAssignments().Where(a => a.AssignmentID == id).FirstOrDefault());
         }
 
         public List<AssignmentVM> GetAssignmentsByDateRange(DateTime start, DateTime end) {

@@ -19,6 +19,8 @@ namespace Lib.InterfacesLogic
         void UpdateKPI(KPIVM updatedKPI);
         List<KPIVM> GetKPIBySprintID(int SprintID);
         List<KPIVM> GetKPIByAssignmentID(int SprintID);
+        List<KPIVM> GetKPIsForManager(int empID);
+        List<KPIVM> GetKPIsForLead(int empID);
         //void RemoveKPI(int KPIIDS);
     }
 }

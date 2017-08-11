@@ -13,5 +13,6 @@ namespace Lib.InterfacesLogic
         void AddProfile(ProfileVM profile);
         void UpdateProfile(ProfileVM profile);
         void DeleteProfile(int id);
+        CreateProfileVM GetCreateProfileByID(int profileID);
     }
 }

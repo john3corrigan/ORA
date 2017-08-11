@@ -294,3 +294,5 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 /ORA/Testing
+/ORA/Lib/EFModels/Education.cs
+/ORA/Lib/ViewModels/EducationVM.cs

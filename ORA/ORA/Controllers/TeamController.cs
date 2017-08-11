@@ -19,7 +19,22 @@ namespace ORA.Controllers
         // GET: Team
         public ActionResult Index()
         {
-            return View(Teams.GetAllTeams());
+            if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
+            {
+                return View(Teams.GetAllTeams());
+            }
+            else if (Session["Roles"].ToString().Contains("MANAGER"))
+            {
+                return View(Teams.GetTeamsForManager((int)Session["ID"]));
+            }
+            else if (Session["Roles"].ToString().Contains("LEAD"))
+            {
+                return View(Teams.GetTeamsForLead((int)Session["ID"]));
+            }
+            else
+            {
+                return View(Teams.GetTeamsForEmployee((int)Session["ID"]));
+            }
         }
 
         [HttpGet]

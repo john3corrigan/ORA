@@ -2,45 +2,77 @@
 @{
     ViewBag.Title = "My Profile";
 }
-
-<h2>@Session["Name"].ToString()</h2>
-<body>
-    <div class="row">
-        <div class="col-md-4">
-                @Html.DisplayText(Model.FirstName) @Html.DisplayText(Model.LastName)
-        </div>
-        <div class="col-md-8">
-            <button id="MyBiobtn">My Biography</button>
-            <button id="KPI-btn">My KPI</button>
-            <button id="Assessment-btn">My Assessment</button>
-            <button id="Team-btn">My Team</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            @{
-                foreach (string value in Model.Education) { Html.DisplayText(value); }
-            }
-        </div>
-        <div class="col-md-8">
-            <div id="MyBio">
-                @Html.DisplayText(Model.Summary)
-                <address>
-                    @Html.DisplayText(Model.Country), @Html.DisplayText(Model.Zip.ToString()) 
-                </address>
+@if (TempData["Error"] != null)
+{
+    using (Html.BeginForm("ViewProfile", "Profile", FormMethod.Post))
+    {
+    <span>This associate has not filled out all of thier information. Would you like to view thier profile anyway?</span>
+    @Html.Hidden("ID", Model.ProfileID)
+    <input type="submit" value="Continue"/>
+    }
+}
+else
+{
+    <h2>@Session["Name"].ToString()</h2>
+    <body>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.DisplayName(Model.FirstName) @Html.DisplayName(Model.LastName)
             </div>
-            <div id="KPI" hidden>
-                KPI
-            </div>
-            <div id="Assessment" hidden>
-                Assessment
-            </div>
-            <div id="Team" hidden>
-                Team
+            <div class="col-md-8">
+                <button id="MyBiobtn">My Biography</button>
+                <button id="KPI-btn">My KPI</button>
+                <button id="Assessment-btn">My Assessment</button>
+                <button id="Team-btn">My Team</button>
             </div>
         </div>
-    </div>
-</body>
+        <div class="row">
+            <div class="col-md-4">
+@if (Model.Summary != null)
+{
+    foreach (string value in Model.Education)
+    {
+        Html.DisplayName(value);
+    }
+}
+else
+{
+    <span>No education information has been givin.</span>
+}
+            </div>
+            <div class="col-md-8">
+                <div id="MyBio">
+                    @if (Model.Summary != null)
+                    {
+                        Html.DisplayName(Model.Summary);
+                    }
+                    else
+                    {
+                       <span>There is no biography information.</span>
+                    }
+                    @if (Model.Country != null && Model.Zip != 0) {
+                    <address>
+                        @Html.DisplayName(Model.Country), @Html.DisplayName(Model.Zip.ToString())
+                    </address>
+                    }
+                    else
+                    {
+                        <span>Adress information has not been filled out.</span>
+                    }
+                </div>
+                <div id="KPI" hidden>
+                    KPI
+                </div>
+                <div id="Assessment" hidden>
+                    Assessment
+                </div>
+                <div id="Team" hidden>
+                    Team
+                </div>
+            </div>
+        </div>
+    </body>
+}
 <script>
     $(document).ready(function () {
         $('#KPI-btn').click(function () {

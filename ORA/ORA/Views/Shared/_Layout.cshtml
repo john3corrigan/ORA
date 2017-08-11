@@ -32,7 +32,7 @@
                                                     <ul class="list-inline">
                                                         @if (Session["Name"] != null)
                                                         {
-                                                            <li>@Html.ActionLink((string)Session["Name"], "ViewProfile", "Profile", routeValues: new { ProfileID = (int)Session["profileID"] }, htmlAttributes: new { Area = "" })</li>
+                                                            <li>@Html.ActionLink((string)Session["Name"], "ViewProfileByID", "Profile", routeValues: new { ProfileID = (int)Session["profileID"] }, htmlAttributes: new { Area = "" })</li>
                                                             <li>@Html.ActionLink("Log-Out", "LogOut", "Login")</li>
                                                         }
                                                         else
@@ -66,7 +66,7 @@
                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                         <span>Assessment</span>
                                                         <ul class="dropdown-menu">
-                                                            @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD"))
+                                                            @if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD"))
                                                             {
                                                                 <li>@Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")</li>
                                                             }

@@ -18,7 +18,18 @@ namespace ORA.Controllers
         // GET: Client
         public ActionResult Index()
         {
-            return View(Clients.GetAllClients());
+            if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
+            {
+                return View(Clients. GetAllClients());
+            }
+            else if (Session["Roles"].ToString().Contains("MANAGER"))
+            {
+                return View(Clients.GetClientsManager((int)Session["ID"]));
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]

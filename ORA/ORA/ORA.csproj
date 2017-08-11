@@ -280,6 +280,7 @@
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Controllers\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -295,7 +296,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -347,14 +350,12 @@
     <Content Include="Views\Story\Index.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Profile\UpdateProfile.cshtml" />
-    <Content Include="Views\Profile\AddProfile.cshtml" />
     <Content Include="Views\Profile\ViewProfile.cshtml" />
     <Content Include="Views\Story\ViewListStories.cshtml" />
     <Content Include="Views\Roles\AddRole.cshtml" />
     <Content Include="Views\Roles\UpdateRole.cshtml" />
     <Content Include="Views\Roles\ViewRole.cshtml" />
     <Content Include="Views\Roles\ViewAllRoles.cshtml" />
-    <Content Include="Views\Team\ViewListTeams.cshtml" />
     <Content Include="Views\Project\ViewListProjects.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
@@ -362,7 +363,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="bin\Debug\" />
     <Folder Include="Models\" />
-    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

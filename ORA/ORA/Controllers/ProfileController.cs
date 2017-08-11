@@ -14,27 +14,6 @@ namespace ORA.Controllers
             Profiles = prfl;
         }
 
-        // GET: Profile
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
-        public ActionResult Index()
-        {
-            return View(Profiles.GetAllProfiles());
-        }
-
-        [HttpGet]
-        [ORAAuthorize(Roles = "Admin")]
-        public ActionResult AddProfile()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult AddProfile(ProfileVM Profile)
-        {
-            Profiles.AddProfile(Profile);
-            return RedirectToAction("AddEmployee", "Employee", new { area = "" });
-        }
-
         [HttpGet]
         public ActionResult UpdateProfile(int ProfileID)
         {
@@ -49,17 +28,28 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        public ActionResult ViewProfile(int ProfileID)
+        public ActionResult ViewProfileByID(int ProfileID)
         {
-            ProfileVM profile = Profiles.GetProfileByID(ProfileID);
-            if (profile.Summary != null)
-            {
-                return View(profile);
-            }
-            else
+            CreateProfileVM profile = Profiles.GetCreateProfileByID(ProfileID);
+            if (profile.Summary == null && Session["Name"].ToString().Contains(profile.FirstName))
             {
                 return View("UpdateProfile", profile);
             }
+            else if(profile.Summary == null && !Session["Name"].ToString().Contains(profile.FirstName))
+            {
+                TempData["Error"] = 1;
+                return View();
+            }
+            else
+            {
+                return View(Profiles.GetProfileByID(ProfileID));
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ViewProfile(FormCollection form)
+        {
+            return View(Profiles.GetProfileByID(int.Parse(form[0])));
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]

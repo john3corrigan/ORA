@@ -20,7 +20,7 @@
     {
         <tr>
             <td>@Html.DisplayName(Value.TeamName)</td>
-            <td>@Html.ActionLink("View Assignments", "ViewListAssignments", "Assignment", new { TeamID = Value.TeamID }, new { Area = "" })</td>
+            <td>@Html.ActionLink("View Assignments", "ViewTeamAssignments", "Assignment", new { TeamID = Value.TeamID }, new { Area = "" })</td>
             <td>@Html.DisplayName(Value.Client.ClientName)</td>
             <td>@Html.DisplayName(Value.Created.ToString())</td>
             <td>@Html.DisplayName(Value.CreatedBy)</td>

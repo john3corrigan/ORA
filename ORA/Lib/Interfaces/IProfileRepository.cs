@@ -12,5 +12,6 @@ namespace Lib.Interfaces {
         void AddProfile(ProfileVM profile);
         void UpdateProfile(ProfileVM profile);
         void DeleteProfile(int id);
+        CreateProfileVM GetCreateProfileByID(int id);
     }
 }

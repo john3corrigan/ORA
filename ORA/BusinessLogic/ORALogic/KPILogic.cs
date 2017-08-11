@@ -90,6 +90,58 @@ namespace BusinessLogic.ORALogic
             return KPIs.GetKPIByDate();
         }
 
+        public List<KPIVM> GetKPIsForManager(int empID)
+        {
+            var myAssignments = Employee.GetEmployeeByID(empID).Assignment.Where(a => a.RoleID < 6);
+            var clientAssignments = Assignment.GetAllAssignments().Where(a =>
+            {
+                foreach (var assign in myAssignments)
+                {
+                    if (assign.TeamID == a.TeamID || assign.ClientID == a.ClientID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            return KPIs.GetAllKPIs().Where(k => {
+                foreach (var assign in clientAssignments)
+                {
+                    if (assign.AssignmentID == k.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+        }
+
+        public List<KPIVM> GetKPIsForLead(int empID)
+        {
+            var myAssignments = Assignment.GetAllAssignments().Where(a => a.EmployeeID == empID && a.RoleID < 7);
+            var teamAssignments = Assignment.GetAllAssignments().Where(a =>
+            {
+                foreach (var assign in myAssignments)
+                {
+                    if (assign.TeamID == a.TeamID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            return KPIs.GetAllKPIs().Where(k => {
+                foreach (var assign in teamAssignments)
+                {
+                    if (assign.AssignmentID == k.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+        }
+
         public void UpdateKPI(KPIVM updatedKPI)
         {
             KPIs.UpdateKPI(updatedKPI);
