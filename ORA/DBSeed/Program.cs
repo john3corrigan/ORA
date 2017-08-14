@@ -8,77 +8,88 @@ using Repository.Repositories;
 using Repository.Context;
 using ORA.AutoMapper;
 
-namespace Testing {
-    class Program {
-        private static AssessmentVM assessment;
+namespace Testing
+{
+    class Program
+    {
+        private static CreateAssessmentVM assessment;
         private static CreateAssignmentVM assignment;
         private static CreateKPIVM kpi;
         private static CreateTeamVM team;
         private static RoleVM role;
         private static PositionVM position;
-        private static EmployeeVM employee;
+        private static CreateEmployeeVM employee;
         private static ClientVM client;
         private static SprintVM sprint;
         private static StoryVM story;
         private static CreateProjectVM project;
         private static ProfileVM profile;
+        private static EducationVM education;
 
-        static void Main(string[] args) {
+        static void Main(string[] args)
+        {
             AutoMapperConfiguration.ConfigMaps();
             InitProp();
             //Seed();
             CreateDatabase();
         }
 
-        private static void CreateDatabase() {
+        private static void CreateDatabase()
+        {
             RepositoryContext context = new RepositoryContext("ora");
             context.Database.Delete();
             context.Database.Create();
         }
 
-        //private static void Seed() {
-        //    var AssRepo = new AssessmentRepository();
-        //    var AssignRepo = new AssignmentRepository();
-        //    var KPI = new KPIRepository();
-        //    var TeamRepo = new TeamRepository();
-        //    var RoleRepo = new RoleRepository();
-        //    var PosRepo = new PositionRepository();
-        //    var EmpRepo = new EmployeeRepository();
-        //    var CliRepo = new ClientRepository();
-        //    var SprRepo = new SprintRepository();
-        //    var ProjRepo = new ProjectRepository();
-        //    var ProfRepo = new ProfileRepository();
-        //    var StoryRepo = new StoryRepository();
-        //    Console.WriteLine("Adding position");
-        //    PosRepo.AddPosition(position);
-        //    Console.WriteLine("Adding profile");
-        //    ProfRepo.AddProfile(profile);
-        //    Console.WriteLine("Adding client");
-        //    CliRepo.AddClient(client);
-        //    Console.WriteLine("Addign story");
-        //    StoryRepo.AddStory(story);
-        //    Console.WriteLine("Adding employee");
-        //    EmpRepo.AddEmployee(employee);
-        //    Console.WriteLine("Adding role");
-        //    RoleRepo.AddRole(role);
-        //    Console.WriteLine("Adding team");
-        //    TeamRepo.AddTeam(team);
-        //    Console.WriteLine("Adding assignment");
-        //    AssignRepo.AddAssignment(assignment);
-        //    Console.WriteLine("Adding assessment");
-        //    AssRepo.AddAssessment(assessment);
-        //    Console.WriteLine("Adding project");
-        //    ProjRepo.AddProject(project);
-        //    Console.WriteLine("Adding sprint");
-        //    SprRepo.AddSprint(sprint);
-        //    Console.WriteLine("Adding KPI");
-        //    KPI.AddKPI(kpi);
-        //    Console.WriteLine("Done adding entities");
-        //    Console.ReadKey();
-        //}
+        private static void Seed()
+        {
+            var AssRepo = new AssessmentRepository();
+            var AssignRepo = new AssignmentRepository();
+            var KPI = new KPIRepository();
+            var TeamRepo = new TeamRepository();
+            var RoleRepo = new RoleRepository();
+            var PosRepo = new PositionRepository();
+            var EduPepo = new EducationRepository();
+            var EmpRepo = new EmployeeRepository();
+            var CliRepo = new ClientRepository();
+            var SprRepo = new SprintRepository();
+            var ProjRepo = new ProjectRepository();
+            var ProfRepo = new ProfileRepository();
+            var StoryRepo = new StoryRepository();
+            Console.WriteLine("Adding education");
+            EduPepo.AddEducation(education);
+            Console.WriteLine("Adding position");
+            PosRepo.AddPosition(position);
+            Console.WriteLine("Adding profile");
+            ProfRepo.AddProfile(profile);
+            Console.WriteLine("Adding client");
+            CliRepo.AddClient(client);
+            Console.WriteLine("Addign story");
+            StoryRepo.AddStory(story);
+            Console.WriteLine("Adding employee");
+            EmpRepo.AddEmployee(employee);
+            Console.WriteLine("Adding role");
+            RoleRepo.AddRole(role);
+            Console.WriteLine("Adding team");
+            TeamRepo.AddTeam(team);
+            Console.WriteLine("Adding assignment");
+            AssignRepo.AddAssignment(assignment);
+            Console.WriteLine("Adding assessment");
+            AssRepo.AddAssessment(assessment);
+            Console.WriteLine("Adding project");
+            ProjRepo.AddProject(project);
+            Console.WriteLine("Adding sprint");
+            SprRepo.AddSprint(sprint);
+            Console.WriteLine("Adding KPI");
+            KPI.AddKPI(kpi);
+            Console.WriteLine("Done adding entities");
+            Console.ReadKey();
+        }
 
-        private static void InitProp() {
-            assessment = new AssessmentVM() {
+        private static void InitProp()
+        {
+            assessment = new CreateAssessmentVM()
+            {
                 AssignmentID = 1,
                 TDProblemSolving = 0,
                 TDQualityOfWork = 0,
@@ -113,7 +124,8 @@ namespace Testing {
                 CreatedBy = "test"
             };
 
-            kpi = new CreateKPIVM() {
+            kpi = new CreateKPIVM()
+            {
                 Points = 0,
                 TCCreated = 0,
                 TCExcuted = 0,
@@ -139,7 +151,8 @@ namespace Testing {
                 ModifiedBy = "test"
             };
 
-            sprint = new SprintVM() {
+            sprint = new SprintVM()
+            {
                 SprintID = 1,
                 SprintNumber = 1,
                 SprintName = "test",
@@ -151,7 +164,8 @@ namespace Testing {
                 CreatedBy = "test"
             };
 
-            assignment = new CreateAssignmentVM() {
+            assignment = new CreateAssignmentVM()
+            {
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now,
                 ClientID = 1,
@@ -165,7 +179,8 @@ namespace Testing {
                 CreatedBy = "test"
             };
 
-            client = new ClientVM() {
+            client = new ClientVM()
+            {
                 ClientName = "test",
                 ClientAbbreviation = "tst",
                 Story = new List<StoryVM>() { story },
@@ -175,7 +190,8 @@ namespace Testing {
                 CreatedBy = "test"
             };
 
-            story = new StoryVM() {
+            story = new StoryVM()
+            {
                 StoryName = "test",
                 StoryNumber = 0,
                 StoryStartDate = DateTime.Now,
@@ -188,7 +204,8 @@ namespace Testing {
                 CreatedBy = "test"
             };
 
-            project = new CreateProjectVM() {
+            project = new CreateProjectVM()
+            {
                 ProjectName = "test",
                 ProjectNumber = 0,
                 ProjectStartDate = DateTime.Now,
@@ -200,14 +217,14 @@ namespace Testing {
                 CreatedBy = "test"
             };
 
-            profile = new ProfileVM() {
+            profile = new ProfileVM()
+            {
                 FirstName = "test",
                 LastName = "test",
                 PositionID = 1,
                 Position = position,
                 Country = "test",
                 Zip = 30415,
-                Education = new List<string>() { "test" },
                 Industry = "test",
                 Summary = "test",
                 Modified = DateTime.Now,
@@ -216,7 +233,13 @@ namespace Testing {
                 CreatedBy = "test"
             };
 
-            employee = new EmployeeVM() {
+            education = new EducationVM()
+            {
+                EducationName = "test"
+            };
+
+            employee = new CreateEmployeeVM()
+            {
                 EmployeeNumber = "test",
                 Password = "test",
                 Salt = new byte[] { 0, 0, 0, 0 },
@@ -234,8 +257,9 @@ namespace Testing {
                 CreatedBy = "test"
             };
 
-            role = new RoleVM() {
-                RoleName = "test",
+            role = new RoleVM()
+            {
+                RoleName = "ADMINISTRATOR",
                 Description = "test",
                 Modified = DateTime.Now,
                 Created = DateTime.Now,
@@ -243,14 +267,16 @@ namespace Testing {
                 CreatedBy = "test"
             };
 
-            position = new PositionVM() {
+            position = new PositionVM()
+            {
                 Modified = DateTime.Now,
                 Created = DateTime.Now,
                 ModifiedBy = "test",
                 CreatedBy = "test"
             };
 
-            team = new CreateTeamVM() {
+            team = new CreateTeamVM()
+            {
                 TeamName = "test",
                 ClientID = 1,
                 Client = client,

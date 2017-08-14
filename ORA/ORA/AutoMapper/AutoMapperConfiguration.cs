@@ -15,6 +15,7 @@ namespace ORA.AutoMapper {
                 c.CreateMap<Assignment, AssignmentVM>().ReverseMap();
                 c.CreateMap<CreateAssignmentVM, Assignment>().ReverseMap();
                 c.CreateMap<Client, ClientVM>().ReverseMap();
+                c.CreateMap<Education, EducationVM>().ReverseMap();
                 c.CreateMap<Employee, EmployeeVM>().ReverseMap();
                 c.CreateMap<Employee, CreateEmployeeVM>().ReverseMap();
                 c.CreateMap<KPI, KPIVM>().ReverseMap();

@@ -13,7 +13,8 @@ namespace Lib.EFModels {
         public Position Position { get; set; }
         public string Country { get; set; }
         public int Zip { get; set; }
-        public List<string> Education { get; set; }
+        public int? EducationID { get; set; }
+        public Education Education { get; set; }
         public string Industry { get; set; }
         public string Summary { get; set; }
     }

@@ -352,7 +352,7 @@
     <Content Include="Views\Story\Index.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Profile\UpdateProfile.cshtml" />
-    <Content Include="Views\Profile\ViewProfile.cshtml" />
+    <Content Include="Views\Profile\ViewProfileByID.cshtml" />
     <Content Include="Views\Story\ViewListStories.cshtml" />
     <Content Include="Views\Roles\AddRole.cshtml" />
     <Content Include="Views\Roles\UpdateRole.cshtml" />

@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations;
 namespace Lib.ViewModels {
     public class ClientVM {
         public int ClientID { get; set; }
-        public string Title { get; set; }
         [Display(Name = "Client Name")]
         public string ClientName { get; set; }
         [Display(Name = "Client Abbreviation")]

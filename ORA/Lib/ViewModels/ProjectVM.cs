@@ -4,7 +4,6 @@ using System.Collections.Generic;
 namespace Lib.ViewModels {
     public class ProjectVM {
         public int ProjectID { get; set; }
-        public string Title { get; set; }
         public string ProjectName { get; set; }
         public int ProjectNumber { get; set; }
         public DateTime ProjectStartDate { get; set; }
@@ -20,7 +19,6 @@ namespace Lib.ViewModels {
     public class CreateProjectVM{
 
         public int ProjectID { get; set; }
-        public string Title { get; set; }
         public string ProjectName { get; set; }
         public int ProjectNumber { get; set; }
         public DateTime ProjectStartDate { get; set; }

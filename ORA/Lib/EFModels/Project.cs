@@ -7,7 +7,6 @@ namespace Lib.EFModels {
     public class Project {
         [Key]
         public int ProjectID { get; set; }
-        public string Title { get; set; }
 
         [Required]
         [StringLength(50)]

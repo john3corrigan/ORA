@@ -2,14 +2,19 @@
 @{
     ViewBag.Title = "My Profile";
 }
-@if (TempData["Error"] != null)
+@if ((int)TempData["Error"] == 1)
 {
     using (Html.BeginForm("ViewProfile", "Profile", FormMethod.Post))
     {
-    <span>This associate has not filled out all of thier information. Would you like to view thier profile anyway?</span>
-    @Html.Hidden("ID", Model.ProfileID)
-    <input type="submit" value="Continue"/>
+        <span>This associate has not filled out all of thier information. Would you like to view thier profile anyway?</span>
+        <br />
+        @Html.Hidden("ProfileID", int.Parse(TempData["ProfileID"].ToString()))
+        <input type="submit" value="Continue" />
     }
+}
+else if ((int)TempData["Error"] == 2)
+{
+    <span>This associate does not have a profile created.</span>
 }
 else
 {
@@ -28,17 +33,17 @@ else
         </div>
         <div class="row">
             <div class="col-md-4">
-@if (Model.Summary != null)
-{
-    foreach (string value in Model.Education)
-    {
-        Html.DisplayName(value);
-    }
-}
-else
-{
-    <span>No education information has been givin.</span>
-}
+                @if (Model.EducationList != null)
+                {
+                    foreach (var value in Model.EducationList)
+                    {
+                        Html.DisplayName(value.EducationName);
+                    }
+                }
+                else
+                {
+                    <span>No education information has been givin.</span>
+                }
             </div>
             <div class="col-md-8">
                 <div id="MyBio">
@@ -48,12 +53,13 @@ else
                     }
                     else
                     {
-                       <span>There is no biography information.</span>
+                        <span>There is no biography information.</span>
                     }
-                    @if (Model.Country != null && Model.Zip != 0) {
-                    <address>
-                        @Html.DisplayName(Model.Country), @Html.DisplayName(Model.Zip.ToString())
-                    </address>
+                    @if (Model.Country != null && Model.Zip != 0)
+                    {
+                        <address>
+                            @Html.DisplayName(Model.Country), @Html.DisplayName(Model.Zip.ToString())
+                        </address>
                     }
                     else
                     {

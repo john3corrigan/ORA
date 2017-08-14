@@ -7,7 +7,6 @@ namespace Lib.EFModels {
     public class Client {
         [Key]
         public int ClientID { get; set; }
-        public string Title { get; set; }
 
         [StringLength(30)]
         public string ClientName { get; set; }

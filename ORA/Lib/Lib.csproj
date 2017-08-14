@@ -56,6 +56,7 @@
     <Compile Include="EFModels\Assessment.cs" />
     <Compile Include="EFModels\Assignment.cs" />
     <Compile Include="EFModels\Client.cs" />
+    <Compile Include="EFModels\Education.cs" />
     <Compile Include="EFModels\Employee.cs" />
     <Compile Include="EFModels\KPI.cs" />
     <Compile Include="EFModels\Position.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="InterfacesLogic\IAssessmentLogic.cs" />
     <Compile Include="InterfacesLogic\IAssignmentLogic.cs" />
     <Compile Include="InterfacesLogic\IClientLogic.cs" />
+    <Compile Include="InterfacesLogic\IEducationLogic.cs" />
     <Compile Include="InterfacesLogic\IEmployeeLogic.cs" />
     <Compile Include="InterfacesLogic\IKPILogic.cs" />
     <Compile Include="InterfacesLogic\IPositionLogic.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Interfaces\IAssessmentRepository.cs" />
     <Compile Include="Interfaces\IAssignmentRepository.cs" />
     <Compile Include="Interfaces\IClientRepository.cs" />
+    <Compile Include="Interfaces\IEducationRepository.cs" />
     <Compile Include="Interfaces\IEmployeeRepository.cs" />
     <Compile Include="Interfaces\IKPIRepository.cs" />
     <Compile Include="Interfaces\IPositionRepository.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="ViewModels\AssessmentVM.cs" />
     <Compile Include="ViewModels\AssignmentVM.cs" />
     <Compile Include="ViewModels\ClientVM.cs" />
+    <Compile Include="ViewModels\EducationVM.cs" />
     <Compile Include="ViewModels\EmployeeVM.cs" />
     <Compile Include="ViewModels\KPIVM.cs" />
     <Compile Include="ViewModels\PositionVM.cs" />

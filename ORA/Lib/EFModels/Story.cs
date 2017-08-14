@@ -7,7 +7,6 @@ namespace Lib.EFModels {
     public class Story {
         [Key]
         public int StoryID { get; set; }
-        public string Title { get; set; }
 
         [Required]
         [StringLength(30)]

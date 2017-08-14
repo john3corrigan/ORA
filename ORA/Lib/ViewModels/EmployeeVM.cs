@@ -7,8 +7,6 @@ namespace Lib.ViewModels {
     {
         public int EmployeeID { get; set; }
 
-        public string Title { get; set; }
-
         [Display(Name = "Employee Badge Number")]
         public string EmployeeNumber { get; set; }
 

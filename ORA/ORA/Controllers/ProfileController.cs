@@ -31,25 +31,46 @@ namespace ORA.Controllers
         public ActionResult ViewProfileByID(int ProfileID)
         {
             CreateProfileVM profile = Profiles.GetCreateProfileByID(ProfileID);
-            if (profile.Summary == null && Session["Name"].ToString().Contains(profile.FirstName))
+            if (profile == null)
             {
-                return View("UpdateProfile", profile);
-            }
-            else if(profile.Summary == null && !Session["Name"].ToString().Contains(profile.FirstName))
-            {
+                TempData["ProfileID"] = ProfileID;
                 TempData["Error"] = 1;
                 return View();
             }
             else
             {
-                return View(Profiles.GetProfileByID(ProfileID));
+                if (profile.Summary == null)
+                {
+                    if (!Session["Name"].ToString().Contains(profile.FirstName))
+                    {
+                        TempData["Error"] = 1;
+                        return View();
+                    }
+                    else
+                    {
+                        return View("UpdateProfile", profile);
+                    }
+                }
+                else
+                {
+                    return View(Profiles.GetProfileByID(ProfileID));
+                }
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult ViewProfile(FormCollection form)
         {
-            return View(Profiles.GetProfileByID(int.Parse(form[0])));
+            ProfileVM profile = Profiles.GetProfileByID(int.Parse(form[0]));
+            if (profile != null)
+            {
+                return View("ViewProfileByID", profile);
+            }
+            else
+            {
+                TempData["Error"] = 2;
+                return View("ViewProfileByID");
+            }
         }
 
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]

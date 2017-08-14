@@ -15,7 +15,8 @@ namespace Lib.ViewModels
         public int PositionID { get; set; }
         public string Country { get; set; }
         public int Zip { get; set; }
-        public List<string> Education { get; set; }
+        public int? EducationID { get; set; }
+        public EducationVM Education { get; set; }
         public string Industry { get; set; }
         public string Summary { get; set; }
         public DateTime Modified { get; set; }
@@ -33,7 +34,7 @@ namespace Lib.ViewModels
         public int PositionID { get; set; }
         public string Country { get; set; }
         public int Zip { get; set; }
-        public List<string> Education { get; set; }
+        public List<EducationVM> EducationList { get; set; }
         public string Industry { get; set; }
         public string Summary { get; set; }
         public DateTime Modified { get; set; }
