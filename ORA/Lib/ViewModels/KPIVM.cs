@@ -4,7 +4,6 @@ using System.Collections.Generic;
 namespace Lib.ViewModels {
     public class KPIVM {
         public int KPIID { get; set; }
-        public string Title { get; set; }
         public int Points { get; set; }
         public int TCCreated { get; set; }
         public int TCExcuted { get; set; }

@@ -10,6 +10,7 @@ using Ninject;
 using Lib.InterfacesLogic;
 using BusinessLogic.ORALogic;
 using ORA.AutoMapper;
+using System.Data.Entity;
 
 namespace ORA
 {

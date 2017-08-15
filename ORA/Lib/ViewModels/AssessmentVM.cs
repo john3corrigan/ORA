@@ -6,8 +6,6 @@ namespace Lib.ViewModels {
     public class AssessmentVM {
         public int AssessmentID { get; set; }
 
-        public string Title { get; set; }
-
         [Display(Name ="Problem Solving")]
         public int TDProblemSolving { get; set; }
 

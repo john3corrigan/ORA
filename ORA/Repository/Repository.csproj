@@ -60,6 +60,7 @@
     <Compile Include="Repositories\AssignmentRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\ClientRepository.cs" />
+    <Compile Include="Repositories\EducationRepository.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\KPIRepository.cs" />
     <Compile Include="Repositories\PositionRepository.cs" />
@@ -80,6 +81,5 @@
       <Name>Lib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

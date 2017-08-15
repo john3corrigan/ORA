@@ -7,8 +7,7 @@ namespace Lib.EFModels {
     public class Sprint {
         [Key]
         public int SprintID { get; set; }
-
-        public string Title { get; set; }
+        
         [Required]
         public int SprintNumber { get; set; }
 

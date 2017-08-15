@@ -4,7 +4,6 @@ using System.Collections.Generic;
 namespace Lib.ViewModels {
     public class TeamVM {
         public int TeamID { get; set; }
-        public string Title { get; set; }
         public string TeamName { get; set; }
         public List<AssignmentVM> Assignment { get; set; }
         public int ClientID { get; set; }
@@ -16,7 +15,6 @@ namespace Lib.ViewModels {
     }
     public class CreateTeamVM{
         public int TeamID { get; set; }
-        public string Title { get; set; }
         public string TeamName { get; set; }
         public List<AssignmentVM> Assignment { get; set; }
         public int ClientID { get; set; }

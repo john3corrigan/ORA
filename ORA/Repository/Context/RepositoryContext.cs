@@ -21,10 +21,12 @@ namespace Repository.Context {
         public DbSet<Story> Story;
         public DbSet<Team> Team;
         public DbSet<Profile> Profile;
-        //public DbSet<Education> Education;
+        public DbSet<Education> Education;
 
         public RepositoryContext() { }
 
+
+        
         public RepositoryContext(string connectionString) : base(connectionString) {
         }
 
@@ -32,6 +34,7 @@ namespace Repository.Context {
             modelBuilder.Entity<Assessment>().ToTable("Assessment");
             modelBuilder.Entity<Assignment>().ToTable("Assignment");
             modelBuilder.Entity<Client>().ToTable("Client");
+            modelBuilder.Entity<Education>().ToTable("Education");
             modelBuilder.Entity<Employee>().ToTable("Employee");
             modelBuilder.Entity<KPI>().ToTable("KPI");
             modelBuilder.Entity<Position>().ToTable("Position");
@@ -41,7 +44,6 @@ namespace Repository.Context {
             modelBuilder.Entity<Story>().ToTable("Story");
             modelBuilder.Entity<Team>().ToTable("Team");
             modelBuilder.Entity<Profile>().ToTable("Profile");
-            //modelBuilder.Entity<Education>().ToTable("Education");
 
             modelBuilder.Entity<Client>().HasMany(c => c.Story);
             modelBuilder.Entity<Client>().HasMany(c => c.Team);
@@ -66,6 +68,8 @@ namespace Repository.Context {
 
             modelBuilder.Entity<Team>().HasMany(t => t.Assignment);
 
+            modelBuilder.Entity<Profile>().HasOptional(p => p.Education);
+            modelBuilder.Entity<Profile>().Property(p => p.EducationID).IsOptional();
         }
     }
 }

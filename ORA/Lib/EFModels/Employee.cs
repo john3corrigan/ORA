@@ -8,7 +8,6 @@ namespace Lib.EFModels {
     public class Employee {
         [Key]
         public int EmployeeID { get; set; }
-        public string Title { get; set; }
 
         public string EmployeeNumber { get; set; }
 

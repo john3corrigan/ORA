@@ -27,8 +27,15 @@ namespace BusinessLogic.ORALogic
         public CreateProfileVM GetCreateProfileByID(int id)
         {
             CreateProfileVM Profile = Profiles.GetCreateProfileByID(id);
-            Profile.PositionList = Positions.GetAllPositions();
-            return Profile;
+            if (Profile != null)
+            {
+                Profile.PositionList = Positions.GetAllPositions();
+                return Profile;
+            }
+            else
+            {
+                return null;
+            }
         }
         public void AddProfile(ProfileVM profile)
         {

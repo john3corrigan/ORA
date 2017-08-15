@@ -6,7 +6,6 @@ namespace Lib.ViewModels
     public class StoryVM
     {
         public int StoryID { get; set; }
-        public string Title { get; set; }
         public string StoryName { get; set; }
         public int StoryNumber { get; set; }
         public DateTime StoryStartDate { get; set; }
@@ -22,7 +21,6 @@ namespace Lib.ViewModels
     public class CreateStoryVM
     {
         public int StoryID { get; set; }
-        public string Title { get; set; }
         public string StoryName { get; set; }
         public int StoryNumber { get; set; }
         public DateTime StoryStartDate { get; set; }

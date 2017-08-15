@@ -7,7 +7,6 @@ namespace Lib.EFModels {
     public class Team {
         [Key]
         public int TeamID { get; set; }
-        public string Title { get; set; }
 
         [Required]
         [StringLength(50)]

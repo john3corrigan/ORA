@@ -57,7 +57,7 @@
                         <td>@Html.DisplayName(Value.CreatedBy)</td>
                         <td>@Html.DisplayName(Value.Modified.ToString())</td>
                         <td>@Html.DisplayName(Value.ModifiedBy)</td>
-                        <td>@Html.ActionLink("View Employee", "ViewEmployee", routeValues: new { EmployeeID = Value.EmployeeID })</td>
+                        <td>@Html.ActionLink("View Employee", "ViewProfileByID", "Profile", routeValues: new { ProfileID = Value.EmployeeID }, htmlAttributes: new  { Area = "" })</td>
                     </tr>
                 }
             }
@@ -100,7 +100,7 @@
                         <td>@Html.DisplayName(Value.CreatedBy)</td>
                         <td>@Html.DisplayName(Value.Modified.ToString())</td>
                         <td>@Html.DisplayName(Value.ModifiedBy)</td>
-                        <td>@Html.ActionLink("View Employee", "ViewEmployee", routeValues: new { EmployeeID = Value.EmployeeID })</td>
+                        <td>@Html.ActionLink("View Employee", "ViewProfileByID", "Profile", routeValues: new { ProfileID = Value.EmployeeID }, htmlAttributes: new { Area = "" })</td>
                     </tr>
                 }
             }
