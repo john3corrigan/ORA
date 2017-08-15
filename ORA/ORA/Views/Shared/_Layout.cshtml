@@ -62,36 +62,36 @@
                                             @if (Session["Name"] != null)
                                             {
                                                 <div class="dropdown">
-                                                    <button class="dropbtn">Assessment</button>
+                                                    <button class="dropbtn" id="Assessment">Assessment</button>
                                                     <div class="content">
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD"))
                                                         {
-                                                            @Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")
+                                                            @Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment", new { onclick = "tabActive('Assessment')"})
                                                         }
-                                                        @Html.ActionLink("View All Assessments", "Index", "Assessment")
+                                                        @Html.ActionLink("View All Assessments", "Index", "Assessment", new { onclick = "tabActive('Assessment')" })
                                                     </div>
                                                 </div>
 
                                                 <div class="dropdown">
-                                                    <button class="dropbtn">Assignment</button>
+                                                    <button class="dropbtn" id="Assignment">Assignment</button>
                                                     <div class=" content">
                                                         @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
-                                                            @Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment")
+                                                            @Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment", new { onclick = "tabActive('Assignment')" })
                                                         }
-                                                        @Html.ActionLink("View All Assignments", "Index", "Assignment")
+                                                        @Html.ActionLink("View All Assignments", "Index", "Assignment", new { onclick = "tabActive('Assignment')" })
                                                     </div>
                                                 </div>
                                                 if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                 {
                                                     <div class=" dropdown">
-                                                        <button class="dropbtn">Client</button>
+                                                        <button class="dropbtn" id="Client">Client</button>
                                                         <div class=" content">
                                                             @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
-                                                                @Html.ActionLink("Add a Client", "AddClient", "Client")
+                                                                @Html.ActionLink("Add a Client", "AddClient", "Client", new { onclick = "tabActive('Client')" })
                                                             }
-                                                            @Html.ActionLink("View All Clients", "Index", "Client")
+                                                            @Html.ActionLink("View All Clients", "Index", "Client", new { onclick = "tabActive('Client')" })
                                                         </div>
                                                     </div>
 
@@ -99,69 +99,69 @@
                                                 if (Session["Roles"].ToString().Contains("ADMINISTRATOR"))
                                                 {
                                                     <div class=" dropdown">
-                                                        <button class="dropbtn">Employee</button>
+                                                        <button class="dropbtn" id="Employee">Employee</button>
                                                         <div class="content">
-                                                            @Html.ActionLink("Add an Employee", "AddEmployee", "Employee")
-                                                            @Html.ActionLink("View All Employees", "Index", "Employee")
+                                                            @Html.ActionLink("Add an Employee", "AddEmployee", "Employee", new { onclick = "tabActive('Employee')" })
+                                                            @Html.ActionLink("View All Employees", "Index", "Employee", new { onclick = "tabActive('Employee')" })
                                                         </div>
                                                     </div>
 
                                                 }
                                                 <div class=" dropdown">
-                                                    <button class="dropbtn">KPI</button>
+                                                    <button class="dropbtn" id="KPI">KPI</button>
                                                     <div class="content">
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
-                                                            @Html.ActionLink("Create a KPI", "CreateKPI", "KPI")
+                                                            @Html.ActionLink("Create a KPI", "CreateKPI", "KPI", new { onclick = "tabActive('KPI')" })
                                                         }
-                                                        @Html.ActionLink("View All KPIs", "Index", "KPI")
+                                                        @Html.ActionLink("View All KPIs", "Index", "KPI", new { onclick = "tabActive('KPI')" })
                                                     </div>
                                                 </div>
 
                                                 <div class="dropdown">
-                                                    <button class="dropbtn">Project</button>
+                                                    <button class="dropbtn" id="Project">Project</button>
                                                     <div class="content">
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
-                                                            @Html.ActionLink("Create a Project", "CreateProject", "Project")
+                                                            @Html.ActionLink("Create a Project", "CreateProject", "Project", new { onclick = "tabActive('Project')" })
                                                         }
-                                                        @Html.ActionLink("View All Projects", "Index", "Project")
+                                                        @Html.ActionLink("View All Projects", "Index", "Project", new { onclick = "tabActive('Project')" })
                                                     </div>
                                                 </div>
 
                                                 <div class="dropdown">
-                                                    <button class="dropbtn">Sprint</button>
+                                                    <button class="dropbtn" id="Sprint">Sprint</button>
                                                     <div class="content">
 
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
-                                                            @Html.ActionLink("Create a Sprint", "CreateSprint", "Sprint")
+                                                            @Html.ActionLink("Create a Sprint", "CreateSprint", "Sprint", new { onclick = "tabActive('Sprint')" })
                                                         }
-                                                        @Html.ActionLink("View All Sprints", "Index", "Sprint")
+                                                        @Html.ActionLink("View All Sprints", "Index", "Sprint", new { onclick = "tabActive('Sprint')" })
                                                     </div>
                                                 </div>
 
                                                 <div class=" dropdown">
-                                                    <button class="dropbtn">Story</button>
+                                                    <button class="dropbtn" id="Story">Story</button>
                                                     <div class="content">
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
-                                                            @Html.ActionLink("Create a Story", "CreateStory", "Story")
+                                                            @Html.ActionLink("Create a Story", "CreateStory", "Story", new { onclick = "tabActive('Story')" })
                                                         }
-                                                        @Html.ActionLink("View All Stories", "Index", "Story")
+                                                        @Html.ActionLink("View All Stories", "Index", "Story", new { onclick = "tabActive('Story')" })
                                                     </div>
                                                 </div>
 
                                                 if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                 {
                                                     <div class=" dropdown">
-                                                        <button class="dropbtn">Team</button>
+                                                        <button class="dropbtn" id="Team">Team</button>
                                                         <div class="content">
                                                             @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
-                                                                @Html.ActionLink("Create a Team", "CreateTeam", "Team")
+                                                                @Html.ActionLink("Create a Team", "CreateTeam", "Team", new { onclick = "tabActive('Team')" })
                                                             }
-                                                            @Html.ActionLink("View All Teams", "Index", "Team")
+                                                            @Html.ActionLink("View All Teams", "Index", "Team", new { onclick = "tabActive('Team')" })
                                                         </div>
                                                     </div>
 
@@ -188,7 +188,7 @@
     </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/OraScript")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/OraScript.js"></script>
 </body>
 </html>
