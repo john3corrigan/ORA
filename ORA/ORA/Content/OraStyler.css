@@ -148,6 +148,11 @@ nav {
     background-color: inherit;
 }
 
+.active {
+        background-color: white;
+        color: black;
+}
+
 .nav_container a:hover {
     background: white;
     color: black;

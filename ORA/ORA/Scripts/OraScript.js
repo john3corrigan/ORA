@@ -1,11 +1,5 @@
-﻿function tabActive(btnName) {
-    var i, buttonName;
-
-    buttonName = document.getElementsByClassName("dropbtn");
-    for (i = 0; i < buttonName.length; i++) {
-        buttonName[i].className = buttonName[i].className.replace(" active", "");
-    }
-
-    document.getElementById(btnName).className += " active";
-
-}
+﻿jQuery(document).ready(function ($) {
+    var path = window.location.pathname.split("/")[1];
+    var target = $('nav div div button[id = "' + path + '"]');
+    target.addClass(' active');
+ });
