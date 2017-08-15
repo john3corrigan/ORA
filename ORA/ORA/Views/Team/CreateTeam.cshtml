@@ -7,14 +7,9 @@
 
 @using (Html.BeginForm("CreateTeam", "Team", FormMethod.Post))
 {
-    @if (true) { }
+    if (true) { }
     <div>
         <div>
-            <div>
-                @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextBoxFormat" })
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Title)</font>
-            </div>
             <div>
                 @Html.LabelFor(m => m.TeamName, new { @class = "LabelFormat" })
                 @Html.TextBoxFor(m => m.TeamName, new { @class = "form-control TextBoxFormat" })

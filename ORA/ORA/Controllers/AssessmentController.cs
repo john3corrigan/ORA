@@ -51,12 +51,12 @@ namespace ORA.Controllers
             if (Session["Roles"].ToString().Contains("MANAGER"))
             {
                 TempData["Stage"] = 2;
-                return View("Index", Assessments.GetAssessmentForServiceManager((int)Session["ID"], Session["Roles"].ToString(), DateTime.Parse(form[0]), DateTime.Parse(form[1])));
+                return View("Index", Assessments.GetAssessmentForServiceManager((int)Session["ID"], DateTime.Parse(form[0]), DateTime.Parse(form[1])));
             }
             else
             {
                 TempData["Stage"] = 2;
-                return View("Index", Assessments.GetAssessmentForTeamLead((int)Session["ID"], Session["Roles"].ToString(), DateTime.Parse(form[0]), DateTime.Parse(form[1])));
+                return View("Index", Assessments.GetAssessmentForTeamLead((int)Session["ID"], DateTime.Parse(form[0]), DateTime.Parse(form[1])));
             }
         }
 

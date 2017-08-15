@@ -66,32 +66,40 @@ namespace BusinessLogic.ORALogic
             return assessments;
         }
 
-        public List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, string roles, DateTime Start, DateTime End)
+        public List<EmployeeVM> GetAssessmentForTeamLead(int employeeID,  DateTime Start, DateTime End)
         {
-            List<AssignmentVM> assignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.EmployeeID == employeeID && roles.Contains(Roles.GetRoleByID(a.RoleID).RoleName) && (a.StartDate <= Start && Start <= a.EndDate || a.StartDate <= End && End <= a.EndDate)).ToList();
+            List<AssignmentVM> myAssignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.RoleID < 7  && (a.StartDate <= Start && Start <= a.EndDate || a.StartDate <= End && End <= a.EndDate)).ToList();
             return Employees.GetAllEmployees().Where(e =>
             {
-                foreach (var assign in assignmentsList)
+                foreach (var assign in myAssignmentsList)
                 {
-                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID || assign.TeamID == a.TeamID).FirstOrDefault() != null)
+                    var assignments = Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID);
+                    foreach (var item in assignments)
                     {
-                        return true;
+                        if (item.TeamID == assign.TeamID)
+                        {
+                            return true;
+                        }
                     }
                 }
                 return false;
             }).ToList();
         }
 
-        public List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, string roles, DateTime Start, DateTime End)
+        public List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, DateTime Start, DateTime End)
         {
-            List<AssignmentVM> assignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.EmployeeID == employeeID && roles.Contains(Roles.GetRoleByID(a.RoleID).RoleName) && (a.StartDate <= Start && Start <= a.EndDate || a.StartDate <= End && End <= a.EndDate)).ToList();
+            List<AssignmentVM> myAssignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.RoleID < 6 && (a.StartDate <= Start && Start <= a.EndDate || a.StartDate <= End && End <= a.EndDate)).ToList();
             return Employees.GetAllEmployees().Where(e =>
             {
-                foreach (var assign in assignmentsList)
+                foreach (var assign in myAssignmentsList)
                 {
-                    if (Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID || assign.ClientID == a.ClientID || assign.TeamID == a.TeamID).FirstOrDefault() != null)
+                    var assignments = Assignments.GetAllAssignments().Where(a => a.EmployeeID == e.EmployeeID);
+                    foreach (var item in assignments)
                     {
-                        return true;
+                        if (item.ClientID == assign.ClientID)
+                        {
+                            return true;
+                        }
                     }
                 }
                 return false;

@@ -7,7 +7,6 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Points</th>
         <th>TC Created</th>
         <th>TC Excuted</th>
@@ -31,15 +30,6 @@
         <th></th>
     </tr>
     <tr>
-        @if (Model.Title == null)
-        {
-            <td>null</td>
-        }
-        else
-        {
-            <td>@Html.DisplayName(Model.Title)</td>
-        }
-        
         <td>@Html.DisplayName(Model.Points.ToString())</td>
         <td>@Html.DisplayName(Model.TCCreated.ToString())</td>
         <td>@Html.DisplayName(Model.TCExcuted.ToString())</td>

@@ -11,7 +11,7 @@ namespace Lib.InterfacesLogic
         List<ProfileVM> GetAllProfiles();
         ProfileVM GetProfileByID(int id);
         void AddProfile(ProfileVM profile);
-        void UpdateProfile(ProfileVM profile);
+        void UpdateProfile(CreateProfileVM profile);
         void DeleteProfile(int id);
         CreateProfileVM GetCreateProfileByID(int profileID);
     }

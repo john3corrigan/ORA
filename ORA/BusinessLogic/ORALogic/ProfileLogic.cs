@@ -2,6 +2,7 @@
 using Lib.InterfacesLogic;
 using Lib.ViewModels;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessLogic.ORALogic
 {
@@ -9,11 +10,13 @@ namespace BusinessLogic.ORALogic
     {
         private IProfileRepository Profiles;
         private IPositionRepository Positions;
+        private IEducationRepository Education;
 
-        public ProfileLogic(IProfileRepository prfl, IPositionRepository pstn)
+        public ProfileLogic(IProfileRepository prfl, IPositionRepository pstn, IEducationRepository edu)
         {
             Profiles = prfl;
             Positions = pstn;
+            Education = edu;
         }
         public List<ProfileVM> GetAllProfiles()
         {
@@ -22,6 +25,7 @@ namespace BusinessLogic.ORALogic
         public ProfileVM GetProfileByID(int id)
         {
             ProfileVM Profile = Profiles.GetProfileByID(id);
+            Profile.Education = Education.GetEducationByID(Profile.EducationID);
             return Profile;
         }
         public CreateProfileVM GetCreateProfileByID(int id)
@@ -30,6 +34,8 @@ namespace BusinessLogic.ORALogic
             if (Profile != null)
             {
                 Profile.PositionList = Positions.GetAllPositions();
+                Profile.EducationList = Education.GetAllEducation();
+                Profile.Position = Positions.GetPositionByID(Profile.PositionID);
                 return Profile;
             }
             else
@@ -41,8 +47,14 @@ namespace BusinessLogic.ORALogic
         {
             Profiles.AddProfile(profile);
         }
-        public void UpdateProfile(ProfileVM profile)
+        public void UpdateProfile(CreateProfileVM profile)
         {
+            if (profile.NewEducation != null)
+            {
+                EducationVM edu = new EducationVM() { EducationName = profile.NewEducation };
+                Education.AddEducation(edu);
+                profile.EducationID = Education.GetAllEducation().Where(e => e.EducationName == edu.EducationName).FirstOrDefault().EducationID;
+            }
             Profiles.UpdateProfile(profile);
         }
         public void DeleteProfile(int id)

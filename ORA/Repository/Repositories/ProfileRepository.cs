@@ -34,7 +34,7 @@ namespace Repository.Repositories {
             Save();
         }
 
-        public void UpdateProfile(ProfileVM profile) {
+        public void UpdateProfile(CreateProfileVM profile) {
             Update(Mapper.Map<Lib.EFModels.Profile>(profile));
             Save();
         }

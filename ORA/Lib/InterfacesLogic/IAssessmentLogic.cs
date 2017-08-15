@@ -16,7 +16,7 @@ namespace Lib.InterfacesLogic
         void UpdateAssessment(AssessmentVM updatedAssessment);
         CreateAssessmentVM AddAssessment(DateTime created, int myID, int teamID);
         List<AssessmentVM> GetAssessmentByAssignmentID(int assignmentID);
-        List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, string roles, DateTime Start, DateTime End);
-        List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, string roles, DateTime Start, DateTime End);
+        List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, DateTime Start, DateTime End);
+        List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, DateTime Start, DateTime End);
     }
 }

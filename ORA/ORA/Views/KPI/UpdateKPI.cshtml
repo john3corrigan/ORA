@@ -9,106 +9,63 @@
 {
     <div>
         <div>
-            <div>
-                @Html.LabelFor(m => m.Title, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.Title)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Points, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.Points, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.Points)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.TCCreated, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.TCCreated, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.TCCreated)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.TCExcuted, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.TCExcuted, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.TCExcuted)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.TCFailed, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.TCFailed, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.TCFailed)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.TCPassed, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.TCPassed, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.TCPassed)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.DefectsFound, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.DefectsFound, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.DefectsFound)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.DefectsFixed, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.DefectsFixed, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.DefectsFixed)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.DefectsRejected, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.DefectsRejected, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.DefectsRejected)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.DefectsDeferred, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.DefectsDeferred, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.DefectsDeferred)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.CriticalDefects, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.CriticalDefects, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.CriticalDefects)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.TestHrsPlanned, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.TestHrsPlanned, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.TestHrsPlanned)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.TestHrsActual, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.TestHrsActual, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.TestHrsActual)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.BugsFoundProduction, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.BugsFoundProduction, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.BugsFoundProduction)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.TotalHrsFixingBugs, new { @class = "LabelFormat" })
-                @Html.TextBoxFor(m => m.TotalHrsFixingBugs, new { @class = "form-control TextBoxFormat" })
-                <font>@Html.ValidationMessageFor(m => m.TotalHrsFixingBugs)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Project, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.ProjectID, new SelectList(Model.ProjectList, "ProjectID", "ProjectName", new { id = "dropdown" }), "---Select---")
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Project)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Sprint, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.SprintID, new SelectList(Model.SprintList, "SprintID", "SprintName", new { id = "dropdown" }), "---Select---")
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Sprint)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Story, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.StoryID, new SelectList(Model.StoryList, "StoryID", "StoryName", new { id = "dropdown" }), "---Select---")
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Assignment, new { @class = "LabelFormat" })
-                @Html.DropDownListFor(m => m.AssignmentID, new SelectList(Model.AssignmentList, "AssignmentID", "AssignmentID", new { id = "dropdown" }), "---Select---")
-                <font color="ff0000">@Html.ValidationMessageFor(m => m.Story)</font>
-            </div>
-            @Html.HiddenFor(m => m.KPIID, new { Value = Model.KPIID })
+            <table>
+                <tr><th>Key Performance Index</th><th>@Html.DisplayName(TempData["Date"].ToString().Split(' ')[0])</th><th>Test Cases</th><th></th><th>Defects</th><th></th><th>Testing &amp; Bugs</th><th></th></tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Assignment, new { @class = "LabelFormat" })</td>
+                    <td>@Html.DropDownListFor(m => m.AssignmentID, new SelectList(Model.AssignmentList.Distinct(), "AssignmentID", "Title", new { id = "dropdown" }), "---Select---")</td>
+                    <td>@Html.LabelFor(m => m.TCCreated, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.TCCreated, new { @class = "form-control TextBoxFormat" })</td>
+                    <td>@Html.LabelFor(m => m.DefectsFound, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.DefectsFound, new { @class = "form-control TextBoxFormat" })</td>
+                    <td>@Html.LabelFor(m => m.TestHrsPlanned, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.TestHrsPlanned, new { @class = "form-control TextBoxFormat" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Project, new { @class = "LabelFormat" })</td>
+                    <td>@Html.DropDownListFor(m => m.ProjectID, new SelectList(Model.ProjectList, "ProjectID", "ProjectName", new { id = "dropdown" }), "---Select---")</td>
+                    <td>@Html.LabelFor(m => m.TCExcuted, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.TCExcuted, new { @class = "form-control TextBoxFormat" })</td>
+                    <td>@Html.LabelFor(m => m.DefectsFixed, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.DefectsFixed, new { @class = "form-control TextBoxFormat" })</td>
+                    <td>@Html.LabelFor(m => m.TestHrsActual, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.TestHrsActual, new { @class = "form-control TextBoxFormat" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Sprint, new { @class = "LabelFormat" })</td>
+                    <td>@Html.DropDownListFor(m => m.SprintID, new SelectList(Model.SprintList, "SprintID", "SprintName", new { id = "dropdown" }), "---Select---")</td>
+                    <td>@Html.LabelFor(m => m.TCFailed, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.TCFailed, new { @class = "form-control TextBoxFormat" })</td>
+                    <td>@Html.LabelFor(m => m.DefectsRejected, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.DefectsRejected, new { @class = "form-control TextBoxFormat" })</td>
+                    <td>@Html.LabelFor(m => m.BugsFoundProduction, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.BugsFoundProduction, new { @class = "form-control TextBoxFormat" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Story, new { @class = "LabelFormat" })</td>
+                    <td>@Html.DropDownListFor(m => m.StoryID, new SelectList(Model.StoryList, "StoryID", "StoryName", new { id = "dropdown" }), "---Select---")</td>
+                    <td>@Html.LabelFor(m => m.TCPassed, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.TCPassed, new { @class = "form-control TextBoxFormat" })</td>
+                    <td>@Html.LabelFor(m => m.DefectsDeferred, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.DefectsDeferred, new { @class = "form-control TextBoxFormat" })</td>
+                    <td>@Html.LabelFor(m => m.TotalHrsFixingBugs, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.TotalHrsFixingBugs, new { @class = "form-control TextBoxFormat" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Points, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.Points, new { @class = "form-control TextBoxFormat" })</td>
+                    <td></td>
+                    <td></td>
+                    <td>@Html.LabelFor(m => m.CriticalDefects, new { @class = "LabelFormat" })</td>
+                    <td>@Html.TextBoxFor(m => m.CriticalDefects, new { @class = "form-control TextBoxFormat" })</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
             @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Created, new { @Value = (DateTime)TempData["Date"] })
             @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
-            @Html.HiddenFor(m => m.Created, new { @Value = (DateTime)TempData["TempKPI"] })
-            @Html.HiddenFor(m => m.CreatedBy, new { @Value = (string)TempData["TempCreated"] })
             <input type="submit" value="Submit" />
         </div>
     </div>

@@ -48,7 +48,7 @@ namespace BusinessLogic.ORALogic
 
         public List<ClientVM> GetClientsManager(int empID)
         {
-            var assignments = Employees.GetEmployeeByID(empID).Assignment.Where(a => a.RoleID > 7).ToList();
+            var assignments = Employees.GetEmployeeByID(empID).Assignment.Where(a => a.RoleID < 6).ToList();
             return Clients.GetAllClients().Where(c => {
                 foreach(var assign in assignments)
                 {

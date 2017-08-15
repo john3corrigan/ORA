@@ -1,4 +1,4 @@
-﻿@model Lib.ViewModels.AssessmentVM
+﻿@model Lib.ViewModels.CreateAssessmentVM
 @{
     ViewBag.Title = "UpdateAssessment";
 }
@@ -7,145 +7,229 @@
 
 @using (Html.BeginForm("UpdateAssessment", "Assessment", FormMethod.Post))
 {
-    <div>
-        <div>
-            @Html.LabelFor(m => m.Title, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.Title, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.Title)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TDProblemSolving, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TDProblemSolving, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TDProblemSolving)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TDQualityOfWork, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TDQualityOfWork, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TDQualityOfWork)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TDProductivity, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TDProductivity, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TDProductivity)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TDProductKnowledge, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TDProductKnowledge, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TDProductKnowledge)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TDComments, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TDComments, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TDComments)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.CSRProfessionalismTeamwork, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.CSRProfessionalismTeamwork, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.CSRProfessionalismTeamwork)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.CSRVerbalSkills, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.CSRVerbalSkills, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.CSRVerbalSkills)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.CSRWrittenSkills, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.CSRWrittenSkills, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.CSRWrittenSkills)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.CSRListeningSkills, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.CSRListeningSkills, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.CSRListeningSkills)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.CSRComments, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.CSRComments, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.CSRComments)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.ADAttendence, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.ADAttendence, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.ADAttendence)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.ADEthiclBehavior, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.ADEthiclBehavior, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.ADEthiclBehavior)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.ADMeetsDeadlines, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.ADMeetsDeadlines, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.ADMeetsDeadlines)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.ADOrganizeDetailedWork, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.ADOrganizeDetailedWork, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.ADOrganizeDetailedWork)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.ADComments, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.ADComments, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.ADComments)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TMResourceUse, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TMResourceUse, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TMResourceUse)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TMFeedBack, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TMFeedBack, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TMFeedBack)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TMTehcnicalMonitoring, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TMTehcnicalMonitoring, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TMTehcnicalMonitoring)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TMAskingQuestions, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TMAskingQuestions, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TMAskingQuestions)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.TMComments, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.TMComments, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.TMComments)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.MIAttitudeWork, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.MIAttitudeWork, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.MIAttitudeWork)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.MIGroomingAppearence, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.MIGroomingAppearence, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.MIGroomingAppearence)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.MIPersonalGrowth, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.MIPersonalGrowth, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.MIPersonalGrowth)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.MIPotencialAdvancement, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.MIPotencialAdvancement, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.MIPotencialAdvancement)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.MIComments, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.MIComments, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.MIComments)</font>
-        </div>
-        <div>
-            @Html.LabelFor(m => m.ActiveFlag, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.ActiveFlag, new { @class = "form-control TextboxFormat" })
-            <font color="">@Html.ValidationMessageFor(m => m.ActiveFlag)</font>
-        </div>
-        @Html.HiddenFor(m => m.AssessmentID, new { @Value = Model.AssessmentID })
-        @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
-        @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
-        <input type="submit" value="Create" />
-    </div>
+    <font color="Red">@Html.ValidationSummary(true)</font>
+
+    @Html.LabelFor(m => m.Assignment.Employee.EmployeeName, new { @class = "LableFormat" })
+    @Html.DropDownListFor(m => m.AssignmentID, new SelectList(Model.EmployeeList.Distinct(), "EmployeeID", "EmployeeName", Model.AssignmentList), "---Select---")
+    <br />
+        <table>
+            <tr><th>Areas Of Assessment</th></tr>
+        </table>
+        <table>
+            <tr>
+                <th>Technical Delivery</th>
+                <th id="TDAverage">1</th>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TDProblemSolving, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.TDProblemSolving, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"ProblemSolving\", this.value)", @class = "TDAverage", id = "ProblemSolving" })</td>
+                <td id="ProblemSolvingDesc">
+                    <script>$('#ProblemSolvingDesc').html(SelectValue('ProblemSolving')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TDQualityOfWork, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.TDQualityOfWork, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"QualityofWork\", this.value)", @class = "TDAverage", id = "QualityofWork" })</td>
+                <td id="QualityofWorkDesc">
+                    <script>$('#QualityofWorkDesc').html(SelectValue('QualityofWork')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TDProductivity, new { @class = "LableFormat" }) </td>
+                <td>@Html.DropDownListFor(m => m.TDProductivity, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"Productivity\", this.value)", @class = "TDAverage", @id = "Productivity" })</td>
+                <td id="ProductivityDesc">
+                    <script>$('#ProductivityDesc').html(SelectValue('Productivity')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TDProductKnowledge, new { @class = "LableFormat" }) </td>
+                <td>@Html.DropDownListFor(m => m.TDProductKnowledge, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"ProductKnowledge\", this.value)", @class = "TDAverage", @id = "ProductKnowledge" })</td>
+                <td id="ProductKnowledgeDesc">
+                    <script>$('#ProductKnowledgeDesc').html(SelectValue('ProductKnowledge')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TDComments, new { @class = "LableFormat" }) </td>
+                <td>@Html.TextBoxFor(m => m.TDComments, new { @class = "form-control TextboxFormat" })</td>
+            </tr>
+        </table>
+        <br />
+        <table>
+            <tr>
+                <th>Customer Service &amp; Relationships</th>
+                <th id="CSRAverage">1</th>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.CSRProfessionalismTeamwork, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.CSRProfessionalismTeamwork, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"ProfessionalismAndTeamwork\", this.value)", @class = "CSRAverage", @id = "ProfessionalismAndTeamwork" })</td>
+                <td id="ProfessionalismAndTeamworkDesc">
+                    <script>$('#ProfessionalismAndTeamworkDesc').html(SelectValue('ProfessionalismAndTeamwork')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.CSRVerbalSkills, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.CSRVerbalSkills, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"VerbalSkills\", this.value)", @class = "CSRAverage", @id = "VerbalSkills" })</td>
+                <td id="VerbalSkillsDesc">
+                    <script>$('#VerbalSkillsDesc').html(SelectValue('VerbalSkills')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.CSRWrittenSkills, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.CSRWrittenSkills, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"WrittenSkills\", this.value)", @class = "CSRAverage", @id = "WrittenSkills" })</td>
+                <td id="WrittenSkillsDesc">
+                    <script>$('#WrittenSkillsDesc').html(SelectValue('WrittenSkills')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.CSRListeningSkills, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.CSRListeningSkills, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"ListeningSkills\", this.value)", @class = "CSRAverage", @id = "ListeningSkills" })</td>
+                <td id="ListeningSkillsDesc">
+                    <script>$('#ListeningSkillsDesc').html(SelectValue('ListeningSkills')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.CSRComments, new { @class = "LableFormat" })</td>
+                <td>@Html.TextBoxFor(m => m.CSRComments, new { @class = "form-control TextboxFormat" })</td>
+            </tr>
+        </table>
+        <br />
+        <table>
+            <tr>
+                <th>Accountiability &amp; Dependability</th>
+                <th id="ADAverage">1</th>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ADAttendence, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.ADAttendence, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"Attendance\", this.value)", @class = "ADAverage", @id = "Attendance" })</td>
+                <td id="AttendanceDesc">
+                    <script>$('#AttendanceDesc').html(SelectValue('Attendance')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ADEthiclBehavior, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.ADEthiclBehavior, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"EthicalBehavior\", this.value)", @class = "ADAverage", @id = "EthicalBehavior" })</td>
+                <td id="EthicalBehaviorDesc">
+                    <script>$('#EthicalBehaviorDesc').html(SelectValue('EthicalBehavior')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ADMeetsDeadlines, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.ADMeetsDeadlines, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"AbilityToMeetDeadlines\", this.value)", @class = "ADAverage", @id = "AbilityToMeetDeadlines" })</td>
+                <td id="AbilityToMeetDeadlinesDesc">
+                    <script>$('#AbilityToMeetDeadlinesDesc').html(SelectValue('AbilityToMeetDeadlines')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ADOrganizeDetailedWork, new { @class = "LableFormat" }) </td>
+                <td>@Html.DropDownListFor(m => m.ADOrganizeDetailedWork, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"AbilityToOrganizeAndDetailWorkProcesses\", this.value)", @class = "ADAverage", @id = "AbilityToOrganizeAndDetailWorkProcesses" })</td>
+                <td id="AbilityToOrganizeAndDetailWorkProcessesDesc">
+                    <script>$('#AbilityToOrganizeAndDetailWorkProcessesDesc').html(SelectValue('AbilityToOrganizeAndDetailWorkProcesses')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ADComments, new { @class = "LableFormat" })</td>
+                <td>@Html.TextBoxFor(m => m.ADComments, new { @class = "form-control TextboxFormat" })</td>
+            </tr>
+        </table>
+        <br />
+        <table>
+            <tr>
+                <th>Training &amp; Mentoring</th>
+                <th id="TMAverage">1</th>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TMResourceUse, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.TMResourceUse, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"ResourceUse\", this.value)", @class = "TMAverage", @id = "ResourceUse" })</td>
+                <td id="ResourceUseDesc">
+                    <script>$('#ResourceUseDesc').html(SelectValue('ResourceUse')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TMFeedBack, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.TMFeedBack, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"FeedbackReceivingAndGiving\", this.value)", @class = "TMAverage", @id = "FeedbackReceivingAndGiving" })</td>
+                <td id="FeedbackReceivingAndGivingDesc">
+                    <script>$('#FeedbackReceivingAndGivingDesc').html(SelectValue('FeedbackReceivingAndGiving')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TMTechnicalMonitoring, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.TMTechnicalMonitoring, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"TechnicalMonitoringofJobSkills\", this.value)", @class = "TMAverage", @id = "TechnicalMonitoringofJobSkills" })</td>
+                <td id="TechnicalMonitoringofJobSkillsDesc">
+                    <script>$('#TechnicalMonitoringofJobSkillsDesc').html(SelectValue('TechnicalMonitoringofJobSkills')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TMAskingQuestions, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.TMAskingQuestions, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"AskingAppropriateQuestions\", this.value)", @class = "TMAverage", @id = "AskingAppropriateQuestions" })</td>
+                <td id="AskingAppropriateQuestionsDesc">
+                    <script>$('#AskingAppropriateQuestionsDesc').html(SelectValue('AskingAppropriateQuestions')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TMComments, new { @class = "LableFormat" })</td>
+                <td>@Html.TextBoxFor(m => m.TMComments, new { @class = "form-control TextboxFormat" })</td>
+            </tr>
+        </table>
+        <br />
+        <table>
+            <tr>
+                <th>Motivation &amp; Initiative</th>
+                <th id="" MIAverage"">1</th>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.MIAttitudeWork, new { @class = "LableFormat" }) </td>
+                <td>@Html.DropDownListFor(m => m.MIAttitudeWork, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"AttitudeorApproachtoWork\", this.value)", @class = "MIAverage", @id = "AttitudeorApproachtoWork" })</td>
+                <td id="AttitudeorApproachtoWorkDesc">
+                    <script>$('#AttitudeorApproachtoWorkDesc').html(SelectValue('AttitudeorApproachtoWork')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.MIGroomingAppearence, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.MIGroomingAppearence, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"GroomingAndAppearance\", this.value)", @class = "MIAverage", @id = "GroomingAndAppearance" })</td>
+                <td id="GroomingAndAppearanceDesc">
+                    <script>$('#GroomingAndAppearanceDesc').html(SelectValue('GroomingAndAppearance')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.MIPersonalGrowth, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.MIPersonalGrowth, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"PersonalGrowth\", this.value)", @class = "MIAverage", @id = "PersonalGrowth" })</td>
+                <td id="PersonalGrowthDesc">
+                    <script>$('#PersonalGrowthDesc').html(SelectValue('PersonalGrowth')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.MIPotencialAdvancement, new { @class = "LableFormat" })</td>
+                <td>@Html.DropDownListFor(m => m.MIPotencialAdvancement, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"PotentialforAdvancement\", this.value)", @class = "MIAverage", @id = "PotentialforAdvancement" })</td>
+                <td id="PotentialforAdvancementDesc">
+                    <script>$('#PotentialforAdvancementDesc').html(SelectValue('PotentialforAdvancement')[0])</script>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.MIComments, new { @class = "LableFormat" })</td>
+                <td>@Html.TextBoxFor(m => m.MIComments, new { @class = "form-control TextboxFormat" })</td>
+            </tr>
+            @Html.HiddenFor(m => m.CreatedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Created, new { @Value = (DateTime)TempData["Created"] })
+            @Html.HiddenFor(m => m.ModifiedBy, new { @Value = Session["Name"] })
+            @Html.HiddenFor(m => m.Modified, new { @Value = DateTime.Now })
+        </table>
+        <input type="submit" value="Create" class="btn" />
 }
+}
+else if ((int)TempData["Stage"] == 2 && Model.EmployeeList == null)
+{
+<span>No Employees Found</span>
+}
+<script>
+    function updateList(location, id) {
+        var Desc = SelectValue(location)[id - 1];
+        $('#' + location + 'Desc').html(Desc);
+        var className = document.getElementById(location).className
+        var elements = document.getElementsByClassName(className);
+        var average = 0;
+        for (var i = 0; i < elements.length; i++) {
+            average += parseInt(elements[i].value);
+        }
+        $('#' + className).html(average / elements.length);
+    }
+</script>

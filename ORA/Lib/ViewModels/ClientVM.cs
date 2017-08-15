@@ -6,6 +6,7 @@ namespace Lib.ViewModels {
     public class ClientVM {
         public int ClientID { get; set; }
         [Display(Name = "Client Name")]
+        //[RegularExpression()]
         public string ClientName { get; set; }
         [Display(Name = "Client Abbreviation")]
         public string ClientAbbreviation { get; set; }

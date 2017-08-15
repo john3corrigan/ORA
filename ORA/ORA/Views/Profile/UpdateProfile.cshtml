@@ -20,7 +20,7 @@
         </div>
         <div>
             @Html.LabelFor(m => m.Position, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.Position, new { @class = "form-control TextboxFormat" })
+            @Html.DropDownListFor(m => m.PositionID, new SelectList(Model.PositionList, "PositionID", "Title", new { @id = "dropdown" }))
             <font color="">@Html.ValidationMessageFor(m => m.Position)</font>
         </div>
         <div>
@@ -33,9 +33,14 @@
             @Html.TextBoxFor(m => m.Zip, new { @class = "form-control TextboxFormat" })
             <font color="">@Html.ValidationMessageFor(m => m.Zip)</font>
         </div>
+        @*<div>
+            @Html.LabelFor(m => m.Education, new { @class = "LableFormat" })
+            @Html.DropDownListFor(m => m.EducationID, new SelectList(Model.EducationList, "EducationID", "EducationName", new { @id = "dropdown" }))
+            <font color="">@Html.ValidationMessageFor(m => m.EducationList)</font>
+        </div>*@
         <div>
-            @Html.LabelFor(m => m.EducationList, new { @class = "LableFormat" })
-            @Html.TextBoxFor(m => m.EducationList, new { @class = "form-control TextboxFormat" })
+            @Html.LabelFor(m => m.Education, new { @class = "LableFormat" })
+            @Html.TextBoxFor(m => m.NewEducation, new { @class = "form-control TextboxFormat" })
             <font color="">@Html.ValidationMessageFor(m => m.EducationList)</font>
         </div>
         <div>
@@ -48,6 +53,7 @@
             @Html.TextBoxFor(m => m.Summary, new { @class = "form-control TextboxFormat" })
             <font color="">@Html.ValidationMessageFor(m => m.Summary)</font>
         </div>
+        @Html.HiddenFor(m => m.ProfileID,new { @Value = Model.ProfileID })
         <input type="submit" value="Update" />
     </div>
 }
