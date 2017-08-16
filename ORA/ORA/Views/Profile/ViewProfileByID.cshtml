@@ -52,17 +52,17 @@ else
                         <address>
                             @Html.DisplayName(Model.Country), @Html.DisplayName(Model.Zip.ToString())
                         </address>
-                            }
-                            else
-                            {
-                                <span>Address or Bio information has not been filled out.</span>
-                            }
+                    }
+                    else
+                    {
+                        <span>Address or Bio information has not been filled out.</span>
+                    }
                 </div>
                 <div id="KPI" hidden>
-                    KPI
+                    <canvas id="canvasKPI"></canvas>
                 </div>
                 <div id="Assessment" hidden>
-                    Assessment
+                    <canvas id="canvasAssessment"></canvas>
                 </div>
                 <div id="Team" hidden>
                     Team
@@ -70,7 +70,7 @@ else
             </div>
         </div>
     </body>
-                            }
+}
 <script>
     $(document).ready(function () {
         $('#KPI-btn').click(function () {
@@ -78,6 +78,7 @@ else
             $('#Assessment').hide();
             $('#MyBio').hide();
             $('#Team').hide();
+
         });
     });
     $(document).ready(function () {
@@ -103,6 +104,29 @@ else
             $('#KPI').hide();
             $('#Assessment').hide();
             $('#MyBio').hide();
+        });
+    });
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Assessment/GetAverage',
+            type: 'GET',
+            success: function (data) {
+                assessmentAvg = data.toString().split(',');
+                graphAssessment();
+            },
+            error: function (error) {
+                alert(error.statusText);
+            }
+        });
+        $.ajax({
+            url: '/KPI/GetAverage',
+            type: 'GET',
+            success: function (data) {
+                graphKPI();
+            },
+            error: function (error) {
+                console.log(error.statusText);
+            }
         });
     });
 </script>

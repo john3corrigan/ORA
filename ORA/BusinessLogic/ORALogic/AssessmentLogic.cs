@@ -25,16 +25,17 @@ namespace BusinessLogic.ORALogic
             Roles = rls;
         }
 
-        public void AddAssessment(CreateAssessmentVM assessment, int teamID)
+        public void AddAssessment(CreateAssessmentVM assessment)
         {
-            //The Assignment id is an employeeID until this point because of my inability to be creative.
-            assessment.AssignmentID = Employees.GetEmployeeByID(assessment.AssignmentID).Assignment.Where(a => a.TeamID == teamID && a.EmployeeID == assessment.AssignmentID).FirstOrDefault().AssignmentID;
+            //The Assignment id is an employeeID until this point because of my inability to be creative. 
+            assessment.AssignmentID = Employees.GetEmployeeByID(assessment.AssignmentID).Assignment.Where(a => a.StartDate < assessment.Created && a.EndDate > assessment.Created).FirstOrDefault().AssignmentID;
             Assessments.AddAssessment(assessment);
         }
-        public CreateAssessmentVM AddAssessment(DateTime created, int myID, int teamID)
+        public CreateAssessmentVM AddAssessment(DateTime created, int myID)
         {
-            CreateAssessmentVM createAssessment = new CreateAssessmentVM() {
-                EmployeeList = FilterEmployeeByTeam(created, myID, teamID)
+            CreateAssessmentVM createAssessment = new CreateAssessmentVM()
+            {
+                EmployeeList = FilterEmployeeByTeam(created, myID)
             };
             return createAssessment;
         }
@@ -66,9 +67,9 @@ namespace BusinessLogic.ORALogic
             return assessments;
         }
 
-        public List<EmployeeVM> GetAssessmentForTeamLead(int employeeID,  DateTime Start, DateTime End)
+        public List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, DateTime Start, DateTime End)
         {
-            List<AssignmentVM> myAssignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.RoleID < 7  && (a.StartDate <= Start && Start <= a.EndDate || a.StartDate <= End && End <= a.EndDate)).ToList();
+            List<AssignmentVM> myAssignmentsList = Employees.GetEmployeeByID(employeeID).Assignment.Where(a => a.RoleID < 7 && (a.StartDate <= Start && Start <= a.EndDate || a.StartDate <= End && End <= a.EndDate)).ToList();
             return Employees.GetAllEmployees().Where(e =>
             {
                 foreach (var assign in myAssignmentsList)
@@ -116,25 +117,70 @@ namespace BusinessLogic.ORALogic
             Assessments.UpdateAssessment(updatedAssessment);
         }
 
-        private List<EmployeeVM> FilterEmployeeByTeam(DateTime created, int myID, int teamID)
+        private List<EmployeeVM> FilterEmployeeByTeam(DateTime created, int myID)
         {
-            var assignment = Employees.GetEmployeeByID(myID).Assignment.Where(a => a.RoleID < 7 && a.TeamID == teamID && a.StartDate <= created && a.EndDate >= created).FirstOrDefault();
+            var assignment = Employees.GetEmployeeByID(myID).Assignment.Where(a => a.RoleID < 7 && a.StartDate <= created && a.EndDate >= created).ToList();
             if (assignment == null)
             {
                 return null;
             }
-            var employees = Employees.GetAllEmployees().Where(e =>
+            return Employees.GetAllEmployees().Where(e =>
             {
-                foreach (var assign in e.Assignment)
+                foreach (var item in assignment)
                 {
-                if (assign.TeamID == assignment.TeamID && assign.StartDate <= created && assign.EndDate >= created) 
+                    if (item.RoleID < 6) {
+                        foreach (var assign in e.Assignment)
+                        {
+                            if (assign.StartDate <= created && assign.EndDate >= created && item.ClientID == assign.ClientID)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var assign in e.Assignment)
+                        {
+                            if (assign.StartDate <= created && assign.EndDate >= created && item.TeamID == assign.TeamID)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }).ToList();
+        }
+
+        public string GetAverage(int empID)
+        {
+            var employeeAssignmnt = Employees.GetEmployeeByID(empID).Assignment;
+            var assessments = Assessments.GetAllAssessments().Where(a =>
+            {
+                foreach (var assign in employeeAssignmnt)
+                {
+                    if (assign.AssignmentID == a.AssignmentID)
                     {
                         return true;
                     }
                 }
                 return false;
             }).ToList();
-            return employees;
+            double[] total = new double[5];
+            foreach (var assess in assessments)
+            {
+                total[0] += (assess.ADAttendence + assess.ADEthiclBehavior + assess.ADMeetsDeadlines + assess.ADOrganizeDetailedWork) / 4;
+                total[1] += (assess.CSRListeningSkills + assess.CSRProfessionalismTeamwork + assess.CSRVerbalSkills + assess.CSRWrittenSkills) / 4;
+                total[2] += (assess.TDProblemSolving + assess.TDProductivity + assess.TDProductKnowledge + assess.TDQualityOfWork) / 4;
+                total[3] += (assess.MIGroomingAppearence + assess.MIAttitudeWork + assess.MIPersonalGrowth + assess.MIPotencialAdvancement) / 4;
+                total[4] += (assess.TMAskingQuestions + assess.TMFeedBack + assess.TMResourceUse + assess.TMTechnicalMonitoring) / 4;
+            }
+            string average = (total[0] / assessments.Count).ToString();
+            average += "," + (total[1] / assessments.Count).ToString();
+            average += "," + (total[2] / assessments.Count).ToString();
+            average += "," + (total[3] / assessments.Count).ToString();
+            average += "," + (total[4] / assessments.Count).ToString();
+            return average;
         }
     }
 }
