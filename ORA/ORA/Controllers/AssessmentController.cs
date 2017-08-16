@@ -51,12 +51,12 @@ namespace ORA.Controllers
             if (Session["Roles"].ToString().Contains("MANAGER"))
             {
                 TempData["Stage"] = 2;
-                return View("Index", Assessments.GetAssessmentForServiceManager((int)Session["ID"], Session["Roles"].ToString(), DateTime.Parse(form[0]), DateTime.Parse(form[1])));
+                return View("Index", Assessments.GetAssessmentForServiceManager((int)Session["ID"], DateTime.Parse(form[0]), DateTime.Parse(form[1])));
             }
             else
             {
                 TempData["Stage"] = 2;
-                return View("Index", Assessments.GetAssessmentForTeamLead((int)Session["ID"], Session["Roles"].ToString(), DateTime.Parse(form[0]), DateTime.Parse(form[1])));
+                return View("Index", Assessments.GetAssessmentForTeamLead((int)Session["ID"], DateTime.Parse(form[0]), DateTime.Parse(form[1])));
             }
         }
 
@@ -74,14 +74,14 @@ namespace ORA.Controllers
         {
             TempData["Stage"] = 2;
             TempData["Created"] = Assessment.Created;
-            return View("CreateAssessment", Assessments.AddAssessment(Assessment.Created, (int)Session["ID"], (int)Session["Team"]));
+            return View("CreateAssessment", Assessments.AddAssessment(Assessment.Created, (int)Session["ID"]));
         }
 
         [HttpPost]
         [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
         public ActionResult CreateAssessment(CreateAssessmentVM Assessment)
         {
-            Assessments.AddAssessment(Assessment, (int)Session["Team"]);
+            Assessments.AddAssessment(Assessment);
             return RedirectToAction("Index", "Home", new { area = "" });
         }
         
@@ -107,6 +107,12 @@ namespace ORA.Controllers
         {
             Assessments.UpdateAssessment(updatedAssessment);
             return RedirectToAction("Index", "Home", new { area = "" });
+        }
+
+        public JsonResult GetAverage()
+        {
+            var averages = Assessments.GetAverage((int)Session["ID"]);
+            return Json(averages.ToString(), JsonRequestBehavior.AllowGet);
         }
     }
 }

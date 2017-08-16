@@ -30,14 +30,14 @@
             </tr>
             <tr>
                 <td>@Html.LabelFor(m => m.TDProblemSolving, new { @class = "LableFormat" })</td>
-                <td>@Html.DropDownListFor(m => m.TDProblemSolving, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"ProblemSolving\", this.value)", @class = "TDAverage", id = "ProblemSolving" })</td>
+                <td>@Html.DropDownListFor(m => m.TDProblemSolving, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"ProblemSolving\", this.value)", @class = "TDAverage", @id = "ProblemSolving" })</td>
                 <td id="ProblemSolvingDesc">
                     <script>$('#ProblemSolvingDesc').html(SelectValue('ProblemSolving')[0])</script>
                 </td>
             </tr>
             <tr>
                 <td>@Html.LabelFor(m => m.TDQualityOfWork, new { @class = "LableFormat" })</td>
-                <td>@Html.DropDownListFor(m => m.TDQualityOfWork, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"QualityofWork\", this.value)", @class = "TDAverage", id = "QualityofWork" })</td>
+                <td>@Html.DropDownListFor(m => m.TDQualityOfWork, new SelectList(new int[] { 1, 2, 3, 4, 5 }), new { onchange = "updateList(\"QualityofWork\", this.value)", @class = "TDAverage", @id = "QualityofWork" })</td>
                 <td id="QualityofWorkDesc">
                     <script>$('#QualityofWorkDesc').html(SelectValue('QualityofWork')[0])</script>
                 </td>
@@ -182,7 +182,7 @@
         <table>
             <tr>
                 <th>Motivation &amp; Initiative</th>
-                <th id=""MIAverage"">1</th>
+                <th id="MIAverage">1</th>
             </tr>
             <tr>
                 <td>@Html.LabelFor(m => m.MIAttitudeWork, new { @class = "LableFormat" }) </td>

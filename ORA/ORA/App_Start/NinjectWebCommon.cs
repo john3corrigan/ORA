@@ -72,6 +72,8 @@ namespace ORA.App_Start
             kernel.Bind<IAssignmentRepository>().To<AssignmentRepository>();
             kernel.Bind<IClientLogic>().To<ClientLogic>();
             kernel.Bind<IClientRepository>().To<ClientRepository>();
+            kernel.Bind<IEducationRepository>().To<EducationRepository>();
+            kernel.Bind<IEducationLogic>().To<EducationLogic>();
             kernel.Bind<IEmployeeLogic>().To<EmployeeLogic>();
             kernel.Bind<IEmployeeRepository>().To<EmployeeRepository>();
             kernel.Bind<IKPILogic>().To<KPILogic>();

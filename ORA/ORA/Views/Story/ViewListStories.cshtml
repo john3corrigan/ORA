@@ -9,7 +9,6 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Name</th>
         <th>Number</th>
         <th>Start Date</th>
@@ -23,7 +22,6 @@
     @foreach (StoryVM Value in Model)
     {
         <tr>
-            <td>@Html.Display(Value.Title)</td>
             <td>@Html.Display(Value.StoryName)</td>
             <td>@Html.Display(Value.StoryNumber.ToString())</td>
             <td>@Html.Display(Value.StoryStartDate.ToString())</td>

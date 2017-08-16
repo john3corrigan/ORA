@@ -21,7 +21,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdateProfile(ProfileVM updatedProfile)
+        public ActionResult UpdateProfile(CreateProfileVM updatedProfile)
         {
             Profiles.UpdateProfile(updatedProfile);
             return RedirectToAction("Index", "Home", new { area = "" });
@@ -53,6 +53,7 @@ namespace ORA.Controllers
                 }
                 else
                 {
+                    TempData["Error"] = 0;
                     return View(Profiles.GetProfileByID(ProfileID));
                 }
             }

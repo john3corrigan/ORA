@@ -12,11 +12,12 @@ namespace Lib.InterfacesLogic
         AssessmentVM GetAssessmentByID(int assessmentID);
         List<AssessmentVM> GetAssessmentByEmployeeID(int employee);
         List<AssessmentVM> GetAllAssessments();
-        void AddAssessment(CreateAssessmentVM assessment, int teamID);
+        void AddAssessment(CreateAssessmentVM assessment);
         void UpdateAssessment(AssessmentVM updatedAssessment);
-        CreateAssessmentVM AddAssessment(DateTime created, int myID, int teamID);
+        CreateAssessmentVM AddAssessment(DateTime created, int myID);
         List<AssessmentVM> GetAssessmentByAssignmentID(int assignmentID);
-        List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, string roles, DateTime Start, DateTime End);
-        List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, string roles, DateTime Start, DateTime End);
+        List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, DateTime Start, DateTime End);
+        List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, DateTime Start, DateTime End);
+        string GetAverage(int empID);
     }
 }

@@ -8,7 +8,6 @@
 
 <table>
     <tr>
-        <th>Title</th>
         <th>Name</th>
         <th>Number</th>
         <th>Start Date</th>
@@ -24,7 +23,6 @@
     @foreach (ProjectVM Value in Model)
     {
         <tr>
-            <td>@Html.Display(Value.Title)</td>
             <td>@Html.Display(Value.ProjectName)</td>
             <td>@Html.Display(Value.ProjectNumber.ToString())</td>
             <td>@Html.Display(Value.ProjectStartDate.ToString())</td>
