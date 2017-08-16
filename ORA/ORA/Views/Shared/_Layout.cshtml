@@ -64,18 +64,18 @@
                                             @if (Session["Name"] != null)
                                             {
                                                 <div class="dropdown">
-                                                    <button class="dropbtn">Assessment</button>
+                                                    <button class="dropbtn" id="Assessment">Assessment</button>
                                                     <div class="content">
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
                                                             @Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")
                                                         }
-                                                        @Html.ActionLink("View All Assessments", "Index", "Assessment")
+                                                        @Html.ActionLink("View All Assessments", "Index","Assessment")
                                                     </div>
                                                 </div>
 
                                                 <div class="dropdown">
-                                                    <button class="dropbtn">Assignment</button>
+                                                    <button class="dropbtn" id="Assignment">Assignment</button>
                                                     <div class=" content">
                                                         @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
@@ -87,7 +87,7 @@
                                                 if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                 {
                                                     <div class=" dropdown">
-                                                        <button class="dropbtn">Client</button>
+                                                        <button class="dropbtn" id="Client">Client</button>
                                                         <div class=" content">
                                                             @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
@@ -101,7 +101,7 @@
                                                 if (Session["Roles"].ToString().Contains("ADMINISTRATOR"))
                                                 {
                                                     <div class=" dropdown">
-                                                        <button class="dropbtn">Employee</button>
+                                                        <button class="dropbtn" id="Employee">Employee</button>
                                                         <div class="content">
                                                             @Html.ActionLink("Add an Employee", "AddEmployee", "Employee")
                                                             @Html.ActionLink("View All Employees", "Index", "Employee")
@@ -110,18 +110,18 @@
 
                                                 }
                                                 <div class=" dropdown">
-                                                    <button class="dropbtn">KPI</button>
+                                                    <button class="dropbtn" id="KPI">KPI</button>
                                                     <div class="content">
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
                                                             @Html.ActionLink("Create a KPI", "CreateKPI", "KPI")
                                                         }
-                                                        @Html.ActionLink("View All KPIs", "Index", "KPI")
+                                                            @Html.ActionLink("View All KPIs", "Index", "KPI")
                                                     </div>
                                                 </div>
 
                                                 <div class="dropdown">
-                                                    <button class="dropbtn">Project</button>
+                                                    <button class="dropbtn" id="Project">Project</button>
                                                     <div class="content">
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
@@ -132,7 +132,7 @@
                                                 </div>
 
                                                 <div class="dropdown">
-                                                    <button class="dropbtn">Sprint</button>
+                                                    <button class="dropbtn" id="Sprint">Sprint</button>
                                                     <div class="content">
 
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
@@ -144,7 +144,7 @@
                                                 </div>
 
                                                 <div class=" dropdown">
-                                                    <button class="dropbtn">Story</button>
+                                                    <button class="dropbtn" id="Story">Story</button>
                                                     <div class="content">
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
@@ -157,7 +157,7 @@
                                                 if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                 {
                                                     <div class=" dropdown">
-                                                        <button class="dropbtn">Team</button>
+                                                        <button class="dropbtn" id="Team">Team</button>
                                                         <div class="content">
                                                             @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                             {
@@ -178,7 +178,7 @@
                 </div>
                 @*<hr />*@
             </header>
-            <div class="container body-content" style="padding-top: 163px; height:100%; z-index:0;">
+            <div class="container body-content" style="padding-top: 121px; height:100%; z-index:0;">
                 @RenderBody()
             </div>
         </div>
@@ -190,7 +190,8 @@
     </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/OraScript")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/OraScript.js" type="text/javascript"></script>
 </body>
 </html>
+ 
