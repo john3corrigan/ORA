@@ -201,13 +201,14 @@ table, td, th, tr {
 }
 
 table {
-    display: flex;
+    display: table;
     background-color: lightblue;
     align-content: center;
     margin: 0px;
     padding: 0px;
     border: 5px solid;
     overflow: auto;
+    min-width:100%;
 }
 
 tr:nth-child(even) {
