@@ -3,9 +3,9 @@ function graphKPI() {
     var myCanvas = document.getElementById('canvasKPI');
     var ctx = myCanvas.getContext('2d');
     myCanvas.width = 740;
-    myCanvas.height = 600;
+    myCanvas.height = 500;
     ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, 700, 560);
+    ctx.fillRect(0, 0, 700, 400);
     drawGrid(ctx);
     labelGridNumbers(ctx);
 }
@@ -13,9 +13,9 @@ function graphAssessment() {
     var myCanvas = document.getElementById('canvasAssessment');
     var ctx = myCanvas.getContext('2d');
     myCanvas.width = 740;
-    myCanvas.height = 600;
+    myCanvas.height = 425;
     ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, 700, 560);
+    ctx.fillRect(0, 0, 700, 400);
     drawGrid(ctx);
     drawBarsAssessment(ctx);
     labelGridNumbers(ctx);
@@ -32,13 +32,13 @@ function drawLine(ctx, startX, startY, endX, endY, color) {
 }
 function drawGrid(ctx) {
     drawLine(ctx, 20, 10, 700, 10, "gray");
-    drawLine(ctx, 20, 120, 700, 120, "gray");
-    drawLine(ctx, 20, 230, 700, 230, "gray");
-    drawLine(ctx, 20, 340, 700, 340, "gray");
-    drawLine(ctx, 20, 450, 700, 450, "gray");
-    drawLine(ctx, 20, 560, 700, 560, "gray");
-    drawLine(ctx, 20, 10, 20, 560, "grey");
-    drawLine(ctx, 700, 10, 700, 560, "grey");
+    drawLine(ctx, 20, 88, 700, 88, "gray");
+    drawLine(ctx, 20, 166, 700, 166, "gray");
+    drawLine(ctx, 20, 244, 700, 244, "gray");
+    drawLine(ctx, 20, 322, 700, 322, "gray");
+    drawLine(ctx, 20, 400, 700, 400, "gray");
+    drawLine(ctx, 20, 10, 20, 400, "grey");
+    drawLine(ctx, 700, 10, 700, 400, "grey");
 }
 function drawABar(ctx, upperLeftX, upperLeftY, width, height, color) {
     ctx.save();
@@ -47,12 +47,12 @@ function drawABar(ctx, upperLeftX, upperLeftY, width, height, color) {
     ctx.restore();
 }
 function drawBarsAssessment(ctx) {
-    drawABar(ctx, 25, (560 - ((parseFloat(assessmentAvg[0])) * 110)), 110, 560, "blue");
-    drawABar(ctx, 165, (560 - ((parseFloat(assessmentAvg[1])) * 110)), 110, 560, "blue");
-    drawABar(ctx, 305, (560 - ((parseFloat(assessmentAvg[2])) * 110)), 110, 560, "blue");
-    drawABar(ctx, 445, (560 - ((parseFloat(assessmentAvg[3])) * 110)), 110, 560, "blue");
-    drawABar(ctx, 585, (560 - ((parseFloat(assessmentAvg[4])) * 110)), 110, 560, "blue");
-    drawABar(ctx, 20, 560, 700, 560, "white")
+    drawABar(ctx, 25, (400 - ((parseFloat(assessmentAvg[0])) * 78)), 110, 400, "blue");
+    drawABar(ctx, 165, (400 - ((parseFloat(assessmentAvg[1])) * 78)), 110, 400, "blue");
+    drawABar(ctx, 305, (400 - ((parseFloat(assessmentAvg[2])) * 78)), 110, 400, "blue");
+    drawABar(ctx, 445, (400 - ((parseFloat(assessmentAvg[3])) * 78)), 110, 400, "blue");
+    drawABar(ctx, 585, (400 - ((parseFloat(assessmentAvg[4])) * 78)), 110, 400, "blue");
+    drawABar(ctx, 20, 400, 700, 400, "white")
 }
 function label(ctx, text, bottomLeftX, bottomLeftY) {
     ctx.save();
@@ -62,17 +62,17 @@ function label(ctx, text, bottomLeftX, bottomLeftY) {
     ctx.restore();
 }
 function labelGridNumbers(ctx) {
-    label(ctx, "0", 0, 565);
-    label(ctx, "1", 0, 455);
-    label(ctx, "2", 0, 345);
-    label(ctx, "3", 0, 235);
-    label(ctx, "4", 0, 125);
+    label(ctx, "0", 0, 405);
+    label(ctx, "1", 0, 327);
+    label(ctx, "2", 0, 249);
+    label(ctx, "3", 0, 171);
+    label(ctx, "4", 0, 93);
     label(ctx, "5", 0, 15);
 }
 function labelGridAssessment(ctx) {
-    label(ctx, "Accountiability & Dependability", 25, 580)
-    label(ctx, "Customer Service & Relationships", 165, 580)
-    label(ctx, "Technical Delivery", 305, 580)
-    label(ctx, "Motivation & Initiative", 445, 580)
-    label(ctx, "Training & Mentoring", 585, 580)
+    label(ctx, "Accountiability & Dependability", 25, 415);
+    label(ctx, "Customer Service & Relationships", 165, 415);
+    label(ctx, "Technical Delivery", 305, 415);
+    label(ctx, "Motivation & Initiative", 445, 415);
+    label(ctx, "Training & Mentoring", 585, 415);
 }

@@ -66,7 +66,7 @@
                                                 <div class="dropdown">
                                                     <button class="dropbtn">Assessment</button>
                                                     <div class="content">
-                                                        @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD"))
+                                                        @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
                                                             @Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")
                                                         }
