@@ -20,7 +20,7 @@ namespace BusinessLogic.ORALogic
             throw new NotImplementedException();
         }
 
-        public EducationVM GetEducationByID(int id)
+        public EducationVM GetEducationByID(int? id)
         {
             throw new NotImplementedException();
         }

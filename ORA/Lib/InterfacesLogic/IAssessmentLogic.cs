@@ -18,6 +18,6 @@ namespace Lib.InterfacesLogic
         List<AssessmentVM> GetAssessmentByAssignmentID(int assignmentID);
         List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, DateTime Start, DateTime End);
         List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, DateTime Start, DateTime End);
-        string GetAverage(int empID);
+        string GetAverage(int profileID);
     }
 }

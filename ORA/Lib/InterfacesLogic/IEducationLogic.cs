@@ -10,7 +10,7 @@ namespace Lib.InterfacesLogic
     public interface IEducationLogic
     {
         List<EducationVM> GetAllEducation();
-        EducationVM GetEducationByID(int id);
+        EducationVM GetEducationByID(int? id);
         void AddEducation(EducationVM Education);
         void UpdateEducation(EducationVM Education);
     }

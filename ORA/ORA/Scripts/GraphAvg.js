@@ -3,7 +3,7 @@ function graphKPI() {
     var myCanvas = document.getElementById('canvasKPI');
     var ctx = myCanvas.getContext('2d');
     myCanvas.width = 740;
-    myCanvas.height = 500;
+    myCanvas.height = 425;
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, 700, 400);
     drawGrid(ctx);
@@ -47,11 +47,11 @@ function drawABar(ctx, upperLeftX, upperLeftY, width, height, color) {
     ctx.restore();
 }
 function drawBarsAssessment(ctx) {
-    drawABar(ctx, 25, (400 - ((parseFloat(assessmentAvg[0])) * 78)), 110, 400, "blue");
-    drawABar(ctx, 165, (400 - ((parseFloat(assessmentAvg[1])) * 78)), 110, 400, "blue");
-    drawABar(ctx, 305, (400 - ((parseFloat(assessmentAvg[2])) * 78)), 110, 400, "blue");
-    drawABar(ctx, 445, (400 - ((parseFloat(assessmentAvg[3])) * 78)), 110, 400, "blue");
-    drawABar(ctx, 585, (400 - ((parseFloat(assessmentAvg[4])) * 78)), 110, 400, "blue");
+    drawABar(ctx, 25, (400 - ((parseFloat(assessmentAvg[0])) * 78)), 110, 400, "#033359");
+    drawABar(ctx, 165, (400 - ((parseFloat(assessmentAvg[1])) * 78)), 110, 400, "#033359");
+    drawABar(ctx, 305, (400 - ((parseFloat(assessmentAvg[2])) * 78)), 110, 400, "#033359");
+    drawABar(ctx, 445, (400 - ((parseFloat(assessmentAvg[3])) * 78)), 110, 400, "#033359");
+    drawABar(ctx, 585, (400 - ((parseFloat(assessmentAvg[4])) * 78)), 110, 400, "#033359");
     drawABar(ctx, 20, 400, 700, 400, "white")
 }
 function label(ctx, text, bottomLeftX, bottomLeftY) {

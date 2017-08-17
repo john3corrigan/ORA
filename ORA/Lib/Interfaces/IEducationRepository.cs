@@ -10,7 +10,7 @@ namespace Lib.Interfaces
     public interface IEducationRepository
     {
         List<EducationVM> GetAllEducation();
-        EducationVM GetEducationByID(int id);
+        EducationVM GetEducationByID(int? id);
         void AddEducation(EducationVM Education);
         void UpdateEducation(EducationVM Education);
     }

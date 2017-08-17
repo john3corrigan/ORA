@@ -2,6 +2,7 @@
 using Lib.InterfacesLogic;
 using Lib.ViewModels;
 using System.Web.Mvc;
+using Rotativa;
 
 namespace ORA.Controllers
 {
@@ -31,9 +32,9 @@ namespace ORA.Controllers
         public ActionResult ViewProfileByID(int ProfileID)
         {
             CreateProfileVM profile = Profiles.GetCreateProfileByID(ProfileID);
+            TempData["ProfileID"] = ProfileID;
             if (profile == null)
             {
-                TempData["ProfileID"] = ProfileID;
                 TempData["Error"] = 1;
                 return View();
             }
@@ -65,6 +66,8 @@ namespace ORA.Controllers
             ProfileVM profile = Profiles.GetProfileByID(int.Parse(form[0]));
             if (profile != null)
             {
+                TempData["ProfileID"] = profile.ProfileID;
+                TempData["Error"] = 0;
                 return View("ViewProfileByID", profile);
             }
             else

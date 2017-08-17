@@ -4,6 +4,8 @@ using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using Lib.Attributes;
 using System;
+using Newtonsoft.Json.Linq;
+using Rotativa;
 
 namespace ORA.Controllers
 {
@@ -109,10 +111,16 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        public JsonResult GetAverage()
+        public JsonResult GetAverage(string profileID)
         {
-            var averages = Assessments.GetAverage((int)Session["ID"]);
+            var averages = Assessments.GetAverage(Convert.ToInt32(profileID));
             return Json(averages.ToString(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ViewAssessmentPDF(string url)
+        {
+            var report = new UrlAsPdf(url);
+            return report;
         }
     }
 }

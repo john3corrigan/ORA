@@ -19,7 +19,7 @@ namespace Repository.Repositories
             return Mapper.Map<List<EducationVM>>(GetAll().ToList());
         }
 
-        public EducationVM GetEducationByID(int id)
+        public EducationVM GetEducationByID(int? id)
         {
             EducationVM profile = Mapper.Map<EducationVM>(GetAllEducation().Where(e => e.EducationID == id).FirstOrDefault());
             return profile;

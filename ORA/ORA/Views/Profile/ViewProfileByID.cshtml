@@ -18,16 +18,15 @@ else if ((int)TempData["Error"] == 2)
 }
 else
 {
-    <h2>@Session["Name"].ToString()</h2>
     <body>
         <div class="row">
             <div class="col-md-4">
-                @Html.DisplayName(Model.FirstName) @Html.DisplayName(Model.LastName)
+                <h2>@Html.DisplayName(Model.FirstName) @Html.DisplayName(Model.LastName)</h2>
             </div>
             <div class="col-md-8">
-                <button id="MyBiobtn">My Biography</button>
-                <button id="KPI-btn">My KPI</button>
-                <button id="Assessment-btn">My Assessment</button>
+                <button id="MyBio-btn">My Biography</button>
+                <button id="kpi-btn">My KPI</button>
+                <button id="Assess-btn">My Assessment</button>
                 <button id="Team-btn">My Team</button>
             </div>
         </div>
@@ -58,10 +57,10 @@ else
                         <span>Address or Bio information has not been filled out.</span>
                     }
                 </div>
-                <div id="KPI" hidden>
+                <div id="kpi" hidden>
                     <canvas id="canvasKPI"></canvas>
                 </div>
-                <div id="Assessment" hidden>
+                <div id="Assess" hidden>
                     <canvas id="canvasAssessment"></canvas>
                 </div>
                 <div id="Team" hidden>
@@ -70,52 +69,21 @@ else
             </div>
         </div>
     </body>
-}
-<script>
-    $(document).ready(function () {
-        $('#KPI-btn').click(function () {
-            $('#KPI').show();
-            $('#Assessment').hide();
-            $('#MyBio').hide();
-            $('#Team').hide();
-
-        });
-    });
-    $(document).ready(function () {
-        $('#Assessment-btn').click(function () {
-            $('#Assessment').show();
-            $('#KPI').hide();
-            $('#MyBio').hide();
-            $('#Team').hide();
-        });
-    });
-    $(document).ready(function () {
-        $('#MyBiobtn').click(function () {
-            $('#MyBio').show();
-            $('#summary').show();
-            $('#KPI').hide();
-            $('#Assessment').hide();
-            $('#Team').hide();
-        });
-    });
-    $(document).ready(function () {
-        $('#Team-btn').click(function () {
-            $('#Team').show();
-            $('#KPI').hide();
-            $('#Assessment').hide();
-            $('#MyBio').hide();
-        });
-    });
-    $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
+        var ID = @Model.ProfileID;
         $.ajax({
             url: '/Assessment/GetAverage',
-            type: 'GET',
+            type: 'POST',
+            data: JSON.stringify({ profileID: ID }),
+            traditional: true,
+            contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 assessmentAvg = data.toString().split(',');
                 graphAssessment();
             },
             error: function (error) {
-                alert(error.statusText);
+                console.log(error.statusText);
             }
         });
         $.ajax({
@@ -129,4 +97,41 @@ else
             }
         });
     });
+    </script>
+}
+<script>
+    $(document).ready(function () {
+        $('#kpi-btn').click(function () {
+            $('#kpi').show();
+            $('#Assess').hide();
+            $('#MyBio').hide();
+            $('#Team').hide();
+        });
+    });
+    $(document).ready(function () {
+        $('#Assess-btn').click(function () {
+            $('#Assess').show();
+            $('#kpi').hide();
+            $('#MyBio').hide();
+            $('#Team').hide();
+        });
+    });
+    $(document).ready(function () {
+        $('#MyBio-btn').click(function () {
+            $('#MyBio').show();
+            $('#summary').show();
+            $('#kpi').hide();
+            $('#Assess').hide();
+            $('#Team').hide();
+        });
+    });
+    $(document).ready(function () {
+        $('#Team-btn').click(function () {
+            $('#Team').show();
+            $('#kpi').hide();
+            $('#Assess').hide();
+            $('#MyBio').hide();
+        });
+    });
+    
 </script>

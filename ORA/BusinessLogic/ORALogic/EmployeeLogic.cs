@@ -42,7 +42,8 @@ namespace BusinessLogic.ORALogic
                 CreatedBy = employee.CreatedBy,
                 Modified = employee.Modified,
                 ModifiedBy = employee.ModifiedBy,
-                PositionID = employee.PositionID
+                PositionID = employee.PositionID,
+                EducationID = null
             };
             Profiles.AddProfile(profile);
             Employee.ProfileID = Profiles.GetAllProfiles().Where(p => p.FirstName == employee.EmployeeFirstName && p.LastName == employee.EmployeeLastName).FirstOrDefault().ProfileID;

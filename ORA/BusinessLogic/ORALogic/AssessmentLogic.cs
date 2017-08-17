@@ -152,9 +152,9 @@ namespace BusinessLogic.ORALogic
             }).ToList();
         }
 
-        public string GetAverage(int empID)
+        public string GetAverage(int profileID)
         {
-            var employeeAssignmnt = Employees.GetEmployeeByID(empID).Assignment;
+            var employeeAssignmnt = Employees.GetEmployeeByProfileID(profileID).Assignment;
             var assessments = Assessments.GetAllAssessments().Where(a =>
             {
                 foreach (var assign in employeeAssignmnt)

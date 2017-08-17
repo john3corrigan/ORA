@@ -6,6 +6,7 @@
 
 <h2>Assessment</h2>
 <br />
+@Html.ActionLink("Print","ViewAssessmentPDF", new { url = Request.Url.AbsoluteUri })
 <table>
     <tr>
         <th>TD Problem Solving</th>
@@ -117,8 +118,6 @@
                 <td>@Html.DisplayName(Value.CreatedBy.ToString())</td>
                 <td>@Html.DisplayName(Value.Modified.ToString())</td>
                 <td>@Html.DisplayName(Value.ModifiedBy.ToString())</td>
-
-
             </tr>
         }
     }

@@ -15,7 +15,7 @@ namespace Lib.ViewModels
         public int PositionID { get; set; }
         public string Country { get; set; }
         public int Zip { get; set; }
-        public int EducationID { get; set; }
+        public int? EducationID { get; set; }
         public EducationVM Education { get; set; }
         public string Industry { get; set; }
         public string Summary { get; set; }

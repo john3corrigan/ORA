@@ -4,6 +4,7 @@ using Lib.ViewModels;
 using Lib.InterfacesLogic;
 using Lib.Attributes;
 using System;
+using Rotativa;
 
 namespace ORA.Controllers
 {
@@ -102,6 +103,12 @@ namespace ORA.Controllers
         {
             KPIs.AddKPI(KPI);
             return RedirectToAction("Index", "KPI", new { area = "" });
+        }
+
+        public ActionResult ViewKPIPDF(string url)
+        {
+            var report = new UrlAsPdf(url);
+            return report;
         }
     }
 }
