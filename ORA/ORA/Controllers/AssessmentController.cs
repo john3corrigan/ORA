@@ -93,7 +93,6 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
         
-        [HttpPost]
         public ActionResult ViewAssessment(int EmployeeID)
         {
             TempData["EmployeeName"] = Employee.GetEmployeeByID(EmployeeID).EmployeeName;
@@ -191,12 +190,6 @@ namespace ORA.Controllers
             DateTime StartDate = DateTime.Parse(form[0]);
             DateTime EndDate = DateTime.Parse(form[1]);
             return View("ViewAssessment", Assessments.GetIndividualAssessments(StartDate, EndDate));
-        }
-
-        [HttpGet]
-        public ActionResult ViewAssessment()
-        {
-            return View();
         }
 
         //------------------------------------------------------------------------------------------------------------------//

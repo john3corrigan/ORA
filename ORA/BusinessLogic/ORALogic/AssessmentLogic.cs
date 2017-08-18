@@ -64,6 +64,10 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
+            foreach (var assess in assessments)
+            {
+                assess.EmployeeName = Employees.GetEmployeeByID(Assignments.GetAssignmentByID(assess.AssignmentID).EmployeeID).EmployeeName;
+            }
             return assessments;
         }
 
