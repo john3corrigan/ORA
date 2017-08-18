@@ -14,12 +14,18 @@ namespace ORA.Controllers
     {
         private IEmployeeLogic Employee;
         private IAssessmentLogic Assessments;
+        private IClientLogic Client;
+        private ITeamLogic Team;
 
-
-        public AssessmentController(IAssessmentLogic assess, IEmployeeLogic emp)
+        public AssessmentController(IAssessmentLogic assess, 
+            IEmployeeLogic emp,
+            IClientLogic clnt,
+            ITeamLogic tm)
         {
             Assessments = assess;
             Employee = emp;
+            Client = clnt;
+            Team = tm;
         }
 
 
@@ -87,8 +93,10 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
         
+        [HttpPost]
         public ActionResult ViewAssessment(int EmployeeID)
         {
+            TempData["EmployeeName"] = Employee.GetEmployeeByID(EmployeeID).EmployeeName;
             return View(Assessments.GetAssessmentByEmployeeID(EmployeeID));
         }
 
@@ -110,6 +118,88 @@ namespace ORA.Controllers
             Assessments.UpdateAssessment(updatedAssessment);
             return RedirectToAction("Index", "Home", new { area = "" });
         }
+
+        //------------------------------------------------------------------------------------------------------------//
+
+        public ActionResult ViewDCenter()
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpGet]
+        public ActionResult ViewClientAssessment()
+        {
+            if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
+            {
+                CreateAssessmentVM assess = new CreateAssessmentVM() { ClientList = Client.GetAllClients() };
+                return View(assess);
+            }
+            else
+            {
+                CreateAssessmentVM assess = new CreateAssessmentVM() { ClientList = Client.GetClientsManager((int)Session["ID"]) };
+                return View(assess);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult ViewClientAssessment(FormCollection form)
+        {
+            DateTime StartDate = DateTime.Parse(form[0]);
+            DateTime EndDate = DateTime.Parse(form[1]);
+            int ClientID = int.Parse(form[2]);
+            return View("ViewAssessment", Assessments.GetClientAssessments(StartDate, EndDate, ClientID));
+        }
+
+        [HttpGet]
+        public ActionResult ViewTeamAssessment()
+        {
+            if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
+            {
+                CreateAssessmentVM assess = new CreateAssessmentVM() { TeamList = Team.GetAllTeams() };
+                return View(assess);
+            }
+            else if(Session["Roles"].ToString().Contains("MANAGER"))
+            {
+                CreateAssessmentVM assess = new CreateAssessmentVM() { TeamList = Team.GetTeamsForManager((int)Session["ID"]) };
+                return View(assess);
+            }
+            else
+            {
+                CreateAssessmentVM assess = new CreateAssessmentVM() { TeamList = Team.GetTeamsForLead((int)Session["ID"]) };
+                return View(assess);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult ViewTeamAssessment(FormCollection form)
+        {
+            DateTime StartDate = DateTime.Parse(form[0]);
+            DateTime EndDate = DateTime.Parse(form[1]);
+            int TeamID = int.Parse(form[2]);
+            return View("ViewAssessment", Assessments.GetTeamsAssessments(StartDate, EndDate, TeamID));
+        }
+        [HttpGet]
+        public ActionResult ViewIndividualAssessment()
+        {
+            CreateAssessmentVM assess = new CreateAssessmentVM() { EmployeeList = Employee.GetAllEmployees() };
+            return View(assess);
+        }
+
+        [HttpPost]
+        public ActionResult ViewIndividualAssessment(FormCollection form)
+        {
+            DateTime StartDate = DateTime.Parse(form[0]);
+            DateTime EndDate = DateTime.Parse(form[1]);
+            return View("ViewAssessment", Assessments.GetIndividualAssessments(StartDate, EndDate));
+        }
+
+        [HttpGet]
+        public ActionResult ViewAssessment()
+        {
+            return View();
+        }
+
+        //------------------------------------------------------------------------------------------------------------------//
 
         public JsonResult GetAverage(string profileID)
         {

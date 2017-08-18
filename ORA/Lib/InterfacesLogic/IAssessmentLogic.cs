@@ -19,5 +19,8 @@ namespace Lib.InterfacesLogic
         List<EmployeeVM> GetAssessmentForServiceManager(int employeeID, DateTime Start, DateTime End);
         List<EmployeeVM> GetAssessmentForTeamLead(int employeeID, DateTime Start, DateTime End);
         string GetAverage(int profileID);
+        List<AssessmentVM> GetIndividualAssessments(DateTime startDate, DateTime endDate);
+        List<AssessmentVM> GetTeamsAssessments(DateTime startDate, DateTime endDate, int teamID);
+        List<AssessmentVM> GetClientAssessments(DateTime startDate, DateTime endDate, int clientID);
     }
 }

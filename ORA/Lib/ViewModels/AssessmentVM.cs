@@ -87,6 +87,8 @@ namespace Lib.ViewModels {
 
         public AssignmentVM Assignment { get; set; }
 
+        public string EmployeeName { get; set; }
+
         public DateTime Modified { get; set; }
 
         public DateTime Created { get; set; }
@@ -149,6 +151,8 @@ namespace Lib.ViewModels {
         public int MIPotencialAdvancement { get; set; }
         [Display(Name = "Comments")]
         public string MIComments { get; set; }
+        public List<ClientVM> ClientList { get; set; }
+        public List<TeamVM> TeamList { get; set; }
         public bool ActiveFlag { get; set; }
         public int AssignmentID { get; set; }
         public List<EmployeeVM> EmployeeList { get; set; }

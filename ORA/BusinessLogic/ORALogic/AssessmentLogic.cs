@@ -182,5 +182,68 @@ namespace BusinessLogic.ORALogic
             average += "," + (total[4] / assessments.Count).ToString();
             return average;
         }
+
+        public List<AssessmentVM> GetIndividualAssessments(DateTime startDate, DateTime endDate)
+        {
+            var assignment = Assignments.GetAllAssignments().Where(a => startDate >= a.StartDate && startDate <= a.EndDate && endDate >= a.StartDate && endDate <= a.EndDate).ToList();
+            var assessment = Assessments.GetAllAssessments().Where(a =>
+            {
+                foreach (var assign in assignment)
+                {
+                    if (assign.AssignmentID == a.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).OrderBy(a => a.Created).ToList();
+            foreach (var assess in assessment)
+            {
+                assess.EmployeeName = Employees.GetEmployeeByID(Assignments.GetAssignmentByID(assess.AssignmentID).EmployeeID).EmployeeName;
+            }
+            return assessment.OrderBy(a => a.EmployeeName).ToList();
+        }
+
+        public List<AssessmentVM> GetTeamsAssessments(DateTime startDate, DateTime endDate, int teamID)
+        {
+            var assignment = Assignments.GetAllAssignments().Where(a => startDate >= a.StartDate && startDate <= a.EndDate && endDate >= a.StartDate && endDate <= a.EndDate && teamID == a.TeamID).ToList();
+            var assessment = Assessments.GetAllAssessments().Where(a =>
+            {
+                foreach (var assign in assignment)
+                {
+                    if (assign.AssignmentID == a.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            foreach (var assess in assessment)
+            {
+                assess.EmployeeName = Employees.GetEmployeeByID(Assignments.GetAssignmentByID(assess.AssignmentID).EmployeeID).EmployeeName;
+            }
+            return assessment.OrderBy(a => a.EmployeeName).ToList();
+        }
+
+        public List<AssessmentVM> GetClientAssessments(DateTime startDate, DateTime endDate, int clientID)
+        {
+            var assignment = Assignments.GetAllAssignments().Where(a => startDate >= a.StartDate && startDate <= a.EndDate && endDate >= a.StartDate && endDate <= a.EndDate && clientID == a.ClientID).ToList();
+            var assessment = Assessments.GetAllAssessments().Where(a =>
+            {
+                foreach (var assign in assignment)
+                {
+                    if (assign.AssignmentID == a.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            foreach (var assess in assessment)
+            {
+                assess.EmployeeName = Employees.GetEmployeeByID(Assignments.GetAssignmentByID(assess.AssignmentID).EmployeeID).EmployeeName;
+            }
+            return assessment.OrderBy(a => a.EmployeeName).ToList();
+        }
     }
 }

@@ -1,0 +1,14 @@
+﻿@model Lib.ViewModels.CreateAssessmentVM
+@{
+    ViewBag.Title = "ViewTeamAssessment";
+}
+
+<h2>ViewTeamAssessment</h2>
+
+@Html.BeginForm("ViewTeamAssessment", "Assessment", FormMethod.Post)
+@Html.Label("Start Date", new { @class = "LableFormat" })
+@Html.TextBox("StartDate", DateTime.Now, htmlAttributes: new { @class = "form-control TextBoxFormat" })
+@Html.Label("End Date", new { @class = "LableFormat" })
+@Html.TextBox("EndDate", DateTime.Now, htmlAttributes: new { @class = "form-control TextBoxFormat" })
+@Html.DropDownList("TeamID", new SelectList(Model.TeamList, "TeamID", "TeamName"), "---Select---", new { @class = "dropdown" })
+<input type="submit" value="Submit" />
