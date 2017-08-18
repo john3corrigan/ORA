@@ -21,7 +21,7 @@
             <header class="fixed">
                 <div class="container">
                     <div class="clearfix header_top_bottom_holder">
-                        <div class="header_top">
+                        <div class="header_top" >
                             <div class="container">
                                 <div class="container_inner">
                                     <div class="left">
@@ -31,15 +31,16 @@
                                         <div class="inner">
                                             <div>
                                                 <div>
-                                                    <ul class="list-inline">
+                                                    <ul class="list-inline" style="z-index:1;">
                                                         @if (Session["Name"] != null)
                                                         {
                                                             <li>@Html.ActionLink((string)Session["Name"], "ViewProfileByID", "Profile", routeValues: new { ProfileID = (int)Session["profileID"] }, htmlAttributes: new { Area = "" })</li>
+
                                                             <li>@Html.ActionLink("Log-Out", "LogOut", "Login")</li>
                                                         }
                                                         else
                                                         {
-                                                        <li>@Html.ActionLink("Log-In", "Login", "Login")</li>
+                                                            <li>@Html.ActionLink("Log-In", "Login", "Login")</li>
                                                         }
                                                     </ul>
                                                 </div>
@@ -63,16 +64,38 @@
                                         <div class="nav_container navbar-right right">
                                             @if (Session["Name"] != null)
                                             {
+                                                if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                {
                                                 <div class="dropdown">
                                                     <button class="dropbtn" id="Assessment">Assessment</button>
                                                     <div class="content">
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
                                                             @Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")
+                                                            <div class="dropdown2">
+                                                                <div class="content2">
+                                                                    @if (Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                                    {
+                                                                        @Html.ActionLink("D. Center", "Index", "Assessment")
+                                                                    }
+                                                                    @Html.ActionLink("Client", "ViewClientAssessment", "Assessment")
+                                                                    @Html.ActionLink("Team", "ViewTeamAssessment", "Assessment")
+                                                                    @Html.ActionLink("Individual", "Index", "Assessment")
+                                                                </div>
+                                                                <a href=""> View Assessments </a>
+                                                            </div>
                                                         }
-                                                        @Html.ActionLink("View All Assessments", "Index","Assessment")
                                                     </div>
                                                 </div>
+                                                }
+                                                else if (Session["Roles"].ToString().Contains("ADMIN"))
+                                                {
+                                                    <a href="/Assessment" class="dropbtn" id="Assessment"> Assessments </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/Assessment" class="dropbtn" id="Assessment"> My Assessments </a>
+                                                }
 
                                                 <div class="dropdown">
                                                     <button class="dropbtn" id="Assignment">Assignment</button>
@@ -81,9 +104,22 @@
                                                         {
                                                             @Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment")
                                                         }
-                                                        @Html.ActionLink("View All Assignments", "Index", "Assignment")
+                                                        <div class="dropdown2">
+                                                            <div class="content2">
+                                                                @if (Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                                {
+                                                                    @Html.ActionLink("D. Center", "Index", "Assignment")
+                                                                }
+                                                                @Html.ActionLink("Client", "Index", "Assignment")
+                                                                @Html.ActionLink("Team", "Index", "Assignment")
+                                                                @Html.ActionLink("Individual", "Index", "Assignment")
+                                                            </div>
+                                                            <a href=""> View Assessments </a>
+                                                        </div>
+
                                                     </div>
                                                 </div>
+                                                
                                                 if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                 {
                                                     <div class=" dropdown">
@@ -93,7 +129,7 @@
                                                             {
                                                                 @Html.ActionLink("Add a Client", "AddClient", "Client")
                                                             }
-                                                            @Html.ActionLink("View All Clients", "Index", "Client")
+                                                            @Html.ActionLink("View Clients", "Index", "Client")
                                                         </div>
                                                     </div>
 
@@ -104,7 +140,7 @@
                                                         <button class="dropbtn" id="Employee">Employee</button>
                                                         <div class="content">
                                                             @Html.ActionLink("Add an Employee", "AddEmployee", "Employee")
-                                                            @Html.ActionLink("View All Employees", "Index", "Employee")
+                                                            @Html.ActionLink("View Employees", "Index", "Employee")
                                                         </div>
                                                     </div>
 
@@ -116,7 +152,7 @@
                                                         {
                                                             @Html.ActionLink("Create a KPI", "CreateKPI", "KPI")
                                                         }
-                                                            @Html.ActionLink("View All KPIs", "Index", "KPI")
+                                                        @Html.ActionLink("View KPIs", "Index", "KPI")
                                                     </div>
                                                 </div>
 
@@ -127,7 +163,7 @@
                                                         {
                                                             @Html.ActionLink("Create a Project", "CreateProject", "Project")
                                                         }
-                                                        @Html.ActionLink("View All Projects", "Index", "Project")
+                                                        @Html.ActionLink("View Projects", "Index", "Project")
                                                     </div>
                                                 </div>
 
@@ -139,7 +175,7 @@
                                                         {
                                                             @Html.ActionLink("Create a Sprint", "CreateSprint", "Sprint")
                                                         }
-                                                        @Html.ActionLink("View All Sprints", "Index", "Sprint")
+                                                        @Html.ActionLink("View Sprints", "Index", "Sprint")
                                                     </div>
                                                 </div>
 
@@ -150,7 +186,7 @@
                                                         {
                                                             @Html.ActionLink("Create a Story", "CreateStory", "Story")
                                                         }
-                                                        @Html.ActionLink("View All Stories", "Index", "Story")
+                                                        @Html.ActionLink("View Stories", "Index", "Story")
                                                     </div>
                                                 </div>
 
@@ -163,7 +199,7 @@
                                                             {
                                                                 @Html.ActionLink("Create a Team", "CreateTeam", "Team")
                                                             }
-                                                            @Html.ActionLink("View All Teams", "Index", "Team")
+                                                            @Html.ActionLink("View Teams", "Index", "Team")
                                                         </div>
                                                     </div>
 
@@ -178,7 +214,7 @@
                 </div>
                 @*<hr />*@
             </header>
-            <div class="container body-content" style="padding-top: 121px; height:100%; z-index:0;">
+            <div class="container body-content" style="padding-top:100px; height:100%; z-index:0;">
                 @RenderBody()
             </div>
         </div>
@@ -194,4 +230,3 @@
     <script src="~/Scripts/OraScript.js" type="text/javascript"></script>
 </body>
 </html>
- 
