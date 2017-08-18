@@ -139,8 +139,21 @@ nav {
     overflow: hidden;
 }
 
+.dropdown2{
+
+}
+
 .dropbtn {
     font-size: 17px; 
+    border: none;
+    outline: none;
+    color: black;
+    padding: 10px 20px 15px;
+    background-color: inherit;
+}
+
+a.dropbtn {
+    font-size: 17px;
     border: none;
     outline: none;
     color: black;
@@ -151,6 +164,11 @@ nav {
 .active {
         background-color: white;
         color: black;
+}
+
+a.dropbtn.active{
+    background:white;
+    color:black;
 }
 
 .nav_container a:hover {
@@ -164,6 +182,17 @@ nav {
     position:absolute;
     text-align:center;
     z-index: 1;
+}
+
+.content2 {
+    display: none;
+    float:right;
+    position:absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    left:100%;
+    z-index: 2;
+    top:auto;
 }
 
     .content a {
@@ -183,6 +212,11 @@ nav {
 
 .dropdown:hover .content {
     display:block;
+}
+
+.dropdown2:hover .content2 {
+    display: inline;
+    position: center;
 }
 
 .dropdown:hover .dropbtn {

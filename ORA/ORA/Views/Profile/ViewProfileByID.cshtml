@@ -26,8 +26,8 @@ else
             </div>
             <div class="col-md-8">
                 <button id="MyBiobtn">My Biography</button>
-                <button id="KPI-btn">My KPI</button>
-                <button id="Assessment-btn">My Assessment</button>
+                <button id="kpi-btn">My KPI</button>
+                <button id="Assess-btn">My Assessment</button>
                 <button id="Team-btn">My Team</button>
             </div>
         </div>
@@ -58,10 +58,10 @@ else
                         <span>Address or Bio information has not been filled out.</span>
                     }
                 </div>
-                <div id="KPI" hidden>
+                <div id="kpi" hidden>
                     <canvas id="canvasKPI"></canvas>
                 </div>
-                <div id="Assessment" hidden>
+                <div id="Assess" hidden>
                     <canvas id="canvasAssessment"></canvas>
                 </div>
                 <div id="Team" hidden>
@@ -73,18 +73,18 @@ else
 }
 <script>
     $(document).ready(function () {
-        $('#KPI-btn').click(function () {
-            $('#KPI').show();
-            $('#Assessment').hide();
+        $('#kpi-btn').click(function () {
+            $('#kpi').show();
+            $('#Assess').hide();
             $('#MyBio').hide();
             $('#Team').hide();
 
         });
     });
     $(document).ready(function () {
-        $('#Assessment-btn').click(function () {
-            $('#Assessment').show();
-            $('#KPI').hide();
+        $('#Assess-btn').click(function () {
+            $('#Assess').show();
+            $('#kpi').hide();
             $('#MyBio').hide();
             $('#Team').hide();
         });
@@ -93,16 +93,16 @@ else
         $('#MyBiobtn').click(function () {
             $('#MyBio').show();
             $('#summary').show();
-            $('#KPI').hide();
-            $('#Assessment').hide();
+            $('#kpi').hide();
+            $('#Assess').hide();
             $('#Team').hide();
         });
     });
     $(document).ready(function () {
         $('#Team-btn').click(function () {
             $('#Team').show();
-            $('#KPI').hide();
-            $('#Assessment').hide();
+            $('#kpi').hide();
+            $('#Assess').hide();
             $('#MyBio').hide();
         });
     });

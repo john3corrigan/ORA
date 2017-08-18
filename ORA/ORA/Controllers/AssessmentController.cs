@@ -38,7 +38,7 @@ namespace ORA.Controllers
             {
                 TempData["Stage"] = 3;
                 int ID = (int)Session["ID"];
-                return RedirectToAction("ViewAssessment", "Assessment", routeValues: new { AssessmentID = ID});
+                return RedirectToAction("ViewAssessment", "Assessment", routeValues: new { EmployeeID = ID});
             }
             else
             {
