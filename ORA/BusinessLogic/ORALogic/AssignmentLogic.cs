@@ -110,5 +110,31 @@ namespace BusinessLogic.ORALogic
         {
             Assignments.UpdateAssignment(updatedAssignment);
         }
+
+        public List<AssignmentVM> GetIndividualAssignments(DateTime startDate, DateTime endDate)
+        {
+            var assignment = Assignments.GetAllAssignments().Where(a => (startDate >= a.StartDate && startDate <= a.EndDate) || (endDate >= a.StartDate && endDate <= a.EndDate)).OrderBy(a => a.EmployeeID).ToList();
+            return EmployeeInfo(assignment);
+        }
+
+        public List<AssignmentVM> GetTeamsAssignments(DateTime startDate, DateTime endDate, int teamID)
+        {
+            var assignment = Assignments.GetAllAssignments().Where(a => ((startDate >= a.StartDate && startDate <= a.EndDate) || (endDate >= a.StartDate && endDate <= a.EndDate)) && teamID == a.TeamID).OrderBy(a => a.EmployeeID).ToList();
+            return EmployeeInfo(assignment);
+        }
+
+        public List<AssignmentVM> GetClientAssignments(DateTime startDate, DateTime endDate, int clientID)
+        {
+            var assignment = Assignments.GetAllAssignments().Where(a => ((startDate >= a.StartDate && startDate <= a.EndDate) || (endDate >= a.StartDate && endDate <= a.EndDate)) && clientID == a.ClientID).OrderBy(a => a.EmployeeID).ToList();
+            return EmployeeInfo(assignment);
+        }
+        private List<AssignmentVM> EmployeeInfo(List<AssignmentVM> assignments)
+        {
+            foreach (var assign in assignments)
+            {
+                assign.Employee = Employee.GetEmployeeByID(assign.EmployeeID);
+            }
+            return assignments;
+        }
     }
 }

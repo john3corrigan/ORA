@@ -80,7 +80,7 @@
                                                                     }
                                                                     @Html.ActionLink("Client", "ViewClientAssessment", "Assessment")
                                                                     @Html.ActionLink("Team", "ViewTeamAssessment", "Assessment")
-                                                                    @Html.ActionLink("Individual", "Index", "Assessment")
+                                                                    @Html.ActionLink("Individual", "ViewIndividualAssessment", "Assessment")
                                                                 </div>
                                                                 <a href=""> View Assessments </a>
                                                             </div>
@@ -108,11 +108,11 @@
                                                             <div class="content2">
                                                                 @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                                 {
-                                                                    @Html.ActionLink("D. Center", "Index", "Assignment")
+                                                                    @Html.ActionLink("D. Center", "ViewDCenter", "Assignment")
                                                                 }
-                                                                @Html.ActionLink("Client", "Index", "Assignment")
-                                                                @Html.ActionLink("Team", "Index", "Assignment")
-                                                                @Html.ActionLink("Individual", "Index", "Assignment")
+                                                                @Html.ActionLink("Client", "ViewClientAssignments", "Assignment")
+                                                                @Html.ActionLink("Team", "ViewTeamAssignments", "Assignment")
+                                                                @Html.ActionLink("Individual", "ViewIndividualAssignments", "Assignment")
                                                             </div>
                                                             <a href=""> View Assessments </a>
                                                         </div>
@@ -151,8 +151,27 @@
                                                         @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
                                                             @Html.ActionLink("Create a KPI", "CreateKPI", "KPI")
+                                                            <div class="dropdown2">
+                                                                <div class="content2">
+                                                                    @if (Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                                    {
+                                                                        @Html.ActionLink("D. Center", "ViewDCenter", "Assignment")
+                                                                    }
+                                                                    @Html.ActionLink("Client", "ViewClientKPIs", "KPI")
+                                                                    @Html.ActionLink("Team", "ViewTeamKPIs", "KPI")
+                                                                    @Html.ActionLink("Individual", "ViewIndividualKPI", "KPI")
+                                                                </div>
+                                                                <a href=""> View KPIs </a>
+                                                            </div>
                                                         }
-                                                        @Html.ActionLink("View KPIs", "Index", "KPI")
+                                                        else if (Session["Roles"].ToString().Contains("ADMIN"))
+                                                        {
+                                                            <a href="/KPI" class="dropbtn" id="KPI"> KPI </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="/KPI" class="dropbtn" id="KPI"> My KPIs </a>
+                                                        }
                                                     </div>
                                                 </div>
 

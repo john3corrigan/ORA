@@ -21,6 +21,9 @@ namespace Lib.InterfacesLogic
         List<KPIVM> GetKPIByAssignmentID(int SprintID);
         List<KPIVM> GetKPIsForManager(int empID);
         List<KPIVM> GetKPIsForLead(int empID);
+        List<KPIVM> GetIndividualKPIs(DateTime startDate, DateTime endDate);
+        List<KPIVM> GetTeamsKPIs(DateTime startDate, DateTime endDate, int teamID);
+        List<KPIVM> GetClientKPIs(DateTime startDate, DateTime endDate, int clientID);
         //void RemoveKPI(int KPIIDS);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace Lib.ViewModels {
     public class KPIVM {
         public int KPIID { get; set; }
+        public string EmployeeName { get; set; }
         public int Points { get; set; }
         public int TCCreated { get; set; }
         public int TCExcuted { get; set; }
@@ -62,6 +63,9 @@ namespace Lib.ViewModels {
         public int StoryID { get; set; }
         public StoryVM Story { get; set; }
         public List<StoryVM> StoryList { get; set; }
+        public List<TeamVM> TeamList { get; set; }
+        public List<ClientVM> ClientList { get; set; }
+        public List<EmployeeVM> EmployeeList { get; set; }
         public DateTime Modified { get; set; }
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }
