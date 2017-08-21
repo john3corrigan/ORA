@@ -19,141 +19,118 @@
 }
 else
 {
-    <button id="table">View Table</button>
-    <button id="comments">View Comments</button>
-    <table id="dataTable">
-        <tr>
-            <th></th>
-            <th colspan="4">Technical Delivery</th>
-            <th colspan="4">Customer Service & Relationships</th>
-            <th colspan="4">Accountiability & Dependability</th>
-            <th colspan="4">Training & Mentoring</th>
-            <th colspan="4">Motivation & Initiative</th>
-        </tr>
-        <tr>
-            <th>Employee Name</th>
-            <th>Problem Solving</th>
-            <th>Quality Of Work</th>
-            <th>Productivity</th>
-            <th>Product Knowledge</th>
-            <th>Professionalism &amp; Teamwork</th>
-            <th>Verbal Skills</th>
-            <th>Written Skills</th>
-            <th>Listening Skills</th>
-            <th>Attendence</th>
-            <th>Ethic Behavior</th>
-            <th>Ability To Meet Deadlines</th>
-            <th>Organize Detailed Work</th>
-            <th>Resouce Use</th>
-            <th>Feedback</th>
-            <th>Technical Monitoring</th>
-            <th>Asking Questions</th>
-            <th>Attitude At Work</th>
-            <th>Grooming/ Appearance</th>
-            <th>Personal Growth</th>
-            <th>Potencial For Advancement</th>
-        </tr>
-        @foreach (AssessmentVM Value in Model)
-        {
+    <div class="tableOverflow">
+        <table id="dataTable">
             <tr>
-                <td>@Html.DisplayName(Value.EmployeeName)</td>
-                <td>@Html.DisplayName(Value.TDProblemSolving.ToString())</td>
-                <td>@Html.DisplayName(Value.TDQualityOfWork.ToString())</td>
-                <td>@Html.DisplayName(Value.TDProductivity.ToString())</td>
-                <td>@Html.DisplayName(Value.TDProductKnowledge.ToString())</td>
-                <td>@Html.DisplayName(Value.CSRProfessionalismTeamwork.ToString())</td>
-                <td>@Html.DisplayName(Value.CSRVerbalSkills.ToString())</td>
-                <td>@Html.DisplayName(Value.CSRWrittenSkills.ToString())</td>
-                <td>@Html.DisplayName(Value.CSRListeningSkills.ToString())</td>
-                <td>@Html.DisplayName(Value.ADAttendence.ToString())</td>
-                <td>@Html.DisplayName(Value.ADEthiclBehavior.ToString())</td>
-                <td>@Html.DisplayName(Value.ADMeetsDeadlines.ToString())</td>
-                <td>@Html.DisplayName(Value.ADOrganizeDetailedWork.ToString())</td>
-                <td>@Html.DisplayName(Value.TMResourceUse.ToString())</td>
-                <td>@Html.DisplayName(Value.TMFeedBack.ToString())</td>
-                <td>@Html.DisplayName(Value.TMTechnicalMonitoring.ToString())</td>
-                <td>@Html.DisplayName(Value.TMAskingQuestions.ToString())</td>
-                <td>@Html.DisplayName(Value.MIAttitudeWork.ToString())</td>
-                <td>@Html.DisplayName(Value.MIGroomingAppearence.ToString())</td>
-                <td>@Html.DisplayName(Value.MIPersonalGrowth.ToString())</td>
-                <td>@Html.DisplayName(Value.MIPotencialAdvancement.ToString())</td>
+                <th colspan="3"></th>
+                <th colspan="5">Technical Delivery</th>
+                <th colspan="5">Customer Service & Relationships</th>
+                <th colspan="5">Accountiability & Dependability</th>
+                <th colspan="5">Training & Mentoring</th>
+                <th colspan="5">Motivation & Initiative</th>
             </tr>
-        }
-    </table>
-    <table id="commentsTable" hidden>
-        <tr>
-            <th>Employee Name</th>
-            <th>Technical Delivery</th>
-            <th>Customer Service & Relationships</th>
-            <th>Accountiability & Dependability</th>
-            <th>Training & Mentoring</th>
-            <th>Motivation & Initiative</th>
-            <th>Created Date</th>
-            <th>Created By</th>
-            <th>Modified Date</th>
-            <th>Modified By</th>
-        </tr>
-        @foreach (AssessmentVM Value in Model)
-        {
             <tr>
-                <td>@Html.DisplayName(Value.EmployeeName)</td>
-                @if (Value.TDComments != null)
-                {
-                    <td>@Html.DisplayName(Value.TDComments)</td>
-                }
-                else
-                {
-                    <td>No Comments</td>
-                }
-                @if (Value.CSRComments != null)
-                {
-                    <td>@Html.DisplayName(Value.CSRComments)</td>
-                }
-                else
-                {
-                    <td>No Comments</td>
-                }
-                @if (Value.ADComments != null)
-                {
-                    <td>@Html.DisplayName(Value.ADComments)</td>
-                }
-                else
-                {
-                    <td>No Comments</td>
-                }
-                @if (Value.TMComments != null)
-                {
-                    <td>@Html.DisplayName(Value.TMComments)</td>
-                }
-                else
-                {
-                    <td>No Comments</td>
-                }
-                @if (Value.MIComments != null)
-                {
-                    <td>@Html.DisplayName(Value.MIComments)</td>
-                }
-                else
-                {
-                    <td>No Comments</td>
-                }
-                <td>@Html.DisplayName(Value.Created.ToString())</td>
-                <td>@Html.DisplayName(Value.CreatedBy.ToString())</td>
-                <td>@Html.DisplayName(Value.Modified.ToString())</td>
-                <td>@Html.DisplayName(Value.ModifiedBy.ToString())</td>
+                <th>Created By</th>
+                <th>Created Date</th>
+                <th>Employee Name</th>
+                <th>Problem Solving</th>
+                <th>Quality Of Work</th>
+                <th>Productivity</th>
+                <th>Product Knowledge</th>
+                <th>Comments</th>
+                <th>Professionalism &amp; Teamwork</th>
+                <th>Verbal Skills</th>
+                <th>Written Skills</th>
+                <th>Listening Skills</th>
+                <th>Comments</th>
+                <th>Attendence</th>
+                <th>Ethic Behavior</th>
+                <th>Ability To Meet Deadlines</th>
+                <th>Organize Detailed Work</th>
+                <th>Comments</th>
+                <th>Resouce Use</th>
+                <th>Feedback</th>
+                <th>Technical Monitoring</th>
+                <th>Asking Questions</th>
+                <th>Comments</th>
+                <th>Attitude At Work</th>
+                <th>Grooming/ Appearance</th>
+                <th>Personal Growth</th>
+                <th>Potencial For Advancement</th>
+                <th>Comments</th>
+                <th>Modified Date</th>
+                <th>Modified By</th>
             </tr>
-        }
-    </table>
+            @foreach (AssessmentVM Value in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayName(Value.CreatedBy.ToString())</td>
+                    <td>@Html.DisplayName(Value.Created.ToString())</td>
+                    <td>@Html.DisplayName(Value.EmployeeName)</td>
+                    <td>@Html.DisplayName(Value.TDProblemSolving.ToString())</td>
+                    <td>@Html.DisplayName(Value.TDQualityOfWork.ToString())</td>
+                    <td>@Html.DisplayName(Value.TDProductivity.ToString())</td>
+                    <td>@Html.DisplayName(Value.TDProductKnowledge.ToString())</td>
+                    @if (Value.TDComments != null)
+                    {
+                        <td>@Html.DisplayName(Value.TDComments)</td>
+                    }
+                    else
+                    {
+                        <td>No Comments</td>
+                    }
+                    <td>@Html.DisplayName(Value.CSRProfessionalismTeamwork.ToString())</td>
+                    <td>@Html.DisplayName(Value.CSRVerbalSkills.ToString())</td>
+                    <td>@Html.DisplayName(Value.CSRWrittenSkills.ToString())</td>
+                    <td>@Html.DisplayName(Value.CSRListeningSkills.ToString())</td>
+                    @if (Value.CSRComments != null)
+                    {
+                        <td>@Html.DisplayName(Value.CSRComments)</td>
+                    }
+                    else
+                    {
+                        <td>No Comments</td>
+                    }
+                    <td>@Html.DisplayName(Value.ADAttendence.ToString())</td>
+                    <td>@Html.DisplayName(Value.ADEthiclBehavior.ToString())</td>
+                    <td>@Html.DisplayName(Value.ADMeetsDeadlines.ToString())</td>
+                    <td>@Html.DisplayName(Value.ADOrganizeDetailedWork.ToString())</td>
+                    @if (Value.ADComments != null)
+                    {
+                        <td>@Html.DisplayName(Value.ADComments)</td>
+                    }
+                    else
+                    {
+                        <td>No Comments</td>
+                    }
+                    <td>@Html.DisplayName(Value.TMResourceUse.ToString())</td>
+                    <td>@Html.DisplayName(Value.TMFeedBack.ToString())</td>
+                    <td>@Html.DisplayName(Value.TMTechnicalMonitoring.ToString())</td>
+                    <td>@Html.DisplayName(Value.TMAskingQuestions.ToString())</td>
+                    @if (Value.TMComments != null)
+                    {
+                        <td>@Html.DisplayName(Value.TMComments)</td>
+                    }
+                    else
+                    {
+                        <td>No Comments</td>
+                    }
+                    <td>@Html.DisplayName(Value.MIAttitudeWork.ToString())</td>
+                    <td>@Html.DisplayName(Value.MIGroomingAppearence.ToString())</td>
+                    <td>@Html.DisplayName(Value.MIPersonalGrowth.ToString())</td>
+                    <td>@Html.DisplayName(Value.MIPotencialAdvancement.ToString())</td>
+                    @if (Value.MIComments != null)
+                    {
+                        <td>@Html.DisplayName(Value.MIComments)</td>
+                    }
+                    else
+                    {
+                        <td>No Comments</td>
+                    }
+                    <td>@Html.DisplayName(Value.Modified.ToString())</td>
+                    <td>@Html.DisplayName(Value.ModifiedBy.ToString())</td>
+                </tr>
+            }
+        </table>
+    </div>
 }
-<script>
-    $(document).ready(function () {
-        $('#table').click(function () {
-            $('#dataTable').show();
-            $('#commentsTable').hide();
-        });
-        $('#comments').click(function () {
-            $('#commentsTable').show();
-            $('#dataTable').hide();
-        });
-    });
-</script>
