@@ -127,7 +127,7 @@ nav {
     margin-top:-48px;
 }
 
-    .nav_container a {
+.nav_container a {
         float: left;
         color: white;
         padding: 20px;
@@ -281,6 +281,7 @@ tr td a {
 /*tr:nth-child(even) a {
     color: white;
 }*/
+
 th {
     color: white;
     background: #033359

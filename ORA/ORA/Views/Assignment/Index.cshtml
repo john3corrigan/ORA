@@ -8,6 +8,8 @@
 
 <table>
     <tr>
+        <th>Created By</th>
+        <th>Created Date</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Client</th>
@@ -15,8 +17,6 @@
         <th>Position</th>
         <th>Role</th>
         <th>Team</th>
-        <th>Created Date</th>
-        <th>Created By</th>
         <th>Modified Date</th>
         <th>Modified By</th>
         <th>KPI List</th>
@@ -26,15 +26,15 @@
     @foreach (AssignmentVM Value in Model)
     {
         <tr>
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
             <td>@Html.DisplayName(Value.StartDate.ToString())</td>
             <td>@Html.DisplayName(Value.EndDate.ToString())</td>
             <td>@Html.DisplayName(Value.ClientID.ToString())</td>
-            <td>@Html.DisplayName(Value.EmployeeID.ToString())</td>
+            <td>@Html.DisplayName(Value.Employee.EmployeeName)</td>
             <td>@Html.DisplayName(Value.PositionID.ToString())</td>
             <td>@Html.DisplayName(Value.RoleID.ToString())</td>
             <td>@Html.DisplayName(Value.TeamID.ToString())</td>
-            <td>@Html.DisplayName(Value.Created.ToString())</td>
-            <td>@Html.DisplayName(Value.CreatedBy)</td>
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
             <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("View KPIs", "ViewListKPIByAssignment", "KPI", new { AssignmentID = Value.AssignmentID }, new { Area = "" })</td>

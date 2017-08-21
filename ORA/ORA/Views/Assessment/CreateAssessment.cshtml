@@ -7,7 +7,7 @@
     using (Html.BeginForm("GetEmployeeAssessment", "Assessment", FormMethod.Post))
     {
         @Html.LabelFor(m => m.Created, new { @class = "LableFormat" })
-        @Html.TextBoxFor(m => m.Created, new { @Value = DateTime.Now, @class = "LableFormat" })
+        @Html.TextBoxFor(m => m.Created, new { @Value = DateTime.Now, @class = "form-control TextBoxFormat" })
         <input value="Submit" type="submit" />
     }
 }
