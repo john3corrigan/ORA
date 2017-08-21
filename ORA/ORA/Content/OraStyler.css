@@ -240,9 +240,21 @@ table {
     align-content: center;
     margin: 0px;
     padding: 0px;
-    border: 5px solid;
-    overflow: auto;
-    min-width:100%;
+    min-width: 100%;
+    overflow: hidden;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+div.tableOverflow{
+    overflow-x:auto;
+border: 5px solid;
+border-bottom:none;
+}
+
+tbody{
+    
 }
 
 tr:nth-child(even) {
