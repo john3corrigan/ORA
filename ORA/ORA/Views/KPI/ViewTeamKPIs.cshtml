@@ -6,7 +6,7 @@
 <h2>ViewTeamKPIs</h2>
 
 
-@Html.BeginForm("ViewTeamKPIs", "Assessment", FormMethod.Post)
+@Html.BeginForm("ViewTeamKPIs", "KPI", FormMethod.Post)
 @Html.Label("Start Date", new { @class = "LableFormat" })
 @Html.TextBox("StartDate", DateTime.Now, htmlAttributes: new { @class = "form-control TextBoxFormat" })
 @Html.Label("End Date", new { @class = "LableFormat" })

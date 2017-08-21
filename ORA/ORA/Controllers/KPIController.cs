@@ -124,12 +124,12 @@ namespace ORA.Controllers
         {
             if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
             {
-                List<KPIVM> kpi = KPIs.GetAllKPIs();
+                CreateKPIVM kpi = new CreateKPIVM() { ClientList = Client.GetAllClients() };
                 return View(kpi);
             }
             else
             {
-                List<KPIVM> kpi = KPIs.GetKPIsForManager((int)Session["ID"]);
+                CreateKPIVM kpi = new CreateKPIVM() { ClientList = Client.GetClientsManager((int)Session["ID"]) };
                 return View(kpi);
             }
         }
