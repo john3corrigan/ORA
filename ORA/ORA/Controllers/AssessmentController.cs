@@ -126,7 +126,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        public ActionResult ViewClientAssessment()
+        public ActionResult ViewClientAssessments()
         {
             if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
             {
@@ -141,7 +141,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        public ActionResult ViewClientAssessment(FormCollection form)
+        public ActionResult ViewClientAssessments(FormCollection form)
         {
             DateTime StartDate = DateTime.Parse(form[0]);
             DateTime EndDate = DateTime.Parse(form[1]);
@@ -150,7 +150,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        public ActionResult ViewTeamAssessment()
+        public ActionResult ViewTeamAssessments()
         {
             if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
             {
@@ -170,7 +170,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        public ActionResult ViewTeamAssessment(FormCollection form)
+        public ActionResult ViewTeamAssessments(FormCollection form)
         {
             DateTime StartDate = DateTime.Parse(form[0]);
             DateTime EndDate = DateTime.Parse(form[1]);
@@ -178,14 +178,14 @@ namespace ORA.Controllers
             return View("ViewAssessment", Assessments.GetTeamsAssessments(StartDate, EndDate, TeamID));
         }
         [HttpGet]
-        public ActionResult ViewIndividualAssessment()
+        public ActionResult ViewIndividualAssessments()
         {
             CreateAssessmentVM assess = new CreateAssessmentVM() { EmployeeList = Employee.GetAllEmployees() };
             return View(assess);
         }
 
         [HttpPost]
-        public ActionResult ViewIndividualAssessment(FormCollection form)
+        public ActionResult ViewIndividualAssessments(FormCollection form)
         {
             DateTime StartDate = DateTime.Parse(form[0]);
             DateTime EndDate = DateTime.Parse(form[1]);

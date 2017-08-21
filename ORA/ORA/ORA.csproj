@@ -370,6 +370,12 @@
     <Content Include="Views\Assessment\ViewClientAssessment.cshtml" />
     <Content Include="Views\Assessment\ViewTeamAssessment.cshtml" />
     <Content Include="Views\Assessment\ViewIndividualAssessment.cshtml" />
+    <Content Include="Views\KPI\ViewClientKPIs.cshtml" />
+    <Content Include="Views\KPI\ViewTeamKPIs.cshtml" />
+    <Content Include="Views\KPI\ViewIndividualKPI.cshtml" />
+    <Content Include="Views\Assignment\ViewClientAssignments.cshtml" />
+    <Content Include="Views\Assignment\ViewTeamAssignments.cshtml" />
+    <Content Include="Views\Assignment\ViewIndividualAssignments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

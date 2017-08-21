@@ -108,11 +108,11 @@
                                                             <div class="content2">
                                                                 @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                                 {
-                                                                    @Html.ActionLink("D. Center", "Index", "Assignment")
+                                                                    @Html.ActionLink("D. Center", "ViewDCenter", "Assignment")
                                                                 }
-                                                                @Html.ActionLink("Client", "Index", "Assignment")
-                                                                @Html.ActionLink("Team", "Index", "Assignment")
-                                                                @Html.ActionLink("Individual", "Index", "Assignment")
+                                                                @Html.ActionLink("Client", "ViewClientAssignments", "Assignment")
+                                                                @Html.ActionLink("Team", "ViewTeamAssignments", "Assignment")
+                                                                @Html.ActionLink("Individual", "ViewIndividualAssignments", "Assignment")
                                                             </div>
                                                             <a href=""> View Assessments </a>
                                                         </div>

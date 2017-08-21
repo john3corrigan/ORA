@@ -18,5 +18,8 @@ namespace Lib.InterfacesLogic
         List<AssignmentVM> GetAssignmentsForLead(int empID);
         List<AssignmentVM> GetAssignmentsForManager(int empID);
         List<AssignmentVM> GetAllAssignmentsForTeam(int teamID);
+        List<AssignmentVM> GetIndividualAssignments(DateTime startDate, DateTime endDate);
+        List<AssignmentVM> GetTeamsAssignments(DateTime startDate, DateTime endDate, int teamID);
+        List<AssignmentVM> GetClientAssignments(DateTime startDate, DateTime endDate, int clientID);
     }
 }

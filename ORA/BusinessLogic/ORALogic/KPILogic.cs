@@ -172,5 +172,62 @@ namespace BusinessLogic.ORALogic
             }
             return AssignmentList;
         }
+
+        public List<KPIVM> GetIndividualKPIs(DateTime startDate, DateTime endDate)
+        {
+            var assignment = Assignment.GetAllAssignments().Where(a => (startDate >= a.StartDate && startDate <= a.EndDate) || (endDate >= a.StartDate && endDate <= a.EndDate)).ToList();
+            var kpi = KPIs.GetAllKPIs().Where(k => {
+                foreach (AssignmentVM assign in assignment)
+                {
+                    if(assign.AssignmentID == k.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            return GetEmployeeName(kpi).OrderBy(k => k.EmployeeName).ToList();
+        }
+
+        public List<KPIVM> GetTeamsKPIs(DateTime startDate, DateTime endDate, int teamID)
+        {
+            var assignment = Assignment.GetAllAssignments().Where(a => ((startDate >= a.StartDate && startDate <= a.EndDate) || (endDate >= a.StartDate && endDate <= a.EndDate)) && teamID == a.TeamID).ToList();
+            var kpi = KPIs.GetAllKPIs().Where(k => {
+                foreach (AssignmentVM assign in assignment)
+                {
+                    if (assign.AssignmentID == k.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            return GetEmployeeName(kpi).OrderBy(k => k.EmployeeName).ToList();
+        }
+
+        public List<KPIVM> GetClientKPIs(DateTime startDate, DateTime endDate, int clientID)
+        {
+            var assignment = Assignment.GetAllAssignments().Where(a => ((startDate >= a.StartDate && startDate <= a.EndDate) || (endDate >= a.StartDate && endDate <= a.EndDate)) && clientID == a.ClientID).ToList();
+            var kpi = KPIs.GetAllKPIs().Where(k => {
+                foreach (AssignmentVM assign in assignment)
+                {
+                    if (assign.AssignmentID == k.AssignmentID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            return GetEmployeeName(kpi).OrderBy(k => k.EmployeeName).ToList();
+        }
+
+        private List<KPIVM> GetEmployeeName(List<KPIVM> kpiList)
+        {
+            foreach (var kpi in kpiList)
+            {
+                kpi.EmployeeName = Employee.GetEmployeeByID(Assignment.GetAssignmentByID(kpi.AssignmentID).EmployeeID).EmployeeName;
+            }
+            return kpiList;
+        }
     }
 }

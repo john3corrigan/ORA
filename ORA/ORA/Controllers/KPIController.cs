@@ -13,11 +13,18 @@ namespace ORA.Controllers
     {
         private IKPILogic KPIs;
         private ITeamLogic Teams;
+        private IClientLogic Client;
+        private IEmployeeLogic Employee;
 
-        public KPIController(IKPILogic kpi, ITeamLogic tms)
+        public KPIController(IKPILogic kpi, 
+            ITeamLogic tms,
+            IClientLogic clnt,
+            IEmployeeLogic mply)
         {
             KPIs = kpi;
             Teams = tms;
+            Client = clnt;
+            Employee = mply;
         }
 
         // GET: KPI
@@ -104,6 +111,83 @@ namespace ORA.Controllers
             KPIs.AddKPI(KPI);
             return RedirectToAction("Index", "KPI", new { area = "" });
         }
+
+        //---------------------------------------------------------------------------------------------//
+
+        public ActionResult ViewDCenter()
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpGet]
+        public ActionResult ViewClientKPIs()
+        {
+            if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
+            {
+                List<KPIVM> kpi = KPIs.GetAllKPIs();
+                return View(kpi);
+            }
+            else
+            {
+                List<KPIVM> kpi = KPIs.GetKPIsForManager((int)Session["ID"]);
+                return View(kpi);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult ViewClientKPIs(FormCollection form)
+        {
+            DateTime StartDate = DateTime.Parse(form[0]);
+            DateTime EndDate = DateTime.Parse(form[1]);
+            int ClientID = int.Parse(form[2]);
+            return View("Index", KPIs.GetClientKPIs(StartDate, EndDate, ClientID));
+        }
+
+        [HttpGet]
+        public ActionResult ViewTeamKPIs()
+        {
+            if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
+            {
+                CreateKPIVM kpi = new CreateKPIVM() { TeamList = Teams.GetAllTeams() };
+                return View(kpi);
+            }
+            else if (Session["Roles"].ToString().Contains("MANAGER"))
+            {
+                CreateKPIVM kpi = new CreateKPIVM() { TeamList = Teams.GetTeamsForManager((int)Session["ID"]) };
+                return View(kpi);
+            }
+            else
+            {
+                CreateKPIVM kpi = new CreateKPIVM() { TeamList = Teams.GetTeamsForLead((int)Session["ID"]) };
+                return View(kpi);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult ViewTeamKPIs(FormCollection form)
+        {
+            DateTime StartDate = DateTime.Parse(form[0]);
+            DateTime EndDate = DateTime.Parse(form[1]);
+            int TeamID = int.Parse(form[2]);
+            return View("Index", KPIs.GetTeamsKPIs(StartDate, EndDate, TeamID));
+        }
+
+        [HttpGet]
+        public ActionResult ViewIndividualKPI()
+        {
+            CreateKPIVM kpi = new CreateKPIVM() { EmployeeList = Employee.GetAllEmployees() };
+            return View(kpi);
+        }
+
+        [HttpPost]
+        public ActionResult ViewIndividualKPI(FormCollection form)
+        {
+            DateTime StartDate = DateTime.Parse(form[0]);
+            DateTime EndDate = DateTime.Parse(form[1]);
+            return View("Index", KPIs.GetIndividualKPIs(StartDate, EndDate));
+        }
+
+        //---------------------------------------------------------------------------------------------//
 
         public ActionResult ViewKPIPDF(string url)
         {

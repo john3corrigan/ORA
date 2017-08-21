@@ -1,0 +1,13 @@
+﻿@model Lib.ViewModels.CreateAssignmentVM
+@{
+    ViewBag.Title = "ViewIndividualAssignments";
+}
+
+<h2>ViewIndividualAssignments</h2>
+
+@Html.BeginForm("ViewIndividualAssignments", "Assignment", FormMethod.Post)
+@Html.Label("Start Date", new { @class = "LableFormat" })
+@Html.TextBox("StartDate", DateTime.Now, htmlAttributes: new { @class = "form-control TextBoxFormat" })
+@Html.Label("End Date", new { @class = "LableFormat" })
+@Html.TextBox("EndDate", DateTime.Now, htmlAttributes: new { @class = "form-control TextBoxFormat" })
+<input type="submit" value="Submit" />
