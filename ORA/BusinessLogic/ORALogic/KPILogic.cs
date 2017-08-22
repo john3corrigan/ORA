@@ -64,7 +64,7 @@ namespace BusinessLogic.ORALogic
 
         public List<KPIVM> GetAllKPIs()
         {
-            return KPIs.GetAllKPIs();
+            return GetEmployeeName(KPIs.GetAllKPIs());
         }
 
         public List<KPIVM> GetMyKPIs(int ID)
@@ -82,7 +82,7 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
-            return KPI;
+            return GetEmployeeName(KPI);
         }
 
         public List<KPIVM> GetKPIByDate()

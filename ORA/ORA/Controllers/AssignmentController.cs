@@ -45,8 +45,7 @@ namespace ORA.Controllers
             }
             else
             {
-                return View(Assignments
-                    .GetAllAssignmentsForEmployee((int)Session["ID"]));
+                return View(Assignments.GetAllAssignmentsForEmployee((int)Session["ID"]));
             }
         }
 

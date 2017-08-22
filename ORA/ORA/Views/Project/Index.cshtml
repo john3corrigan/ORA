@@ -4,33 +4,34 @@
     ViewBag.Title = "View All Projects";
 }
 
-<h2>ViewAllProjects</h2>
+<h2>All Projects</h2>
 
 <table>
     <tr>
+        <th>Created By</th>
+        <th>Created Date</th>
         <th>Name</th>
         <th>Number</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Client</th>
         <th>KPI</th>
-        <th>Created Date</th>
-        <th>Created By</th>
         <th>Modified Date</th>
         <th>Modified By</th>
+        <th></th>
     </tr>
 
     @foreach (ProjectVM Value in Model)
     {
         <tr>
+            <td>@Html.DisplayName(Value.CreatedBy)</td>
+            <td>@Html.DisplayName(Value.Created.ToString())</td>
             <td>@Html.DisplayName(Value.ProjectName)</td>
             <td>@Html.DisplayName(Value.ProjectNumber.ToString())</td>
             <td>@Html.DisplayName(Value.ProjectStartDate.ToString())</td>
             <td>@Html.DisplayName(Value.ProjectEndDate.ToString())</td>
             <td>@Html.DisplayName(Value.Client.ClientName)</td>
             <td>@Html.ActionLink("View KPIs", "ViewListKPIs", "KPI", routeValues: new { ProjectID = Value.ProjectID }, htmlAttributes: new { Area = "" })</td>
-            <td>@Html.DisplayName(Value.Created.ToString())</td>
-            <td>@Html.DisplayName(Value.CreatedBy)</td>
             <td>@Html.DisplayName(Value.Modified.ToString())</td>
             <td>@Html.DisplayName(Value.ModifiedBy)</td>
             <td>@Html.ActionLink("ViewProject", "Project", routeValues: new { ProjectID = Value.ProjectID })</td>
