@@ -19,11 +19,6 @@ namespace Repository.Repositories {
             return Mapper.Map<List<KPIVM>>(GetAll().ToList());
         }
 
-        public List<KPIVM> GetKPIByDate()
-        {
-            return Mapper.Map<List<KPIVM>>(GetAll().ToList());
-        }
-
         public List<KPIVM> GetMyKPIs(int ID)
         {
             var kpi = GetAllKPIs().Where(k => k.AssignmentID == ID).FirstOrDefault();

@@ -54,18 +54,7 @@ namespace BusinessLogic.ORALogic
         public List<TeamVM> GetTeamsForEmployee(int empID)
         {
             var assignments = Employees.GetEmployeeByID(empID).Assignment;
-            var teams = Teams.GetAllTeams().Where(t =>
-            {
-                foreach (var assign in assignments)
-                {
-                    if (assign.TeamID == t.TeamID)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }).ToList();
-            return FillClientInfo(teams);
+            return FillClientInfo(GetTeamsByAssignmentID(assignments));
         }
         public List<TeamVM> GetTeamsForLead(int empID)
         {
@@ -81,18 +70,7 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
-            var teams = Teams.GetAllTeams().Where(t =>
-            {
-                foreach (var assign in teamAssignments)
-                {
-                    if (assign.TeamID == t.TeamID)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }).ToList();
-            return FillClientInfo(teams);
+            return FillClientInfo(GetTeamsByAssignmentID(teamAssignments));
         }
         public List<TeamVM> GetTeamsForManager(int empID)
         {
@@ -108,18 +86,7 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
-            var teams = Teams.GetAllTeams().Where(t =>
-            {
-                foreach (var assign in clientsAssignments)
-                {
-                    if (assign.TeamID == t.TeamID)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }).ToList();
-            return FillClientInfo(teams);
+            return FillClientInfo(GetTeamsByAssignmentID(clientsAssignments));
         }
 
         public List<TeamVM> GetAllTeams()
@@ -140,14 +107,28 @@ namespace BusinessLogic.ORALogic
             Teams.AddTeam(newTeam);
         }
 
+        private List<TeamVM> GetTeamsByAssignmentID(List<AssignmentVM> assignment)
+        {
+            return Teams.GetAllTeams().Where(t =>
+            {
+                foreach (var assign in assignment)
+                {
+                    if (assign.TeamID == t.TeamID)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }).ToList();
+        }
+
         private List<TeamVM> FillClientInfo(List<TeamVM> teams)
         {
-            List<TeamVM> tempTeams = teams;
-            foreach (TeamVM team in tempTeams)
+            foreach (TeamVM team in teams)
             {
                 team.Client = Clients.GetClientByID(team.ClientID);
             }
-            return tempTeams;
+            return teams;
         }
     }
 }

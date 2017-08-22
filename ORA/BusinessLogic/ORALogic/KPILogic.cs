@@ -71,10 +71,10 @@ namespace BusinessLogic.ORALogic
         {
             List<AssignmentVM> assignment = Employee.GetEmployeeByID(ID).Assignment.Where(k => k.EmployeeID == ID).ToList(); //Grabs a list of Assignments equal to my id
             
-            List<KPIVM> KPI = KPIs.GetAllKPIs().Where(k =>
+            return KPIs.GetAllKPIs().Where(k =>
             {
                 foreach (var kpi in assignment)
-                {//Takes the number of those assignments and converts them into numbers
+                {
                     if (kpi.AssignmentID == k.AssignmentID)
                     {
                         return true;
@@ -82,12 +82,6 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
-            return KPI;
-        }
-
-        public List<KPIVM> GetKPIByDate()
-        {
-            return KPIs.GetKPIByDate();
         }
 
         public List<KPIVM> GetKPIsForManager(int empID)
@@ -176,39 +170,25 @@ namespace BusinessLogic.ORALogic
         public List<KPIVM> GetIndividualKPIs(DateTime startDate, DateTime endDate)
         {
             var assignment = Assignment.GetAllAssignments().Where(a => (startDate >= a.StartDate && startDate <= a.EndDate) || (endDate >= a.StartDate && endDate <= a.EndDate)).ToList();
-            var kpi = KPIs.GetAllKPIs().Where(k => {
-                foreach (AssignmentVM assign in assignment)
-                {
-                    if(assign.AssignmentID == k.AssignmentID)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }).ToList();
-            return GetEmployeeName(kpi).OrderBy(k => k.EmployeeName).ToList();
+            return GetEmployeeName(FilterKPIsByAssignmentID(assignment)).OrderBy(k => k.EmployeeName).ToList();
         }
 
         public List<KPIVM> GetTeamsKPIs(DateTime startDate, DateTime endDate, int teamID)
         {
             var assignment = Assignment.GetAllAssignments().Where(a => ((startDate >= a.StartDate && startDate <= a.EndDate) || (endDate >= a.StartDate && endDate <= a.EndDate)) && teamID == a.TeamID).ToList();
-            var kpi = KPIs.GetAllKPIs().Where(k => {
-                foreach (AssignmentVM assign in assignment)
-                {
-                    if (assign.AssignmentID == k.AssignmentID)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }).ToList();
-            return GetEmployeeName(kpi).OrderBy(k => k.EmployeeName).ToList();
+            return GetEmployeeName(FilterKPIsByAssignmentID(assignment)).OrderBy(k => k.EmployeeName).ToList();
         }
 
         public List<KPIVM> GetClientKPIs(DateTime startDate, DateTime endDate, int clientID)
         {
             var assignment = Assignment.GetAllAssignments().Where(a => ((startDate >= a.StartDate && startDate <= a.EndDate) || (endDate >= a.StartDate && endDate <= a.EndDate)) && clientID == a.ClientID).ToList();
-            var kpi = KPIs.GetAllKPIs().Where(k => {
+            return GetEmployeeName(FilterKPIsByAssignmentID(assignment)).OrderBy(k => k.EmployeeName).ToList();
+        }
+
+        private List<KPIVM> FilterKPIsByAssignmentID(List<AssignmentVM> assignment)
+        {
+            return KPIs.GetAllKPIs().Where(k =>
+            {
                 foreach (AssignmentVM assign in assignment)
                 {
                     if (assign.AssignmentID == k.AssignmentID)
@@ -218,7 +198,6 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
-            return GetEmployeeName(kpi).OrderBy(k => k.EmployeeName).ToList();
         }
 
         private List<KPIVM> GetEmployeeName(List<KPIVM> kpiList)

@@ -10,7 +10,6 @@ namespace Lib.Interfaces
     public interface IKPIRepository
     {
         List<KPIVM> GetAllKPIs();
-        List<KPIVM> GetKPIByDate();
         List<KPIVM> GetMyKPIs(int ID);
         KPIVM GetKPIByID(int id);
         CreateKPIVM GetCreateKPIByID(int id);

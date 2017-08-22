@@ -25,10 +25,7 @@ namespace Repository.Context {
 
         public RepositoryContext() { }
 
-
-        
-        public RepositoryContext(string connectionString) : base(connectionString) {
-        }
+        public RepositoryContext(string connectionString) : base(connectionString) { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<Assessment>().ToTable("Assessment");
