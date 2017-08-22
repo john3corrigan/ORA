@@ -71,18 +71,7 @@ namespace BusinessLogic.ORALogic
         {
             List<AssignmentVM> assignment = Employee.GetEmployeeByID(ID).Assignment.Where(k => k.EmployeeID == ID).ToList(); //Grabs a list of Assignments equal to my id
             
-            return KPIs.GetAllKPIs().Where(k =>
-            {
-                foreach (var kpi in assignment)
-                {
-                    if (kpi.AssignmentID == k.AssignmentID)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }).ToList();
-            return GetEmployeeName(KPI);
+            return FilterKPIsByAssignmentID(assignment);
         }
 
         public List<KPIVM> GetKPIsForManager(int empID)
@@ -99,16 +88,7 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
-            return KPIs.GetAllKPIs().Where(k => {
-                foreach (var assign in clientAssignments)
-                {
-                    if (assign.AssignmentID == k.AssignmentID)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }).ToList();
+            return FilterKPIsByAssignmentID(clientAssignments);
         }
 
         public List<KPIVM> GetKPIsForLead(int empID)
@@ -125,16 +105,7 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
-            return KPIs.GetAllKPIs().Where(k => {
-                foreach (var assign in teamAssignments)
-                {
-                    if (assign.AssignmentID == k.AssignmentID)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }).ToList();
+            return FilterKPIsByAssignmentID(teamAssignments);
         }
 
         public void UpdateKPI(KPIVM updatedKPI)
@@ -188,7 +159,7 @@ namespace BusinessLogic.ORALogic
 
         private List<KPIVM> FilterKPIsByAssignmentID(List<AssignmentVM> assignment)
         {
-            return KPIs.GetAllKPIs().Where(k =>
+            return GetEmployeeName(KPIs.GetAllKPIs().Where(k =>
             {
                 foreach (AssignmentVM assign in assignment)
                 {
@@ -198,8 +169,7 @@ namespace BusinessLogic.ORALogic
                     }
                 }
                 return false;
-            }).ToList();
-            return GetEmployeeName(kpi).OrderBy(k => k.EmployeeName).ToList();
+            }).ToList());
         }
 
         private List<KPIVM> GetEmployeeName(List<KPIVM> kpiList)
