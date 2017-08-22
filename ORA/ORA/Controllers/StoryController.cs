@@ -23,7 +23,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR, LEAD")]
         public ActionResult CreateStory()
         {
             return View(Stories.AddStory());
@@ -47,7 +47,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR, LEAD")]
         public ActionResult UpdateStory(int StoryID)
         {
             return View(Stories.GetStoryByID(StoryID));
@@ -60,7 +60,7 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
+        [ORAAuthorize(Roles = "DIRECTOR")]
         public ActionResult DeleteStory(int StoryID)
         {
             Stories.DeleteStory(StoryID);

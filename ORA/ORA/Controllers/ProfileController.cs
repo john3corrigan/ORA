@@ -77,7 +77,7 @@ namespace ORA.Controllers
             }
         }
 
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR")]
         public ActionResult DeleteProfile(int ProfileID)
         {
             Profiles.DeleteProfile(ProfileID);

@@ -22,14 +22,14 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR, LEAD")]
         public ActionResult CreateSprint()
         {
             return View();
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR, LEAD")]
         public ActionResult CreateSprint(SprintVM Sprint)
         {
             Sprints.AddSprint(Sprint);
@@ -42,7 +42,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR, LEAD")]
         public ActionResult UpdateSprint(int SprintID)
         {
             return View(Sprints.GetSprintByID(SprintID));
@@ -55,7 +55,7 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
+        [ORAAuthorize(Roles = "DIRECTOR")]
         public ActionResult DeleteSprint(int SprintID)
         {
             Sprints.DeleteSprint(SprintID);

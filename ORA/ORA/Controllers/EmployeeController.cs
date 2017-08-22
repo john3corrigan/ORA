@@ -57,7 +57,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
+        [ORAAuthorize(Roles = "ADMINISTRATOR")]
         public ActionResult DisableEmployee(int EmployeeID)
         {
             Employees.DisableEmployee(EmployeeID);

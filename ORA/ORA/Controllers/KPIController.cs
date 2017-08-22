@@ -69,7 +69,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR, LEAD")]
         public ActionResult UpdateKPI(int KPIID)
         {
             CreateKPIVM Value = KPIs.GetCreateKPIByID(KPIID);
@@ -86,7 +86,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR, LEAD")]
         public ActionResult CreateKPI()
         {
             TempData["Stage"] = 1;

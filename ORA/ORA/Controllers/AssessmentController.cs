@@ -69,7 +69,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
+        [ORAAuthorize(Roles = "DIRECTOR, MANAGER, LEAD")]
         public ActionResult CreateAssessment()
         {
             TempData["Stage"] = 1;
@@ -77,7 +77,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
+        [ORAAuthorize(Roles = "DIRECTOR, MANAGER, LEAD")]
         public ActionResult GetEmployeeAssessment(CreateAssessmentVM Assessment)
         {
             TempData["Stage"] = 2;
@@ -86,7 +86,7 @@ namespace ORA.Controllers
         }
 
         [HttpPost]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR, MANAGER, LEAD")]
+        [ORAAuthorize(Roles = "DIRECTOR, MANAGER, LEAD")]
         public ActionResult CreateAssessment(CreateAssessmentVM Assessment)
         {
             Assessments.AddAssessment(Assessment);
@@ -105,7 +105,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR, LEAD")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR, LEAD")]
         public ActionResult UpdateAssessment(int AssessmentID)
         {
             return View(Assessments.GetAssessmentByID(AssessmentID));

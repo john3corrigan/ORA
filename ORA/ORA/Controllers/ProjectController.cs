@@ -28,7 +28,7 @@ namespace ORA.Controllers
         }
         
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR")]
         public ActionResult CreateProject()
         {
             return View(Projects.AddProject());
@@ -47,7 +47,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
-        [ORAAuthorize(Roles = "ADMINISTRATOR, MANAGER, DIRECTOR")]
+        [ORAAuthorize(Roles = "MANAGER, DIRECTOR")]
         public ActionResult UpdateProject(int ProjectID)
         {
             return View(Projects.GetProjectByID(ProjectID));
@@ -60,7 +60,7 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        [ORAAuthorize(Roles = "ADMINISTRATOR, DIRECTOR")]
+        [ORAAuthorize(Roles = "DIRECTOR")]
         public ActionResult DeleteProject(int ProjectID)
         {
             Projects.DeleteProject(ProjectID);
