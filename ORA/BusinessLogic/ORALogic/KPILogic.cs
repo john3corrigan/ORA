@@ -64,7 +64,7 @@ namespace BusinessLogic.ORALogic
 
         public List<KPIVM> GetAllKPIs()
         {
-            return KPIs.GetAllKPIs();
+            return GetEmployeeName(KPIs.GetAllKPIs());
         }
 
         public List<KPIVM> GetMyKPIs(int ID)
@@ -82,6 +82,7 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
+            return GetEmployeeName(KPI);
         }
 
         public List<KPIVM> GetKPIsForManager(int empID)
@@ -198,6 +199,7 @@ namespace BusinessLogic.ORALogic
                 }
                 return false;
             }).ToList();
+            return GetEmployeeName(kpi).OrderBy(k => k.EmployeeName).ToList();
         }
 
         private List<KPIVM> GetEmployeeName(List<KPIVM> kpiList)

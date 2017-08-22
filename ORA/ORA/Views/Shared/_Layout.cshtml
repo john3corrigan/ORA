@@ -21,7 +21,7 @@
             <header class="fixed">
                 <div class="container">
                     <div class="clearfix header_top_bottom_holder">
-                        <div class="header_top" >
+                        <div class="header_top">
                             <div class="container">
                                 <div class="container_inner">
                                     <div class="left">
@@ -34,13 +34,13 @@
                                                     <ul class="list-inline" style="z-index:1;">
                                                         @if (Session["Name"] != null)
                                                         {
-                                                            <li>@Html.ActionLink((string)Session["Name"], "ViewProfileByID", "Profile", routeValues: new { ProfileID = (int)Session["profileID"] }, htmlAttributes: new { Area = "" })</li>
+                                                        <li>@Html.ActionLink((string)Session["Name"], "ViewProfileByID", "Profile", routeValues: new { ProfileID = (int)Session["profileID"] }, htmlAttributes: new { Area = "" })</li>
 
-                                                            <li>@Html.ActionLink("Log-Out", "LogOut", "Login")</li>
+                                                        <li>@Html.ActionLink("Log-Out", "LogOut", "Login")</li>
                                                         }
                                                         else
                                                         {
-                                                            <li>@Html.ActionLink("Log-In", "Login", "Login")</li>
+                                                        <li>@Html.ActionLink("Log-In", "Login", "Login")</li>
                                                         }
                                                     </ul>
                                                 </div>
@@ -66,60 +66,78 @@
                                             {
                                                 if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                 {
-                                                <div class="dropdown">
-                                                    <button class="dropbtn" id="Assessment">Assessment</button>
-                                                    <div class="content">
-                                                        @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                    <div class="dropdown">
+                                                        <button class="dropbtn" id="Assessment">Assessment</button>
+                                                        <div class="content">
+                                                            @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                         {
-                                                            @Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")
+                                                        @Html.ActionLink("Create an Assessment", "CreateAssessment", "Assessment")
+                                                        <div class="dropdown2">
+                                                            <div class="content2">
+                                                                @if (Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                                    {
+                                                                    @Html.ActionLink("D. Center", "Index", "Assessment")
+                                                                    }
+                                                                @if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                                    {
+                                                                    @Html.ActionLink("Client", "ViewClientAssessment", "Assessment")
+                                                                    }
+                                                                @Html.ActionLink("Team", "ViewTeamAssessment", "Assessment")
+                                                                @Html.ActionLink("Individual", "ViewIndividualAssessment", "Assessment")
+                                                            </div>
+                                                            <a href=""> View Assessments </a>
+                                                        </div>
+                                                        }
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else if (Session["Roles"].ToString().Contains("ADMIN"))
+                                                {
+                                                    <a href="/Assessment" class="dropbtn" id="Assessment">Assessments </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/Assessment" class="dropbtn" id="Assessment">My Assessments </a>
+                                                }
+
+                                                if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("LEAD") || Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                {
+                                                    <div class="dropdown">
+                                                        <button class="dropbtn" id="Assignment">Assignment</button>
+                                                        <div class=" content">
+                                                            @if (Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                            {
+                                                                @Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment")
+                                                            }
                                                             <div class="dropdown2">
                                                                 <div class="content2">
                                                                     @if (Session["Roles"].ToString().Contains("DIRECTOR"))
                                                                     {
-                                                                        @Html.ActionLink("D. Center", "Index", "Assessment")
+                                                                        @Html.ActionLink("D. Center", "ViewDCenter", "Assignment")
                                                                     }
-                                                                    @Html.ActionLink("Client", "ViewClientAssessment", "Assessment")
-                                                                    @Html.ActionLink("Team", "ViewTeamAssessment", "Assessment")
-                                                                    @Html.ActionLink("Individual", "ViewIndividualAssessment", "Assessment")
+                                                                    @if (Session["Roles"].ToString().Contains("MANAGER")  || Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                                    {
+                                                                        @Html.ActionLink("Client", "ViewClientAssignments", "Assignment")
+                                                                    }
+                                                                    @Html.ActionLink("Team", "ViewTeamAssignments", "Assignment")
+                                                                    @Html.ActionLink("Individual", "ViewIndividualAssignments", "Assignment")
                                                                 </div>
-                                                                <a href=""> View Assessments </a>
+                                                                <a href=""> View Assignments </a>
                                                             </div>
-                                                        }
+
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 }
                                                 else if (Session["Roles"].ToString().Contains("ADMIN"))
                                                 {
-                                                    <a href="/Assessment" class="dropbtn" id="Assessment"> Assessments </a>
+                                                    <a href="/Assignment" class="dropbtn" id="Assignment"> Assignment </a>
                                                 }
                                                 else
                                                 {
-                                                    <a href="/Assessment" class="dropbtn" id="Assessment"> My Assessments </a>
+                                                    <a href="/Assignment" class="dropbtn" id="Assignment">My Assignment</a>
                                                 }
 
-                                                <div class="dropdown">
-                                                    <button class="dropbtn" id="Assignment">Assignment</button>
-                                                    <div class=" content">
-                                                        @if (Session["Roles"].ToString().Contains("DIRECTOR"))
-                                                        {
-                                                            @Html.ActionLink("Create an Assignment", "CreateAssignment", "Assignment")
-                                                        }
-                                                        <div class="dropdown2">
-                                                            <div class="content2">
-                                                                @if (Session["Roles"].ToString().Contains("DIRECTOR"))
-                                                                {
-                                                                    @Html.ActionLink("D. Center", "ViewDCenter", "Assignment")
-                                                                }
-                                                                @Html.ActionLink("Client", "ViewClientAssignments", "Assignment")
-                                                                @Html.ActionLink("Team", "ViewTeamAssignments", "Assignment")
-                                                                @Html.ActionLink("Individual", "ViewIndividualAssignments", "Assignment")
-                                                            </div>
-                                                            <a href=""> View Assessments </a>
-                                                        </div>
 
-                                                    </div>
-                                                </div>
-                                                
                                                 if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("DIRECTOR"))
                                                 {
                                                     <div class=" dropdown">
@@ -132,8 +150,8 @@
                                                             @Html.ActionLink("View Clients", "Index", "Client")
                                                         </div>
                                                     </div>
-
                                                 }
+
                                                 if (Session["Roles"].ToString().Contains("ADMINISTRATOR"))
                                                 {
                                                     <div class=" dropdown">
@@ -143,8 +161,10 @@
                                                             @Html.ActionLink("View Employees", "Index", "Employee")
                                                         </div>
                                                     </div>
-
                                                 }
+
+                                                if (Session["Roles"].ToString().Contains("MANAGER") || Session["Roles"].ToString().Contains("DIRECTOR"))
+                                                {
                                                 <div class=" dropdown">
                                                     <button class="dropbtn" id="KPI">KPI</button>
                                                     <div class="content">
@@ -170,10 +190,22 @@
                                                         }
                                                         else
                                                         {
-                                                            <a href="/KPI" class="dropbtn" id="KPI"> My KPIs </a>
+                                                            <a href="/KPI" class="dropbtn" id="KPI"> My KPI's </a>
                                                         }
                                                     </div>
                                                 </div>
+                                                }
+
+                                                else if (Session["Roles"].ToString().Contains("ADMINISTRATOR"))
+                                                {
+                                                    <a href="/KPI" class="dropbtn" id="KPI">My KPI's</a>
+                                                }
+
+                                                else
+                                                {
+                                                    <a href="/KPI" class="dropbtn" id="KPI">My KPI's</a>
+                                                }
+
 
                                                 <div class="dropdown">
                                                     <button class="dropbtn" id="Project">Project</button>
@@ -238,7 +270,7 @@
             </div>
         </div>
     </div>
-    <footer>
+    <footer style="z-index:0;">
         <p>&copy; @DateTime.Now.Year - Onshore</p>
 
         <p>@Html.ActionLink("Contacts", "Contact", "Home")</p>

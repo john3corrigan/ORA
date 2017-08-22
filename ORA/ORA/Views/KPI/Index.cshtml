@@ -7,66 +7,70 @@
 <h2>View All KPIs</h2>
 
 @Html.ActionLink("Print", "ViewKPIPDF", new { url = Request.Url.AbsoluteUri })
-<table>
-    <tr>
-
-        <th>Points</th>
-        <th>TC Created</th>
-        <th>TC Excuted</th>
-        <th>TC Failed</th>
-        <th>TC Passed</th>
-        <th>Defects Found</th>
-        <th>Defects Fixed</th>
-        <th>Defects Accepted</th>
-        <th>Defects Rejected</th>
-        <th>Defects Deferred</th>
-        <th>Critical Defects</th>
-        <th>Test Hrs Planned</th>
-        <th>Actual Test Hrs</th>
-        <th>Bugs Found Production</th>
-        <th>Total Hrs Fixing Bugs</th>
-        <th>Created Date</th>
-        <th>Created By</th>
-        <th>Modified Date</th>
-        <th>Modified By</th>
-        <th></th>
-    </tr>
-    @if (Model == null)
-    {
-        <tr>No Data Found</tr>
-    }
-    else
-    {
-        foreach (KPIVM Value in Model)
-        {
+<div class="tableOverflow">
+    <table>
         <tr>
-            <td>@Html.DisplayName(Value.Points.ToString())</td>
-            <td>@Html.DisplayName(Value.TCCreated.ToString())</td>
-            <td>@Html.DisplayName(Value.TCExcuted.ToString())</td>
-            <td>@Html.DisplayName(Value.TCFailed.ToString())</td>
-            <td>@Html.DisplayName(Value.TCPassed.ToString())</td>
-            <td>@Html.DisplayName(Value.DefectsFound.ToString())</td>
-            <td>@Html.DisplayName(Value.DefectsFixed.ToString())</td>
-            <td>@Html.DisplayName(Value.DefectsAccepted.ToString())</td>
-            <td>@Html.DisplayName(Value.DefectsRejected.ToString())</td>
-            <td>@Html.DisplayName(Value.DefectsDeferred.ToString())</td>
-            <td>@Html.DisplayName(Value.CriticalDefects.ToString())</td>
-            <td>@Html.DisplayName(Value.TestHrsPlanned.ToString())</td>
-            <td>@Html.DisplayName(Value.TestHrsActual.ToString())</td>
-            <td>@Html.DisplayName(Value.BugsFoundProduction.ToString())</td>
-            <td>@Html.DisplayName(Value.TotalHrsFixingBugs.ToString())</td>
-            <td>@Html.DisplayName(Value.Created.ToString())</td>
-            @if (Value.CreatedBy == null)
+            <th>Created By</th>
+            <th>Created Date</th>
+            <th>Employee Name</th>
+            <th>Points</th>
+            <th>TC Created</th>
+            <th>TC Excuted</th>
+            <th>TC Failed</th>
+            <th>TC Passed</th>
+            <th>Defects Found</th>
+            <th>Defects Fixed</th>
+            <th>Defects Accepted</th>
+            <th>Defects Rejected</th>
+            <th>Defects Deferred</th>
+            <th>Critical Defects</th>
+            <th>Test Hrs Planned</th>
+            <th>Actual Test Hrs</th>
+            <th>Bugs Found Production</th>
+            <th>Total Hrs Fixing Bugs</th>
+            <th>Modified Date</th>
+            <th>Modified By</th>
+            <th></th>
+        </tr>
+        @if (Model == null)
+        {
+            <tr>No Data Found</tr>
+        }
+        else
+        {
+            foreach (KPIVM Value in Model)
             {
-                <td>null</td>
-            }
-            else
-            {
-                <td>@Html.DisplayName(Value.CreatedBy)</td>
-            }
-            <td>@Html.DisplayName(Value.Modified.ToString())</td>
-            <td>@Html.DisplayName(Value.ModifiedBy)</td>
-            <td>@Html.ActionLink("ViewKPI", "ViewKPI", routeValues: new { KPIID = Value.KPIID })</td>
-        </tr>}
-    }
-</table>
+
+                <tr>
+                    @if (Value.CreatedBy == null)
+                    {
+                        <td>null</td>
+                    }
+                    else
+                    {
+                        <td>@Html.DisplayName(Value.CreatedBy)</td>
+                    }
+                    <td>@Html.DisplayName(Value.Created.ToString())</td>
+                    <td>@Html.DisplayName(Value.EmployeeName)</td>
+                    <td>@Html.DisplayName(Value.Points.ToString())</td>
+                    <td>@Html.DisplayName(Value.TCCreated.ToString())</td>
+                    <td>@Html.DisplayName(Value.TCExcuted.ToString())</td>
+                    <td>@Html.DisplayName(Value.TCFailed.ToString())</td>
+                    <td>@Html.DisplayName(Value.TCPassed.ToString())</td>
+                    <td>@Html.DisplayName(Value.DefectsFound.ToString())</td>
+                    <td>@Html.DisplayName(Value.DefectsFixed.ToString())</td>
+                    <td>@Html.DisplayName(Value.DefectsAccepted.ToString())</td>
+                    <td>@Html.DisplayName(Value.DefectsRejected.ToString())</td>
+                    <td>@Html.DisplayName(Value.DefectsDeferred.ToString())</td>
+                    <td>@Html.DisplayName(Value.CriticalDefects.ToString())</td>
+                    <td>@Html.DisplayName(Value.TestHrsPlanned.ToString())</td>
+                    <td>@Html.DisplayName(Value.TestHrsActual.ToString())</td>
+                    <td>@Html.DisplayName(Value.BugsFoundProduction.ToString())</td>
+                    <td>@Html.DisplayName(Value.TotalHrsFixingBugs.ToString())</td>
+                    <td>@Html.DisplayName(Value.Modified.ToString())</td>
+                    <td>@Html.DisplayName(Value.ModifiedBy)</td>
+                    <td>@Html.ActionLink("ViewKPI", "ViewKPI", routeValues: new { KPIID = Value.KPIID })</td>
+                </tr>}
+        }
+    </table>
+</div>

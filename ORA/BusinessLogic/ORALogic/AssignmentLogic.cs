@@ -63,12 +63,12 @@ namespace BusinessLogic.ORALogic
 
         public List<AssignmentVM> GetAllAssignments()
         {
-            return Assignments.GetAllAssignments();
+            return EmployeeInfo(Assignments.GetAllAssignments());
         }
 
         public List<AssignmentVM> GetAllAssignmentsForEmployee(int empID)
         {
-            return Assignments.GetAllAssignments().Where(a => a.EmployeeID == empID).ToList();
+            return EmployeeInfo(Assignments.GetAllAssignments().Where(a => a.EmployeeID == empID).ToList());
         }
 
         public List<AssignmentVM> GetAllAssignmentsForTeam(int teamID)

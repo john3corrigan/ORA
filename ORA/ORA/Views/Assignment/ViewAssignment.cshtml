@@ -4,10 +4,12 @@
     ViewBag.Title = "ViewAssigment";
 }
 
-<h2>ViewAssigment</h2>
+<h2>Assigments</h2>
 
 <table>
     <tr>
+        <th>Created By</th>
+        <th>Created Date</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Client</th>
@@ -15,14 +17,14 @@
         <th>Position</th>
         <th>Role</th>
         <th>Team</th>
-        <th>Created Date</th>
-        <th>Created By</th>
         <th>Modified Date</th>
         <th>Modified By</th>
         <th>KPI List</th>
         <th>Assessment List</th>
     </tr>
     <tr>
+        <td>@Html.DisplayName(Model.CreatedBy)</td>
+        <td>@Html.DisplayName(Model.Created.ToString())</td>
         <td>@Html.DisplayName(Model.StartDate.ToString())</td>
         <td>@Html.DisplayName(Model.EndDate.ToString())</td>
         <td>@Html.DisplayName(Model.Client.ClientName)</td>
@@ -30,8 +32,6 @@
         <td>@Html.DisplayName(Model.Position.ToString())</td>
         <td>@Html.DisplayName(Model.Role.ToString())</td>
         <td>@Html.DisplayName(Model.Team.TeamName)</td>
-        <td>@Html.DisplayName(Model.Created.ToString())</td>
-        <td>@Html.DisplayName(Model.CreatedBy)</td>
         <td>@Html.DisplayName(Model.Modified.ToString())</td>
         <td>@Html.DisplayName(Model.ModifiedBy)</td>
         <td>@Html.ActionLink("View KPIs", "ViewListKPIByAssignment", "KPI", new { AssignmentID = Model.AssignmentID }, new { Area = "" })</td>
