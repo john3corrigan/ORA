@@ -7,6 +7,19 @@ namespace Lib.Attributes
 {
     public class ORAAuthorizeAttribute : AuthorizeAttribute
     {
+        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        {
+            if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
+            {
+                base.HandleUnauthorizedRequest(filterContext);
+            }
+            else
+            {
+            //filterContext.Result = new HttpUnauthorizedResult();
+            filterContext.Result = new RedirectResult("~/Home/Unauthorized");
+            }
+        }
+
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             if (httpContext.User.Identity.IsAuthenticated)

@@ -73,7 +73,8 @@ namespace ORA.Controllers
         private string RolesByUser(EmployeeVM employee)
         {
             List<string> Roles = new List<string>();
-            foreach (AssignmentVM value in employee.Assignment)
+            var assignment = employee.Assignment.Where(a => DateTime.Now > a.StartDate || DateTime.Now < a.EndDate).ToList();
+            foreach (AssignmentVM value in assignment)
             {
                 RoleVM rolevm = Role.GetRoleByID(value.RoleID);
                 if (!Roles.Contains(rolevm.RoleName))

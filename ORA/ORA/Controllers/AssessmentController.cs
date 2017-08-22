@@ -93,12 +93,15 @@ namespace ORA.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
         
+
+        [ORAAuthorize]
         public ActionResult ViewAssessment(int EmployeeID)
         {
             TempData["EmployeeName"] = Employee.GetEmployeeByID(EmployeeID).EmployeeName;
             return View(Assessments.GetAssessmentByEmployeeID(EmployeeID));
         }
 
+        [ORAAuthorize]
         public ActionResult ViewAssessmentByAssignmentID(int AssignmentID)
         {
             return View("ViewAssessment", Assessments.GetAssessmentByAssignmentID(AssignmentID));
@@ -126,6 +129,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
+        [ORAAuthorize]
         public ActionResult ViewClientAssessment()
         {
             if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
@@ -150,6 +154,7 @@ namespace ORA.Controllers
         }
 
         [HttpGet]
+        [ORAAuthorize]
         public ActionResult ViewTeamAssessment()
         {
             if (Session["Roles"].ToString().Contains("DIRECTOR") || Session["Roles"].ToString().Contains("ADMINISTRATOR"))
@@ -178,6 +183,7 @@ namespace ORA.Controllers
             return View("ViewAssessment", Assessments.GetTeamsAssessments(StartDate, EndDate, TeamID));
         }
         [HttpGet]
+        [ORAAuthorize]
         public ActionResult ViewIndividualAssessment()
         {
             CreateAssessmentVM assess = new CreateAssessmentVM() { EmployeeList = Employee.GetAllEmployees() };
